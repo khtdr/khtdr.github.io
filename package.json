@@ -1,0 +1,23 @@
+{
+  "name": "khtdr.github.io",
+  "version": "1.0.0",
+  "description": "KHTDR Homepage",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khtdr/khtdr.github.io"
+  },
+  "author": "Kay Oh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/khtdr/khtdr.github.io/issues"
+  },
+  "homepage": "https://github.com/khtdr/khtdr.github.io",
+  "devDependencies": {
+    "finalhandler": "^0.3.3",
+    "serve-static": "^1.9.1"
+  }
+}
