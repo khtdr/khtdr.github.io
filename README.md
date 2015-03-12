@@ -1,1 +1,3 @@
-...
+
+GOTO //khtdr.com
+
