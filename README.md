@@ -1,3 +1,3 @@
 
-GOTO //khtdr.com
+GOTO http://khtdr.com
 
