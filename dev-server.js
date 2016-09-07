@@ -1,12 +1,11 @@
 
 var fs      = require('fs');
-var watch   = require('node-watch');
 var express = require('express');
 var app     = express();
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 
-watch(__dirname, function (filename) {
+fs.watch(__dirname, function (filename) {
   io.emit('file-change', { for: 'everyone' });
 });
 
