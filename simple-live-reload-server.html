@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>KHTDR - Simple Live-Reload Node.js Server</title>
+<style>
+html { margin:0; padding:0 }
+body {
+  margin:0; padding:2em;
+  background-color:#FFF;color:#433;
+  font-family:serif; font-size:1em;
+}
+h1 {
+  padding:0.3em 1em; margin:0 -1em;
+}
+h1 span {
+  display:inline-block;
+  height:1em;
+  border-bottom:dotted 1px #EDF;
+}
+</style>
+</head>
+<body>
+<div>
+  <a href="/">homepage</a>
+  <h1><span>KHTDR - Simple Live-Reload Node.js Server</span></h1>
+  <p>
+  Edit, save, ctrl+tab, refresh. Ctrl+tab back to editor.
+  <span style="opacity:0.75">Edit, save, ctrl+tab, refresh. Ctrl+tab back to editor.</span>
+  <span style="opacity:0.5">Edit, save, ctrl+tab, refresh. Ctrl+tab back to editor.</span>
+  <span style="opacity:0.25">Edit, save, ctrl+tab, refresh. Ctrl+tab back to editor.</span>
+
+  <p>You know the drill, and you want a better way!
+
+  <h2>The Setup</h2>
+
+  <p>
+  You are editing HTML, CSS, and Javascript by hand, because you like it.
+  You've had some of that hot-reloading goodness before, and you want it now,
+  too.
+  
+  <p>
+  You don't feel like spending the weekend reading Webpack docs, so you decide
+  that it should only take a few dozen lines of Javascript, at most, to roll
+  your own.
+
+  <p>
+  You already have node and npm installed. So you go for it.
+
+  <h2>Planning a solution</h2>
+
+  You want to be able to:
+  <ul>
+    <li>serve static files
+    <li>refresh the page whenever a file changes
+  </ul>
+
+  <p>
+  For serving static files, there are many options to choose. The best choice
+  will be the one that allows you to solve the "refresh" problem easiest.
+
+  <p>
+  How can you <strong>refresh the page when a file changes</strong>?
+  Since you want paths to work as expected, so you can include css, images,
+  and javascript, etc., you will run an HTTP server.
+
+  <p>
+  You will need to:
+  <ol>
+    <li>detect when a file changes
+    <li>send a signal from the server to the web browser
+    <li>trigger a reresh on the page
+  </ol>
+
+
+  <p>Simple enough :)
+
+  <h2>Building the solution</h2>
+
+  <p>
+  <a href="http://expressjs.com/">Express.js</a> has a built-in solution for
+      serving static files. And Node.js already has the http server.
+
+  <pre><code>
+  cd ~/live-reload-app # ya know, or whever you want
+  npm install express
+  </code></pre>
+
+  <p>This HTTP server listens on port 8080 and serves files found in the same
+      directory.
+
+  <pre><code>
+  var express = require('express');
+  var app = express();
+  app.use(express.static(__dirname));
+
+  var http = require('http').Server(app);
+  http.listen(8080);
+  </code></pre>
+
+  <p>
+  Save the above code to a file named <code>server.js</code> and start the
+  server by running:
+
+  <pre><code>
+  node server.js
+  </code></pre>
+
+
+
+  <p> <a href="/">homepage</a>
+</div>
+</body>
+</html>
