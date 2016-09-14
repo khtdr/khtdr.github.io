@@ -21,28 +21,48 @@ h1 span {
 </head>
 <body>
 <div>
+
   <h1><span>KHTDR Homepage</span></h1>
   <h2><span>Tutorials</span></h2>
   <ul>
-    <li>
-      <p>
+    <li itemscope itemtype="http://schema.org/Article">
+      <p property="headline">
         Writing a
-        <a href="simple-live-reload-server.html">simple "live-reload" server</a>
+        <a property="url" href="simple-live-reload-server.html">
+          simple "live-reload" server
+        </a>
         for editing html/css/js.
       </p>
-      <p>posted: September 7, 2016</p>
-      <p>keywords: node, express, watch, socket.io, live-reload</p>
+      <p property="datePublished">posted: September 7, 2016</p>
+      <p>keywords:
+        <span property="keywords">
+          node, express, watch, socket.io, live-reload
+        </span>
+      </p>
     </li>
   </ul>
+
   <h2><span>About this site</span></h2>
-  This site doesn't use cookies. Or javascript.<br />
-  It won't track you. Or sell you anything.<br />
-  Or sell you to anyone.<br /><br />
-  This site is made of text.<br /><br />
-  I hope this site helps you.<br /><br />
-  Send me comments, suggestions, and corrections.
+  <div itemscop itemtype="http://schema.org/AboutPage">
+    This site doesn't use cookies. Or javascript.<br />
+    It won't track you. Or sell you anything.<br />
+    Or sell you to anyone.<br /><br />
+    This site is made of text.<br /><br />
+    I hope this site helps you.<br /><br />
+    Send me comments, suggestions, and corrections.
+  </div>
+
   <h3><span>Contact me</span></h3>
-  <em>@email</em> <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a><br />
+  <div itemscope itemtype="http://schema.org/Person">
+    <em>@alias</em>
+    <span itemprop="alternateName">Kay, Oh.</span>
+    <br />
+
+    <em>@email</em>
+    <a itemprop="email" href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
+    <br />
+  </div>
+
 </div>
 </body>
 </html>
