@@ -1,0 +1,3 @@
+
+GOTO http://khtdr.com
+
