@@ -9,13 +9,6 @@ fs.watch(__dirname, function (filename) {
   io.emit('file-change', { for: 'everyone' });
 });
 
-app.get('/socket-io.js', function (req, res) {
-  fs.readFile(__dirname + '/node_modules/socket.io-client/socket.io.js',
-              function (err, data) {
-                res.send(data);
-              });
-});
-
 app.use(function(req, res, next) {
   console.log('%s %s', req.method, req.path);
   next();
@@ -26,7 +19,8 @@ app.get([/\/$/, /.*\.html$/], function (req, res) {
   filename += filename.endsWith('/')? 'index.html': '';
   fs.readFile(filename, function (err, data) {
     res.send(data
-            + '<script src="/socket-io.js"></script>'
+            + '<script src="/node_modules/socket.io-client/socket.io.js">'
+            + '</script>'
             + '<script>'
             + '  var socket = io();'
             + '  socket.on("file-change", function () {'

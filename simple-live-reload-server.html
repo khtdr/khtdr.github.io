@@ -12,6 +12,7 @@
       margin:0; padding:2em;
       background-color:#FFF;color:#433;
       font-family:serif; font-size:1em;
+      max-width:800px;
     }
     h1 {
       padding:0.3em 1em; margin:0 -1em;
@@ -21,7 +22,18 @@
       height:1em;
       border-bottom:dotted 1px #EDF;
     }
-    pre code { font-size:1em; }
+    pre code {
+      font-size:1em;
+      display:block;
+      max-width:100%;
+      overflow:scroll;
+      background-color:#ffe;
+      color:#223;
+    }
+    a#preview img {
+      display:block;
+      max-width:100%;
+    }
   </style>
 </head>
 <body>
@@ -39,7 +51,9 @@
   <p>You can have this:
 
   <p>
-  <a href="/lrs-preview.gif" target=_blank><img src="/lrs-preview.gif" width="500" /></a><br />
+  <a href="/lrs-preview.gif" target=_blank id=preview>
+    <img src="/lrs-preview.gif" width="500" />
+  </a>
   <small>click for full size image</small>
 
   <h2>The Setup</h2>
