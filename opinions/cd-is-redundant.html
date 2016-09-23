@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+  <title>KHTDR - Simple Live-Reload Node.js Server</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <meta name="description" content="I never want to type the cd command again">
+  <link rel="canonical"
+        href="http://khtdr.com/tutorials/simple-live-reload-server.html" />
+  <style>
+    html { margin:0; padding:0 }
+    body {
+      margin:0; padding:2em;
+      background-color:#FFF;color:#433;
+      font-family:serif; font-size:1em;
+      max-width:800px;
+    }
+    h1 {
+      padding:0.3em 1em; margin:0 -1em;
+    }
+    h1 span {
+      display:inline-block;
+      height:1em;
+      border-bottom:dotted 1px #EDF;
+    }
+    pre code {
+      font-size:1em;
+      display:block;
+      max-width:100%;
+      overflow:scroll;
+      background-color:#ffe;
+      color:#223;
+    }
+    a#preview img {
+      display:block;
+      max-width:100%;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <a href="/">homepage</a>
+  <h1><span>KHTDR - <var>cd</var> is redundant</span></h1>
+  <p>
+  Tell me, if I type the name of a directory at the command line, what should
+  happen?
+
+  <p>
+  What actually happens?
+
+  <p>
+  If I type <var>~</var>, <var>./name</var>, or <var>name/</var>, then
+  bash recognizes the explicit reference to a directory, and confirms that,
+  yes, that is a directory. Thanks bash.
+
+  <p>
+  If I type something that happens to be a directory, but is not explicit (ex:
+  .ssh with no trailing slash), then bash tells me it cannot find that command.
+
+  <p>
+  What about other files? What if I type the name of a file instead of a
+  directory?
+
+  <p>
+  Like directories, it depends what you type. If I'm in my home directory
+  and I type <var>.bashrc</var>, it tells me that it cannot find that command. Much like
+  when I typed an implicit directory name. It tried and failed to run a command.
+
+  <p>
+  But what if I'm more explicit and type <var>./.bashrc</var>? Then bash displays the
+  error, <var>'Permission denied'</var>.
+
+  <p>
+  That's not the same behavior as with directories. It <em>should</em> have
+  said that the file exists. Like it said the directory exists.
+
+  <p>
+  But of course, we know better. A file can be exectuable, and when I type
+  the name of it, it will be executed. If it is not executable, then I don't
+  have permission to execute it.
+
+  <hr />
+
+  <p>
+  So files and directories are both executable. Well, directories are
+  'searchable'. But the bit that sets this flag is the same: <var>x</var>.
+
+  <p>
+  If a file has the executable bit set, it is considered executable and can be
+  run by typing the name.
+
+  <p>
+  If a directory has the exectuable bit set, then it is considered searchable
+  and typing its name confirms its existence.
+
+  <p>
+  Wait... the existence is confirmed, but the return status code is 126,
+  clearly indicating a failure of some kind!
+
+  <hr />
+
+  <p>
+  Alright, enough of the build up. If I type the name of a directory,
+  <strong>take me there please</strong>. <em>There is nothing else I could have
+    meant</em> by typing the name of the directory. What else could I possible
+  want than to go home when I type <var>~</var>.
+
+  <p>
+  This is what the <a href="http://fishshell.com/">fish shell</a> does. I use
+  it wherever I can.
+
+  <p>
+  When I find myself using bash, I repeatedly type the destination directory
+  name, only to be frustrated when things aren't doing what I assumed.
+
+  <hr />
+
+  <h6>riddle for the insomniacs</h6>
+
+  <p>
+  Is there a way to trap status codes in bash, similar to how we can trap
+  signals? If so, I can't find it. If you know, <em>please</em> tell me.
+
+  <p><small>
+    Where are the comments? There are no comments. Better yet, email me with
+    your suggestions, corrections, additions, questions, whatever. If it adds
+    to the discussion, I will happily include it here with a link to your work.
+  </small>
+
+
+  <p> <a href="/">homepage</a>
+</div>
+</body>
+</html>
