@@ -5,8 +5,8 @@ var app     = express();
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 
-fs.watch(__dirname, function (filename) {
-  io.emit('file-change', { for: 'everyone' });
+fs.watch(__dirname, { recursive:true }, function (filename) {
+  io.emit('file-change');
 });
 
 app.use(function(req, res, next) {
