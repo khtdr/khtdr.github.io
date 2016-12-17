@@ -46,7 +46,6 @@
       border-top:solid 1px rgba(255,255,255,0.9);
       padding:10px 20px;
       margin:0 -20px;
-      z-index:50;
       position:relative;
     }
     h2:before, h3:before {
@@ -58,7 +57,6 @@
       position:absolute;
         width:100%;
       top:-2px;
-      z-index:50;
     }
     h3 + div {
       margin:0 -20px -20px -20px;
@@ -88,37 +86,44 @@
     footer {
       margin:20px 0 0 0;
       padding:20px 0;
-      background-color:rgba(0,0,0,0.3);
+      background-color:rgba(0,0,0,0.4);
       position:fixed;
       bottom:0;
       width:100%;
+      color:#daf;
     }
     header {
       position:relative;
     }
     header nav {
-      position:absolute;
-      right:0;
-      top:0;
-      z-index:1000;
     }
     header nav ul {
-      display:none;
-      z-index:100;
+      transition:all 0.5s ease;
+      height:0px;
+      overflow:hidden;
       list-style-type:none;
       color:white;
-      background-color:rgba(0,0,0,0.8);
-      padding:0 0 10px 0;
-      box-shadow:0px 2px 3px rgba(0,0,0,0.5);
-      background-clip:padding-box;
+      background: linear-gradient(to top right, rgba(28,172,61,0.3) 0%,rgba(28,72,61,0) 100%)
+                , linear-gradient(to top, rgba(208,72,61,0.3) 0%,rgba(28,72,61,0) 100%)
+                , linear-gradient(to bottom right, rgba(28,72,216,0.3) 0%,rgba(28,72,216,0) 100%)
+                rgba(0,0,0,0.7);
+      margin:0px -19px 0 -19px;
+    }
+    header nav:hover ul,
+    header nav ul:hover {
+      height:auto;
+      padding:1px 0 10px 0;
+      overflow:auto;
+    }
+    header nav ul li {
     }
     header nav ul li strong {
-      color:silver;
+      color:#b5c7f3;
+      text-shadow:1px 1px 0 rgba(0,0,0,0.2);
       display:block;
       padding:0px 5px 3px 5px;
       margin-top:10px;
       font-size:.75em;
-      border-top:solid 1px rgba(255,255,255,0.2);
     }
     header nav ul li a {
       color:white;
@@ -127,22 +132,39 @@
     }
     header nav ul li.item:hover  {
       background-color:black;
+      transition:all 0.2s ease;
     }
     header nav ul li a:hover {
       color:white;
-      display:block;
-    }
-    header nav:hover ul,
-    header nav ul:hover {
-      display:block;
     }
     header nav:before {
-      text-align:right;
       content:"☰";
       display:block;
+      float:right;
+      height:27px;
+      width:27px;
+      margin-top:-27px;
+      text-align:center;
       font-size:1.4em;
       font-weight:900;
       cursor:default;
+      transition:all 0.3s ease;
+    }
+    header nav:hover:before {
+      background: linear-gradient(to bottom right, rgba(28,172,61,0.3) 0%,rgba(28,72,61,0) 100%)
+                , linear-gradient(to bottom , rgba(208,72,61,0.3) 0%,rgba(28,72,61,0) 100%)
+                , linear-gradient(to top right, rgba(28,72,216,0.3) 0%,rgba(28,72,216,0) 100%)
+                rgba(0,0,0,0.8);
+      color:white;
+    }
+    a {
+      color:#0588dc;
+    }
+    footer a {
+      color:#adf;
+    }
+    footer a:first-child {
+      padding:0 10px;
     }
   </style>
 </head>
@@ -161,10 +183,6 @@
         <li><strong>Opinions</strong></li>
         <li class=item>
           <a href="/opinions/cd-is-redundant.html">Why must I type `cd`?</a>
-        </li>
-        <li><strong>Contact Info</strong></li>
-        <li class=item>
-          <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
         </li>
       </ul>
     </nav>
