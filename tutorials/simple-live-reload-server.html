@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
   <meta name="description" content="Tutorial on building a 'live-reload' server for HTML, CSS, and Javascript. Uses express, socket.io, node, and the watch feature from node's FS library. Easy.">
   <link rel="canonical"
-        href="http://khtdr.com/tutorials/simple-live-reload-server.html" />
+        href="https://khtdr.com/tutorials/simple-live-reload-server.html" />
   <style>
     html, body { margin:0; padding:0; min-height:100% }
     h1, h2, h3, h4, h5, h6, ul, ol, li { margin:0; padding:0; }
@@ -273,7 +273,7 @@
 
   <h3>Putting together a web server</h3>
   <p>
-  <a href="http://expressjs.com/">Express.js</a> has a built-in solution for
+  <a href="https://expressjs.com/">Express.js</a> has a built-in solution for
       serving static files. And Node.js already has the http server.
 
   <pre><code>
@@ -302,7 +302,7 @@
 
   <p>
   You can verify it is working by opening a browser and going to
-  <code>http://localhost:8080/server.js</code>. You will see your code that is
+  <code>https://localhost:8080/server.js</code>. You will see your code that is
   running. Take some time now to create a minimal webpage with an external
   stylesheet.
 
@@ -327,7 +327,7 @@
   </code></pre>
 
   Make sure the server is running, and go to
-  <code>http://localhost:8080</code>. You will see a yellow page with your
+  <code>https://localhost:8080</code>. You will see a yellow page with your
   greeting.
 
   <h3>Implementing the "live-reload" feature</h3>
@@ -345,7 +345,7 @@
   <p>
   Lucky(?) for you, this is good enough to get started. You will still need to
   signal to the browser when a change is detected, and for that you can use
-  <a href="http://socket.io/">Socket.io</a>.
+  <a href="https://socket.io/">Socket.io</a>.
 
   <pre><code>
   npm install socket.io socket.io-client
@@ -494,7 +494,7 @@
 
   <p>
   Start the server with <code>node server.js</code>, go to
-  <code>http://localhost:8080</code> in your browser, and take a good look at
+  <code>https://localhost:8080</code> in your browser, and take a good look at
   your yellow page. Open up the css file you created earlier, and change
   <code>yellow</code> to <code>orange</code>. Save, <em>but don't refresh your
     page</em>. Just observe. The page will automatically update.
@@ -522,7 +522,7 @@
   <footer>
     &copy; 2016
     <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
-    <a href="http://khtdr.com">khtdr.com</a>
+    <a href="https://khtdr.com">khtdr.com</a>
   </footer>
 </body>
 </html>
