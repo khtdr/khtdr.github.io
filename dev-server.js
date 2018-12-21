@@ -5,9 +5,7 @@ var app     = express();
 var http    = require('http').Server(app);
 var io      = require('socket.io')(http);
 
-fs.watch(__dirname, { recursive:true }, (event, name) => {
-  if (name.match(/^(\.git|node_modules)/)) return;
-  console.log(event, name);
+fs.watch(__dirname, { recursive:true }, function (filename) {
   io.emit('file-change');
 });
 
@@ -21,7 +19,7 @@ app.get([/\/$/, /.*\.html$/], function (req, res) {
   filename += filename.endsWith('/')? 'index.html': '';
   fs.readFile(filename, function (err, data) {
     res.send(data
-            + '<script src="/node_modules/socket.io-client/dist/socket.io.js">'
+            + '<script src="/node_modules/socket.io-client/socket.io.js">'
             + '</script>'
             + '<script>'
             + '  var socket = io();'

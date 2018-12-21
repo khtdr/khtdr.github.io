@@ -1,10 +1,9 @@
 {
   "name": "khtdr.github.io",
-  "version": "2.1.0",
+  "version": "1.1.0",
   "description": "KHTDR Homepage",
   "scripts": {
-    "start": "nodemon dev-server.js",
-    "react": "nodemon react-server.js"
+    "start": "node dev-server.js"
   },
   "repository": {
     "type": "git",
@@ -17,13 +16,10 @@
   },
   "homepage": "https://github.com/khtdr/khtdr.github.io",
   "devDependencies": {
-    "express": "^4.16.3",
-    "nodemon": "^1.17.5",
-    "socket.io": "^2.1.1"
+    "express": "^4.14.0",
+    "socket.io": "^1.4.8"
   },
   "dependencies": {
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^1.4.8"
   }
 }

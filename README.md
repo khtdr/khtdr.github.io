@@ -1,3 +1,3 @@
 
-GOTO https://khtdr.com
+GOTO http://khtdr.com
 
