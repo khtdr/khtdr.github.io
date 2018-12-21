@@ -19,7 +19,7 @@ app.get([/\/$/, /.*\.html$/], function (req, res) {
   filename += filename.endsWith('/')? 'index.html': '';
   fs.readFile(filename, function (err, data) {
     res.send(data
-            + '<script src="/node_modules/socket.io-client/socket.io.js">'
+            + '<script src="/node_modules/socket.io-client/dist/socket.io.js">'
             + '</script>'
             + '<script>'
             + '  var socket = io();'
