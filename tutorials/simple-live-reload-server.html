@@ -268,7 +268,7 @@
   So what is this "listening code" that needs to be on every HTML page?
 
   <pre><code>
-    &lt;script src="/node_modules/socket.io-client/socket.io.js"&gt;&lt;/script&gt;
+    &lt;script src="/node_modules/socket.io-client/dist/socket.io.js"&gt;&lt;/script&gt;
     &lt;script&gt;
       var socket = io();
       socket.on("file-change-event", function () {
@@ -294,7 +294,7 @@
     app.get('/index.html', function (_, res) {
       fs.readFile(__dirname + '/index.html', function (_, data) {
         res.send(data
-        + '&lt;script src="/node_modules/socket.io-client/socket.io.js"&gt;&lt;/script&gt;'
+        + '&lt;script src="/node_modules/socket.io-client/dist/socket.io.js"&gt;&lt;/script&gt;'
         + '&lt;script&gt;'
         + '  var socket = io();'
         + '  socket.on("file-change-event", function () {'
@@ -354,7 +354,7 @@
     filename += filename.endsWith('/')? 'index.html': '';
     fs.readFile(filename, function (_, data) {
       res.send(data
-      + '&lt;script src="/node_modules/socket.io-client/socket.io.js"&gt;&lt;/script&gt;'
+      + '&lt;script src="/node_modules/socket.io-client/dist/socket.io.js"&gt;&lt;/script&gt;'
       + '&lt;script&gt;'
       + '  var socket = io();'
       + '  socket.on("file-change-event", function () {'
