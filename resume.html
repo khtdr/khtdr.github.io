@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Joey Mazzarelli - Resume</title>
+    <style type="text/css">
+      * {
+        box-sizing:border-box;
+        line-height:1.3em;
+      }
+      html, body {
+        padding:10px;
+        background-color:#eee;
+        font-size:20px;
+        font-family: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+        text-align:center;
+      }
+      main {
+        text-align:left;
+        background-color:white;
+        max-width:800px;
+        padding:20px;
+        margin:0 auto;
+        box-shadow:0 3px 10px #bbb;
+        border-radius:1px;
+      }
+      main header {
+        overflow:auto;
+      }
+      main > header * {
+        float:right;
+      }
+      main header h1 {
+        float:left;
+      }
+      h2 {
+        margin-top:0;
+        margin-bottom:0;
+      }
+      h2 span {
+        opacity:0.4;
+      }
+      main > div > div {
+        display:flex;
+      }
+      main > div > div > * {
+        margin-top:0;
+        padding-top:0;
+      }
+      main > div > div > :last-child {
+        flex:1;
+      }
+      main > div > div > :first-child {
+        width:200px;
+        text-align:right;
+        padding-right:20px;
+      }
+      main > div > div > ul {
+        padding-left:0;
+      }
+      main > div > div > ul > li {
+        list-style-type:none;
+        margin-bottom:1em;
+      }
+      section {
+        margin:30px 0 50px 0;
+        position:relative;
+      }
+      section header time {
+        position:absolute;
+        width:200px;
+        top:0.4em;
+        left:-200px;
+        text-align:right;
+        padding-right:20px;
+      }
+      section header {
+      }
+      h3 {
+        margin:0;
+      }
+      .technologies {
+        margin:0 0 20px 0;
+        padding:0 0 20px 0;
+      }
+      .technologies:before {
+        content:'Technologies Used';
+        display:block;
+          font-size:0.6em;
+            text-transform:uppercase;
+      }
+      .technologies li {
+        list-style-type:none;
+        display:inline-block;
+        background-color:#333;
+        color:beige;
+        padding:2px 10px;
+        font-family:monospace;
+        font-size:0.8em;
+        margin:2px 0px;
+        text-shadow:1px 1px 0.5px black,
+                   -1px -1px 0.5px white;
+      }
+      small > small {
+        font-size:11px;
+        opacity:0.5;
+      }
+      @media print {
+        html, body {
+          padding:0;
+        }
+        main {
+          box-shadow:none;
+          max-width:100%;
+        }
+        .technologies li {
+          color:black;
+          text-shadow:none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Joey Mazzarelli</h1>
+        <div>
+          <span>(208) 921-0375</span><br />
+          <a href="mailto:mazzarelli@gmail.com">mazzarelli@gmail.com</a>
+        </div>
+      </header>
+      <div>
+        <div>
+          <strong>Education</strong>
+          <p>
+          B.S. in Computer Science at Boise State University (2004)
+          </p>
+        </div>
+        <div>
+          <strong>References</strong>
+          <p>available upon request</p>
+        </div>
+        <div>
+          <strong>Code Examples</strong>
+          <ul>
+            <li><strong>Javascript/NPM opts</strong> - a dependency-free library for parsing
+              command line options, and optionally providing the usage and help
+              text automatically.<br />
+              <a
+             href="https://www.npmjs.com/package/opts">https://www.npmjs.com/package/opts</a>
+              <ul>
+                <li>downloaded half a million times</li>
+                <li>first released in 2012</li>
+              </ul>
+            </li>
+            <li><strong>GitHub</strong> - see pinned repositories at:<br />
+              <a href="https://github.com/khtdr">https://github.com/khtdr</a>
+          </ul>
+        </div>
+        <div>
+          <strong>Experience</strong>
+          <div>
+      <section>
+        <header>
+          <h2>Kount <span>Marketing</span></h2>
+          <time>2017 - Present</time>
+        </header>
+        <h3>Web Developer</h3>
+        <p> In January of 2017, I moved from a Software Architect role in
+          IT/Development into Web Development role in Marketing.
+        </p>
+        <p>I worked with the Creative Director to develop the new website.
+        He provided initial direction for the website and other design
+        considerations.
+        </p>
+        <p>
+        Since I worked alone on the code, I was responsible for all technical decisions and implementations.
+        </p>
+        <ul>
+          <li>Built www.kount.com from scratch
+            <ul>
+              <li>nginx for static content</li>
+              <li>Server-side React rendering with KOA</li>
+              <li>Client-side React app</li>
+              <li>Site search using LUNR/SOLR</li>
+              <li>ExpressJS API backend</li>
+              <li>Responsive and Mobile Friendly</li>
+              <li>HubSpot/Salesforce Integration</li>
+            </ul>
+          </li>
+          <li>Build and maintain QA and PROD virtual servers</li>
+          <li>Create promotional material for campaigns</li>
+          <li>Hired, trained, and mentored an intern</li>
+        </ul>
+        <ul class=technologies>
+          <li>NodeJS</li>
+          <li>GraphQL</li>
+          <li>React</li>
+          <li>Express/KOA</li>
+          <li>Webpack</li>
+          <li>NPM/Yarn</li>
+          <li>HTML</li>
+          <li>Javascript</li>
+          <li>JSON API</li>
+          <li>SQLite3</li>
+          <li>nginx</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Kount <span>Product Development</span></h2>
+          <time>2011 - 2016</time>
+        </header>
+        <h3>Software Developer</h3>
+        <h3>Software Architect</h3>
+        <ul>
+          <li>3rd Party Integrations</li>
+          <li>Maintained and Updated Build Processes</li>
+          <li>Design, Documented, and Implemented the Services Architecture</li>
+          <li>Advanced Search Prototype using SOLR</li>
+          <li>Implemented Custom Dashboard for Users</li>
+        </ul>
+        <h3>UI/UX Architect</h3>
+        <ul>
+          <li>Led the visual design of the product</li>
+          <li>Implemented libraries and frameworks for product development</li>
+        </ul>
+        <h3>Software Security Architect</h3>
+        <ul>
+          <li>Taught yearly OWASP training to IT</li>
+          <li>Developed Authentication and Authorization libraries used in the product stack</li>
+          <li>Audited code for vulnerabilities during code reviews and upon new exploit releases</li>
+        </ul>
+        <ul class=technologies>
+          <li>NodeJS</li>
+          <li>NPM</li>
+          <li>CoffeeScript</li>
+          <li>PHP5</li>
+          <li>HTML</li>
+          <li>Javascript</li>
+          <li>CSS</li>
+          <li>JSON API</li>
+          <li>Oracle</li>
+          <li>PL/SQL</li>
+          <li>JWT</li>
+          <li>Scrum/Agile</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Boise State University</h2>
+          <time>2014 - Present</time>
+        </header>
+        <h3>Adjunct Lecturer</h3>
+        <ul>
+          <li>Taught CS354 Programming Languages, a required course for all Computer Science students.</li>
+          <li>Taught CS401 Web Development, an elective course for Computer Science students.</li>
+          <li>Regular guest lecturer in Web Development and Enterprise Web Development</li>
+        </ul>
+        <ul class=technologies>
+          <li>whiteboards</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Integraclick</h2>
+          <time>2010 - 2011</time>
+        </header>
+        <h3>Software Developer</h3>
+        <ul>
+          <li>Created a new website/application from scratch</li>
+          <li>Designed and implemented a crawler to index many classified ads
+            websites. It had to:<ul>
+              <li>Work asynchronously and in parallel</li>
+              <li>Avoid rate limits of 3rd party sites</li>
+            </ul>
+          </li>
+          <li>Integrate with existing authentication system</li>
+        </ul>
+        <ul class=technologies>
+          <li>Python</li>
+          <li>PHP</li>
+          <li>Gearman</li>
+          <li>Javascript</li>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>MySQL</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>Keynetics/Kount</h2>
+          <time>2006 - 2010</time>
+        </header>
+        <h3>Software Developer</h3>
+        <ul>
+          <li>Began the research and development into what would become <strong>Kount Inc.</strong></li>
+          <li>Designed and developed many of the systems that are still used in the product today:
+            <ul>
+              <li>CSS Preprocessor with unique functionality</li>
+              <li>Dependency Injection Framework</li>
+              <li>Authentication Schema and Libraries</li>
+              <li>Web MVC Framework</li>
+            </ul>
+          </li>
+          <li>
+            Involved in all aspects in the first version of the product, from
+            planning, design, implementation, and testing
+            <ul><li>API</li>
+              <li>Web Interface</li> <li>Internal Tools</li>
+            </ul>
+          </li>
+        </ul>
+        <ul class=technologies>
+          <li>PHP5</li>
+          <li>HTML</li>
+          <li>Javascript</li>
+          <li>CSS</li>
+          <li>SOAP</li>
+          <li>API</li>
+          <li>YAML</li>
+          <li>XML</li>
+          <li>Phing</li>
+          <li>Oracle</li>
+          <li>PL/SQL</li>
+        </ul>
+      </section>
+      <section>
+        <header>
+          <h2>www.PersonalShopper.com</h2>
+          <time>2005 - 2006</time>
+        </header>
+        <h3>Software Engineer</h3>
+        <ul class=technologies>
+          <li>Java</li>
+          <li>Oracle</li>
+          <li>HTML</li>
+          <li>Javascript</li>
+          <li>CSS</li>
+        </ul>
+      </section>
+          </div></div>
+    </main>
+  </body>
+</html>
+
