@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>KHTDR - Opts.js</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+        <meta name="description" content="Nodes command line arguments parser for options with flags">
+        <link rel="canonical" href="https://khtdr.com/opts.html" />
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/agate.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+        <script> hljs.initHighlightingOnLoad(); </script>
+        <style>
+            h1 + div { display:flex }
+            h1 + div > :first-child {
+                white-space: nowrap;
+            }
+            h1 + div > :nth-child(2) {
+                padding: 20px;
+                font-size: 32px;
+            }
+            h1 + div img {
+                display: block;
+                width: 100%;
+                height: auto; 
+                border: solid 1px white;
+            }
+            h1 + div img + small {
+                display: block;
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1><span>KHTDR - escalator temporarily stairs</span></h1>
+            <nav>
+                <ul>
+                    <li class=item>
+                        <a href="/">Homepage</a>
+                    </li>
+                    <li><strong>Tutorials</strong></li>
+                    <ul>
+                        <li class=item>
+                            <a href="/tutorials/simple-live-reload-server.html">
+                                A simple "live-reload" Node.js server.</a>
+                        </li>
+                    </ul>
+                    <li><strong>Projects</strong></li>
+                    <ul>
+                        <li class=item>
+                            <a href="/opts.html">opts.js Command line options parser</a>
+                        </li>
+                        <li class=item>
+                            <a href="/react-zondicons">React-Zondicons Component Library</a>
+                        </li>
+                    </ul>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+<h1>OPTS</h1>
+<p><a href="https://www.npmjs.com/package/opts" rel="nofollow"><img src="https://camo.githubusercontent.com/a19a9044a4ba477f732e0ddf975be3c35b248444/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f762f6f7074732e737667" alt="NPM version" data-canonical-src="https://img.shields.io/npm/v/opts.svg" style="max-width:100%;"></a>
+<a href="https://app.fossa.io/projects/git%2Bgithub.com%2Fkhtdr%2Fopts?ref=badge_shield" rel="nofollow"><img src="https://camo.githubusercontent.com/efa3a1e76599e12863651dafb1154a162b5c8983/68747470733a2f2f6170702e666f7373612e696f2f6170692f70726f6a656374732f6769742532426769746875622e636f6d2532466b687464722532466f7074732e7376673f747970653d736869656c64" alt="FOSSA Status" data-canonical-src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkhtdr%2Fopts.svg?type=shield" style="max-width:100%;"></a>
+<a href="https://www.npmjs.com/package/opts" rel="nofollow"><img src="https://camo.githubusercontent.com/7cae08d8a923ebfb57efe36bd14cbf3380e8acec/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f646d2f6f7074732e737667" alt="npm" data-canonical-src="https://img.shields.io/npm/dm/opts.svg" style="max-width:100%;"></a>
+<a href="https://www.npmjs.com/package/opts" rel="nofollow"><img src="https://camo.githubusercontent.com/e36203ba3cc8bf0739b70dc438be9b2b0f435a53/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f64742f6f7074732e737667" alt="npm" data-canonical-src="https://img.shields.io/npm/dt/opts.svg" style="max-width:100%;"></a></p>
+<p><a href="https://npmjs.org/package/opts" rel="nofollow"><img src="https://camo.githubusercontent.com/f282e401852b9af6f8d3eea9fbad5511bb3f46d2/68747470733a2f2f6e6f6465692e636f2f6e706d2f6f7074732e706e67" alt="npm" data-canonical-src="https://nodei.co/npm/opts.png" style="max-width:100%;"></a></p>
+
+<h2>Installation</h2>
+<p>Simply download and include <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js" rel="nofollow">src/opts.js</a> to your Node.js project and import it with the require function. See included files for an example.</p>
+<p>You can also find the source code at Github: <a href="https://github.com/khtdr/opts">github.com/khtdr/opts</a>.</p>
+<p>If you use NPM,  you can install it from the registry under the name <code>opts</code></p>
+<pre><code class='bash'>npm install opts</code></pre>
+
+<h2>Usage and Docs</h2>
+<pre><code class='javascript'>let opts = require('opts');
+opts.parse(options, arguments, help);</code></pre>
+
+<h3>Typescript supprt</h3>
+If you installed with NPM, the typescript definitions bundled in already.
+<pre><code class='typescript'>import * as opts from 'opts';
+opts.parse(options, arguments, help);</code></pre>
+<p>Or you can download
+  the <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts">definition (.d.ts) file here</a>.</p>
+
+<h3>opts.parse(options, arguments, help)</h3>
+<p><code>options</code> is an array of option objects. Each option in the array can have the following fields. None are required, but you should at least provide a short or long name.</p>
+
+<h4>Options</h4>
+<pre><code class='javascript'>let options = [
+  { short       : 'l',
+    long        : 'list',
+    description : 'Show a list',
+    value       : false, // default false
+    required    : true, // default false
+    callback    : function (value) { ... },
+  }, // ... followed by more options
+];
+</code></pre>
+
+<h5>Options vs Arguments</h5>
+<p>Options are flag-arguments. Arguments are everything else. For example, in</p>
+<pre><code class='bash'>ls -l file</code></pre>
+<p>the option(s) are <code>-l</code> and the argument(s) are <code>file</code>. The arguments can be
+after, before, or among the options.</p>
+
+<h4>Arguments</h4>
+<p>Arguments require less configuration.  This is an optional argument to
+<code>opts.parse</code>.</p>
+<pre><code class='javascript'>let arguments =
+  { name     : 'script',
+    required : true, // default false
+    callback : function (value) { ... },
+  };</code></pre>
+
+<h4>Help Generator</h4>
+<p>Finally, you can add an automatically generated help message by passing
+a last parameter of <code>true</code>. This is also an optional argument to <code>opts.parse</code>.</p>
+<pre><code class='javascript'>opts.parse(options, true);
+// or if you want more control, you can do:
+/*
+  options.push({
+    long        : 'help',
+    description : 'Show this help message',
+    callback    : require('opts').help,
+  }
+  opts.parse(options);
+*/</code></pre>
+
+<h2>Examples</h2>
+<h4>Example 1 -- Simple "getting started" example</h4>
+<pre><code class='javascript'>/**
+ * Simple example with one optional parameter, including the help option.
+ *
+ * Examples:
+ *   $ node example1.js
+ *
+ *   Example 1
+ *   $ node example1.js -v
+ *   > v1.0
+ *
+ *   $ node example1.js --version
+ *   > v1.0
+ *
+ *   $ node example1.js -version
+ *   > Unknown option: -version
+ *
+ *   $ node example1.js --help
+ *   > Show version and exit
+ *         -v, --version
+ *     Show this help message
+ *         --help
+ */
+
+var opts = require('opts');
+
+var options = [
+  { short       : 'v'
+  , long        : 'version'
+  , description : 'Show version and exit'
+  , callback    : function () { console.log('v1.0'); process.exit(1); }
+  }
+];
+
+opts.parse(options, true);
+console.log('Example 1');
+process.exit(0);</code></pre>
+
+<h4>Example 2 -- Showing more features</h4>
+<pre><code class='javascript'>/**
+ * More complex example.
+ *
+ * Run:
+ *   node example2.js --help
+ * and play with the options to see the behavior.
+ *
+ * This example shows different ways of using the library. It is deliberately
+ * inconsistent. Choose the style that suits you best.
+ */
+
+var opts = require('opts')
+  , host = 'localhost'; // default host value
+
+var options = [
+  { short       : 'v'
+  , long        : 'version'
+  , description : 'Show version and exit'
+  , callback    : function () { console.log('v1.0'); process.exit(1); }
+  },
+  { short       : 'l'
+  , long        : 'list'
+  , description : 'List all files'
+  },
+  { short       : 'f'
+  , long        : 'file'
+  , description : 'Load a file'
+  , value       : true
+  , required    : true
+  },
+  { short       : 'd'
+  , long        : 'debug'
+  , description : 'Set a debug level'
+  , value       : true
+  },
+  { short       : 'h'
+  , long        : 'host'
+  , description : 'The hostname to connect to'
+  , value       : true
+  , callback    : function (value) { host = value; } // override host value
+  },
+  { short       : 'p'
+  , long        : 'port'
+  , description : 'The port to connect to'
+  , value       : true
+  },
+];
+
+opts.parse(options, true);
+
+var port  = opts.get('port') || 8000 // default port value
+  , debug = opts.get('d') || 'info'  // default debug value
+  , file  = opts.get('f')
+  , list  = opts.get('list');
+
+var arg1 = opts.args()[0]
+  , arg2 = opts.args()[1];
+
+
+if (list) console.log('List arg was set');
+if (file) console.log('File arg was set: ' + file);
+console.log('Debug level is: ' + debug);
+console.log('Host is: ' + host);
+console.log('Port is: ' + port);
+
+if (arg1) console.log('Extra arg 1: ' + arg1);
+if (arg2) console.log('Extra arg 2: ' + arg2);
+
+process.exit(0);</code></pre>
+
+<h4>Example 3 -- Showing conflict detection</h4>
+<pre><code class='javascript'>/**
+ * Simple example that is broken by design (conflicting options)
+ *
+ * Examples:
+ *   $ node example3.js
+ *   > Conflicting flags: -v
+ */
+
+var opts = require('opts');
+
+var options = [
+  { short       : 'v'
+  , description : 'Show version and exit'
+  },
+  { short       : 'v'
+  , description : 'Be verbose'
+  },
+];
+
+opts.parse(options);
+console.log('Example 3');
+process.exit(0);</code></pre>
+
+<h4>Example 4 -- Shows how to use named arguments and using from within a library</h4>
+<pre><code class='javascript'>/**
+ * Advanced example using namespaces for a library and named arguments
+ *
+ * Run:
+ *   node example4.js --help
+ * and play with the options to see the behavior.
+ */
+
+var opts = require('opts')
+  , host = 'localhost'; // default host value
+
+// Example of using some library in the same app
+var libOpts = [
+  { short       : 'l'
+  , long        : 'list'
+  , description : 'Show the library list'
+  , callback    : function () { console.log('mylib list!'); },
+  },
+];
+opts.add(libOpts, 'mylib');
+
+var options = [
+  { short       : 'l' // deliberately conflicting with 'mylib' option
+  , long        : 'list'
+  , description : 'List all files'
+  },
+  { short       : 'd'
+  , long        : 'debug'
+  , description : 'Set a debug level'
+  , value       : true
+  },
+];
+
+var arguments = [ { name : 'script' , required : true }
+                , { name : 'timeout' }
+                ];
+
+opts.parse(options, arguments, true);
+
+var debug = opts.get('d') || 'info'  // default debug value
+  , list  = opts.get('list');
+
+var script  = opts.arg('script')
+  , timeout = opts.arg('timeout') || 30;
+
+
+if (list) console.log('List arg was set');
+console.log('Debug level is: ' + debug);
+console.log('Script is: ' + script);
+console.log('Timeout is: ' + timeout);
+
+process.exit(0);</code></pre>
+</main>
+
+        <footer>
+            &copy; 2016
+            <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
+            <a href="https://khtdr.com">khtdr.com</a>
+        </footer>
+    </body>
+</html>
