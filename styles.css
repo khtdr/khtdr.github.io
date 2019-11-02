@@ -31,9 +31,8 @@ body {
     align-items: center;
 }
 body > div {
-    max-width: 50em;
+    max-width: 55em;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-    xmargin:50px 10px;
     padding: 0px;
 }
 body > div { border-radius: 4px; }
