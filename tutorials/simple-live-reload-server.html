@@ -1,200 +1,168 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <title>KHTDR - Simple Live-Reload Node.js Server</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
-  <meta name="description" content="Tutorial on building a 'live-reload' server for HTML, CSS, and Javascript. Uses express, socket.io, node, and the watch feature from node's FS library. Easy.">
-  <link rel="canonical"
-        href="https://khtdr.com/tutorials/simple-live-reload-server.html" />
-  <style>
-         html {
-             background-color: #eee;
-             padding: 0;
-         }
-         body {
-            margin: 0;
-             background-color: #fff;
-             font-family: sans-serif;
-             font-size: 15px;
-             padding: 100px;
-             max-width: 50em;
-         }
-         a {
-             background-color: white;
-             transition: all 0.15s linear;
-             display: inline-block;
-             padding: 1px 3px;
-             margin: -1px -3px;
-         }
-         a:hover {
-             filter: invert(100%);
-         }
-         footer {
-             margin: 30px -30px;
-             padding: 30px;
-             background-color: #f5f5f5;
-             color: #444;
-             border-radius: 5px;
-         }
-         footer a { background-color: #f5f5f5; }
-   pre code {
-       font-size:1em;
-       display:block;
-       max-width:100%;
-       overflow:scroll;
-       background-color:#ddd;
-       color:#223;
-   }
-   a#preview:hover {
-             filter: invert(0%);
-   }
-   a#preview:hover small {
-             filter: invert(100%);
-   }
-   a#preview small {
-       background-color: white;
-   }
-   a#preview img {
-       display:block;
-       max-width:100%;
-   }
-  </style>
-</head>
-<body>
-<div>
-            <header>
-                <h1><span>KHTDR - escalator temporarily stairs</span></h1>
-                <nav>
+    <head>
+        <title>KHTDR - Simple Live-Reload Node.js Server</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,minimum-scale=1">
+        <meta name="description" content="Tutorial on building a 'live-reload' server for HTML, CSS, and Javascript. Uses express, socket.io, node, and the watch feature from node's FS library. Easy.">
+        <link rel="canonical" href="https://khtdr.com/tutorials/simple-live-reload-server.html" />
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/agate.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
+        <script> hljs.initHighlightingOnLoad(); </script>
+        <style>
+            h1 + div { display:flex }
+            h1 + div > :first-child {
+                white-space: nowrap;
+            }
+            h1 + div > :nth-child(2) {
+                padding: 20px;
+                font-size: 32px;
+            }
+            h1 + div img {
+                display: block;
+                width: 100%;
+                height: auto; 
+                border: solid 1px white;
+            }
+            h1 + div img + small {
+                display: block;
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1><span>KHTDR - escalator temporarily stairs</span></h1>
+            <nav>
+                <ul>
+                    <li class=item>
+                        <a href="/">Homepage</a>
+                    </li>
+                    <li><strong>Tutorials</strong></li>
                     <ul>
                         <li class=item>
-                            <a href="/">Homepage</a>
+                            <a href="/tutorials/simple-live-reload-server.html">
+                                A simple "live-reload" Node.js server.</a>
                         </li>
-                        <li><strong>Tutorials</strong></li>
-                        <ul>
-                            <li class=item>
-                                <a href="/tutorials/simple-live-reload-server.html">
-                                    A simple "live-reload" Node.js server.</a>
-                            </li>
-                        </ul>
-                        <li><strong>Projects</strong></li>
-                        <ul>
-                            <li class=item>
-                                <a href="/react-zondicons">React-Zondicons Component Library</a>
-                            </li>
-                        </ul>
                     </ul>
-                </nav>
-            </header>
+                    <li><strong>Projects</strong></li>
+                    <ul>
+                        <li class=item>
+                            <a href="/react-zondicons">React-Zondicons Component Library</a>
+                        </li>
+                    </ul>
+                </ul>
+            </nav>
+        </header>
 
-            <main>
-                <h1>A hot-reloading Express node server.</h1>
+        <main>
+            <h1>A hot-reloading Express node server.</h1>
+            <div>
+                <p>
+                    <span style="opacity:1">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.9">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.8">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.7">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.6">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.5">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.4">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.3">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.2">Edit, save, ctrl+tab, refresh.</span><br />
+                    <span style="opacity:.1">Edit, save, ctrl+tab, refresh.</span><br />
+                <p>or
+                <p>
+                    <a href="/lrs-preview.gif" target=_blank id=preview>
+                        <img src="/lrs-preview.gif" />
+                        <small>click for full size image</small>
+                    </a>
+            </div>
 
-  <p>
-  <span style="opacity:1">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.9">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.8">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.7">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.6">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.5">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.4">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.3">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.2">Edit, save, ctrl+tab, refresh.</span><br />
-  <span style="opacity:.1">Edit, save, ctrl+tab, refresh.</span><br />
+                <h2>The Setup</h2>
 
-  <p>No thanks, but there's a better way.
+            <p>
+                You are editing HTML, CSS, and Javascript by hand, because you like it.
+                You've had some of that hot-reloading goodness before, and you want it now,
+                too.
 
-  <p>You can have this:
+            <p>
+                You don't feel like spending the weekend reading Webpack docs, so you decide
+                that it should only take a few dozen lines of Javascript, at most, to roll
+                your own.
 
-  <p>
-  <a href="/lrs-preview.gif" target=_blank id=preview>
-    <img src="/lrs-preview.gif" width="500" />
-    <small>click for full size image</small>
-  </a>
+            <p>
+                You already have node and npm installed. So you go for it.
 
-  <h2>The Setup</h2>
+                <h2>Planning a solution</h2>
 
-  <p>
-  You are editing HTML, CSS, and Javascript by hand, because you like it.
-  You've had some of that hot-reloading goodness before, and you want it now,
-  too.
-  
-  <p>
-  You don't feel like spending the weekend reading Webpack docs, so you decide
-  that it should only take a few dozen lines of Javascript, at most, to roll
-  your own.
+                You want to be able to:
+                <ul>
+                    <li>serve static files
+                    <li>refresh the page whenever a file changes
+                </ul>
 
-  <p>
-  You already have node and npm installed. So you go for it.
+            <p>
+                For serving static files, there are many options to choose. The best choice
+                will be the one that allows you to solve the "refresh" problem easiest.
 
-  <h2>Planning a solution</h2>
+            <p>
+                How can you <strong>refresh the page when a file changes</strong>?
+                Since you want paths to work as expected, so you can include css, images,
+                and javascript, etc., you will run an HTTP server.
 
-  You want to be able to:
-  <ul>
-    <li>serve static files
-    <li>refresh the page whenever a file changes
-  </ul>
-
-  <p>
-  For serving static files, there are many options to choose. The best choice
-  will be the one that allows you to solve the "refresh" problem easiest.
-
-  <p>
-  How can you <strong>refresh the page when a file changes</strong>?
-  Since you want paths to work as expected, so you can include css, images,
-  and javascript, etc., you will run an HTTP server.
-
-  <p>
-  You will need to:
-  <ol>
-    <li>detect when a file changes
-    <li>send a signal from the server to the web browser
-    <li>trigger a reresh on the page
-  </ol>
+            <p>
+                You will need to:
+                <ol>
+                    <li>detect when a file changes
+                    <li>send a signal from the server to the web browser
+                    <li>trigger a reresh on the page
+                </ol>
 
 
-  <p>Simple enough :)
+            <p>Simple enough :)
 
-  <h2>Building the solution</h2>
+                <h2>Building the solution</h2>
 
-  <h3>Putting together a web server</h3>
-  <p>
-  <a href="https://expressjs.com/">Express.js</a> has a built-in solution for
-      serving static files. And Node.js already has the http server.
+                <h3>Putting together a web server</h3>
+            <p>
+                <a href="https://expressjs.com/">Express.js</a> has a built-in solution for
+                serving static files. And Node.js already has the http server.
 
-  <pre><code>
+                <pre><code>
   cd ~/live-reload-app # ya know, or whever you want
   npm install express
-  </code></pre>
+                </code></pre>
 
-  <p>This HTTP server listens on port 8080 and serves files found in the same
-      directory.
+            <p>This HTTP server listens on port 8080 and serves files found in the same
+                directory.
 
-  <pre><code>
+                <pre><code>
   var express = require('express');
   var app = express();
   app.use(express.static(__dirname));
 
   var http = require('http').Server(app);
   http.listen(8080);
-  </code></pre>
+                </code></pre>
 
-  <p>
-  Save the code above to a file named <code>server.js</code> and run it:
+            <p>
+                Save the code above to a file named <code>server.js</code> and run it:
 
-  <pre><code>
+                <pre><code>
   node server.js
-  </code></pre>
+                </code></pre>
 
-  <p>
-  You can verify it is working by opening a browser and going to
-  <code>https://localhost:8080/server.js</code>. You will see your code that is
-  running. Take some time now to create a minimal webpage with an external
-  stylesheet.
+            <p>
+                You can verify it is working by opening a browser and going to
+                <code>https://localhost:8080/server.js</code>. You will see your code that is
+                running. Take some time now to create a minimal webpage with an external
+                stylesheet.
 
-  <p>Create the HTML. Save it to <code>index.html</code>
+            <p>Create the HTML. Save it to <code>index.html</code>
 
-  <pre><code>
+                <pre><code class='html'>
   &lt;!doctype html&gt;
   &lt;html&gt;
   &lt;head&gt;
@@ -204,70 +172,70 @@
     Greetings!
   &lt;/body&gt;
   &lt;/html&gt;
-  </code></pre>
+                </code></pre>
 
-  <p>and the CSS
+            <p>and the CSS
 
-  <pre><code>
+                <pre><code>
   echo "body { background-color:yellow }" &gt; ./theme.css
-  </code></pre>
+                </code></pre>
 
-  Make sure the server is running, and go to
-  <code>https://localhost:8080</code>. You will see a yellow page with your
-  greeting.
+                Make sure the server is running, and go to
+                <code>https://localhost:8080</code>. You will see a yellow page with your
+                greeting.
 
-  <h3>Implementing the "live-reload" feature</h3>
+                <h3>Implementing the "live-reload" feature</h3>
 
-  Node.js provides a file-watcher you can use to monitor the directory for
-  changes. But the docs also have something to say about using this feature.
+                Node.js provides a file-watcher you can use to monitor the directory for
+                changes. But the docs also have something to say about using this feature.
 
-  <blockquote>
-    The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.
-    <br /><br />
+                <blockquote>
+                    The fs.watch API is not 100% consistent across platforms, and is unavailable in some situations.
+                    <br /><br />
 
-    The recursive option is only supported on OS X and Windows.
-  </blockquote>
+                    The recursive option is only supported on OS X and Windows.
+                </blockquote>
 
-  <p>
-  Lucky(?) for you, this is good enough to get started. You will still need to
-  signal to the browser when a change is detected, and for that you can use
-  <a href="https://socket.io/">Socket.io</a>.
+            <p>
+                Lucky(?) for you, this is good enough to get started. You will still need to
+                signal to the browser when a change is detected, and for that you can use
+                <a href="https://socket.io/">Socket.io</a>.
 
-  <pre><code>
+                <pre><code>
   npm install socket.io socket.io-client
-  </code></pre>
+                </code></pre>
 
-  <p>
-  The code is straight forward. Watch the working directory for changes, and
-  emit an event with Socket.io.
+            <p>
+                The code is straight forward. Watch the working directory for changes, and
+                emit an event with Socket.io.
 
-  <pre><code>
+                <pre><code>
   var fs = require('fs');
   var io = require('socket.io')(http);
   fs.watch(__dirname, { recursive:true }, function () {
     io.emit('file-change-event');
   });
-  </code></pre>
+                </code></pre>
 
-  <p>
-  The Socket.io server can be started various ways. Here it is given the HTTP
-  server from the previous step.
+            <p>
+                The Socket.io server can be started various ways. Here it is given the HTTP
+                server from the previous step.
 
-  <p>
-  Finally, a puzzle to solve. Something needs to listen for the
-  <code>file-change-event</code> emitted by the server. Upon receiving the
-  event, the page also needs refreshed. So it makes sense to put the "listening
-  code" on the webpage itself.
+            <p>
+                Finally, a puzzle to solve. Something needs to listen for the
+                <code>file-change-event</code> emitted by the server. Upon receiving the
+                event, the page also needs refreshed. So it makes sense to put the "listening
+                code" on the webpage itself.
 
-  <p>
-  For obviously obvious reasons, you don't want to add the javascript to
-  <em>every page you fiddle with</em>. Better to have the server inject it
-  automatically for you!
+            <p>
+                For obviously obvious reasons, you don't want to add the javascript to
+                <em>every page you fiddle with</em>. Better to have the server inject it
+                automatically for you!
 
-  <p>
-  So what is this "listening code" that needs to be on every HTML page?
+            <p>
+                So what is this "listening code" that needs to be on every HTML page?
 
-  <pre><code>
+                <pre><code>
     &lt;script src="/node_modules/socket.io-client/dist/socket.io.js"&gt;&lt;/script&gt;
     &lt;script&gt;
       var socket = io();
@@ -275,22 +243,22 @@
         window.location.reload();
       });
     &lt;/script&gt;
-  </code></pre>
+                </code></pre>
 
-  <p>
-  The snippet above includes the client library that we installed with NPM
-  earlier. It creates a new Socket.io client, and upon receiving the
-  <code>file-change-event</code> from the server, reloads the page.
+            <p>
+                The snippet above includes the client library that we installed with NPM
+                earlier. It creates a new Socket.io client, and upon receiving the
+                <code>file-change-event</code> from the server, reloads the page.
 
-  <p>
-  Now you need to serve that snippet of javascript along with every HTML page.
-  Back to Express.
+            <p>
+                Now you need to serve that snippet of javascript along with every HTML page.
+                Back to Express.
 
-  <p>
-  Write a <code>GET</code> handler that intercepts requests for HTML pages and
-  appends the "listening code" to the page.
+            <p>
+                Write a <code>GET</code> handler that intercepts requests for HTML pages and
+                appends the "listening code" to the page.
 
-  <pre><code>
+                <pre><code>
     app.get('/index.html', function (_, res) {
       fs.readFile(__dirname + '/index.html', function (_, data) {
         res.send(data
@@ -304,32 +272,16 @@
         );
       });
     });
-  </code></pre>
-
-  <p>
-  The code above must be place <em>before</em> the code that serves the static
-  files. If it is placed after, it will have been too late.
-
-  <p>
-  The code above only works on the <code>index.html</code> page. That's not
-  going to cut it, since you could have just put the code into that page itself
-  and skipped this part. The handler needs modified to answer for all HTML pages,
-  even the unnamed default ones (index.html).
-
-  <p>
-  Change the first few lines above from:
-
-  <pre><code>
     app.get('/index.html', function (_, res) {
       fs.readFile(__dirname + '/index.html', function (_, data) {
         ...
       });
     });
-  </code></pre>
+                </code></pre>
 
-  <p>to:
+            <p>to:
 
-  <pre><code>
+                <pre><code>
     app.get([/\/$/, /.*\.html$/], function (req, res) {
       var filename = __dirname + req.path;
       filename += filename.endsWith('/')? 'index.html': '';
@@ -337,16 +289,16 @@
         ...
       });
     });
-  </code></pre>
+                </code></pre>
 
-  <p>
-  Now if the request ends with <code>/</code>, you append
-  <code>index.html</code> to the name.
+            <p>
+                Now if the request ends with <code>/</code>, you append
+                <code>index.html</code> to the name.
 
-  <p>
-  Now, <strong>put it all together!</strong>
+            <p>
+                Now, <strong>put it all together!</strong>
 
-  <pre><code>
+                <pre><code>
   var express = require('express');
   var app = express();
   app.get([/\/$/, /.*\.html$/], function (req, res) {
@@ -374,43 +326,41 @@
   fs.watch(__dirname, { recursive:true }, function () {
     io.emit('file-change-event');
   });
-  </pre></code>
+                </pre></code>
 
-  <p><strong>That's it!</strong>
+            <p><strong>That's it!</strong>
 
-  <p>
-  Start the server with <code>node server.js</code>, go to
-  <code>https://localhost:8080</code> in your browser, and take a good look at
-  your yellow page. Open up the css file you created earlier, and change
-  <code>yellow</code> to <code>orange</code>. Save, <em>but don't refresh your
-    page</em>. Just observe. The page will automatically update.
+            <p>
+                Start the server with <code>node server.js</code>, go to
+                <code>https://localhost:8080</code> in your browser, and take a good look at
+                your yellow page. Open up the css file you created earlier, and change
+                <code>yellow</code> to <code>orange</code>. Save, <em>but don't refresh your
+                    page</em>. Just observe. The page will automatically update.
 
-  <p>That's it? What next?
-  <ul>
-    <li>Make more pages
-    <li>???
-    <li>Profit
-  </ul>
+            <p>That's it? What next?
+                <ul>
+                    <li>Make more pages
+                    <li>???
+                    <li>Profit
+                </ul>
 
-  <p>
-  I don't know, you tell me :)
-
-
-  <p><small>
-    Where are the comments? There are no comments. Better yet, email me with
-    your suggestions, corrections, additions, questions, whatever. If it adds
-    to the discussion, I will happily include it here with a link to your work.
-  </small>
+            <p>
+                I don't know, you tell me :)
 
 
-  <p> <a href="/">homepage</a>
+            <p> <a href="/">homepage</a>
 
-            </main>
-</div>
-  <footer>
-    &copy; 2016
-    <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
-    <a href="https://khtdr.com">khtdr.com</a>
-  </footer>
-</body>
+            <p><small>
+                    Email me with your suggestions, corrections, additions,
+                    questions, whatever. I will include it here with a link to your work.
+                </small>
+
+
+        </main>
+        <footer>
+            &copy; 2016
+            <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
+            <a href="https://khtdr.com">khtdr.com</a>
+        </footer>
+    </body>
 </html>

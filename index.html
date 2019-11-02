@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -6,92 +6,57 @@
         <meta name="description" content="Remember when the world-wide-web was a bunch of text that we all shared and learned from? I do. This is my effort at walking the walk. No ads, no tracking, no walled-gardens. Just information for you and me.">
         <title>KHTDR - Homepage</title>
         <link rel="canonical" href="https://khtdr.com/index.html" />
-        <style>
-         html {
-             background-color: #eee;
-             padding: 0;
-         }
-         body {
-            margin: 0;
-             background-color: #fff;
-             font-family: sans-serif;
-             font-size: 15px;
-             padding: 100px;
-             max-width: 50em;
-         }
-         a {
-             background-color: white;
-             transition: all 0.15s linear;
-             display: inline-block;
-             padding: 1px 3px;
-             margin: -1px -3px;
-         }
-         a:hover {
-             filter: invert(100%);
-         }
-         footer {
-             margin: 30px -30px;
-             padding: 30px;
-             background-color: #f5f5f5;
-             color: #444;
-             border-radius: 5px;
-         }
-         footer a { background-color: #f5f5f5; }
-        </style>
+        <link rel="stylesheet" href="/styles.css">
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+        <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
     </head>
     <body>
-        <div>
-
-            <header>
-                <h1><span>KHTDR - escalator temporarily stairs</span></h1>
-                <nav>
+        <header>
+            <h1><span>KHTDR - escalator temporarily stairs</span></h1>
+            <nav>
+                <ul>
+                    <li class=item>
+                        <a href="/">Homepage</a>
+                    </li>
+                    <li><strong>Tutorials</strong></li>
                     <ul>
                         <li class=item>
-                            <a href="/">Homepage</a>
+                            <a href="/tutorials/simple-live-reload-server.html">
+                                A simple "live-reload" Node.js server.</a>
                         </li>
-                        <li><strong>Tutorials</strong></li>
-                        <ul>
-                            <li class=item>
-                                <a href="/tutorials/simple-live-reload-server.html">
-                                    A simple "live-reload" Node.js server.</a>
-                            </li>
-                        </ul>
-                        <li><strong>Projects</strong></li>
-                        <ul>
-                            <li class=item>
-                                <a href="/react-zondicons">React-Zondicons Component Library</a>
-                            </li>
-                        </ul>
                     </ul>
-                </nav>
-            </header>
-
-            <main>
-                <section>
-
-                    <h2><span>Tutorials</span></h2>
+                    <li><strong>Projects</strong></li>
                     <ul>
-                        <li itemscope itemtype="https://schema.org/Article">
-                            <p itemprop="headline">
-                                Writing a
-                                <a itemprop="url" href="/tutorials/simple-live-reload-server.html">
-                                    simple "live-reload" server</a>
-                                for editing html/css/js.
-                            </p>
-                            <p itemprop="datePublished">posted: September 7, 2016</p>
-                            <p>keywords:
-                                <span itemprop="keywords">
-                                    node, express, watch, socket.io, live-reload
-                                </span>
-                            </p>
+                        <li class=item>
+                            <a href="/react-zondicons">React-Zondicons Component Library</a>
                         </li>
                     </ul>
-                </section>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2><span>Tutorials</span></h2>
+                <ul>
+                    <li itemscope itemtype="https://schema.org/Article">
+                        <p itemprop="headline">
+                            Writing a
+                            <a itemprop="url" href="/tutorials/simple-live-reload-server.html">
+                                simple "live-reload" server</a>
+                            for editing html/css/js.
+                        </p>
+                        <p itemprop="datePublished">posted: September 7, 2016</p>
+                        <p>keywords:
+                            <span itemprop="keywords">
+                                <code>node</code> <code>express</code> <code>watch</code> <code>socket.io</code> <code>live</code>-<code>reload</code>
+                            </span>
+                        </p>
+                    </li>
+                </ul>
+            </section>
 
-            </main>
-
-        </div>
-
+        </main>
         <footer>
             &copy; 2016 - 2019
             <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a>
