@@ -11,6 +11,37 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
         <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/highlight.min.js"></script>
         <script> hljs.initHighlightingOnLoad(); </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+        <script>
+            $(function () {
+                $('pre > code').each(function (index) {
+                    var $div = $('<div />')
+                    var $button = $('<button>copy</button>')
+                    var id = 'pbc-' + index
+                    $(this).attr('id', id)
+                    $div.css({
+                        position: 'relative'
+                    })
+                    $button.css({
+                        position: 'absolute',
+                        right: '0',
+                        top: '-63px',
+                        opacity: '0.1'
+                    })
+                    $div.append($button).insertAfter($(this).parent())
+                    $button.attr('data-clipboard-target', '#' + id)
+                    $div.add($div.prev()).hover(function (e) {
+                        $button.css('opacity', e.type == 'mouseenter'? 1 : 0.1)
+                    })
+                })
+                var clipboard = new ClipboardJS('pre + div > button:first-child')
+                clipboard.on('success', function(e) {
+                    setTimeout(function () {
+                        e.clearSelection();
+                    }, 33)
+                });
+            })
+        </script>
     </head>
     <body><div>
         <header>
