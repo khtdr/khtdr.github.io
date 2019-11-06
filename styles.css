@@ -1,6 +1,7 @@
 
 * { box-sizing: border-box; }
 h2, h3, h4, h5, h6 { color: #acf; }
+h1, h2, h3, h4, h5, h6 { line-height: 1em; }
 
 html {
     background: rgb(255,136,0);
@@ -29,11 +30,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 body > div {
     max-width: 55em;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
     padding: 0px;
+    overflow: auto;
 }
 body > div { border-radius: 4px; }
 header { border-radius: 2px 2px 0 0 }
