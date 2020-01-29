@@ -299,8 +299,17 @@ fs.watch(__dirname, { recursive:true }, function () {
     + '&lt;/script&gt;'
     );
   });
-});
-app.get('/index.html', function (_, res) {
+});</code></pre>
+            <p>
+                That solves the problem for the <code>index.html</code> page, but what about
+                the rest of the HTML pages? Instead of hard-coding the path, you can use
+                a regular expression to intercept requests for HTML pages and directories.
+            <p>
+                When a request ends in a slash, take care to append <code>index.html</code>
+                to the requested path.
+            <p>
+                Change:
+                <pre><code>app.get('/index.html', function (_, res) {
   fs.readFile(__dirname + '/index.html', function (_, data) {
     ...
   });
