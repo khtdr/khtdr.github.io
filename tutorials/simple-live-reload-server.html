@@ -196,8 +196,7 @@ http.listen(8080);</code></pre>
             <p>
                 You can verify it is working by opening a browser and going to
                 <code>https://localhost:8080/server.js</code>. You will see your code that is
-                running. Take some time now to create a minimal webpage with an external
-                stylesheet.
+                running. Create a minimal webpage with an external stylesheet.
 
             <p>Create the HTML. Save it to <code>index.html</code>
 
@@ -326,11 +325,7 @@ fs.watch(__dirname, { recursive:true }, function () {
 });</code></pre>
 
             <p>
-                Now if the request ends with <code>/</code>, you append
-                <code>index.html</code> to the name.
-
-            <p>
-                Now, <strong>put it all together!</strong>
+                Now, <strong>putting it all together!</strong>
 
                 <pre><code>var express = require('express');
 var app = express();
