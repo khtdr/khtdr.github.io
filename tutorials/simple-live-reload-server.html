@@ -22,17 +22,14 @@
                     $div.css({
                         position: 'relative'
                     })
+                    $button.addClass('code-copy')
                     $button.css({
                         position: 'absolute',
                         right: '0',
-                        top: '-63px',
-                        opacity: '0.1'
+                        top: '-63px'
                     })
                     $div.append($button).insertAfter($(this).parent())
                     $button.attr('data-clipboard-target', '#' + id)
-                    $div.add($div.prev()).hover(function (e) {
-                        $button.css('opacity', e.type == 'mouseenter'? 1 : 0.1)
-                    })
                 })
                 var clipboard = new ClipboardJS('pre + div > button:first-child')
                 clipboard.on('success', function(e) {
@@ -80,7 +77,7 @@
     </head>
     <body><div>
         <header>
-            <h1><span>KHTDR - escalator temporarily stairs</span></h1>
+            <h1><span>KHTDR - escalator <small>temporarily <small>stairs</small></small></span></h1>
             <nav>
                 <ul>
                     <li class=item>

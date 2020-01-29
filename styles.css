@@ -1,10 +1,11 @@
 
 * { box-sizing: border-box; }
-h2, h3, h4, h5, h6 { color: #47f; }
+h2, h3, h4, h5, h6 { color: #29f; }
 h1, h2, h3, h4, h5, h6 { line-height: 1em; }
 
 html {
     background: #d0c;
+    background: #000;
     padding: 0;
     margin: 0;
     min-height: 100vh;
@@ -23,7 +24,11 @@ body > div {
     font-size: 14px;
     line-height: 1.6em;
     box-sizing: content-box;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    xbox-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 3px 10px #d0c;
+    border: solid 2px #d0c;
+    border-top: none;
+    border-bottom: none;
     overflow: auto;
     background-color: white;
     min-height: 100vh;
@@ -38,6 +43,7 @@ header {
     background-color: #222;
     padding-bottom: 40px;
     color :#ccc;
+    text-shadow: 2px 2px 0 black;
 }
 main {
     padding: 40px 4em;
@@ -58,18 +64,21 @@ a:hover {
     color: #93c;
 }
 header a {
-    color: yellow;
+    color: #dcdc0f;
+    text-shadow: none;
 }
 header a:hover {
-    color: lime;
+    color: #24da24;
 }
 code {
     display: inline-block;
-    padding: 1px 3px;
+    padding: 0px 3px;
     margin: -1px -2px;
+    border: 2px solid #d4c4f5;
+    border-top: none;
+    border-bottom: none;
     background-color: #edf;
-    border-radius: 1px;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.6);
+    border-radius: 5px;
     font-family: monaco, Consolas, "Lucida Console", monospace;
 }
 pre > code {
@@ -81,4 +90,15 @@ pre > code {
 }
 p > strong {
     color: #0ef;
+}
+
+.code-copy {
+    background-color: #24da24;
+    border: none;
+    border-bottom: solid 3px white;
+    opacity: 0.5;
+    margin-right: 2px;
+}
+.code-copy:hover {
+    opacity: 1;
 }
