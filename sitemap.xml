@@ -33,11 +33,6 @@
   </url>
   
   <url>
-    <loc>https://khtdr.com/software/react-zondicons/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://khtdr.com/tags/icons/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url>
@@ -54,6 +49,11 @@
   
   <url>
     <loc>https://khtdr.com/tags/react/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/react-zondicons/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url>
   
