@@ -34,7 +34,7 @@
       <guid>https://khtdr.com/tutorials/simple-live-reload-server/</guid>
       <description>The files in this tutorial can be found at:
  github.com/khtdr/live-reload-web-server
- Building your own live-reloading web server  Follow along and build your own automatically-refreshing web server, as show here:   This setup assumes you know and use Node and NPM  You are editing HTML, CSS, and Javascript by hand, because you like it. You&amp;#39;ve had some of that hot-reloading goodness before, and you want it now, too.</description>
+ Building your own live-reloading web server  Follow along and build your own automatically-refreshing web server, as shown here:   This setup assumes you know and use Node and NPM  You are editing HTML, CSS, and Javascript by hand, because you like it. You&amp;#39;ve had some of that hot-reloading goodness before, and you want it now, too.</description>
     </item>
     
   </channel>
