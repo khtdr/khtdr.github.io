@@ -1,5 +1,5 @@
 #+AUTHOR: OhKay.
-#+TITLE: Opts.js
+#+TITLE: opts.js
 #+DATE: 2019-08-02
 #+URL: /opts
 #+ALIASES[]: /opts.html

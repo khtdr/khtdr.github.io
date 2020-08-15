@@ -30,32 +30,35 @@
   }
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid var(--border-color);
+    xborder-bottom: 1px solid var(--border-color);
   }
 
   &-meta {
     font-size: 1rem;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: color-mod(var(--accent) a(70%));
   }
 
   &-title {
-    --border: 3px dashed var(--accent);
+    --border: 1px dashed var(--accent);
+    border-bottom: var(--border);
     position: relative;
     color: var(--accent);
-    margin: 0 0 15px;
-    padding-bottom: 15px;
-    border-bottom: var(--border);
+    margin: 5px 0 15px;
+    height: 1.1rem;
+    overflow: visible;
 
     a {
+      padding: 0 6px 0 0;
       text-decoration: none;
+      background-color: color-mod(var(--accent) blend(#1D1E28 98%));
     }
   }
 
   &-tags {
     display: block;
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: .8rem;
     opacity: .5;
 
     a {

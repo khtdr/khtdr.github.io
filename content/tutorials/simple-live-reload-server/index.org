@@ -1,6 +1,6 @@
 #+AUTHOR: OhKay.
 #+TITLE: Simple live-reloading Nodejs web server
-#+DATE: 2015
+#+DATE: 2016-01-01
 #+DESCRIPTION: A hot-reloading web server using ExpressJS, built one step at a time.
 #+LASTMOD: 2020-08-14
 #+TAGS[]: javascript live-reload tutorial socket-io express nodejs
@@ -13,7 +13,7 @@ The files in this tutorial can be found at:
 #+END_QUOTE
 
 * Building your own live-reloading web server
-Follow along and build your own automatically-refreshing web server, as show here: [[./preview.gif]]
+Follow along and build your own automatically-refreshing web server, as shown here: [[./preview.gif]]
 
 
 * This setup assumes you know and use Node and NPM
