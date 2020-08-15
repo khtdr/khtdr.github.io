@@ -6,10 +6,24 @@
     <description>Recent content in command-line on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 18:46:11 -0600</lastBuildDate>
     
 	<atom:link href="https://khtdr.com/tags/command-line/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pageboy</title>
+      <link>https://khtdr.com/software/pageboy/</link>
+      <pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+      
+      <guid>https://khtdr.com/software/pageboy/</guid>
+      <description>The full source code and examples are available at: https://github.com/khtdr/pageboy
+ pageboy Write your shell scripts in any combination of scripting languages.
+Example Script example.pb
+#!/usr/bin/env pageboy echo in Bash $PAGE php echo back to Bash #!/usr/bin/env php &amp;lt;?php echo &amp;#34;in PHP\n&amp;#34;; chmod +x ./example.pb ./example.pb produces the output:
+in Bash in PHP back to Bash  tests 
+./run-tests.sh pageboy-v2.1.3 ./pageboy-test # runs as pageboy script ./pageboy-test -r &amp;lt;page&amp;gt; # runs requested page .</description>
+    </item>
     
     <item>
       <title>Opts.js</title>

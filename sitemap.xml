@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://khtdr.com/tags/command-line/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/pageboy/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/tools/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://khtdr.com/software/react-zondicons/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url>
@@ -18,27 +48,12 @@
   </url>
   
   <url>
-    <loc>https://khtdr.com/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://khtdr.com/tags/npm/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url>
   
   <url>
     <loc>https://khtdr.com/tags/react/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/software/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url>
   
@@ -83,6 +98,11 @@
   </url>
   
   <url>
+    <loc>https://khtdr.com/tags/emacs/</loc>
+    <lastmod>2020-08-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://khtdr.com/links/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
   </url>
@@ -103,22 +123,12 @@
   </url>
   
   <url>
-    <loc>https://khtdr.com/tags/command-line/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://khtdr.com/tags/opts/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://khtdr.com/opts/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/tools/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url>
   
