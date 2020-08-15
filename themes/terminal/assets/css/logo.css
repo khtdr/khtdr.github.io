@@ -1,0 +1,8 @@
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  background-color: color-mod(var(--accent) blend(white 40%));
+  color: color-mod(var(--accent) blend(black 70%));
+  padding: 5px 10px;
+}

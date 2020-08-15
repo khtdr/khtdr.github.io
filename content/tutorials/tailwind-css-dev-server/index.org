@@ -1,0 +1,57 @@
+#+AUTHOR: OhKay.
+#+TITLE: A Tailwind-CSS development server
+#+DATE: 2019-01-07
+#+DESCRIPTION: Simple quick way to get started learning and playing with Tailwind CSS
+#+LASTMOD: 2020-08-14
+#+TAGS[]: javascript live-reload tutorial tailwind-css
+#+TOC: true
+
+
+#+BEGIN_QUOTE
+Simple quick way to get started learning and playing with Tailwind CSS
+#+END_QUOTE
+
+Example output while running dev-server, shown here: [[./sample-logs.png]]
+
+* Features
+  - No "transpiling" configuration is needed (or used).
+  - No build tools need to be set up.
+  - Tiny reactive web server: ~115 lines of code with lots of comments.
+  - Minimal dependencies:
+    - =chalk= for color,
+    - =socket.io= for *server* <-> *browser* communication,
+    - and =tailwindcss= of course.
+  
+* Installation
+Clone the GIT repository, and install the dependencies.
+#+BEGIN_SRC bash
+git clone https://github.com/khtdr/tailwind-dev-server.git
+cd tailwind-dev-server
+yarn
+#+END_SRC
+
+* Running
+#+BEGIN_SRC bash
+yarn start
+#+END_SRC
+
+Then open your browser to: http://localhost:8080
+
+* Development
+
+Edit any of the following entry point files:
+ - [[https://github.com/khtdr/tailwind-dev-server/blob/master/index.html][./index.html]]
+ - [[https://github.com/khtdr/tailwind-dev-server/blob/master/style.css][./style.css]]
+ - [[https://github.com/khtdr/tailwind-dev-server/blob/master/tailwind.js][./tailwind.js]]
+
+Changes will be recompiled and automatically refreshed in your browser. Errors will be displayed in the server output.
+
+Create any additional HTML files as needed, using [[https://github.com/khtdr/tailwind-dev-server/blob/master/index.html][./index.html]] as a starting-point reference.
+
+* Building
+If you like what you see and want to save it and use it, run:
+#+BEGIN_SRC bash
+yarn build
+#+END_SRC
+
+And now you can use your newly-built =./tailwind-bundle.css= stylesheet however you like.

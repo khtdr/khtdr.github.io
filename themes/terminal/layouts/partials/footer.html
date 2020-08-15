@@ -1,0 +1,25 @@
+<footer class="footer">
+  <div class="footer__inner">
+    {{ if $.Site.Copyright }}
+      <div class="copyright copyright--user">
+        <span>{{ $.Site.Copyright | safeHTML }}</span>
+    {{else}}
+      <div class="copyright">
+        <span>© 2016 - {{ now.Year }} ohkay@khtdr.com khtdr.com</span>
+    {{end}}
+        <span>:: theme by twitter/panr ::&nbsp;</span>
+        <span><a href="#top">back to top</a></span>
+      </div>
+  </div>
+</footer>
+
+{{ $js := resources.Get "js/main.js" | js.Build }}
+{{ $js := resources.Get "js/prism.js" | js.Build }}
+{{ $opts := dict "noComments" true "minified" true "compact" true }}
+{{ $menu := resources.Get "js/menu.js" | js.Build | babel $opts }}
+{{ $prism := resources.Get "js/prism.js" | js.Build | babel $opts }}
+<script src="{{ $menu.Permalink }}"></script>
+<script src="{{ $prism.Permalink }}"></script>
+
+<!-- Extended footer section-->
+{{ partial "extended_footer.html" . }}

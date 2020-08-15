@@ -1,0 +1,28 @@
+#+AUTHOR: OhKay.
+#+TITLE: Links
+#+DATE: 2020-08-13
+#+DESCRIPTION: Links to everywhere
+#+LASTMOD: 2020-08-13
+#+TAGS[]: javascript typescript stoicism philosophy
+
+* emacs
+- [[https://github.com/hlissner/doom-emacs][doom emacs]]
+- [[https://orgmode.org/][orgmode.org]]
+
+* philosophy
+- [[https://en.wikipedia.org/wiki/Diogenes][Diogenes of Sinope]]
+- [[https://en.wikipedia.org/wiki/Stoicism#Ethics][Stoic Ethics]]
+- [[https://en.wikipedia.org/wiki/Stoicism#Logic][Stoic Logic]]
+- [[https://www.reddit.com/r/Stoicism/][/r/Stoicism]]
+
+* typescript
+- [[https://www.typescriptlang.org/docs/handbook/advanced-types.html][advanced types]]
+- [[https://www.typescriptlang.org/docs/handbook/utility-types.html][utility types]]
+
+* javacript
+- [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference][MDN web docs]]
+- [[https://babeljs.io/repl/][babel repl]]
+- [[https://www.npmjs.com/search?q=opts][npm package lookup]]
+
+* todo
+- virtual machines

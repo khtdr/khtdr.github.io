@@ -1,0 +1,383 @@
+#+AUTHOR: OhKay.
+#+TITLE: Opts.js
+#+DATE: 2019-08-02
+#+URL: /opts
+#+ALIASES[]: /opts.html
+#+DESCRIPTION: Command line optons and arguments parser for NodeJS
+#+LASTMOD: 2020-08-14
+#+TAGS[]: javascript opts command-line nodejs tools npm
+#+TOC: true
+
+
+#+BEGIN_QUOTE
+You can find the source code and all examples at Github, [[https://github.com/khtdr/opts][github.com/khtdr/opts]].
+#+END_QUOTE
+
+
+* Introduction to Opts.js
+:PROPERTIES:
+:CUSTOM_ID: intro
+:END:
+
+Why choose ~opts.js~ over something bigger and better?
+- *Small :* Under 10kb, /uncompressed/.
+- *Stable :* Relatively unchanged since 2010. See [[https://github.com/khtdr/opts/blob/master/CHANGES.org][changelog]].
+- *Standalone :* No package manager necessary, no compiling needed. See [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js][src/opts.js]].
+- *Tested :* Over *5 million* downloads. See [[https://www.npmjs.com/package/opts][npm/opts]].
+
+
+** Quick-Start example
+:PROPERTIES:
+:CUSTOM_ID: example-1
+:END:
+
+The following example set up a custom "version" function, and opts in to the automatic help message. No pun intended.
+
+[[https://raw.githubusercontent.com/khtdr/opts/master/examples/example1.js][opts/examples/example1.js]]
+#+BEGIN_SRC javascript
+var opts = require('opts');
+
+var options = [
+  { short       : 'v'
+  , long        : 'version'
+  , description : 'Show version and exit'
+  , callback    : function () { console.log('v1.0'); process.exit(1); }
+  }
+];
+
+opts.parse(options, true);
+console.log('Example 1');
+process.exit(0);
+#+END_SRC
+
+
+#+BEGIN_SRC bash
+node ./example1
+#+END_SRC
+
+#+RESULTS:
+: Example 1
+
+
+#+BEGIN_SRC bash
+node ./example1 --help
+#+END_SRC
+
+#+RESULTS:
+: Usage: node ./example1 [options]
+: Show this help message
+:    --help
+: Show version and exit
+:    -v, --version
+
+#+BEGIN_SRC sh
+node ./example1 -v
+#+END_SRC
+
+#+RESULTS:
+: v1.0
+
+
+#+BEGIN_CENTER
+See [[#more-examples][more examples]] below.
+#+END_CENTER
+
+
+
+* Installation
+:PROPERTIES:
+:CUSTOM_ID: setup
+:END:
+
+** No NPM dependencies are required
+:PROPERTIES:
+:CUSTOM_ID: standalone
+:END:
+
+To use [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js][opts.js]], you /do not/ need to use NPM or any package manager. It is written in plain-old Javascript, and can be downloaded and included in your Node.js project as-is. All of [[https://github.com/khtdr/opts/tree/master/examples][the examples]] use this approach.
+
+#+BEGIN_SRC bash
+cd /path/to/your/project
+curl -o opts.js https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js
+#+END_SRC
+
+** Typescript and NPM packages for convenience
+:PROPERTIES:
+:CUSTOM_ID: npm
+:END:
+
+If you are using NPM in your project, you can install it using the name =opts=.
+
+#+BEGIN_SRC bash
+npm install opts
+#+END_SRC
+
+
+
+
+* Basic usage and setup
+:PROPERTIES:
+:CUSTOM_ID: quickstart
+:END:
+
+To use, import the library and call =opts.parse= with your configurations. The various types of configurations are covered further down.
+#+BEGIN_SRC javascript
+var opts = require('opts');
+opts.parse(options, arguments, help);
+#+END_SRC
+
+#+BEGIN_CENTER
+/or with the more modern syntax/
+#+END_CENTER
+
+#+BEGIN_SRC javascript
+import * as opts from 'opts';
+opts.parse(options, arguments, help);
+#+END_SRC javascript
+
+If you installed ~opts~ with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts][definition (.d.ts) file here]].
+
+
+
+* API configurations
+:PROPERTIES:
+:CUSTOM_ID: api
+:END:
+
+=opts.parse(options, arguments, help)=
+
+Options are flag-arguments. Arguments are everything else. Consider the following hypothetical command for starting a server that listens on http://0.0.0.0:4000
+
+#+BEGIN_SRC bash
+node ./my-app start --host 0.0.0.0 -p 4000
+#+END_SRC
+
+In this example, the options are =--host 0.0.0.0= and =-p 4000=. The argument is =start=. The arguments can be after, before, or among the options.
+
+** Options
+:PROPERTIES:
+:CUSTOM_ID: api-options
+:END:
+
+~options~ is an array of option objects. Each option in the array can have the following fields. None are required, but you should at least provide a short or long name.
+
+#+BEGIN_SRC javascript
+let options = [
+  { short       : 'l',
+    long        : 'list',
+    description : 'Show a list',
+    value       : false, // default false
+    required    : true, // default false
+    callback    : function (value) { ... },
+  }, // ... followed by more options
+];
+#+END_SRC
+
+** Arguments
+:PROPERTIES:
+:CUSTOM_ID: api-arguments
+:END:
+
+~arguments~ require less configuration. This is an optional argument to ~opts.parse~:
+#+BEGIN_SRC javascript
+let arguments =
+  { name     : 'script',
+    required : true, // not required by default
+    callback : function (value) { ... },
+  };
+#+END_SRC
+
+** Help auto-generator
+:PROPERTIES:
+:CUSTOM_ID: api-help
+:END:
+
+Finally, you can add an automatically generated help message by passing
+a last parameter of =true=. This is also an optional argument to ~opts.parse~.
+#+BEGIN_SRC javascript
+opts.parse(options, true);
+// or if you want more control, you can do:
+/*
+  options.push({
+    long        : 'help',
+    description : 'Show this help message',
+    callback    : require('opts').help,
+  }
+  opts.parse(options);
+*/
+#+END_SRC
+
+
+* More examples
+:PROPERTIES:
+:CUSTOM_ID: more-examples
+:END:
+** Showcase of features and options
+:PROPERTIES:
+:CUSTOM_ID: example-2
+:END:
+
+[[https://raw.githubusercontent.com/khtdr/opts/master/examples/example2.js][opts/examples/example2.js]]
+#+BEGIN_SRC javascript
+/**
+ * More complex example.
+ *
+ * Run:
+ *   node example2.js --help
+ * and play with the options to see the behavior.
+ *
+ * This example shows different ways of using the library. It is deliberately
+ * inconsistent. Choose the style that suits you best.
+ */
+
+var opts = require('opts')
+  , host = 'localhost'; // default host value
+
+var options = [
+  { short       : 'v'
+  , long        : 'version'
+  , description : 'Show version and exit'
+  , callback    : function () { console.log('v1.0'); process.exit(1); }
+  },
+  { short       : 'l'
+  , long        : 'list'
+  , description : 'List all files'
+  },
+  { short       : 'f'
+  , long        : 'file'
+  , description : 'Load a file'
+  , value       : true
+  , required    : true
+  },
+  { short       : 'd'
+  , long        : 'debug'
+  , description : 'Set a debug level'
+  , value       : true
+  },
+  { short       : 'h'
+  , long        : 'host'
+  , description : 'The hostname to connect to'
+  , value       : true
+  , callback    : function (value) { host = value; } // override host value
+  },
+  { short       : 'p'
+  , long        : 'port'
+  , description : 'The port to connect to'
+  , value       : true
+  },
+];
+
+opts.parse(options, true);
+
+var port  = opts.get('port') || 8000 // default port value
+  , debug = opts.get('d') || 'info'  // default debug value
+  , file  = opts.get('f')
+  , list  = opts.get('list');
+
+var arg1 = opts.args()[0]
+  , arg2 = opts.args()[1];
+
+
+if (list) console.log('List arg was set');
+if (file) console.log('File arg was set: ' + file);
+console.log('Debug level is: ' + debug);
+console.log('Host is: ' + host);
+console.log('Port is: ' + port);
+
+if (arg1) console.log('Extra arg 1: ' + arg1);
+if (arg2) console.log('Extra arg 2: ' + arg2);
+
+process.exit(0);
+#+END_SRC
+
+** Conflict detection
+:PROPERTIES:
+:CUSTOM_ID: example-3
+:END:
+
+[[https://raw.githubusercontent.com/khtdr/opts/master/examples/example3.js][opts/examples/example3.js]]
+#+BEGIN_SRC javascript
+/**
+ * Simple example that is broken by design (conflicting options)
+ *
+ * Examples:
+ *   $ node example3.js
+ *   > Conflicting flags: -v
+ */
+
+var opts = require('opts');
+
+var options = [
+  { short       : 'v'
+  , description : 'Show version and exit'
+  },
+  { short       : 'v'
+  , description : 'Be verbose'
+  },
+];
+
+opts.parse(options);
+console.log('Example 3');
+process.exit(0);
+#+END_SRC
+
+** Using named arguments and from within a library
+:PROPERTIES:
+:CUSTOM_ID: example-4
+:END:
+
+[[https://raw.githubusercontent.com/khtdr/opts/master/examples/example4.js][opts/examples/example4.js]]
+#+BEGIN_SRC javascript
+/**
+ * Advanced example using namespaces for a library and named arguments
+ *
+ * Run:
+ *   node example4.js --help
+ * and play with the options to see the behavior.
+ */
+
+var opts = require('opts')
+  , host = 'localhost'; // default host value
+
+// Example of using some library in the same app
+var libOpts = [
+  { short       : 'l'
+  , long        : 'list'
+  , description : 'Show the library list'
+  , callback    : function () { console.log('mylib list!'); },
+  },
+];
+opts.add(libOpts, 'mylib');
+
+var options = [
+  { short       : 'l' // deliberately conflicting with 'mylib' option
+  , long        : 'list'
+  , description : 'List all files'
+  },
+  { short       : 'd'
+  , long        : 'debug'
+  , description : 'Set a debug level'
+  , value       : true
+  },
+];
+
+var arguments = [ { name : 'script' , required : true }
+                , { name : 'timeout' }
+                ];
+
+opts.parse(options, arguments, true);
+
+var debug = opts.get('d') || 'info'  // default debug value
+  , list  = opts.get('list');
+
+var script  = opts.arg('script')
+  , timeout = opts.arg('timeout') || 30;
+
+
+if (list) console.log('List arg was set');
+console.log('Debug level is: ' + debug);
+console.log('Script is: ' + script);
+console.log('Timeout is: ' + timeout);
+
+process.exit(0);
+#+END_SRC

@@ -1,0 +1,10 @@
+#+title: A zondicons package for react: react-zondicons
+#+date: 2020-08-14T17:17:45-06:00
+#+description: A dependency-free, small, fast, good-looking React SVG icon set.
+#+TAGS[]: react javascript icons zondicons npm
+
+#+BEGIN_QUOTE
+A dependency-free, small, fast, good-looking React SVG icon set.
+#+END_QUOTE
+
+See: http://khtdr.com/react-zondicons/ for installation, usage, documentation, and examples.
