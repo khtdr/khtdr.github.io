@@ -63,41 +63,6 @@
   </url>
   
   <url>
-    <loc>https://khtdr.com/tags/express/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/live-reload/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/nodejs/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tutorials/simple-live-reload-server/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/socket-io/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tags/tutorial/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/tutorials/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://khtdr.com/tags/emacs/</loc>
     <lastmod>2020-08-13T00:00:00+00:00</lastmod>
   </url>
@@ -123,6 +88,11 @@
   </url>
   
   <url>
+    <loc>https://khtdr.com/tags/nodejs/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://khtdr.com/tags/opts/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url>
@@ -138,7 +108,37 @@
   </url>
   
   <url>
+    <loc>https://khtdr.com/tags/live-reload/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://khtdr.com/tags/tailwind-css/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/tutorial/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tutorials/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/express/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tutorials/simple-live-reload-server/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/socket-io/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url>
   
