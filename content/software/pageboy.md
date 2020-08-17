@@ -7,7 +7,7 @@ description: Write your shell scripts in any combination of scripting languages.
 tags: [command-line, tools]
 ---
 
-> The full source code and examples are available at: https://github.com/khtdr/pageboy
+> The full source code and examples are available at: [khtdr/pageboy](https://github.com/khtdr/pageboy)
 
 <img align="right" src="https://raw.githubusercontent.com/khtdr/pageboy/master/logo.png" width="200" />
 
@@ -28,19 +28,18 @@ echo back to Bash
 <?php echo "in PHP\n";
 ```
 
+Running the following, produces:
 ```bash
 chmod +x ./example.pb
 ./example.pb
 ```
-
-_produces the output:_
-
     in Bash
     in PHP
     back to Bash
 
-#### tests
-[![Build Status](https://travis-ci.org/khtdr/pageboy.svg?branch=master)](https://travis-ci.org/khtdr/pageboy)
+You can mix and match all you want. If your script uses valid [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)), it will work. If it doesn't, it's a bug and [please let me know](https://github.com/khtdr/pageboy/issues). It also supports the (not quite right) awk shebang: `#!/usr/bin/env awk`.
+
+#### tests suite status:
 ```bash
 ./run-tests.sh
 ```
@@ -67,8 +66,6 @@ _produces the output:_
     ./tests/run-php.pb ... passed
     ./tests/version.pb ... passed
 
-You can mix and match all you want. If your script uses valid [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)), it will work. If it doesn't, it's a bug and [please let me know](https://github.com/khtdr/pageboy/issues). It also supports the (not quite right) awk shebang: `#!/usr/bin/env awk`.
-
 installation & quickstart
 -------------------------
 
@@ -86,12 +83,10 @@ $PAGE php | wc
 phpinfo();
 ```
 
-_produces:_
-
      934    3524   29671
 
 
-_If you want multiple pages of the same language, append an index, starting at 1, to the pagename._
+If you want multiple pages of the same language, append an index, starting at 1, to the pagename.
 
 ```bash
 #!/usr/bin/env pageboy
@@ -104,8 +99,6 @@ cat <($PAGE php1) <($PAGE php2)
 <?php echo "two";
 ```
 
-_produces:_
-
     onetwo
 
 You can distribute a version of your script without the dependency on `pageboy` by compiling it:
@@ -116,8 +109,6 @@ onetwo.pb -c > onetwo.sh
 chmod +x ./onetwo.sh
 ./onetwo.sh
 ```
-
-_produces:_
 
     onetwo
 
@@ -149,8 +140,6 @@ env | grep TERM
 <?php
 echo __DIR__;
 ```
-
-_produces:_
 
     10
     11
@@ -198,6 +187,6 @@ More examples can be found in the [tests directory](https://github.com/khtdr/pag
 advanced features
 -----------------
 
-   - Pages can be named, see https://github.com/khtdr/pageboy/blob/master/tests/named.pb
-   - Args can be passed in, see https://github.com/khtdr/pageboy/blob/master/tests/args.pb
+   - Pages can be named, see [pageboy/tests/named.pb](https://github.com/khtdr/pageboy/blob/master/tests/named.pb)
+   - Args can be passed in, see [pageboy/tests/args.pb](https://github.com/khtdr/pageboy/blob/master/tests/args.pb)
 

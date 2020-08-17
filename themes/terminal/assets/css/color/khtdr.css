@@ -1,0 +1,20 @@
+
+@import '../style.css';
+
+:root {
+  --code: #2f9acb;
+  --color: #222831;
+  --accent: #2f7a9b;
+  --background: #eeeeee;
+  --border-color: #fbd46d;
+  --secondary: #f95959;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --code: #f95959;
+    --background: #222831;
+    --accent: #2f9acb;
+    --color: #ccc;
+  }
+}

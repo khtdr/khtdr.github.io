@@ -1,6 +1,8 @@
 .footer {
   padding: 40px 0;
   flex-grow: 0;
+  font-size:0.8rem;
+
   span {
     opacity: .5;
     &:last-child {
@@ -24,13 +26,17 @@
   a {
     color: inherit;
     opacity: 1;
+    &:hover {
+      color: white;
+      background-color: var(--secondary);
+    }
   }
 
   .copyright {
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1rem;
+    font-size: inherit;
     color: var(--light-color-secondary);
 
     &--user {

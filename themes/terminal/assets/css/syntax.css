@@ -15,7 +15,7 @@ code.language-scss,
 .token.regex,
 .token.atrule,
 .token.number {
-  color: var(--accent);
+  color: var(--code);
 }
 
 .token.tag-id,
@@ -25,7 +25,7 @@ code.language-scss,
 .token.placeholder,
 .token.variable,
 .token.attr-name {
-  color: color-mod(var(--accent) a(70%));
+  color: color-mod(var(--code) a(70%));
 }
 
 .token.property,
@@ -33,7 +33,7 @@ code.language-scss,
 code.language-javascript,
 code.language-html,
 .command-line-prompt > span:before {
-  color: color-mod(var(--accent) blend(#999 90%));
+  color: color-mod(var(--code) blend(#999 90%));
 }
 
 .token.selector,
@@ -63,7 +63,7 @@ pre[data-line] {
   right: 0;
   padding: 0;
   margin: 0;
-  background: color-mod(var(--accent) blend(#999 90%) a(8%));
+  background: color-mod(var(--code) blend(#999 90%) a(8%));
   pointer-events: none;
   line-height: inherit;
   white-space: pre;

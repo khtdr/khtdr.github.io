@@ -22,7 +22,7 @@
 .post {
   width: 100%;
   text-align: left;
-  margin: 0 auto 20px;
+  margin: 30px auto 30px;
   padding: 0 0 20px;
 
   @media (--tablet) {
@@ -32,42 +32,50 @@
   &:not(:last-of-type) {
     xborder-bottom: 1px solid var(--border-color);
   }
+  &-heading {
+    --border: 1px dashed color-mod(var(--accent) alpha(50%));
+    border-bottom: var(--border);
+    background-color:color-mod(var(--accent) alpha(10%));
+  }
 
   &-meta {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    color: color-mod(var(--accent) a(70%));
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    color: color-mod(var(--accent) a(80%));
   }
 
   &-title {
-    --border: 1px dashed var(--accent);
-    border-bottom: var(--border);
     position: relative;
     color: var(--accent);
-    margin: 5px 0 15px;
-    height: 1.1rem;
-    overflow: visible;
+    margin: 0;
 
     a {
       padding: 0 6px 0 0;
       text-decoration: none;
-      background-color: color-mod(var(--accent) blend(#1D1E28 98%));
+      display: block;
+      padding: 5px;
     }
+  }
+  &-heading + &-tags {
+    margin-top: 0;
   }
 
   &-tags {
     display: block;
-    margin-bottom: 20px;
+    margin-top: 23px;
     font-size: .8rem;
-    opacity: .5;
+    color: var(--secondary);
 
     a {
       text-decoration: none;
+      &:hover {
+        background-color: var(--secondary);
+      }
     }
   }
 
   &-content {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 
   &-cover {
@@ -127,7 +135,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
 
 .table-of-contents {
   h2 {
-    opacity: 0.7;
+    xopacity: 0.7;
     font-weight: 100;
     font-size: 1rem;
     margin: 0;

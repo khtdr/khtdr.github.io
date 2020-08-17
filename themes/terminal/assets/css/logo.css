@@ -1,8 +1,36 @@
 .logo {
-  display: flex;
   align-items: center;
-  text-decoration: none;
-  background-color: color-mod(var(--accent) blend(white 40%));
-  color: color-mod(var(--accent) blend(black 70%));
+  background-color: var(--secondary);
+  color: var(--background);
   padding: 5px 10px;
+  font-weight: 900;
+  strong {
+    text-decoration: none;
+    text-shadow:
+      -2px 2px 0 var(--secondary),
+       1px 1px 0 var(--secondary),
+      -5px 4px 0 color-mod(var(--secondary) blend(var(--border-color) 80%))
+    ;
+    font-size:1.2rem;
+    line-height: 1rem;
+  }
+  span {
+    text-decoration: none;
+    color: color-mod(var(--secondary) blend(var(--border-color) 50%));
+  }
+  &:hover {
+    color: var(--border-color);
+    strong {
+      text-shadow:
+        -2px 2px 0 var(--secondary),
+        1px 1px 0 var(--secondary),
+        -5px 4px 0 color-mod(var(--secondary) blend(var(--color) 40%))
+      ;
+    }
+    span {
+      color: var(--background);
+      text-decoration: underline;
+      text-decoration-color: color-mod(var(--secondary) blend(var(--border-color) 50%));
+    }
+  }
 }

@@ -1,9 +1,13 @@
 @define-mixin menu {
   position: absolute;
-  background: var(--background);
   box-shadow: var(--shadow);
   color: white;
   border: 2px solid;
+  border-color: color-mod(var(--color) blend(var(--border-color) 90%));
+  background-color: color-mod(var(--background) blend(var(--border-color) 10%));
+  @media (prefers-color-scheme: dark) {
+    background-color: color-mod(var(--color) blend(var(--border-color) 10%));
+  }
   margin: 0;
   padding: 10px;
   list-style: none;
@@ -21,19 +25,14 @@
 
   &__inner {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
   }
 
   &__logo {
     display: flex;
     flex: 1;
-
-    &:before, &:after {
-      content: '';
-      display: block;
-      width: 100%;
-    }
+    justify-content: center;
 
     a {
       flex: 0 0 auto;
@@ -43,14 +42,16 @@
   }
 
   .menu {
-    --shadow-color: color-mod(var(--background) a(80%));
-    --shadow: 0 10px var(--shadow-color), -10px 10px var(--shadow-color), 10px 10px var(--shadow-color);
-    margin: 20px 0;
+    --shadow-color: color-mod(var(--color) a(10%));
+    @media (prefers-color-scheme: dark) {
+      --shadow-color: color-mod(var(--color) a(80%));
+    }
+    --shadow: -8px 10px 0px var(--shadow-color);
 
     @media (--phone) {
       @mixin menu;
-      top: 50px;
-      right: 0;
+      top: 42px;
+      right: 0px;
     }
 
     &__inner {
@@ -62,6 +63,7 @@
       padding: 0;
 
       &--desktop {
+        margin-top: 10px;
         @media (--phone) {
           display: none;
         }
@@ -156,6 +158,10 @@
       height: 100%;
       padding: 3px 8px;
       position: relative;
+      color: var(--accent);
+      user-select: none;
+      cursor: pointer;
+      &:hover {background-color:var(--border-color)}
     }
   }
 }

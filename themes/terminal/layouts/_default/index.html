@@ -16,9 +16,7 @@
 
     {{ range $paginator.Pages.ByTitle }}
       <div class="post on-list">
-        <h1 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-        </h1>
+      <div class="post-heading">
         <div class="post-meta">
           <span class="post-date">
             {{ .Date.Format "2006-01-02" }}
@@ -27,16 +25,10 @@
             <span class="post-author">:: {{ . }}</span>
           {{ end }}
         </div>
-
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-              {{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-        {{ end }}
+        <h1 class="post-title">
+          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+        </h1>
+      </div>
 
         {{ if .Params.Cover }}
           <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
@@ -59,6 +51,16 @@
           <a class="read-more button"
             href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
         </div>
+        {{ end }}
+
+        {{ if .Params.tags }}
+          <span class="post-tags">
+            {{ range .Params.tags }}
+            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+              {{- . -}}
+            </a>&nbsp;
+            {{ end }}
+          </span>
         {{ end }}
       </div>
     {{ end }}

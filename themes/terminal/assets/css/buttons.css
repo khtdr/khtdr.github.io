@@ -15,7 +15,7 @@ a.button {
   margin-bottom: 5px;
   text-decoration: none;
   text-align: center;
-  border-radius: 8px;
+  border-radius: 0px;
   border: 1px solid transparent;
   appearance: none;
   cursor: pointer;
@@ -71,6 +71,12 @@ a.read-more:active {
   max-width: 100%;
   float: right;
   color: var(--accent);
+  text-decoration:underline;
+}
+a.read-more:hover,
+a.read-more:active {
+  color: var(--secondary);
+  background-color: var(--border-color);
 }
 
 .code-toolbar {

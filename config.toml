@@ -11,10 +11,10 @@ paginate = 50
   contentTypeName = "software"
 
   # ["orange", "blue", "red", "green", "pink"]
-  themeColor = "blue"
+  themeColor = "khtdr"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 4
+  showMenuItems = 5
 
   # show selector to switch language
   showLanguageSelector = false
@@ -60,7 +60,8 @@ paginate = 50
     missingBackButtonLabel = "Back to home page"
 
     [languages.en.params.logo]
-      logoText = "KHTDR escalator temporarily stairs"
+      logoText = "KHTDR"
+      tagline= "escalator temporarily stairs"
       logoHomeLink = "/"
 
     [languages.en.menu]
@@ -72,6 +73,10 @@ paginate = 50
         identifier = "links"
         name = "links"
         url = "/links"
+      [[languages.en.menu.main]]
+        identifier = "notes"
+        name = "notes"
+        url = "/notes"
       [[languages.en.menu.main]]
         identifier = "software"
         name = "software"

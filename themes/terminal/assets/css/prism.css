@@ -7,7 +7,7 @@ https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+cli
  */
 
 :root {
-	--code-margin: 40px;
+	--code-margin: 20px;
 }
 
 code[class*="language-"],
@@ -76,7 +76,7 @@ pre[class*="language-"].line-numbers > code {
 	left: -3.8em;
 	width: 3em; /* works for line-numbers below 1000 lines */
 	letter-spacing: -1px;
-	border-right: 1px solid color-mod(var(--accent) blend(#999 90%) a(20%));
+	border-right: 1px solid color-mod(var(--code) blend(#999 90%) a(20%));
 	user-select: none;
 }
 
@@ -88,7 +88,7 @@ pre[class*="language-"].line-numbers > code {
 
 .line-numbers-rows > span:before {
 	content: counter(linenumber);
-	color: color-mod(var(--accent) blend(#999 90%) a(40%));
+	color: color-mod(var(--code) blend(#999 90%) a(40%));
 	display: block;
 	padding-right: 0.8em;
 	text-align: right;
@@ -97,14 +97,21 @@ pre[class*="language-"].line-numbers > code {
 .code-toolbar {
 	position: relative;
 	margin: var(--code-margin) 0;
-	padding: 20px;
-	border: 1px solid rgba(255, 255, 255, .1);
+	padding: 0px;
+	border: 0px solid color-mod(var(--background) alpha(10%));
+	@media (prefers-color-scheme: dark) {
+		border-width: 1px;
+	}
 
 	+ .code-toolbar,
 	+ .highlight,
 	+ .highlight .code-toolbar {
 		border-top: 0;
 		margin-top: calc(-1 * var(--code-margin));
+	}
+
+	> pre {
+		padding: var(--code-margin);
 	}
 
 	pre, code {
@@ -204,12 +211,26 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 .src {
-	background-color: rgba(0,0,0,0.15) !important;
+	xbackground-color: color-mod(var(--color));
 }
 
-.src + .example {
-	margin-top: -41px;
-	background-color: rgba(0,0,0,0.30) !important;
+.highlight + pre,
+.src + pre.example {
+	margin-top: calc(-1 * var(--code-margin));
+	background-color: color-mod(var(--color) alpha(15%)) !important;
+	color: color-mod(var(--background) blend(var(--color) 77%));
 	font-family: inherit;
-	font-size: 0.8rem;
+	font-size: 0.85rem;
+}
+.highlight + pre > code {
+	background:none;
+	color: inherit;
+}
+@media (prefers-color-scheme: dark) {
+	.highlight + pre,
+	.src + pre.example {
+		border-top: none;
+		background-color: color-mod(var(--background) alpha(10%)) !important;
+		color: color-mod(var(--color) blend(var(--background) 70%));
+	}
 }

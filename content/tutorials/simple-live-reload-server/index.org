@@ -3,7 +3,7 @@
 #+DATE: 2016-01-01
 #+DESCRIPTION: A hot-reloading web server using ExpressJS, built one step at a time.
 #+LASTMOD: 2020-08-14
-#+TAGS[]: javascript live-reload tutorial socket-io express nodejs
+#+TAGS[]: javascript live-reload socket-io express nodejs
 #+TOC: true
 
 #+BEGIN_QUOTE
