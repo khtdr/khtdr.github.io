@@ -1,6 +1,6 @@
 #+title: Dark-Mode Light-Mode Css
 #+date: 2020-08-16T18:53:52-06:00
-#+tags: css themes
+#+tags[]: css themes
 #+description: Use a media query to set different values for variables in dark-mode.
 
 Use a media query to set different values for variables in dark-mode.
