@@ -9,9 +9,8 @@
 <meta name="description" content="The full source code and examples are available at: https://github.com/khtdr/pageboy
  pageboy Write your shell scripts in any combination of scripting languages.
 Example Script example.pb
-#!/usr/bin/env pageboy echo in Bash $PAGE php echo back to Bash #!/usr/bin/env php &amp;lt;?php echo &amp;#34;in PHP\n&amp;#34;; chmod &#43;x ./example.pb ./example.pb produces the output:
-in Bash in PHP back to Bash  tests 
-./run-tests.sh pageboy-v2.1.3 ./pageboy-test # runs as pageboy script ./pageboy-test -r &amp;lt;page&amp;gt; # runs requested page ." />
+#!/usr/bin/env pageboy echo in Bash $PAGE php echo back to Bash #!/usr/bin/env php &amp;lt;?php echo &amp;#34;in PHP\n&amp;#34;; Running the following, produces:
+chmod &#43;x ./example.pb ./example.pb in Bash in PHP back to Bash  You can mix and match all you want. If your script uses valid shebangs, it will work." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://khtdr.com/software/pageboy/" />
@@ -27,7 +26,7 @@ in Bash in PHP back to Bash  tests
 
   
   
-  <link rel="stylesheet" href="https://khtdr.com/css/color/blue.min.css">
+  <link rel="stylesheet" href="https://khtdr.com/css/color/khtdr.min.css">
 
 
 
@@ -78,7 +77,7 @@ in Bash in PHP back to Bash  tests
 
 
 </head>
-<body class="blue">
+<body class="khtdr">
 
 
 <div class="container center headings--one-size">
@@ -88,7 +87,12 @@ in Bash in PHP back to Bash  tests
     <div class="header__logo">
       <a href="/">
   <div class="logo">
-    KHTDR escalator temporarily stairs
+      <strong>
+    KHTDR
+      </strong>
+      <span>
+    escalator temporarily stairs
+      </span>
   </div>
 </a>
 
@@ -154,17 +158,21 @@ in Bash in PHP back to Bash  tests
   <div class="content">
     
 <div class="post">
-  <h1 class="post-title">
-    <a href="https://khtdr.com/software/pageboy/">pageboy</a></h1>
-  <div class="post-meta">
-    
-      <span class="post-date">
-        2020-08-14 [Updated: 2020-08-14]
-      </span>
-    
-    
-    <span class="post-author">:: OhKay.</span>
-    
+  <div class="post-heading">
+    <div class="post-meta">
+      
+        <span class="post-date">
+          2020-08-14 [Updated: 2020-08-14]
+        </span>
+      
+      
+      <span class="post-author">:: OhKay.</span>
+      
+    </div>
+
+    <h1 class="post-title">
+        <a href="https://khtdr.com/software/pageboy/">pageboy</a>
+    </h1>
   </div>
 
   
@@ -216,15 +224,15 @@ echo back to Bash
 
 <span style="color:#75715e">#!/usr/bin/env php</span>
 &lt;?php echo <span style="color:#e6db74">&#34;in PHP\n&#34;</span>;
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x ./example.pb
+</code></pre></div><p>Running the following, produces:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x ./example.pb
 ./example.pb
-</code></pre></div><p><em>produces the output:</em></p>
-<pre><code>in Bash
+</code></pre></div><pre><code>in Bash
 in PHP
 back to Bash
 </code></pre>
-<h4 id="tests">tests<a href="#tests" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<p><a href="https://travis-ci.org/khtdr/pageboy"><img src="https://travis-ci.org/khtdr/pageboy.svg?branch=master" alt="Build Status"></a></p>
+<p>You can mix and match all you want. If your script uses valid <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebangs</a>, it will work. If it doesn&rsquo;t, it&rsquo;s a bug and <a href="https://github.com/khtdr/pageboy/issues">please let me know</a>. It also supports the (not quite right) awk shebang: <code>#!/usr/bin/env awk</code>.</p>
+<h4 id="tests-suite-status">tests suite status:<a href="#tests-suite-status" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./run-tests.sh
 </code></pre></div><pre><code>pageboy-v2.1.3
     ./pageboy-test            # runs as pageboy script
@@ -249,7 +257,6 @@ https://github.com/khtdr/pageboy
 ./tests/run-php.pb ... passed
 ./tests/version.pb ... passed
 </code></pre>
-<p>You can mix and match all you want. If your script uses valid <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebangs</a>, it will work. If it doesn&rsquo;t, it&rsquo;s a bug and <a href="https://github.com/khtdr/pageboy/issues">please let me know</a>. It also supports the (not quite right) awk shebang: <code>#!/usr/bin/env awk</code>.</p>
 <h2 id="installation--quickstart">installation &amp; quickstart<a href="#installation--quickstart" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ol>
 <li>Current version: 2.1.3</li>
@@ -263,10 +270,9 @@ https://github.com/khtdr/pageboy
 <span style="color:#75715e">#!/usr/bin/env php</span>
 &lt;?php
 phpinfo<span style="color:#f92672">()</span>;
-</code></pre></div><p><em>produces:</em></p>
-<pre><code> 934    3524   29671
+</code></pre></div><pre><code> 934    3524   29671
 </code></pre>
-<p><em>If you want multiple pages of the same language, append an index, starting at 1, to the pagename.</em></p>
+<p>If you want multiple pages of the same language, append an index, starting at 1, to the pagename.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
 </span><span style="color:#75715e"></span>cat &lt;<span style="color:#f92672">(</span>$PAGE php1<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE php2<span style="color:#f92672">)</span>
 
@@ -275,16 +281,14 @@ phpinfo<span style="color:#f92672">()</span>;
 
 <span style="color:#75715e">#!/usr/bin/env php</span>
 &lt;?php echo <span style="color:#e6db74">&#34;two&#34;</span>;
-</code></pre></div><p><em>produces:</em></p>
-<pre><code>onetwo
+</code></pre></div><pre><code>onetwo
 </code></pre>
 <p>You can distribute a version of your script without the dependency on <code>pageboy</code> by compiling it:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># copy above into `onetwo.pb`</span>
 onetwo.pb -c &gt; onetwo.sh
 chmod +x ./onetwo.sh
 ./onetwo.sh
-</code></pre></div><p><em>produces:</em></p>
-<pre><code>onetwo
+</code></pre></div><pre><code>onetwo
 </code></pre>
 <p><strong>Big Example</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
@@ -311,8 +315,7 @@ env | grep TERM
 <span style="color:#75715e">#!/usr/bin/env php</span>
 &lt;?php
 echo __DIR__;
-</code></pre></div><p><em>produces:</em></p>
-<pre><code>10
+</code></pre></div><pre><code>10
 11
 12
 13
@@ -350,8 +353,8 @@ https://github.com/khtdr/pageboy
 <p>More examples can be found in the <a href="https://github.com/khtdr/pageboy/blob/master/tests/">tests directory</a>.</p>
 <h2 id="advanced-features">advanced features<a href="#advanced-features" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
-<li>Pages can be named, see <a href="https://github.com/khtdr/pageboy/blob/master/tests/named.pb">https://github.com/khtdr/pageboy/blob/master/tests/named.pb</a></li>
-<li>Args can be passed in, see <a href="https://github.com/khtdr/pageboy/blob/master/tests/args.pb">https://github.com/khtdr/pageboy/blob/master/tests/args.pb</a></li>
+<li>Pages can be named, see <a href="https://github.com/khtdr/pageboy/blob/master/tests/named.pb">pageboy/tests/named.pb</a></li>
+<li>Args can be passed in, see <a href="https://github.com/khtdr/pageboy/blob/master/tests/args.pb">pageboy/tests/args.pb</a></li>
 </ul>
 
       </div></div>
@@ -380,6 +383,16 @@ https://github.com/khtdr/pageboy
 
   
 
+
+  
+  <span class="post-tags">
+    
+    #<a href="https://khtdr.com/tags/command-line/">command-line</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/tools/">tools</a>&nbsp;
+    
+  </span>
+  
 </div>
 
   </div>
