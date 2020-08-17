@@ -6,10 +6,24 @@
     <description>Recent content in nodejs on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 18:46:11 -0600</lastBuildDate>
     
 	<atom:link href="https://khtdr.com/tags/nodejs/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>treeify-paths</title>
+      <link>https://khtdr.com/software/treeify-paths/</link>
+      <pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+      
+      <guid>https://khtdr.com/software/treeify-paths/</guid>
+      <description>The full source code and examples are available at: khtdr/treeify-paths
+ Introduction Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
+Provide a list of file names:
+ blog/all.html blog/2036/overflows.html  And recieve a directory-like tree:
+ blog  all.html 2036  overflows.html      Installation Install it with NPM:
+npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; If you are not using NPM, install the library by downloading the source file and including it in your project:</description>
+    </item>
     
     <item>
       <title>opts.js</title>

@@ -6,10 +6,21 @@
     <description>Recent content on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Aug 2020 18:46:11 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
     
 	<atom:link href="https://khtdr.com/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dark-Mode Light-Mode Css</title>
+      <link>https://khtdr.com/notes/dark-mode-light-mode-css/</link>
+      <pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
+      
+      <guid>https://khtdr.com/notes/dark-mode-light-mode-css/</guid>
+      <description> Use a media query to set different values for variables in dark-mode.
+:root { --code: #2f9acb; --color: #222831; --accent: #2f7a9b; --background: #eeeeee; --border-color: #fbd46d; --secondary: #f95959; } @media (prefers-color-scheme: dark) { :root { --code: #f95959; --background: #222831; --accent: #2f9acb; --color: #ccc; } }  taken from the CSS of this site
+ </description>
+    </item>
     
     <item>
       <title>pageboy</title>
@@ -17,11 +28,25 @@
       <pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
       
       <guid>https://khtdr.com/software/pageboy/</guid>
-      <description>The full source code and examples are available at: https://github.com/khtdr/pageboy
+      <description>The full source code and examples are available at: khtdr/pageboy
  pageboy Write your shell scripts in any combination of scripting languages.
 Example Script example.pb
 #!/usr/bin/env pageboy echo in Bash $PAGE php echo back to Bash #!/usr/bin/env php &amp;lt;?php echo &amp;#34;in PHP\n&amp;#34;; Running the following, produces:
 chmod +x ./example.pb ./example.pb in Bash in PHP back to Bash  You can mix and match all you want. If your script uses valid shebangs, it will work.</description>
+    </item>
+    
+    <item>
+      <title>treeify-paths</title>
+      <link>https://khtdr.com/software/treeify-paths/</link>
+      <pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+      
+      <guid>https://khtdr.com/software/treeify-paths/</guid>
+      <description>The full source code and examples are available at: khtdr/treeify-paths
+ Introduction Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
+Provide a list of file names:
+ blog/all.html blog/2036/overflows.html  And recieve a directory-like tree:
+ blog  all.html 2036  overflows.html      Installation Install it with NPM:
+npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; If you are not using NPM, install the library by downloading the source file and including it in your project:</description>
     </item>
     
     <item>
