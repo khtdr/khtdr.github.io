@@ -6,12 +6,6 @@
 #+TAGS[]: javascript live-reload socket-io express nodejs
 #+TOC: true
 
-#+BEGIN_QUOTE
-The files in this tutorial can be found at:
-
-[[https://github.com/khtdr/live-reload-web-server][github.com/khtdr/live-reload-web-server]]
-#+END_QUOTE
-
 * Building your own live-reloading web server
 Follow along and build your own automatically-refreshing web server, as shown here: [[./preview.gif]]
 
@@ -216,3 +210,9 @@ fs.watch(__dirname, { recursive:true }, function () {
 /That's it!/
 
 Start the server with =node server.js=, go to https://localhost:8080 in your browser, and take a good look at your yellow page. Open up the css file you created earlier, and change =yellow= to =orange=. Save, /but don't refresh your page/. Just observe. The page will automatically update.
+
+#+BEGIN_QUOTE
+The files in this tutorial can be found at:
+
+[[https://github.com/khtdr/live-reload-web-server][github.com/khtdr/live-reload-web-server]]
+#+END_QUOTE

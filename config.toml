@@ -53,9 +53,9 @@ paginate = 50
     owner = "OhKay."
     keywords = ""
     copyright = ""
-    menuMore = "Show more"
-    readMore = "Read more"
-    readOtherPosts = "Read other posts"
+    menuMore = "more"
+    readMore = "more"
+    readOtherPosts = "more posts"
     missingContentMessage = "Page not found..."
     missingBackButtonLabel = "Back to home page"
 

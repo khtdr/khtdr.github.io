@@ -7,8 +7,6 @@ description: Converts a list of paths into a directory-like tree structure
 tags: [tools, javascript, nodejs]
 ---
 
-> The full source code and examples are available at: [khtdr/treeify-paths](https://github.com/khtdr/treeify-paths)
-
 ## Introduction
 Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
 
@@ -135,3 +133,5 @@ The mocha [tests have many examples](./tests.js)
 
   7 passing (8ms)
 ```
+
+> The full source code and examples are available at: [khtdr/treeify-paths](https://github.com/khtdr/treeify-paths)

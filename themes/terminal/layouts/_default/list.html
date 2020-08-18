@@ -8,24 +8,29 @@
     {{ range .Pages.ByTitle }}
       <div class="post on-list">
         <div class="post-heading">
-        <div class="post-meta">
-          <span class="post-date">
-            {{ .Date.Format "2006-01-02" }}
-          </span>
-          {{ with .Params.Author }}
-            <span class="post-author">:: {{ . }}</span>
-          {{ end }}
+          <h1 class="post-title">
+            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+          </h1>
         </div>
-
-        <h1 class="post-title">
-          <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-        </h1>
+        <div class="post-more">
+        {{ if .Params.tags }}
+        <div>
+          <span class="post-tags">
+            {{ range .Params.tags }}
+            <a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+            <span>#</span>{{- . -}}
+            </a>&nbsp;
+            {{ end }}
+          </span>
+            </div>
+        {{ end }}
         </div>
 
         {{ if .Params.Cover }}
           <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
         {{ end }}
 
+        <a href="{{.RelPermalink}}" class='post-link'>
         <div class="post-content">
           {{ if .Params.showFullContent }}
           {{ .Content | markdownify }}
@@ -37,24 +42,9 @@
           {{ end }}
           {{ end }}
         </div>
+        </a>
 
-        {{ if not .Params.showFullContent }}
 
-        <div>
-          <a class="read-more button"
-            href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore }} →</a>
-        </div>
-        {{ end }}
-
-        {{ if .Params.tags }}
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            #<a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-              {{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-        {{ end }}
       </div>
     {{ end }}
     {{ partial "pagination.html" . }}

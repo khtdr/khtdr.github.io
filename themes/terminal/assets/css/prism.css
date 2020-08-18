@@ -211,7 +211,10 @@ div.code-toolbar > .toolbar span:focus {
 }
 
 .src {
-	xbackground-color: color-mod(var(--color));
+	background-color: color-mod(var(--color));
+	& *:not(a) {
+		background-color:color-mod(var(--accent) blend(var(--color) 90%)) !important;
+	}
 }
 
 .highlight + pre,
@@ -230,7 +233,7 @@ div.code-toolbar > .toolbar span:focus {
 	.highlight + pre,
 	.src + pre.example {
 		border-top: none;
-		background-color: color-mod(var(--background) alpha(10%)) !important;
+		background-color: color-mod(var(--background) alpha(5%)) !important;
 		color: color-mod(var(--color) blend(var(--background) 70%));
 	}
 }

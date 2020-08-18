@@ -7,8 +7,6 @@ description: Write your shell scripts in any combination of scripting languages.
 tags: [command-line, tools]
 ---
 
-> The full source code and examples are available at: [khtdr/pageboy](https://github.com/khtdr/pageboy)
-
 <img align="right" src="https://raw.githubusercontent.com/khtdr/pageboy/master/logo.png" width="200" />
 
 pageboy
@@ -190,3 +188,5 @@ advanced features
    - Pages can be named, see [pageboy/tests/named.pb](https://github.com/khtdr/pageboy/blob/master/tests/named.pb)
    - Args can be passed in, see [pageboy/tests/args.pb](https://github.com/khtdr/pageboy/blob/master/tests/args.pb)
 
+
+> The full source code and examples are available at: [khtdr/pageboy](https://github.com/khtdr/pageboy)
