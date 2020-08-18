@@ -17,13 +17,12 @@
       <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://khtdr.com/opts/</guid>
-      <description>You can find the source code and all examples at Github, github.com/khtdr/opts.
- Introduction to Opts.js   Why choose opts.js over something bigger and better?
+      <description>opts.js is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments,flags and options, and automatically generating a useful help message.
+Introduction to Opts.js   Why choose opts.js over something bigger and better?
   Small : Under 10kb, uncompressed.
   Stable : Relatively unchanged since 2010. See changelog.
   Standalone : No package manager necessary, no compiling needed. See src/opts.js.
-  Tested : Over 5 million downloads. See npm/opts.
-  Quick-Start example   The following example set up a custom &amp;#34;version&amp;#34; function, and opts in to the automatic help message.</description>
+  Tested : Over 5 million downloads.</description>
     </item>
     
   </channel>
