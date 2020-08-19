@@ -6,11 +6,12 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Introduction Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.
+<meta name="description" content="Introduction Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.
 Provide a list of file names:
  blog/all.html blog/2036/overflows.html  And recieve a directory-like tree:
  blog  all.html 2036  overflows.html      Installation Install it with NPM:
-npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; If you are not using NPM, install the library by downloading the source file and including it in your project:" />
+npm install --save treeify-paths Import with modern syntax:
+import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; Or if you are not using NPM, install the library by downloading the source file directly and including it in your project:" />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://khtdr.com/software/treeify-paths/" />
@@ -209,7 +210,7 @@ npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths
 
   <div class="post-content"><div>
         <h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>Useful when converting a list of file names into a nested UL/LI tree. Nice for site maps, etc.</p>
+<p>Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.</p>
 <p>Provide a <strong>list of file names</strong>:</p>
 <ul>
 <li>blog/all.html</li>
@@ -231,13 +232,22 @@ npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths
 <h2 id="installation">Installation<a href="#installation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Install it with NPM:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install --save treeify-paths
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
-</code></pre></div><p>If you are not using NPM, install the library by downloading the <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.js">source file</a> and including it in your project:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -o treeify-paths.js <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.js&#34;</span>
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">treeify_paths</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./treeify-paths&#39;</span>).<span style="color:#66d9ef">default</span>;
-</code></pre></div><h2 id="example-usage">Example Usage<a href="#example-usage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</code></pre></div><p>Import with modern syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
+</code></pre></div><p><em>Or</em> if you are not using NPM, install the library by downloading the <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/dist/treeify-paths.js">source file</a> directly and including it in your project:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -o treeify-paths.js <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/khtdr/treeify-paths/blob/master/dist/treeify-paths.js&#34;</span>
+</code></pre></div><p>Load with classic syntax:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">treeify_paths</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./treeify-paths&#39;</span>).<span style="color:#66d9ef">default</span>;
+</code></pre></div><p>The library itself is written in <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.ts">a few lines of typescript</a>.</p>
+<h2 id="example-usage">Example Usage<a href="#example-usage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>This module provides a function <code>treeifyPaths</code> that takes a list of file names and returns a directory-like tree.</p>
-<p>The following example</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-typescript" data-lang="typescript"><span style="color:#a6e22e">type</span> <span style="color:#a6e22e">Tree</span> <span style="color:#f92672">:</span>{
+  <span style="color:#a6e22e">path</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// full path to this node
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">name</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// name of this leaf
+</span><span style="color:#75715e"></span>  <span style="color:#a6e22e">children</span> :<span style="color:#66d9ef">Tree</span>[] <span style="color:#75715e">// sub tree of trees and leaves
+</span><span style="color:#75715e"></span>}
+<span style="color:#a6e22e">treeifyPaths</span>(<span style="color:#a6e22e">paths</span> :<span style="color:#66d9ef">string</span>[]) <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">Tree</span>
+</code></pre></div><p>This example produces prints the following output:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">treeifyPaths</span>([
   <span style="color:#e6db74">&#39;about.html&#39;</span>,
@@ -260,14 +270,14 @@ npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths
             &quot;name&quot;: &quot;careers&quot;,
             &quot;children&quot;: [
                 {
-                &quot;path&quot;: &quot;careers/job-1.html&quot;,
-                &quot;name&quot;: &quot;job-1.html&quot;,
-                &quot;children&quot;: []
+                    &quot;path&quot;: &quot;careers/job-1.html&quot;,
+                    &quot;name&quot;: &quot;job-1.html&quot;,
+                    &quot;children&quot;: []
                 },
                 {
-                &quot;path&quot;: &quot;careers/job-2.html&quot;,
-                &quot;name&quot;: &quot;job-2.html&quot;,
-                &quot;children&quot;: []
+                    &quot;path&quot;: &quot;careers/job-2.html&quot;,
+                    &quot;name&quot;: &quot;job-2.html&quot;,
+                    &quot;children&quot;: []
                 }
             ]
         },
@@ -276,27 +286,28 @@ npm install --save treeify-paths import treeifyPaths from &amp;#39;treeify-paths
             &quot;name&quot;: &quot;&quot;,
             &quot;children&quot;: [
                 {
-                &quot;path&quot;: &quot;to/some&quot;,
-                &quot;name&quot;: &quot;&quot;,
-                &quot;children&quot;: [
-                    {
-                        &quot;path&quot;: &quot;to/some/page.aspx&quot;,
-                        &quot;name&quot;: &quot;page.aspx&quot;,
-                        &quot;children&quot;: []
-                    }
-                ]
+                    &quot;path&quot;: &quot;to/some&quot;,
+                    &quot;name&quot;: &quot;&quot;,
+                    &quot;children&quot;: [
+                        {
+                            &quot;path&quot;: &quot;to/some/page.aspx&quot;,
+                            &quot;name&quot;: &quot;page.aspx&quot;,
+                            &quot;children&quot;: []
+                        }
+                    ]
                 }
             ]
         }
     ]
 }
 </code></pre>
+<p><strong>Online Interactive Examples</strong></p>
 <ul>
 <li><a href="https://runkit.com/khtdr/treeify-paths">Live example</a></li>
 <li><a href="https://runkit.com/downloads/khtdr/treeify-paths/1.0.0.zip">Download example</a></li>
 </ul>
 <h2 id="testing">Testing<a href="#testing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>The mocha <a href="./tests.js">tests have many examples</a></p>
+<p>The mocha <a href="https://github.com/khtdr/treeify-paths/blob/master/tests.js">tests have many examples</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; treeify-paths@1.0.2 pretest khtdr/treeify-paths
 &gt; tsc lib.ts <span style="color:#f92672">&amp;&amp;</span> mv lib.js treeify-paths.js
 
