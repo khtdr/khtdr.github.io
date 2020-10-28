@@ -427,11 +427,12 @@ Arguments
 <p>
 <code>arguments</code> require less configuration. This is an optional argument to <code>opts.parse</code>:</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [
   { <span style="color:#a6e22e">name</span>     <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span>,
     <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// not required by default
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
-  };
+  }
+];
 </code></pre></div>
 </div>
 </div>
