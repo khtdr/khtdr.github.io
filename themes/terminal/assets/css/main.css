@@ -23,19 +23,6 @@ body {
   font-variant-ligatures: contextual;
   -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: 100%;
-  background-image: url(/img/bg.png);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  backdrop-filter: hue-rotate(120deg) invert();
-  @media (prefers-color-scheme: dark) {
-    backdrop-filter: hue-rotate(290deg);
-  }
-  /*  screen, overlay, darken, lighten,
-      color-dodge, color-burn, hard-light,
-      soft-light, difference, exclusion,
-      hue, saturation, color, and luminosity. */
-
 
   @media (--phone) {
     font-size: 1rem;
