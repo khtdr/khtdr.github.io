@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tailwind-css on KHTDR.com</title>
+    <link>https://khtdr.com/tags/tailwind-css/</link>
+    <description>Recent content in tailwind-css on KHTDR.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 07 Jan 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://khtdr.com/tags/tailwind-css/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Tailwind-CSS development server</title>
+      <link>https://khtdr.com/tutorials/tailwind-css-dev-server/</link>
+      <pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://khtdr.com/tutorials/tailwind-css-dev-server/</guid>
+      <description>Simple quick way to get started learning and playing with Tailwind CSS
+  Example output while running dev-server, shown here: Features    No &amp;#34;transpiling&amp;#34; configuration is needed (or used).
+  No build tools need to be set up.
+  Tiny reactive web server: ~115 lines of code with lots of comments.
+  Minimal dependencies:
+  chalk for color,
+  socket.io for server &amp;lt;-&amp;gt; browser communication,</description>
+    </item>
+    
+  </channel>
+</rss>

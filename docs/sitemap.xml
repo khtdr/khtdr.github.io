@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://khtdr.com/tags/css/</loc>
+    <lastmod>2020-08-16T18:53:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/notes/dark-mode-light-mode-css/</loc>
+    <lastmod>2020-08-16T18:53:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/notes/</loc>
+    <lastmod>2020-08-16T18:53:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/themes/</loc>
+    <lastmod>2020-08-16T18:53:52-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/command-line/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/javascript/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/nodejs/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/pageboy/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/tools/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/treeify-paths/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/icons/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/npm/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/react/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/software/react-zondicons/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/zondicons/</loc>
+    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/emacs/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/links/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/philosophy/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/stoicism/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/typescript/</loc>
+    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/opts/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/opts/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tutorials/tailwind-css-dev-server/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/live-reload/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/tailwind-css/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tutorials/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/express/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tutorials/simple-live-reload-server/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/tags/socket-io/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://khtdr.com/categories/</loc>
+  </url>
+  
+</urlset>

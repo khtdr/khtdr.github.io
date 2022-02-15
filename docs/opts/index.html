@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>opts.js :: KHTDR.com</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="opts.js is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments,flags and options, and automatically generating a useful help message.
+Introduction to Opts.js   Why choose opts.js over something bigger and better?
+  Small : Under 10kb, uncompressed.
+  Stable : Relatively unchanged since 2010. See changelog.
+  Standalone : No package manager necessary, no compiling needed. See src/opts.js.
+  Tested : Over 5 million downloads." />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://khtdr.com/opts/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://khtdr.com/css/style.min.css">
+
+
+  
+  
+  <link rel="stylesheet" href="https://khtdr.com/css/color/khtdr.min.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://khtdr.com/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://khtdr.com/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="OhKay." />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="opts.js :: KHTDR.com">
+<meta property="og:description" content="Command line optons and arguments parser for NodeJS" />
+<meta property="og:url" content="https://khtdr.com/opts/" />
+<meta property="og:site_name" content="opts.js" />
+
+  
+    <meta property="og:image" content="https://khtdr.com/favicon.ico">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2019-08-02 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="khtdr">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+      <strong>
+    KHTDR
+      </strong>
+      <span>
+    that tree is far away
+      </span>
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">home</a></li>
+        
+      
+        
+          <li><a href="/links">links</a></li>
+        
+      
+        
+          <li><a href="/notes">notes</a></li>
+        
+      
+        
+          <li><a href="/software">software</a></li>
+        
+      
+        
+          <li><a href="/tutorials">tutorials</a></li>
+        
+      
+      
+    
+          <li><a href="/index.xml">
+    <svg height="14" width="14" fill="currentColor" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 331.947 331.947' style='enable-background:new 0 0 331.947 331.947;' xml:space='preserve'> <g> <g> <circle cx='46.507' cy='285.333' r='46.507'/> </g> </g> <g> <g> <g> <path d='M0,120.64v60.373c83.307,0,150.827,67.627,150.827,150.827H211.2C211.2,215.253,116.587,120.64,0,120.64z'/> <path d='M0,0v60.373c149.973,0,271.573,121.6,271.573,271.573h60.373C331.84,148.587,183.253,0,0,0z'/> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+          </a></li>
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">home</a></li>
+      
+    
+      
+        <li><a href="/links">links</a></li>
+      
+    
+      
+        <li><a href="/notes">notes</a></li>
+      
+    
+      
+        <li><a href="/software">software</a></li>
+      
+    
+      
+        <li><a href="/tutorials">tutorials</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <div class="post-heading">
+    <h1 class="post-title">
+        <a href="https://khtdr.com/opts/">opts.js</a>
+    </h1>
+  </div>
+
+  
+          <span class="post-tags">
+            
+            <a href="https://khtdr.com/tags/javascript/">
+            <span>#</span>javascript</a>&nbsp;
+            
+            <a href="https://khtdr.com/tags/opts/">
+            <span>#</span>opts</a>&nbsp;
+            
+            <a href="https://khtdr.com/tags/command-line/">
+            <span>#</span>command-line</a>&nbsp;
+            
+            <a href="https://khtdr.com/tags/nodejs/">
+            <span>#</span>nodejs</a>&nbsp;
+            
+            <a href="https://khtdr.com/tags/tools/">
+            <span>#</span>tools</a>&nbsp;
+            
+            <a href="https://khtdr.com/tags/npm/">
+            <span>#</span>npm</a>&nbsp;
+            
+          </span>
+  
+
+  
+
+  
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#intro">Introduction to Opts.js</a>
+<ul>
+<li><a href="#example-1">Quick-Start example</a>
+</li>
+</ul>
+</li>
+<li><a href="#setup">Installation</a>
+<ul>
+<li><a href="#standalone">No NPM dependencies are required</a>
+</li>
+<li><a href="#npm">Typescript and NPM packages for convenience</a>
+</li>
+</ul>
+</li>
+<li><a href="#quickstart">Basic usage and setup</a>
+</li>
+<li><a href="#api">API configurations</a>
+<ul>
+<li><a href="#api-options">Options</a>
+</li>
+<li><a href="#api-arguments">Arguments</a>
+</li>
+<li><a href="#api-help">Help auto-generator</a>
+</li>
+</ul>
+</li>
+<li><a href="#more-examples">More examples</a>
+<ul>
+<li><a href="#example-2">Showcase of features and options</a>
+</li>
+<li><a href="#example-3">Conflict detection</a>
+</li>
+<li><a href="#example-4">Using named arguments and from within a library</a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        
+<p>
+<code class="verbatim">opts.js</code> is a Javascript helper library for command-line applications, for accepting  and parsing command-line arguments,flags and options, and automatically generating a useful help message.</p>
+<div id="outline-container-intro" class="outline-2">
+<h2 id="intro">
+Introduction to Opts.js
+</h2>
+<div id="outline-text-intro" class="outline-text-2">
+<p>
+Why choose <code>opts.js</code> over something bigger and better?</p>
+<ul>
+<li>
+<p><strong>Small :</strong> Under 10kb, <em>uncompressed</em>.</p>
+</li>
+<li>
+<p><strong>Stable :</strong> Relatively unchanged since 2010. See <a href="https://github.com/khtdr/opts/blob/master/CHANGES.org">changelog</a>.</p>
+</li>
+<li>
+<p><strong>Standalone :</strong> No package manager necessary, no compiling needed. See <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">src/opts.js</a>.</p>
+</li>
+<li>
+<p><strong>Tested :</strong> Over <strong>5 million</strong> downloads. See <a href="https://www.npmjs.com/package/opts">npm/opts</a>.</p>
+</li>
+</ul>
+<div id="outline-container-example-1" class="outline-3">
+<h3 id="example-1">
+Quick-Start example
+</h3>
+<div id="outline-text-example-1" class="outline-text-3">
+<p>
+The following example set up a custom &#34;version&#34; function, and opts in to the automatic help message. No pun intended.</p>
+<p>
+<a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example1.js">opts/examples/example1.js</a></p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;version&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
+  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;v1.0&#39;</span>); <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>); }
+  }
+];
+
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 1&#39;</span>);
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
+</code></pre></div>
+</div>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1</code></pre></div>
+</div>
+<pre class="example">
+Example 1
+</pre>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1 --help</code></pre></div>
+</div>
+<pre class="example">
+Usage: node ./example1 [options]
+Show this help message
+   --help
+Show version and exit
+   -v, --version
+</pre>
+<div class="src src-sh">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">node ./example1 -v</code></pre></div>
+</div>
+<pre class="example">
+v1.0
+</pre>
+<div class="center-block" style="text-align: center; margin-left: auto; margin-right: auto;">
+<p>See <a href="#more-examples">more examples</a> below.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-setup" class="outline-2">
+<h2 id="setup">
+Installation
+</h2>
+<div id="outline-text-setup" class="outline-text-2">
+<div id="outline-container-standalone" class="outline-3">
+<h3 id="standalone">
+No NPM dependencies are required
+</h3>
+<div id="outline-text-standalone" class="outline-text-3">
+<p>
+To use <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">opts.js</a>, you <em>do not</em> need to use NPM or any package manager. It is written in plain-old Javascript, and can be downloaded and included in your Node.js project as-is. All of <a href="https://github.com/khtdr/opts/tree/master/examples">the examples</a> use this approach.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /path/to/your/project
+curl -o opts.js https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-npm" class="outline-3">
+<h3 id="npm">
+Typescript and NPM packages for convenience
+</h3>
+<div id="outline-text-npm" class="outline-text-3">
+<p>
+If you are using NPM in your project, you can install it using the name <code class="verbatim">opts</code>.</p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install opts</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-quickstart" class="outline-2">
+<h2 id="quickstart">
+Basic usage and setup
+</h2>
+<div id="outline-text-quickstart" class="outline-text-2">
+<p>
+To use, import the library and call <code class="verbatim">opts.parse</code> with your configurations. The various types of configurations are covered further down.</p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);
+</code></pre></div>
+</div>
+<div class="center-block" style="text-align: center; margin-left: auto; margin-right: auto;">
+<p><em>or with the more modern syntax</em></p>
+</div>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">opts</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;opts&#39;</span>;
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);
+</code></pre></div>
+</div>
+<p>
+If you installed <code>opts</code> with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts">definition (.d.ts) file here</a>.</p>
+</div>
+</div>
+<div id="outline-container-api" class="outline-2">
+<h2 id="api">
+API configurations
+</h2>
+<div id="outline-text-api" class="outline-text-2">
+<p>
+<code class="verbatim">opts.parse(options, arguments, help)</code></p>
+<p>
+Options are flag-arguments. Arguments are everything else. Consider the following hypothetical command for starting a server that listens on <a href="http://0.0.0.0:4000">http://0.0.0.0:4000</a></p>
+<div class="src src-bash">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./my-app start --host 0.0.0.0 -p <span style="color:#ae81ff">4000</span></code></pre></div>
+</div>
+<p>
+In this example, the options are <code class="verbatim">--host 0.0.0.0</code> and <code class="verbatim">-p 4000</code>. The argument is <code class="verbatim">start</code>. The arguments can be after, before, or among the options.</p>
+<div id="outline-container-api-options" class="outline-3">
+<h3 id="api-options">
+Options
+</h3>
+<div id="outline-text-api-options" class="outline-text-3">
+<p>
+<code>options</code> is an array of option objects. Each option in the array can have the following fields. None are required, but you should at least provide a short or long name.</p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>,
+    <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>,
+    <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show a list&#39;</span>,
+    <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// default false
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">required</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// default false
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
+  }, <span style="color:#75715e">// ... followed by more options
+</span><span style="color:#75715e"></span>];
+</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-api-arguments" class="outline-3">
+<h3 id="api-arguments">
+Arguments
+</h3>
+<div id="outline-text-api-arguments" class="outline-text-3">
+<p>
+<code>arguments</code> require less configuration. This is an optional argument to <code>opts.parse</code>:</p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#a6e22e">name</span>     <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span>,
+    <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// not required by default
+</span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
+  }
+];
+</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-api-help" class="outline-3">
+<h3 id="api-help">
+Help auto-generator
+</h3>
+<div id="outline-text-api-help" class="outline-text-3">
+<p>
+Finally, you can add an automatically generated help message by passing
+a last parameter of <code class="verbatim">true</code>. This is also an optional argument to <code>opts.parse</code>.</p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
+<span style="color:#75715e">// or if you want more control, you can do:
+</span><span style="color:#75715e"></span><span style="color:#75715e">/*
+</span><span style="color:#75715e">  options.push({
+</span><span style="color:#75715e">    long        : &#39;help&#39;,
+</span><span style="color:#75715e">    description : &#39;Show this help message&#39;,
+</span><span style="color:#75715e">    callback    : require(&#39;opts&#39;).help,
+</span><span style="color:#75715e">  }
+</span><span style="color:#75715e">  opts.parse(options);
+</span><span style="color:#75715e">*/</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-more-examples" class="outline-2">
+<h2 id="more-examples">
+More examples
+</h2>
+<div id="outline-text-more-examples" class="outline-text-2">
+<div id="outline-container-example-2" class="outline-3">
+<h3 id="example-2">
+Showcase of features and options
+</h3>
+<div id="outline-text-example-2" class="outline-text-3">
+<p>
+<a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example2.js">opts/examples/example2.js</a></p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * More complex example.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Run:
+</span><span style="color:#75715e"> *   node example2.js --help
+</span><span style="color:#75715e"> * and play with the options to see the behavior.
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * This example shows different ways of using the library. It is deliberately
+</span><span style="color:#75715e"> * inconsistent. Choose the style that suits you best.
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>)
+  , <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;localhost&#39;</span>; <span style="color:#75715e">// default host value
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;version&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
+  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;v1.0&#39;</span>); <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>); }
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;List all files&#39;</span>
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;f&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;file&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Load a file&#39;</span>
+  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  , <span style="color:#a6e22e">required</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;d&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;debug&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Set a debug level&#39;</span>
+  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;host&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;The hostname to connect to&#39;</span>
+  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>; } <span style="color:#75715e">// override host value
+</span><span style="color:#75715e"></span>  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;p&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;port&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;The port to connect to&#39;</span>
+  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+];
+
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">port</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;port&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">8000</span> <span style="color:#75715e">// default port value
+</span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;d&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;info&#39;</span>  <span style="color:#75715e">// default debug value
+</span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">file</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;f&#39;</span>)
+  , <span style="color:#a6e22e">list</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;list&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arg1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">args</span>()[<span style="color:#ae81ff">0</span>]
+  , <span style="color:#a6e22e">arg2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">args</span>()[<span style="color:#ae81ff">1</span>];
+
+
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;List arg was set&#39;</span>);
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;File arg was set: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">file</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Debug level is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">debug</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Host is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">host</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Port is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>);
+
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg1</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 1: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg1</span>);
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg2</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 2: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg2</span>);
+
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
+</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-example-3" class="outline-3">
+<h3 id="example-3">
+Conflict detection
+</h3>
+<div id="outline-text-example-3" class="outline-text-3">
+<p>
+<a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example3.js">opts/examples/example3.js</a></p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Simple example that is broken by design (conflicting options)
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Examples:
+</span><span style="color:#75715e"> *   $ node example3.js
+</span><span style="color:#75715e"> *   &gt; Conflicting flags: -v
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Be verbose&#39;</span>
+  },
+];
+
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 3&#39;</span>);
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
+</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-example-4" class="outline-3">
+<h3 id="example-4">
+Using named arguments and from within a library
+</h3>
+<div id="outline-text-example-4" class="outline-text-3">
+<p>
+<a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example4.js">opts/examples/example4.js</a></p>
+<div class="src src-javascript">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+</span><span style="color:#75715e"> * Advanced example using namespaces for a library and named arguments
+</span><span style="color:#75715e"> *
+</span><span style="color:#75715e"> * Run:
+</span><span style="color:#75715e"> *   node example4.js --help
+</span><span style="color:#75715e"> * and play with the options to see the behavior.
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>)
+  , <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;localhost&#39;</span>; <span style="color:#75715e">// default host value
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">// Example of using some library in the same app
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">libOpts</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show the library list&#39;</span>
+  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;mylib list!&#39;</span>); },
+  },
+];
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">libOpts</span>, <span style="color:#e6db74">&#39;mylib&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span> <span style="color:#75715e">// deliberately conflicting with &#39;mylib&#39; option
+</span><span style="color:#75715e"></span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;List all files&#39;</span>
+  },
+  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;d&#39;</span>
+  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;debug&#39;</span>
+  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Set a debug level&#39;</span>
+  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+  },
+];
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [ { <span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span> , <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> }
+                , { <span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;timeout&#39;</span> }
+                ];
+
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#66d9ef">true</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;d&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;info&#39;</span>  <span style="color:#75715e">// default debug value
+</span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">list</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;list&#39;</span>);
+
+<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">script</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">arg</span>(<span style="color:#e6db74">&#39;script&#39;</span>)
+  , <span style="color:#a6e22e">timeout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">arg</span>(<span style="color:#e6db74">&#39;timeout&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">30</span>;
+
+
+<span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;List arg was set&#39;</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Debug level is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">debug</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Script is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">script</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">timeout</span>);
+
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
+</code></pre></div>
+</div>
+<blockquote>
+<p>You can find the source code and all examples at Github, <a href="https://github.com/khtdr/opts">github.com/khtdr/opts</a>.</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div>
+
+      </div></div>
+  
+  <span class="post-tags">
+    
+    #<a href="https://khtdr.com/tags/javascript/">javascript</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/opts/">opts</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/command-line/">command-line</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/nodejs/">nodejs</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/tools/">tools</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/npm/">npm</a>&nbsp;
+    
+  </span>
+  
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">more posts</span>
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="https://khtdr.com/software/react-zondicons/">
+                <span class="button__icon">←</span>
+                <span class="button__text">react-zondicons</span>
+            </a>
+        </span>
+        
+        
+    </div>
+</div>
+
+
+  
+
+  
+
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2016 - 2022 <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a> <a href="/">khtdr.com</a></span>
+    
+        <span>= theme by twitter/panr =&nbsp;</span>
+        <span><a href="#top">back to top</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script src="https://khtdr.com/js/menu.js"></script>
+<script src="https://khtdr.com/js/prism.js"></script>
+
+
+
+<script type="text/javascript">
+
+var owa_baseUrl = 'https://ping.khtdr.com/owa/';
+var owa_cmds = owa_cmds || [];
+owa_cmds.push(['setSiteId', '06a48047d7fa1abf01028138ad354848']);
+owa_cmds.push(['trackPageView']);
+owa_cmds.push(['trackClicks']);
+owa_cmds.push(['trackDomStream']);
+
+(function() {
+    var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+    owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+    _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
+    var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setCookieDomain", "*.khtdr.com"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//ping.khtdr.com/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//ping.khtdr.com/matomo/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opts on KHTDR.com</title>
+    <link>https://khtdr.com/tags/opts/</link>
+    <description>Recent content in opts on KHTDR.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Aug 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://khtdr.com/tags/opts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>opts.js</title>
+      <link>https://khtdr.com/opts/</link>
+      <pubDate>Fri, 02 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://khtdr.com/opts/</guid>
+      <description>opts.js is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments,flags and options, and automatically generating a useful help message.
+Introduction to Opts.js   Why choose opts.js over something bigger and better?
+  Small : Under 10kb, uncompressed.
+  Stable : Relatively unchanged since 2010. See changelog.
+  Standalone : No package manager necessary, no compiling needed. See src/opts.js.
+  Tested : Over 5 million downloads.</description>
+    </item>
+    
+  </channel>
+</rss>
