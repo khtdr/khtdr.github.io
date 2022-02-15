@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://khtdr.com/</loc>
+    <lastmod>2022-02-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://khtdr.com/tags/css/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
   </url>
@@ -10,11 +15,6 @@
   <url>
     <loc>https://khtdr.com/notes/dark-mode-light-mode-css/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://khtdr.com/</loc>
-    <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
