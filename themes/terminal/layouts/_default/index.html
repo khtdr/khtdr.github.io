@@ -21,20 +21,6 @@
           <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
         </h1>
       </div>
-        <div class="post-more">
-        {{ if .Params.tags }}
-        <div>
-          <span class="post-tags">
-            {{ range .Params.tags }}
-            <a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
-            <span>#</span>{{- . -}}
-            </a>&nbsp;
-            {{ end }}
-          </span>
-            </div>
-        {{ end }}
-        </div>
-
         {{ if .Params.Cover }}
           <img src="{{ .Params.Cover | absURL }}" class="post-cover" alt="{{ .Title | plainify | default " " }}" />
         {{ end }}
@@ -52,6 +38,21 @@
           {{ end }}
         </div>
         </a>
+
+        <div class="post-more">
+        {{ if .Params.tags }}
+        <div>
+          <span class="post-tags">
+            {{ range .Params.tags }}
+            <a href="{{ (urlize (printf "tags/%s/" . )) | absLangURL }}">
+            <span>#</span>{{- . -}}
+            </a>&nbsp;
+            {{ end }}
+          </span>
+            </div>
+        {{ end }}
+        </div>
+
 
       </div>
     {{ end }}

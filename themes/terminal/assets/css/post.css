@@ -1,5 +1,6 @@
 .index-content {
   margin-top: 20px;
+  padding: var(--p2);
 }
 
 .framed {
@@ -22,11 +23,11 @@
 .post {
   width: 100%;
   text-align: left;
-  margin: 10px auto 30px;
+  margin: var(--p1) auto var(--p3);
   padding: 0;
-  box-shadow: 3px 3px 0 color-mod(var(--background) whiteness(90%));
+  xbox-shadow: 3px 3px 0 color-mod(var(--background) whiteness(90%));
   @media (prefers-color-scheme: dark) {
-    box-shadow: 3px 3px 0 color-mod(var(--background) contrast(0%));
+    xbox-shadow: 3px 3px 0 color-mod(var(--background) contrast(0%));
   }
 
   --border: 1px solid color-mod(var(--accent) alpha(25%));
@@ -50,10 +51,6 @@
     }
   }
 
-  @media (--tablet) {
-    max-width: 660px;
-  }
-
   &-heading {
     --border: 1px dashed color-mod(var(--background));
   @media (prefers-color-scheme: dark) {
@@ -71,14 +68,13 @@
 
   &-title {
     position: relative;
-    color: var(--accent);
     margin: 0;
 
     a {
-      padding: 0 6px 0 0;
+      padding: var(--p1) var(--p2);
       text-decoration: none;
       display: block;
-      padding: 5px;
+      color: var(--accent);
       &:hover {
         background-color:var(--accent);
         color:var(--color);
@@ -89,22 +85,21 @@
   &-tags {
     display: block;
     font-size: .8rem;
-    color: var(--secondary);
-    margin: 0;
-
-  padding: 4px 8px;
-  background:color-mod(var(--accent) blend(var(--content-bg) 95%));
-  @media (prefers-color-scheme: dark) {
-    background:color-mod(var(--accent) blend(#111 90%));
-  }
-
+    padding: 0 var(--p2);
+    margin-bottom: var(--p4);
     a {
       text-decoration: none;
       span {
-        color: var(--secondary);
+        color: color-mod(var(--secondary) blend(var(--color) 50%));
+        @media (prefers-color-scheme: dark) {
+          color: color-mod(var(--secondary) blend(var(--background) 50%));
+        }
       }
       &:hover, &:hover span {
-        background-color: var(--secondary);
+        background-color: color-mod(var(--secondary) blend(var(--color) 50%));
+        @media (prefers-color-scheme: dark) {
+          background-color: color-mod(var(--secondary) blend(var(--background) 50%));
+        }
         color: var(--background);
       }
     }
@@ -137,6 +132,7 @@
     }
   }
 }
+
 .post-more {
   display:flex;
   align-items: center;
@@ -180,7 +176,7 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
   padding: 12px;
   background:color-mod(var(--accent) blend(var(--content-bg) 95%));
   @media (prefers-color-scheme: dark) {
-    background:color-mod(var(--accent) blend(#111 90%));
+    background:color-mod(var(--accent) blend(#111 80%));
   }
   h2 {
     font-weight: 100;

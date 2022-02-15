@@ -4,8 +4,8 @@
 :root {
   --code: #2f9acb;
   --color: #222831;
-  --accent: #2f7a9b;
-  --background: #eeeeee;
+  --accent: #1f7acb;
+  --background: #ffffff;
   --border-color: #fbd46d;
   --secondary: #f95959;
   --content-bg: white;
@@ -14,9 +14,9 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --code: #f95959;
-    --background: #222831;
+    --background: #121821;
     --accent: #2f9acb;
-    --color: #ccc;
-    --content-bg: #111111;
+    --color: #f0fafc;
+    --content-bg: var(--background);
   }
 }

@@ -29,6 +29,7 @@
     }
     span {
       color: var(--background);
+      text-transform: uppercase;
       text-decoration: underline;
       text-decoration-color: color-mod(var(--secondary) blend(var(--border-color) 50%));
     }

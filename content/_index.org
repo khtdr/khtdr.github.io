@@ -1,0 +1,14 @@
+#+AUTHOR: OhKay.
+#+TITLE: Home Page
+#+DATE: 2022-02-14
+#+DESCRIPTION: About KHTDR.com
+#+LASTMOD: 2022-02-14
+#+TAGS[]:
+
+* About this website
+#+begin_center
+I hope you find something useful here.
+
+... but really, it’s just some insignificant shit that I’m saying ;)
+#+end_center
+** Most recently updated:

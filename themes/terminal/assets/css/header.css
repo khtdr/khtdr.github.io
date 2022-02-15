@@ -9,15 +9,21 @@
     background-color: color-mod(var(--color) blend(var(--border-color) 10%));
   }
   margin: 0;
-  padding: 10px;
+  padding: var(--p1);
   list-style: none;
   z-index: 99;
 }
 
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: var(--p2);
   position: relative;
+
+  @media (--phone) {
+    flex-direction: column;
+  }
 
   @media print {
     display: none;
@@ -32,7 +38,7 @@
   &__logo {
     display: flex;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
 
     a {
       flex: 0 0 auto;
@@ -50,8 +56,8 @@
 
     @media (--phone) {
       @mixin menu;
-      top: 42px;
-      right: 0px;
+      top: 60px;
+      right: var(--p2);
     }
 
     &__inner {
