@@ -2,7 +2,7 @@
 #+TITLE: Links
 #+DATE: 2020-08-13
 #+DESCRIPTION: Links to everywhere
-#+LASTMOD: 2020-08-13
+#+LASTMOD: 2022-02-12
 #+TAGS[]: javascript typescript stoicism philosophy emacs
 
 * about me
@@ -20,7 +20,6 @@
 - [[https://en.wikipedia.org/wiki/Diogenes][Diogenes of Sinope]]
 - [[https://en.wikipedia.org/wiki/Stoicism#Ethics][Stoic Ethics]]
 - [[https://en.wikipedia.org/wiki/Stoicism#Logic][Stoic Logic]]
-- [[https://www.reddit.com/r/Stoicism/][/r/Stoicism]]
 
 * javacript
 - [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference][MDN web docs]]

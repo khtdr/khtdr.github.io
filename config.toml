@@ -49,8 +49,8 @@ paginate = 50
   [languages.en]
     languageName = "English"
     title = "KHTDR.com"
-    subtitle = "escalator temporarily stairs"
-    owner = "OhKay."
+    subtitle = "that tree is far away"
+    owner = "Oh Kay."
     keywords = ""
     copyright = ""
     menuMore = "more"
@@ -61,7 +61,7 @@ paginate = 50
 
     [languages.en.params.logo]
       logoText = "KHTDR"
-      tagline= "escalator temporarily stairs"
+      tagline= "that tree is far away"
       logoHomeLink = "/"
 
     [languages.en.menu]
