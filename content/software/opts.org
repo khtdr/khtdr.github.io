@@ -19,7 +19,7 @@ Why choose ~opts.js~ over something bigger and better?
 - *Small :* Under 10kb, /uncompressed/.
 - *Stable :* Relatively unchanged since 2010. See [[https://github.com/khtdr/opts/blob/master/CHANGES.org][changelog]].
 - *Standalone :* No package manager necessary, no compiling needed. See [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js][src/opts.js]].
-- *Tested :* Over *5 million* downloads. See [[https://www.npmjs.com/package/opts][npm/opts]].
+- *Tested :* /Millions/ of downloads per year. See [[https://www.npmjs.com/package/opts][npm/opts]].
 
 
 ** Quick-Start example

@@ -196,11 +196,11 @@ chmod &#43;x ./example.pb ./example.pb in Bash in PHP back to Bash  You can mix 
   
 
   <div class="post-content"><div>
-        <p><!-- raw HTML omitted --></p>
+        <!-- raw HTML omitted -->
 <h1 id="pageboy">pageboy<a href="#pageboy" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>Write your shell scripts in any combination of scripting languages.</p>
 <p><strong>Example Script</strong> <code>example.pb</code></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
 </span><span style="color:#75715e"></span>echo in Bash
 $PAGE php
 echo back to Bash
@@ -208,7 +208,7 @@ echo back to Bash
 <span style="color:#75715e">#!/usr/bin/env php</span>
 &lt;?php echo <span style="color:#e6db74">&#34;in PHP\n&#34;</span>;
 </code></pre></div><p>Running the following, produces:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x ./example.pb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chmod +x ./example.pb
 ./example.pb
 </code></pre></div><pre><code>in Bash
 in PHP
@@ -216,7 +216,7 @@ back to Bash
 </code></pre>
 <p>You can mix and match all you want. If your script uses valid <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebangs</a>, it will work. If it doesn&rsquo;t, it&rsquo;s a bug and <a href="https://github.com/khtdr/pageboy/issues">please let me know</a>. It also supports the (not quite right) awk shebang: <code>#!/usr/bin/env awk</code>.</p>
 <h4 id="tests-suite-status">tests suite status:<a href="#tests-suite-status" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./run-tests.sh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./run-tests.sh
 </code></pre></div><pre><code>pageboy-v2.1.3
     ./pageboy-test            # runs as pageboy script
     ./pageboy-test -r &lt;page&gt;  # runs requested page
@@ -247,7 +247,7 @@ https://github.com/khtdr/pageboy
 <li>Start using <code>#!/usr/bin/env pageboy</code> as your shebang line in your bash scripts.</li>
 <li>Call other &ldquo;pages&rdquo; of your script by using the pre-defined <code>$PAGE</code> command in your scripts.</li>
 </ol>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
 </span><span style="color:#75715e"></span>$PAGE php | wc
 
 <span style="color:#75715e">#!/usr/bin/env php</span>
@@ -256,7 +256,7 @@ phpinfo<span style="color:#f92672">()</span>;
 </code></pre></div><pre><code> 934    3524   29671
 </code></pre>
 <p>If you want multiple pages of the same language, append an index, starting at 1, to the pagename.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
 </span><span style="color:#75715e"></span>cat &lt;<span style="color:#f92672">(</span>$PAGE php1<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE php2<span style="color:#f92672">)</span>
 
 <span style="color:#75715e">#!/usr/bin/env php</span>
@@ -267,14 +267,14 @@ phpinfo<span style="color:#f92672">()</span>;
 </code></pre></div><pre><code>onetwo
 </code></pre>
 <p>You can distribute a version of your script without the dependency on <code>pageboy</code> by compiling it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># copy above into `onetwo.pb`</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># copy above into `onetwo.pb`</span>
 onetwo.pb -c &gt; onetwo.sh
 chmod +x ./onetwo.sh
 ./onetwo.sh
 </code></pre></div><pre><code>onetwo
 </code></pre>
 <p><strong>Big Example</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#!/usr/bin/env pageboy
 </span><span style="color:#75715e"></span>cat &lt;<span style="color:#f92672">(</span>$PAGE php<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE ruby<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE bash1<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE bash2<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE php2<span style="color:#f92672">)</span>
 
 <span style="color:#75715e">#!/usr/bin/env php</span>
@@ -323,7 +323,7 @@ ITERM_SESSION_ID=w0t0p0
 /home/khtdr/
 </code></pre>
 <h2 id="standard-features">standard features<a href="#standard-features" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pageboy -h
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">pageboy -h
 </code></pre></div><pre><code>pageboy-v2.1.3
     pageboy            # runs as pageboy script
     pageboy -r &lt;page&gt;  # runs requested page

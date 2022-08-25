@@ -231,12 +231,8 @@ Planning a solution
 <p>
 You will want to be able to:</p>
 <ul>
-<li>
-<p>serve static files</p>
-</li>
-<li>
-<p>refresh the page whenever a file changes</p>
-</li>
+<li>serve static files</li>
+<li>refresh the page whenever a file changes</li>
 </ul>
 <p>For serving static files, there are many options to choose. The best choice will be the one that allows you to solve the &#34;refresh&#34; problem easiest.</p>
 <p>
@@ -244,15 +240,9 @@ But how can you <strong>refresh the page when a file changes</strong>? Your brow
 <p>
 You will need to:</p>
 <ol>
-<li>
-<p>detect when a file changes</p>
-</li>
-<li>
-<p>send a signal from the server to the web browser</p>
-</li>
-<li>
-<p>trigger a refresh on the page</p>
-</li>
+<li>detect when a file changes</li>
+<li>send a signal from the server to the web browser</li>
+<li>trigger a refresh on the page</li>
 </ol>
 <p>Simple enough :)</p>
 </div>
@@ -270,7 +260,7 @@ Building the web server
 <p>
 <a href="https://expressjs.com/">Express.js</a> has a built-in solution for serving static files. And Node.js already has the http server. Start by creating a project directory and installing the first dependency.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ./live-reload-server
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">mkdir ./live-reload-server
 cd ./live-reload-server
 npm init -y
 npm install express</code></pre></div>
@@ -278,25 +268,24 @@ npm install express</code></pre></div>
 <p>
 This HTTP server will listen on port 8080 and serves files found in the same directory.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
 <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">use</span>(<span style="color:#a6e22e">express</span>.<span style="color:#66d9ef">static</span>(<span style="color:#a6e22e">__dirname</span>));
 
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">http</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;http&#39;</span>).<span style="color:#a6e22e">Server</span>(<span style="color:#a6e22e">app</span>);
-<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);
-</code></pre></div>
+<span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">listen</span>(<span style="color:#ae81ff">8080</span>);</code></pre></div>
 </div>
 <p>
 Save the code above to a file named <code class="verbatim">./server.js</code> and run it:</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node server.js</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node server.js</code></pre></div>
 </div>
 <p>
 You can verify it is working by opening a browser and going to <a href="https://localhost:8080/server.js.">https://localhost:8080/server.js.</a> You will see your code that is running. Now, create a minimal webpage with a reference to a stylesheet.</p>
 <p>
 Create the HTML and save it to <code class="verbatim">./index.html</code></p>
 <div class="src src-html">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
 &lt;<span style="color:#f92672">html</span>&gt;
   &lt;<span style="color:#f92672">head</span>&gt;
     &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;stylesheet&#39;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;/theme.css&#39;</span> /&gt;
@@ -309,7 +298,7 @@ Create the HTML and save it to <code class="verbatim">./index.html</code></p>
 <p>
 and the CSS…</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;body { background-color:yellow }&#34;</span> &gt; ./theme.css</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">echo <span style="color:#e6db74">&#34;body { background-color:yellow }&#34;</span> &gt; ./theme.css</code></pre></div>
 </div>
 <p>
 Make sure the server is running, and go to <a href="https://localhost:8080.">https://localhost:8080.</a> You will see a yellow page with your greeting. So far, so good!</p>
@@ -330,17 +319,16 @@ The recursive option is only supported on OS X and Windows.</p>
 <p>
 Luckily(?) for you, this is good enough to get started. You will still need to signal to the browser when a change is detected, and for that you can use <a href="https://socket.io/">Socket.io</a>.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install socket.io socket.io-client</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install socket.io socket.io-client</code></pre></div>
 </div>
 <p>
 The code is straight forward: watch the working directory for changes and emit an event with Socket.io.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">fs</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;fs&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">io</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;socket.io&#39;</span>)(<span style="color:#a6e22e">http</span>);
 <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">watch</span>(<span style="color:#a6e22e">__dirname</span>, { <span style="color:#a6e22e">recursive</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span> }, <span style="color:#66d9ef">function</span> () {
   <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#39;file-change-event&#39;</span>);
-});
-</code></pre></div>
+});</code></pre></div>
 </div>
 <p>
 The Socket.io server can be started various ways. Here it is given the HTTP server from the previous step.</p>
@@ -351,7 +339,7 @@ For obviously obvious reasons, you don&#39;t want to add the javascript to <em>e
 <p>
 So what is this &#34;listening code&#34; that needs to be on every HTML page?</p>
 <div class="src src-html">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/node_modules/socket.io-client/dist/socket.io.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/node_modules/socket.io-client/dist/socket.io.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span>&gt;
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">socket</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">io</span>();
   <span style="color:#a6e22e">socket</span>.<span style="color:#a6e22e">on</span>(<span style="color:#e6db74">&#34;file-change-event&#34;</span>, <span style="color:#66d9ef">function</span> () {
@@ -366,7 +354,7 @@ Now you need to serve that snippet of javascript along with every HTML page. Bac
 <p>
 Write a <code class="verbatim">GET</code> handler that intercepts requests for HTML pages and appends the &#34;listening code&#34; to the page.</p>
 <div class="src src-html">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">app.get(&#39;/index.html&#39;, function (_, res) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">app.get(&#39;/index.html&#39;, function (_, res) {
   fs.readFile(__dirname + &#39;/index.html&#39;, function (_, data) {
     res.send(data
     + &#39;&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/node_modules/socket.io-client/dist/socket.io.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;&#39;
@@ -387,24 +375,22 @@ When a request ends in a slash, take care to append <code class="verbatim">index
 <p>
 Change:</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/index.html&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">res</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;/index.html&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">res</span>) {
   <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#a6e22e">__dirname</span> <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;/index.html&#39;</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">data</span>) {
     <span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>  });
-});
-</code></pre></div>
+});</code></pre></div>
 </div>
 <p>
 to:</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>([<span style="color:#e6db74">/\/$/</span>, <span style="color:#e6db74">/.*\.html$/</span>], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>([<span style="color:#e6db74">/\/$/</span>, <span style="color:#e6db74">/.*\.html$/</span>], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">__dirname</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">path</span>;
   <span style="color:#a6e22e">filename</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">filename</span>.<span style="color:#a6e22e">endsWith</span>(<span style="color:#e6db74">&#39;/&#39;</span>)<span style="color:#f92672">?</span> <span style="color:#e6db74">&#39;index.html&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;&#39;</span>;
   <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">readFile</span>(<span style="color:#a6e22e">filename</span>, <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">data</span>) {
     <span style="color:#75715e">//...
 </span><span style="color:#75715e"></span>  });
-});
-</code></pre></div>
+});</code></pre></div>
 </div>
 </div>
 </div>
@@ -417,7 +403,7 @@ Final result, copy+paste and start hacking
 <div id="outline-text-headline-7" class="outline-text-2">
 <p>Now, <strong>putting it all together!</strong></p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">express</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;express&#39;</span>);
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">app</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">express</span>();
 <span style="color:#a6e22e">app</span>.<span style="color:#a6e22e">get</span>([<span style="color:#e6db74">/\/$/</span>, <span style="color:#e6db74">/.*\.html$/</span>], <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">filename</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">__dirname</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">path</span>;
@@ -443,8 +429,7 @@ Final result, copy+paste and start hacking
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">io</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;socket.io&#39;</span>)(<span style="color:#a6e22e">http</span>);
 <span style="color:#a6e22e">fs</span>.<span style="color:#a6e22e">watch</span>(<span style="color:#a6e22e">__dirname</span>, { <span style="color:#a6e22e">recursive</span><span style="color:#f92672">:</span><span style="color:#66d9ef">true</span> }, <span style="color:#66d9ef">function</span> () {
   <span style="color:#a6e22e">io</span>.<span style="color:#a6e22e">emit</span>(<span style="color:#e6db74">&#39;file-change-event&#39;</span>);
-});
-</code></pre></div>
+});</code></pre></div>
 </div>
 <p>
 <em>That&#39;s it!</em></p>

@@ -6,11 +6,7 @@
     <description>Recent content in Home Page on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://khtdr.com/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 14 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://khtdr.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dark-Mode Light-Mode Css</title>
       <link>https://khtdr.com/notes/dark-mode-light-mode-css/</link>
@@ -64,17 +60,7 @@ import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; Or if you are not usin
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://khtdr.com/links/</guid>
-      <description>about me    github/khtdr
-    typescript    advanced types
-  utility types
-    emacs    doom emacs
-  orgmode.org
-    philosophy    Diogenes of Sinope
-  Stoic Ethics
-  Stoic Logic
-    javacript    MDN web docs
-  babel repl
-  npm package lookup</description>
+      <description> about me   github/khtdr    typescript   advanced types utility types    emacs   doom emacs orgmode.org    philosophy   Diogenes of Sinope Stoic Ethics Stoic Logic    javacript   MDN web docs babel repl npm package lookup    todo   virtual machines    </description>
     </item>
     
     <item>
@@ -85,10 +71,7 @@ import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; Or if you are not usin
       <guid>https://khtdr.com/opts/</guid>
       <description>opts.js is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments,flags and options, and automatically generating a useful help message.
 Introduction to Opts.js   Why choose opts.js over something bigger and better?
-  Small : Under 10kb, uncompressed.
-  Stable : Relatively unchanged since 2010. See changelog.
-  Standalone : No package manager necessary, no compiling needed. See src/opts.js.
-  Tested : Over 5 million downloads.</description>
+ Small : Under 10kb, uncompressed. Stable : Relatively unchanged since 2010. See changelog. Standalone : No package manager necessary, no compiling needed. See src/opts.js. Tested : Millions of downloads per year.</description>
     </item>
     
     <item>
@@ -98,12 +81,8 @@ Introduction to Opts.js   Why choose opts.js over something bigger and better?
       
       <guid>https://khtdr.com/tutorials/tailwind-css-dev-server/</guid>
       <description>Simple quick way to get started learning and playing with Tailwind CSS
-  Example output while running dev-server, shown here: Features    No &amp;#34;transpiling&amp;#34; configuration is needed (or used).
-  No build tools need to be set up.
-  Tiny reactive web server: ~115 lines of code with lots of comments.
-  Minimal dependencies:
-  chalk for color,
-  socket.io for server &amp;lt;-&amp;gt; browser communication,</description>
+  Example output while running dev-server, shown here: Features   No &amp;#34;transpiling&amp;#34; configuration is needed (or used). No build tools need to be set up. Tiny reactive web server: ~115 lines of code with lots of comments.  Minimal dependencies:
+ chalk for color, socket.io for server &amp;lt;-&amp;gt; browser communication, and tailwindcss of course.      Installation  Clone the GIT repository, and install the dependencies.</description>
     </item>
     
     <item>

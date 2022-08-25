@@ -6,11 +6,7 @@
     <description>Recent content in react on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Aug 2020 17:17:45 -0600</lastBuildDate>
-    
-	<atom:link href="https://khtdr.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Fri, 14 Aug 2020 17:17:45 -0600</lastBuildDate><atom:link href="https://khtdr.com/tags/react/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>react-zondicons</title>
       <link>https://khtdr.com/software/react-zondicons/</link>

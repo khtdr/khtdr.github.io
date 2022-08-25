@@ -25,15 +25,11 @@
   text-align: left;
   margin: var(--p1) auto var(--p3);
   padding: 0;
-  xbox-shadow: 3px 3px 0 color-mod(var(--background) whiteness(90%));
-  @media (prefers-color-scheme: dark) {
-    xbox-shadow: 3px 3px 0 color-mod(var(--background) contrast(0%));
-  }
-
-  --border: 1px solid color-mod(var(--accent) alpha(25%));
-  border-top: var(--border);
+  border: solid 1px black;
+  border-color: color-mod(black blend(var(--color) 50%));
 
   background-color: var(--content-bg);
+  background-color: color-mod(black blend(var(--color) 50%));
   &.on-list {
     .post-content {
       margin: 10px 20px;
@@ -52,12 +48,8 @@
   }
 
   &-heading {
-    --border: 1px dashed color-mod(var(--background));
-  @media (prefers-color-scheme: dark) {
-    --border: 1px dashed color-mod(var(--color));
-  }
-    border-bottom: var(--border);
-    background-color:color-mod(var(--accent) alpha(10%));
+    background-color: inherit;
+    border: none;
   }
 
   &-meta {
@@ -76,15 +68,14 @@
       display: block;
       color: var(--accent);
       &:hover {
-        background-color:var(--accent);
-        color:var(--color);
+        color: var(--color);
       }
     }
   }
 
   &-tags {
     display: block;
-    font-size: .8rem;
+    font-size: 0.8rem;
     padding: 0 var(--p2);
     margin-bottom: var(--p4);
     a {
@@ -95,7 +86,8 @@
           color: color-mod(var(--secondary) blend(var(--background) 50%));
         }
       }
-      &:hover, &:hover span {
+      &:hover,
+      &:hover span {
         background-color: color-mod(var(--secondary) blend(var(--color) 50%));
         @media (prefers-color-scheme: dark) {
           background-color: color-mod(var(--secondary) blend(var(--background) 50%));
@@ -125,7 +117,7 @@
     list-style: none;
 
     li:not(:empty):before {
-      content: '-';
+      content: "-";
       position: absolute;
       left: -20px;
       color: var(--accent);
@@ -134,11 +126,10 @@
 }
 
 .post-more {
-  display:flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
 
 .post--regulation {
   h1 {
@@ -163,7 +154,10 @@
   visibility: hidden;
 }
 
-h1:hover a, h2:hover a, h3:hover a, h4:hover a {
+h1:hover a,
+h2:hover a,
+h3:hover a,
+h4:hover a {
   visibility: visible;
 }
 
@@ -174,9 +168,9 @@ h1:hover a, h2:hover a, h3:hover a, h4:hover a {
 .table-of-contents {
   margin: 0;
   padding: 12px;
-  background:color-mod(var(--accent) blend(var(--content-bg) 95%));
+  background: color-mod(var(--accent) blend(var(--content-bg) 95%));
   @media (prefers-color-scheme: dark) {
-    background:color-mod(var(--accent) blend(#111 80%));
+    background: color-mod(var(--accent) blend(#111 80%));
   }
   h2 {
     font-weight: 100;

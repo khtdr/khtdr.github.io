@@ -8,10 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="opts.js is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments,flags and options, and automatically generating a useful help message.
 Introduction to Opts.js   Why choose opts.js over something bigger and better?
-  Small : Under 10kb, uncompressed.
-  Stable : Relatively unchanged since 2010. See changelog.
-  Standalone : No package manager necessary, no compiling needed. See src/opts.js.
-  Tested : Over 5 million downloads." />
+ Small : Under 10kb, uncompressed. Stable : Relatively unchanged since 2010. See changelog. Standalone : No package manager necessary, no compiling needed. See src/opts.js. Tested : Millions of downloads per year." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://khtdr.com/opts/" />
@@ -237,18 +234,10 @@ Introduction to Opts.js
 <p>
 Why choose <code>opts.js</code> over something bigger and better?</p>
 <ul>
-<li>
-<p><strong>Small :</strong> Under 10kb, <em>uncompressed</em>.</p>
-</li>
-<li>
-<p><strong>Stable :</strong> Relatively unchanged since 2010. See <a href="https://github.com/khtdr/opts/blob/master/CHANGES.org">changelog</a>.</p>
-</li>
-<li>
-<p><strong>Standalone :</strong> No package manager necessary, no compiling needed. See <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">src/opts.js</a>.</p>
-</li>
-<li>
-<p><strong>Tested :</strong> Over <strong>5 million</strong> downloads. See <a href="https://www.npmjs.com/package/opts">npm/opts</a>.</p>
-</li>
+<li><strong>Small :</strong> Under 10kb, <em>uncompressed</em>.</li>
+<li><strong>Stable :</strong> Relatively unchanged since 2010. See <a href="https://github.com/khtdr/opts/blob/master/CHANGES.org">changelog</a>.</li>
+<li><strong>Standalone :</strong> No package manager necessary, no compiling needed. See <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">src/opts.js</a>.</li>
+<li><strong>Tested :</strong> <em>Millions</em> of downloads per year. See <a href="https://www.npmjs.com/package/opts">npm/opts</a>.</li>
 </ul>
 <div id="outline-container-example-1" class="outline-3">
 <h3 id="example-1">
@@ -260,7 +249,7 @@ The following example set up a custom &#34;version&#34; function, and opts in to
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example1.js">opts/examples/example1.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
 
 <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
   { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
@@ -272,17 +261,16 @@ The following example set up a custom &#34;version&#34; function, and opts in to
 
 <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 1&#39;</span>);
-<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
-</code></pre></div>
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</code></pre></div>
 </div>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1</code></pre></div>
 </div>
 <pre class="example">
 Example 1
 </pre>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1 --help</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./example1 --help</code></pre></div>
 </div>
 <pre class="example">
 Usage: node ./example1 [options]
@@ -292,7 +280,7 @@ Show version and exit
    -v, --version
 </pre>
 <div class="src src-sh">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">node ./example1 -v</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">node ./example1 -v</code></pre></div>
 </div>
 <pre class="example">
 v1.0
@@ -317,7 +305,7 @@ No NPM dependencies are required
 <p>
 To use <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">opts.js</a>, you <em>do not</em> need to use NPM or any package manager. It is written in plain-old Javascript, and can be downloaded and included in your Node.js project as-is. All of <a href="https://github.com/khtdr/opts/tree/master/examples">the examples</a> use this approach.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /path/to/your/project
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd /path/to/your/project
 curl -o opts.js https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js</code></pre></div>
 </div>
 </div>
@@ -330,7 +318,7 @@ Typescript and NPM packages for convenience
 <p>
 If you are using NPM in your project, you can install it using the name <code class="verbatim">opts</code>.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install opts</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">npm install opts</code></pre></div>
 </div>
 </div>
 </div>
@@ -344,17 +332,15 @@ Basic usage and setup
 <p>
 To use, import the library and call <code class="verbatim">opts.parse</code> with your configurations. The various types of configurations are covered further down.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
-<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);</code></pre></div>
 </div>
 <div class="center-block" style="text-align: center; margin-left: auto; margin-right: auto;">
 <p><em>or with the more modern syntax</em></p>
 </div>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">opts</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;opts&#39;</span>;
-<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);
-</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">opts</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;opts&#39;</span>;
+<span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);</code></pre></div>
 </div>
 <p>
 If you installed <code>opts</code> with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts">definition (.d.ts) file here</a>.</p>
@@ -370,7 +356,7 @@ API configurations
 <p>
 Options are flag-arguments. Arguments are everything else. Consider the following hypothetical command for starting a server that listens on <a href="http://0.0.0.0:4000">http://0.0.0.0:4000</a></p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./my-app start --host 0.0.0.0 -p <span style="color:#ae81ff">4000</span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">node ./my-app start --host 0.0.0.0 -p <span style="color:#ae81ff">4000</span></code></pre></div>
 </div>
 <p>
 In this example, the options are <code class="verbatim">--host 0.0.0.0</code> and <code class="verbatim">-p 4000</code>. The argument is <code class="verbatim">start</code>. The arguments can be after, before, or among the options.</p>
@@ -382,7 +368,7 @@ Options
 <p>
 <code>options</code> is an array of option objects. Each option in the array can have the following fields. None are required, but you should at least provide a short or long name.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
   { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>,
     <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>,
     <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show a list&#39;</span>,
@@ -390,8 +376,7 @@ Options
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">required</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// default false
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
   }, <span style="color:#75715e">// ... followed by more options
-</span><span style="color:#75715e"></span>];
-</code></pre></div>
+</span><span style="color:#75715e"></span>];</code></pre></div>
 </div>
 </div>
 </div>
@@ -403,13 +388,12 @@ Arguments
 <p>
 <code>arguments</code> require less configuration. This is an optional argument to <code>opts.parse</code>:</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [
   { <span style="color:#a6e22e">name</span>     <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span>,
     <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// not required by default
 </span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
   }
-];
-</code></pre></div>
+];</code></pre></div>
 </div>
 </div>
 </div>
@@ -422,7 +406,7 @@ Help auto-generator
 Finally, you can add an automatically generated help message by passing
 a last parameter of <code class="verbatim">true</code>. This is also an optional argument to <code>opts.parse</code>.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
 <span style="color:#75715e">// or if you want more control, you can do:
 </span><span style="color:#75715e"></span><span style="color:#75715e">/*
 </span><span style="color:#75715e">  options.push({
@@ -431,8 +415,7 @@ a last parameter of <code class="verbatim">true</code>. This is also an optional
 </span><span style="color:#75715e">    callback    : require(&#39;opts&#39;).help,
 </span><span style="color:#75715e">  }
 </span><span style="color:#75715e">  opts.parse(options);
-</span><span style="color:#75715e">*/</span>
-</code></pre></div>
+</span><span style="color:#75715e">*/</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -451,7 +434,7 @@ Showcase of features and options
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example2.js">opts/examples/example2.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * More complex example.
 </span><span style="color:#75715e"> *
 </span><span style="color:#75715e"> * Run:
@@ -519,8 +502,7 @@ Showcase of features and options
 <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg1</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 1: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg1</span>);
 <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg2</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 2: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg2</span>);
 
-<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
-</code></pre></div>
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</code></pre></div>
 </div>
 </div>
 </div>
@@ -532,7 +514,7 @@ Conflict detection
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example3.js">opts/examples/example3.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * Simple example that is broken by design (conflicting options)
 </span><span style="color:#75715e"> *
 </span><span style="color:#75715e"> * Examples:
@@ -553,8 +535,7 @@ Conflict detection
 
 <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 3&#39;</span>);
-<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
-</code></pre></div>
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</code></pre></div>
 </div>
 </div>
 </div>
@@ -566,7 +547,7 @@ Using named arguments and from within a library
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example4.js">opts/examples/example4.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">/**
 </span><span style="color:#75715e"> * Advanced example using namespaces for a library and named arguments
 </span><span style="color:#75715e"> *
 </span><span style="color:#75715e"> * Run:
@@ -617,8 +598,7 @@ Using named arguments and from within a library
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Script is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">script</span>);
 <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">timeout</span>);
 
-<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);
-</code></pre></div>
+<span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</code></pre></div>
 </div>
 <blockquote>
 <p>You can find the source code and all examples at Github, <a href="https://github.com/khtdr/opts">github.com/khtdr/opts</a>.</p>

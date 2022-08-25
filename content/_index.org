@@ -7,8 +7,7 @@
 
 * About this website
 #+begin_center
-I hope you find something useful here.
-
-... but really, it’s just some insignificant shit that I’m saying ;)
+I hope you find something useful among the insignificant shit.
 #+end_center
-** Most recently updated:
+
+*** Start here

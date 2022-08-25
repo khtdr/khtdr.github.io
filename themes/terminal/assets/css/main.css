@@ -11,8 +11,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
-  font-size: 0.88rem;
+  font-family: "Fira Code", Monaco, Consolas, Ubuntu Mono, monospace;
+  font-size: 1rem;
   line-height: 1.5;
   letter-spacing: -0.02em;
   background-color: var(--background);
@@ -153,16 +153,18 @@ figure {
   }
 }
 
-code, kbd {
-  font-family: 'Fira Code', Monaco, Consolas, Ubuntu Mono, monospace;
+code,
+kbd {
+  font-family: "Fira Code", Monaco, Consolas, Ubuntu Mono, monospace;
   font-feature-settings: normal;
   background: color-mod(var(--accent) a(20%));
   color: var(--accent);
   padding: 1px 6px;
   margin: 0 2px;
-  font-size: .95rem;
+  font-size: 0.95rem;
 
-  code, kbd {
+  code,
+  kbd {
     background: transparent;
     padding: 0;
     margin: 0;
@@ -173,10 +175,10 @@ pre {
   xbackground: var(--background);
   padding: 20px 10px;
   margin: 40px 0;
-  font-size: .95rem;
+  font-size: 0.95rem;
   overflow: auto;
-  border-top: 1px solid rgba(255, 255, 255, .1);
-  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
   + pre {
     border-top: 0;
@@ -225,7 +227,7 @@ blockquote {
   }
 
   p:first-of-type:before {
-    content: '>';
+    content: ">";
     display: block;
     position: absolute;
     left: -20px;
@@ -241,11 +243,11 @@ blockquote {
     padding-top: 60px;
 
     p:before {
-      content: '';
+      content: "";
     }
 
     &:before {
-      content: '> From Twitter:';
+      content: "> From Twitter:";
       position: absolute;
       top: 20px;
       color: var(--accent);
@@ -321,6 +323,7 @@ mark {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 800px;
 
   &.full,
   &.center {

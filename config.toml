@@ -86,3 +86,6 @@ paginate = 50
         name = "tutorials"
         url = "/tutorials"
 
+[security]
+	[security.exec]
+		allow = ['^go$', '^npx$', '^postcss$', '^babel$']

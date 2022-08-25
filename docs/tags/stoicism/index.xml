@@ -6,28 +6,14 @@
     <description>Recent content in stoicism on KHTDR.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://khtdr.com/tags/stoicism/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 13 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://khtdr.com/tags/stoicism/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Links</title>
       <link>https://khtdr.com/links/</link>
       <pubDate>Thu, 13 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://khtdr.com/links/</guid>
-      <description>about me    github/khtdr
-    typescript    advanced types
-  utility types
-    emacs    doom emacs
-  orgmode.org
-    philosophy    Diogenes of Sinope
-  Stoic Ethics
-  Stoic Logic
-    javacript    MDN web docs
-  babel repl
-  npm package lookup</description>
+      <description> about me   github/khtdr    typescript   advanced types utility types    emacs   doom emacs orgmode.org    philosophy   Diogenes of Sinope Stoic Ethics Stoic Logic    javacript   MDN web docs babel repl npm package lookup    todo   virtual machines    </description>
     </item>
     
   </channel>

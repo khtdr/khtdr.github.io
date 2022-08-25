@@ -7,12 +7,8 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Simple quick way to get started learning and playing with Tailwind CSS
-  Example output while running dev-server, shown here: Features    No &amp;#34;transpiling&amp;#34; configuration is needed (or used).
-  No build tools need to be set up.
-  Tiny reactive web server: ~115 lines of code with lots of comments.
-  Minimal dependencies:
-  chalk for color,
-  socket.io for server &amp;lt;-&amp;gt; browser communication," />
+  Example output while running dev-server, shown here: Features   No &amp;#34;transpiling&amp;#34; configuration is needed (or used). No build tools need to be set up. Tiny reactive web server: ~115 lines of code with lots of comments.  Minimal dependencies:
+ chalk for color, socket.io for server &amp;lt;-&amp;gt; browser communication, and tailwindcss of course.      Installation  Clone the GIT repository, and install the dependencies." />
 <meta name="keywords" content="" />
 <meta name="robots" content="noodp" />
 <link rel="canonical" href="https://khtdr.com/tutorials/tailwind-css-dev-server/" />
@@ -213,27 +209,15 @@ Features
 </h2>
 <div id="outline-text-headline-1" class="outline-text-2">
 <ul>
-<li>
-<p>No &#34;transpiling&#34; configuration is needed (or used).</p>
-</li>
-<li>
-<p>No build tools need to be set up.</p>
-</li>
-<li>
-<p>Tiny reactive web server: ~115 lines of code with lots of comments.</p>
-</li>
+<li>No &#34;transpiling&#34; configuration is needed (or used).</li>
+<li>No build tools need to be set up.</li>
+<li>Tiny reactive web server: ~115 lines of code with lots of comments.</li>
 <li>
 <p>Minimal dependencies:</p>
 <ul>
-<li>
-<p><code class="verbatim">chalk</code> for color,</p>
-</li>
-<li>
-<p><code class="verbatim">socket.io</code> for <strong>server</strong> &lt;-&gt; <strong>browser</strong> communication,</p>
-</li>
-<li>
-<p>and <code class="verbatim">tailwindcss</code> of course.</p>
-</li>
+<li><code class="verbatim">chalk</code> for color,</li>
+<li><code class="verbatim">socket.io</code> for <strong>server</strong> &lt;-&gt; <strong>browser</strong> communication,</li>
+<li>and <code class="verbatim">tailwindcss</code> of course.</li>
 </ul>
 </li>
 </ul>
@@ -246,7 +230,7 @@ Installation
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>Clone the GIT repository, and install the dependencies.</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/khtdr/tailwind-dev-server.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/khtdr/tailwind-dev-server.git
 cd tailwind-dev-server
 yarn</code></pre></div>
 </div>
@@ -258,7 +242,7 @@ Running
 </h2>
 <div id="outline-text-headline-3" class="outline-text-2">
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yarn start</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yarn start</code></pre></div>
 </div>
 <p>
 Then open your browser to: <a href="http://localhost:8080">http://localhost:8080</a></p>
@@ -272,15 +256,9 @@ Development
 <p>
 Edit any of the following entry point files:</p>
 <ul>
-<li>
-<p><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/index.html">./index.html</a></p>
-</li>
-<li>
-<p><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/style.css">./style.css</a></p>
-</li>
-<li>
-<p><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/tailwind.js">./tailwind.js</a></p>
-</li>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/index.html">./index.html</a></li>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/style.css">./style.css</a></li>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/tailwind.js">./tailwind.js</a></li>
 </ul>
 <p>Changes will be recompiled and automatically refreshed in your browser. Errors will be displayed in the server output.</p>
 <p>
@@ -294,7 +272,7 @@ Building
 <div id="outline-text-headline-5" class="outline-text-2">
 <p>If you like what you see and want to save it and use it, run:</p>
 <div class="src src-bash">
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yarn build</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">yarn build</code></pre></div>
 </div>
 <p>
 And now you can use your newly-built <code class="verbatim">./tailwind-bundle.css</code> stylesheet however you like.</p>

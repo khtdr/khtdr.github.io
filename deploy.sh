@@ -15,4 +15,3 @@ git commit -m "$msg"
 git push
 
 printf "\033[0;32mDone!\033[0m\n"
-cd -
