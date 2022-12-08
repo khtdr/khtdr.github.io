@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>treeify-paths :: KHTDR.com</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Introduction Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.
+Provide a list of file names:
+blog/all.html blog/2036/overflows.html And recieve a directory-like tree:
+blog all.html 2036 overflows.html Installation Install it with NPM:
+npm install --save treeify-paths Import with modern syntax:
+import treeifyPaths from &amp;#39;treeify-paths&amp;#39;; Or if you are not using NPM, install the library by downloading the source file directly and including it in your project:" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://khtdr.com/code/treeify-paths/" />
+
+
+
+
+
+
+
+<link rel="stylesheet" href="https://khtdr.com/css/style.min.css">
+
+
+  
+  
+  <link rel="stylesheet" href="https://khtdr.com/css/color/khtdr.min.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://khtdr.com/img/apple-touch-icon-144-precomposed.png">
+
+  <link rel="shortcut icon" href="https://khtdr.com/favicon.ico">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="OhKay." />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="treeify-paths :: KHTDR.com">
+<meta property="og:description" content="Converts a list of paths into a directory-like tree structure" />
+<meta property="og:url" content="https://khtdr.com/code/treeify-paths/" />
+<meta property="og:site_name" content="treeify-paths" />
+
+  
+    <meta property="og:image" content="https://khtdr.com/favicon.ico">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2020-08-14 18:46:11 -0600 MDT" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="khtdr">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+      <strong>
+    KHTDR
+      </strong>
+      <span>
+    that tree is far away
+      </span>
+  </div>
+</a>
+
+    </div>
+    <div class="menu-trigger">menu</div>
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/code">code</a></li>
+        
+      
+        
+          <li><a href="/text">text</a></li>
+        
+      
+      
+    
+          <li><a href="/index.xml">
+    <svg height="14" width="14" fill="currentColor" xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Capa_1' x='0px' y='0px' viewBox='0 0 331.947 331.947' style='enable-background:new 0 0 331.947 331.947;' xml:space='preserve'> <g> <g> <circle cx='46.507' cy='285.333' r='46.507'/> </g> </g> <g> <g> <g> <path d='M0,120.64v60.373c83.307,0,150.827,67.627,150.827,150.827H211.2C211.2,215.253,116.587,120.64,0,120.64z'/> <path d='M0,0v60.373c149.973,0,271.573,121.6,271.573,271.573h60.373C331.84,148.587,183.253,0,0,0z'/> </g> </g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> <g> </g> </svg>
+          </a></li>
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/code">code</a></li>
+      
+    
+      
+        <li><a href="/text">text</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <div class="post-heading">
+    <h1 class="post-title">
+        <a href="https://khtdr.com/code/treeify-paths/">treeify-paths</a>
+    </h1>
+  </div>
+
+  
+
+  
+    <div class="table-of-contents">
+      <h2>
+        
+          Table of Contents
+        
+      </h2>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#installation">Installation</a></li>
+    <li><a href="#example-usage">Example Usage</a></li>
+    <li><a href="#testing">Testing</a></li>
+  </ul>
+</nav>
+    </div>
+  
+
+  <div class="post-content"><div>
+        <h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.</p>
+<p>Provide a <strong>list of file names</strong>:</p>
+<ul>
+<li>blog/all.html</li>
+<li>blog/2036/overflows.html</li>
+</ul>
+<p>And recieve a <strong>directory-like tree</strong>:</p>
+<ul>
+<li>blog
+<ul>
+<li>all.html</li>
+<li>2036
+<ul>
+<li>overflows.html</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation">Installation<a href="#installation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Install it with NPM:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save treeify-paths
+</span></span></code></pre></div><p>Import with modern syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
+</span></span></code></pre></div><p><em>Or</em> if you are not using NPM, install the library by downloading the <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/dist/treeify-paths.js">source file</a> directly and including it in your project:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -o treeify-paths.js <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/khtdr/treeify-paths/blob/master/dist/treeify-paths.js&#34;</span>
+</span></span></code></pre></div><p>Load with classic syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">treeify_paths</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./treeify-paths&#39;</span>).<span style="color:#66d9ef">default</span>;
+</span></span></code></pre></div><p>The library itself is written in <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.ts">a few lines of typescript</a>.</p>
+<h2 id="example-usage">Example Usage<a href="#example-usage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This module provides a function <code>treeifyPaths</code> that takes a list of file names and returns a directory-like tree.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Tree</span> <span style="color:#f92672">:</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// full path to this node
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">name</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// name of this leaf
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">children</span> :<span style="color:#66d9ef">Tree</span>[] <span style="color:#75715e">// sub tree of trees and leaves
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">treeifyPaths</span>(<span style="color:#a6e22e">paths</span> :<span style="color:#66d9ef">string</span>[]) <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">Tree</span>
+</span></span></code></pre></div><p>This example produces prints the following output:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">treeifyPaths</span>([
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;about.html&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers/job-1.html&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers/job-2.html&#39;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;to/some/page.aspx&#39;</span>,
+</span></span><span style="display:flex;"><span>]), <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><pre><code>{
+    &quot;path&quot;: &quot;&quot;,
+    &quot;name&quot;: &quot;&quot;,
+    &quot;children&quot;: [
+        {
+            &quot;path&quot;: &quot;about.html&quot;,
+            &quot;name&quot;: &quot;about.html&quot;,
+            &quot;children&quot;: []
+        },
+        {
+            &quot;path&quot;: &quot;careers&quot;,
+            &quot;name&quot;: &quot;careers&quot;,
+            &quot;children&quot;: [
+                {
+                    &quot;path&quot;: &quot;careers/job-1.html&quot;,
+                    &quot;name&quot;: &quot;job-1.html&quot;,
+                    &quot;children&quot;: []
+                },
+                {
+                    &quot;path&quot;: &quot;careers/job-2.html&quot;,
+                    &quot;name&quot;: &quot;job-2.html&quot;,
+                    &quot;children&quot;: []
+                }
+            ]
+        },
+        {
+            &quot;path&quot;: &quot;to&quot;,
+            &quot;name&quot;: &quot;&quot;,
+            &quot;children&quot;: [
+                {
+                    &quot;path&quot;: &quot;to/some&quot;,
+                    &quot;name&quot;: &quot;&quot;,
+                    &quot;children&quot;: [
+                        {
+                            &quot;path&quot;: &quot;to/some/page.aspx&quot;,
+                            &quot;name&quot;: &quot;page.aspx&quot;,
+                            &quot;children&quot;: []
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+</code></pre>
+<p><strong>Online Interactive Examples</strong></p>
+<ul>
+<li><a href="https://runkit.com/khtdr/treeify-paths">Live example</a></li>
+<li><a href="https://runkit.com/downloads/khtdr/treeify-paths/1.0.0.zip">Download example</a></li>
+</ul>
+<h2 id="testing">Testing<a href="#testing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The mocha <a href="https://github.com/khtdr/treeify-paths/blob/master/tests.js">tests have many examples</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; treeify-paths@1.0.2 pretest khtdr/treeify-paths
+</span></span><span style="display:flex;"><span>&gt; tsc lib.ts <span style="color:#f92672">&amp;&amp;</span> mv lib.js treeify-paths.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&gt; treeify-paths@1.0.2 test khtdr/treeify-paths
+</span></span><span style="display:flex;"><span>&gt; mocha tests.js
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  treeifyPaths<span style="color:#f92672">([</span>...arguments<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>    arguments: none
+</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> an empty object
+</span></span><span style="display:flex;"><span>    arguments: empty list
+</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> an empty object
+</span></span><span style="display:flex;"><span>    arguments: list with a single file
+</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> a single file
+</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> with nested children
+</span></span><span style="display:flex;"><span>    arguments: multiple file names
+</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> with nested children
+</span></span><span style="display:flex;"><span>      ✓ should alphabetize
+</span></span><span style="display:flex;"><span>      ✓ should ignore duplicates
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> passing <span style="color:#f92672">(</span>8ms<span style="color:#f92672">)</span>
+</span></span></code></pre></div><blockquote>
+<p>The full source code and examples are available at: <a href="https://github.com/khtdr/treeify-paths">khtdr/treeify-paths</a></p>
+</blockquote>
+
+      </div></div>
+  
+  <span class="post-tags">
+    
+    #<a href="https://khtdr.com/tags/tools/">tools</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/javascript/">javascript</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/nodejs/">nodejs</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/typescript/">typescript</a>&nbsp;
+    
+    #<a href="https://khtdr.com/tags/typescript-bindings/">typescript-bindings</a>&nbsp;
+    
+  </span>
+  
+
+  
+
+  
+
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+        <span><a href="#top">back to top</a></span>
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2016 - 2022 <a href="mailto:ohkay@khtdr.com">ohkay@khtdr.com</a> <a href="/">khtdr.com</a></span>
+    
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script src="https://khtdr.com/js/menu.js"></script>
+<script src="https://khtdr.com/js/prism.js"></script>
+
+
+
+<script type="text/javascript">
+
+var owa_baseUrl = 'https://ping.khtdr.com/owa/';
+var owa_cmds = owa_cmds || [];
+owa_cmds.push(['setSiteId', '06a48047d7fa1abf01028138ad354848']);
+owa_cmds.push(['trackPageView']);
+owa_cmds.push(['trackClicks']);
+owa_cmds.push(['trackDomStream']);
+
+(function() {
+    var _owa = document.createElement('script'); _owa.type = 'text/javascript'; _owa.async = true;
+    owa_baseUrl = ('https:' == document.location.protocol ? window.owa_baseSecUrl || owa_baseUrl.replace(/http:/, 'https:') : owa_baseUrl );
+    _owa.src = owa_baseUrl + 'modules/base/js/owa.tracker-combined-min.js';
+    var _owa_s = document.getElementsByTagName('script')[0]; _owa_s.parentNode.insertBefore(_owa, _owa_s);
+}());
+
+</script>
+
+
+
+
+<script type="text/javascript">
+  var _paq = window._paq = window._paq || [];
+   
+  _paq.push(["setCookieDomain", "*.khtdr.com"]);
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//ping.khtdr.com/matomo/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//ping.khtdr.com/matomo/matomo.php?idsite=1&amp;rec=1" style="border:0;" alt="" /></p></noscript>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

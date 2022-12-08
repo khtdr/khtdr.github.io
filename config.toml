@@ -66,25 +66,13 @@ paginate = 50
 
     [languages.en.menu]
       [[languages.en.menu.main]]
-        identifier = "home"
-        name = "home"
-        url = "/"
+        identifier = "code"
+        name = "code"
+        url = "/code"
       [[languages.en.menu.main]]
-        identifier = "links"
-        name = "links"
-        url = "/links"
-      [[languages.en.menu.main]]
-        identifier = "notes"
-        name = "notes"
-        url = "/notes"
-      [[languages.en.menu.main]]
-        identifier = "software"
-        name = "software"
-        url = "/software"
-      [[languages.en.menu.main]]
-        identifier = "tutorials"
-        name = "tutorials"
-        url = "/tutorials"
+        identifier = "text"
+        name = "text"
+        url = "/text"
 
 [security]
 	[security.exec]

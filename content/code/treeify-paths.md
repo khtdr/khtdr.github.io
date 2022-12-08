@@ -4,7 +4,7 @@ author: OhKay.
 date: 2020-08-14T18:46:11-06:00
 toc: true
 description: Converts a list of paths into a directory-like tree structure
-tags: [tools, javascript, nodejs]
+tags: [tools, javascript, nodejs, typescript, typescript-bindings]
 ---
 
 ## Introduction

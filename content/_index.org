@@ -7,7 +7,10 @@
 
 * About this website
 #+begin_center
-I hope you find something useful among the insignificant shit.
+Some of the things I've built over the years.
 #+end_center
+
+- NPM Packages: https://www.npmjs.com/~mazzarelli
+- GitHub: https://github.com/khtdr
 
 *** Start here

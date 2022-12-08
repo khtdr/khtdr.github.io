@@ -9,12 +9,12 @@
     <lastBuildDate>Fri, 01 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://khtdr.com/tags/socket-io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Simple live-reloading Nodejs web server</title>
-      <link>https://khtdr.com/tutorials/simple-live-reload-server/</link>
+      <link>https://khtdr.com/text/simple-live-reload-server/</link>
       <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://khtdr.com/tutorials/simple-live-reload-server/</guid>
-      <description>Building your own live-reloading web server  Follow along and build your own automatically-refreshing web server, as shown here:   This setup assumes you know and use Node and NPM  You are editing HTML, CSS, and Javascript by hand, because you like it. You&amp;#39;ve had some of that hot-reloading goodness before, and you want it now, too.
- You don&amp;#39;t feel like spending the weekend reading Webpack docs, so you decide that it should only take a few dozen lines of Javascript, at most, to roll your own.</description>
+      <guid>https://khtdr.com/text/simple-live-reload-server/</guid>
+      <description>Building your own live-reloading web server Follow along and build your own automatically-refreshing web server, as shown here: This setup assumes you know and use Node and NPM You are editing HTML, CSS, and Javascript by hand, because you like it. You&amp;#39;ve had some of that hot-reloading goodness before, and you want it now, too.
+You don&amp;#39;t feel like spending the weekend reading Webpack docs, so you decide that it should only take a few dozen lines of Javascript, at most, to roll your own.</description>
     </item>
     
   </channel>

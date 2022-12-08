@@ -1,4 +1,5 @@
 .logo {
+  transform:rotate(-3deg);
   align-items: center;
   background-color: var(--secondary);
   color: var(--background);
