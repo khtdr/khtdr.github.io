@@ -14,3 +14,5 @@ Some of the things I've built over the years.
 - GitHub: https://github.com/khtdr
 
 *** Start here
+- Software, projects, librarys: [[./code]]
+- Tutorials, ideas, notes: [[./text]]
