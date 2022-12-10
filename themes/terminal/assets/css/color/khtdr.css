@@ -4,21 +4,21 @@
 :root {
   --code: #2f9acb;
   --color: #222831;
-  --accent: #1f7acb;
-  --background: #ffffff;
-  --border-color: #fbd46d;
-  --secondary: #f95959;
-  --content-bg: white;
+  --accent: #f92939;
+  --background: #f3f3f3;
+  --border-color: #eee;
+  --secondary: #f92939;
+  --content-bg: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-  --border-color: #F0F;
-  --secondary: #FF0;
-    --code: #f95959;
-    --background: #101;
     --accent: #0f0;
+    --background: #101;
+    --border-color: #F0F;
+    --code: #f95959;
     --color: #eee;
-    --content-bg: var(--background);
+    --content-bg: #101;
+    --secondary: #FF0;
   }
 }

@@ -25,11 +25,18 @@
   text-align: left;
   margin: var(--p1) auto var(--p3);
   padding: 0;
-  border: solid 1px black;
-  border-color: color-mod(black blend(var(--color) 50%));
+  border: solid 1px var(--border-color);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 8px;
+  /*border-color: color-mod(black blend(var(--color) 50%));*/
 
+  &>*:first-child { border-radius: inherit; }
+
+  /*background-color: var(--content-bg);
+  background-color: color-mod(black blend(var(--color) 50%));*/
   background-color: var(--content-bg);
-  background-color: color-mod(black blend(var(--color) 50%));
   &.on-list {
     .post-content {
       margin: 10px 20px;
