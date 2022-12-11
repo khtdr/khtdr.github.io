@@ -8,7 +8,7 @@
 	<channel>
 		<title>KHTDR – snippets</title>
 		<description></description>
-		<link>https://khtdr.com/categories/snippets/</link>
+		<link>https://khtdr.com/categories/snippets.html</link>
 		<lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
 		
 			<language>en-us</language>
@@ -24,8 +24,8 @@
 				<title>Dark-Mode Light-Mode Css</title>
 				<description> Use a media query to set different values for variables in dark-mode.
 :root { --background-color: #eee; --text-color: #222; } @media (prefers-color-scheme: dark) { :root { --background-color: #222; --text-color: #eee; } } body { background-color: var(--background-color); color: var(--text-color); } </description>
-				<link>https://khtdr.com/dark-mode-light-mode-css/</link>
-				<guid>https://khtdr.com/dark-mode-light-mode-css/</guid>
+				<link>https://khtdr.com/dark-mode-light-mode-css.html</link>
+				<guid>https://khtdr.com/dark-mode-light-mode-css.html</guid>
 				<pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
 				
 				

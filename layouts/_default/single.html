@@ -5,14 +5,24 @@
 	-->
 	<div>
 		<article>
-			<h2>{{ .Title }}</h2>
+<a href="{{ .Site.BaseURL | relLangURL }}">home</a>/
+			{{ with .Param "categories" }}
+			{{ range $index, $category := . }}
+			{{- with $.Site.GetPage (printf "/categories/%s" ($category | urlize)) -}}
+			<a href="{{ .Permalink }}">{{ $category }}</a>/
+			{{- end -}}
+			{{ end }}
+			{{ end }}
+ {{ .Title }}
+
+		{{ if .Date }}
+		<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
+		{{ end }}
+
+
 			{{ partial "post-metadata.html" . }}
 			<div>{{ .Content }}</div>
 		</article>
-
-		{{ if .Date }}
-		<time datetime="{{ .Date.Format "2006-01-02" }}">created_at: {{ .Date.Format "January 2, 2006" }}</time>
-		{{ end }}
 
 		{{ partial "post-actions.html" . }}
 	</div>

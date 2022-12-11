@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+	
+<head>
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+
+	
+	<title>KHTDR</title>
+
+	
+	
+
+
+	
+	<link rel="stylesheet" href="/css/styles.css" />
+
+
+	
+	
+
+
+	
+	</head>
+
+	<body>
+		
+<header class="header">
+	<h1 class="site-title"><a href="/">KHTDR</a></h1>
+	
+<nav class="navigation">
+	<ul>
+		
+		
+		
+		
+	</ul>
+</nav>
+
+</header>
+
+		
+	
+	<div>
+		<article>
+<a href="/">home</a>/
+			
+			<a href="https://khtdr.com/categories/tutorials.html">tutorials</a>/
+			
+ A Tailwind-CSS development server
+
+		
+		<time datetime="2019-01-07">originally published on January 7, 2019</time>
+		
+
+
+			
+<aside>
+	<div>
+		<ul class="tags">
+			
+			<li>#<a href="https://khtdr.com/tags/javascript.html">javascript</a></li><li>#<a href="https://khtdr.com/tags/live-reload.html">live-reload</a></li><li>#<a href="https://khtdr.com/tags/tailwind-css.html">tailwind-css</a></li>
+			
+		</ul>
+	</div>
+</aside>
+
+			<div>
+<blockquote>
+<p>Simple quick way to get started learning and playing with Tailwind CSS</p>
+</blockquote>
+<p>
+Example output while running dev-server, shown here: <img src="./_images/sample-logs.png" alt="./_images/sample-logs.png" title="./_images/sample-logs.png" /></p>
+<div id="outline-container-headline-1" class="outline-2">
+<h2 id="headline-1">
+Features
+</h2>
+<div id="outline-text-headline-1" class="outline-text-2">
+<ul>
+<li>No &#34;transpiling&#34; configuration is needed (or used).</li>
+<li>No build tools need to be set up.</li>
+<li>Tiny reactive web server: ~115 lines of code with lots of comments.</li>
+<li>
+<p>Minimal dependencies:</p>
+<ul>
+<li><code class="verbatim">chalk</code> for color,</li>
+<li><code class="verbatim">socket.io</code> for <strong>server</strong> &lt;—&gt; <strong>browser</strong> communication,</li>
+<li>and <code class="verbatim">tailwindcss</code> of course.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-headline-2" class="outline-2">
+<h2 id="headline-2">
+Installation
+</h2>
+<div id="outline-text-headline-2" class="outline-text-2">
+<p>Clone the GIT repository, and install the dependencies.</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/khtdr/tailwind-dev-server.git
+</span></span><span style="display:flex;"><span>cd tailwind-dev-server
+</span></span><span style="display:flex;"><span>yarn</span></span></code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-3" class="outline-2">
+<h2 id="headline-3">
+Running
+</h2>
+<div id="outline-text-headline-3" class="outline-text-2">
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn start</span></span></code></pre></div>
+</div>
+<p>
+Then open your browser to: <a href="http://localhost:8080">http://localhost:8080</a></p>
+</div>
+</div>
+<div id="outline-container-headline-4" class="outline-2">
+<h2 id="headline-4">
+Development
+</h2>
+<div id="outline-text-headline-4" class="outline-text-2">
+<p>
+Edit any of the following entry point files:</p>
+<ul>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/index.html">./index.html</a></li>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/style.css">./style.css</a></li>
+<li><a href="https://github.com/khtdr/tailwind-dev-server/blob/master/tailwind.js">./tailwind.js</a></li>
+</ul>
+<p>Changes will be recompiled and automatically refreshed in your browser. Errors will be displayed in the server output.</p>
+<p>
+Create any additional HTML files as needed, using <a href="https://github.com/khtdr/tailwind-dev-server/blob/master/index.html">./index.html</a> as a starting-point reference.</p>
+</div>
+</div>
+<div id="outline-container-headline-5" class="outline-2">
+<h2 id="headline-5">
+Building
+</h2>
+<div id="outline-text-headline-5" class="outline-text-2">
+<p>If you like what you see and want to save it and use it, run:</p>
+<div class="src src-bash">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>yarn build</span></span></code></pre></div>
+</div>
+<p>
+And now you can use your newly-built <code class="verbatim">./tailwind-bundle.css</code> stylesheet however you like.</p>
+</div>
+</div>
+</div>
+		</article>
+
+		
+
+	<div class="post-actions">
+		<ul>
+			
+			<li><a href="..">All posts</a></li>
+
+			
+			<li><a href="../index.xml">Subscribe</a></li>
+		</ul>
+	</div>
+
+
+	</div>
+
+		
+
+	</body>
+</html>

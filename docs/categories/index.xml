@@ -8,7 +8,7 @@
 	<channel>
 		<title>KHTDR – Categories</title>
 		<description></description>
-		<link>https://khtdr.com/categories/</link>
+		<link>https://khtdr.com/categories.html</link>
 		<lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
 		
 			<language>en-us</language>
@@ -23,8 +23,8 @@
 			<item>
 				<title>snippets</title>
 				<description></description>
-				<link>https://khtdr.com/categories/snippets/</link>
-				<guid>https://khtdr.com/categories/snippets/</guid>
+				<link>https://khtdr.com/categories/snippets.html</link>
+				<guid>https://khtdr.com/categories/snippets.html</guid>
 				<pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
 				
 				
@@ -38,8 +38,8 @@
 			<item>
 				<title>software</title>
 				<description></description>
-				<link>https://khtdr.com/categories/software/</link>
-				<guid>https://khtdr.com/categories/software/</guid>
+				<link>https://khtdr.com/categories/software.html</link>
+				<guid>https://khtdr.com/categories/software.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -53,8 +53,8 @@
 			<item>
 				<title>tutorials</title>
 				<description></description>
-				<link>https://khtdr.com/categories/tutorials/</link>
-				<guid>https://khtdr.com/categories/tutorials/</guid>
+				<link>https://khtdr.com/categories/tutorials.html</link>
+				<guid>https://khtdr.com/categories/tutorials.html</guid>
 				<pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
 				
 				

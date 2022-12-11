@@ -6,13 +6,13 @@
 #+categories[]: tutorials
 #+tags[]: javascript live-reload tailwind-css
 #+TOC: true
-
+#+weight: 2
 
 #+BEGIN_QUOTE
 Simple quick way to get started learning and playing with Tailwind CSS
 #+END_QUOTE
 
-Example output while running dev-server, shown here: [[./sample-logs.png]]
+Example output while running dev-server, shown here: [[./_images/sample-logs.png]]
 
 * Features
   - No "transpiling" configuration is needed (or used).
@@ -20,7 +20,7 @@ Example output while running dev-server, shown here: [[./sample-logs.png]]
   - Tiny reactive web server: ~115 lines of code with lots of comments.
   - Minimal dependencies:
     - =chalk= for color,
-    - =socket.io= for *server* <-> *browser* communication,
+    - =socket.io= for *server* <---> *browser* communication,
     - and =tailwindcss= of course.
   
 * Installation

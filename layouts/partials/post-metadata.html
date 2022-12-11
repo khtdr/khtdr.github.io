@@ -4,18 +4,6 @@
 -->
 <aside>
 	<div>
-		<!-- List of post's categories (category names link to their respective pages) -->
-		<ul class="categories">
-			{{ with .Param "categories" }}
-			{{ range $index, $category := . }}
-			{{- with $.Site.GetPage (printf "/categories/%s" ($category | urlize)) -}}
-			<li><a href="{{ .Permalink }}">{{ $category }}</a>/</li>
-			{{- end -}}
-			{{ end }}
-			{{ end }}
-		</ul>
-
-		<!-- List of post's tags (tag names link to their respective pages) -->
 		<ul class="tags">
 			{{ with .Param "tags" }}
 			{{ range $index, $tag := . }}

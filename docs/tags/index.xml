@@ -8,7 +8,7 @@
 	<channel>
 		<title>KHTDR – Tags</title>
 		<description></description>
-		<link>https://khtdr.com/tags/</link>
+		<link>https://khtdr.com/tags.html</link>
 		<lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
 		
 			<language>en-us</language>
@@ -23,8 +23,8 @@
 			<item>
 				<title>css</title>
 				<description></description>
-				<link>https://khtdr.com/tags/css/</link>
-				<guid>https://khtdr.com/tags/css/</guid>
+				<link>https://khtdr.com/tags/css.html</link>
+				<guid>https://khtdr.com/tags/css.html</guid>
 				<pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
 				
 				
@@ -38,8 +38,8 @@
 			<item>
 				<title>command-line</title>
 				<description></description>
-				<link>https://khtdr.com/tags/command-line/</link>
-				<guid>https://khtdr.com/tags/command-line/</guid>
+				<link>https://khtdr.com/tags/command-line.html</link>
+				<guid>https://khtdr.com/tags/command-line.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -53,8 +53,8 @@
 			<item>
 				<title>javascript</title>
 				<description></description>
-				<link>https://khtdr.com/tags/javascript/</link>
-				<guid>https://khtdr.com/tags/javascript/</guid>
+				<link>https://khtdr.com/tags/javascript.html</link>
+				<guid>https://khtdr.com/tags/javascript.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -68,8 +68,8 @@
 			<item>
 				<title>node-js</title>
 				<description></description>
-				<link>https://khtdr.com/tags/node-js/</link>
-				<guid>https://khtdr.com/tags/node-js/</guid>
+				<link>https://khtdr.com/tags/node-js.html</link>
+				<guid>https://khtdr.com/tags/node-js.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -83,8 +83,8 @@
 			<item>
 				<title>npm</title>
 				<description></description>
-				<link>https://khtdr.com/tags/npm/</link>
-				<guid>https://khtdr.com/tags/npm/</guid>
+				<link>https://khtdr.com/tags/npm.html</link>
+				<guid>https://khtdr.com/tags/npm.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -98,8 +98,8 @@
 			<item>
 				<title>tools</title>
 				<description></description>
-				<link>https://khtdr.com/tags/tools/</link>
-				<guid>https://khtdr.com/tags/tools/</guid>
+				<link>https://khtdr.com/tags/tools.html</link>
+				<guid>https://khtdr.com/tags/tools.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -113,8 +113,8 @@
 			<item>
 				<title>typescript</title>
 				<description></description>
-				<link>https://khtdr.com/tags/typescript/</link>
-				<guid>https://khtdr.com/tags/typescript/</guid>
+				<link>https://khtdr.com/tags/typescript.html</link>
+				<guid>https://khtdr.com/tags/typescript.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -128,8 +128,8 @@
 			<item>
 				<title>typescript-bindings</title>
 				<description></description>
-				<link>https://khtdr.com/tags/typescript-bindings/</link>
-				<guid>https://khtdr.com/tags/typescript-bindings/</guid>
+				<link>https://khtdr.com/tags/typescript-bindings.html</link>
+				<guid>https://khtdr.com/tags/typescript-bindings.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				
@@ -143,8 +143,8 @@
 			<item>
 				<title>icons</title>
 				<description></description>
-				<link>https://khtdr.com/tags/icons/</link>
-				<guid>https://khtdr.com/tags/icons/</guid>
+				<link>https://khtdr.com/tags/icons.html</link>
+				<guid>https://khtdr.com/tags/icons.html</guid>
 				<pubDate>Fri, 14 Aug 2020 17:17:45 -0600</pubDate>
 				
 				
@@ -158,8 +158,8 @@
 			<item>
 				<title>react</title>
 				<description></description>
-				<link>https://khtdr.com/tags/react/</link>
-				<guid>https://khtdr.com/tags/react/</guid>
+				<link>https://khtdr.com/tags/react.html</link>
+				<guid>https://khtdr.com/tags/react.html</guid>
 				<pubDate>Fri, 14 Aug 2020 17:17:45 -0600</pubDate>
 				
 				
@@ -173,8 +173,8 @@
 			<item>
 				<title>live-reload</title>
 				<description></description>
-				<link>https://khtdr.com/tags/live-reload/</link>
-				<guid>https://khtdr.com/tags/live-reload/</guid>
+				<link>https://khtdr.com/tags/live-reload.html</link>
+				<guid>https://khtdr.com/tags/live-reload.html</guid>
 				<pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
 				
 				
@@ -188,8 +188,8 @@
 			<item>
 				<title>tailwind-css</title>
 				<description></description>
-				<link>https://khtdr.com/tags/tailwind-css/</link>
-				<guid>https://khtdr.com/tags/tailwind-css/</guid>
+				<link>https://khtdr.com/tags/tailwind-css.html</link>
+				<guid>https://khtdr.com/tags/tailwind-css.html</guid>
 				<pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
 				
 				
@@ -203,8 +203,8 @@
 			<item>
 				<title>express</title>
 				<description></description>
-				<link>https://khtdr.com/tags/express/</link>
-				<guid>https://khtdr.com/tags/express/</guid>
+				<link>https://khtdr.com/tags/express.html</link>
+				<guid>https://khtdr.com/tags/express.html</guid>
 				<pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
 				
 				
@@ -218,8 +218,8 @@
 			<item>
 				<title>socket-io</title>
 				<description></description>
-				<link>https://khtdr.com/tags/socket-io/</link>
-				<guid>https://khtdr.com/tags/socket-io/</guid>
+				<link>https://khtdr.com/tags/socket-io.html</link>
+				<guid>https://khtdr.com/tags/socket-io.html</guid>
 				<pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
 				
 				

@@ -8,7 +8,7 @@
 	<channel>
 		<title>KHTDR – typescript</title>
 		<description></description>
-		<link>https://khtdr.com/tags/typescript/</link>
+		<link>https://khtdr.com/tags/typescript.html</link>
 		<lastBuildDate>Fri, 14 Aug 2020 18:46:11 -0600</lastBuildDate>
 		
 			<language>en-us</language>
@@ -28,8 +28,8 @@ blog/all.html blog/2036/overflows.html And recieve a directory-like tree:
 blog all.html 2036 overflows.html Installation Install it with NPM:
 npm install --save treeify-paths Import with modern syntax:
 import treeifyPaths from &amp;#34;treeify-paths&amp;#34;; Or if you are not using NPM, install the library by downloading the source file directly and including it in your project:</description>
-				<link>https://khtdr.com/treeify-paths/</link>
-				<guid>https://khtdr.com/treeify-paths/</guid>
+				<link>https://khtdr.com/treeify-paths.html</link>
+				<guid>https://khtdr.com/treeify-paths.html</guid>
 				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
 				
 				

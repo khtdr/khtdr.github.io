@@ -10,7 +10,8 @@
 #+weight: 1
 #+TOC: true
 
-=opts.js= is a Javascript helper library for command-line applications, for accepting  and parsing command-line arguments,flags and options, and automatically generating a useful help message.
+
+=opts.js= is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments, flags and options, and automatically generating a useful help message.
 
 * Introduction to Opts.js
 :PROPERTIES:

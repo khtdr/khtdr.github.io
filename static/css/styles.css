@@ -19,31 +19,32 @@
 }
 
 html {
-  margin: 0;
-  padding: 0;
   display: flex;
   justify-content: center;
-}
-body {
-  width: 100%;
-  max-width: 700px;
-}
-body {
   margin: 0;
-  padding: 32px;
+  padding: 0;
+}
+body {
   background-color: var(--background-color);
   color: var(--foreground-color);
   font-family: sans-serif;
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 25px;
+  margin: 0;
+  max-width: 700px;
+  padding: 32px;
+  width: 100%;
 }
 
-h1,
+h1 {
+  margin: 0;
+}
 h2,
 h3,
 h4,
 h5,
 h6 {
-  margin: 16px 0;
+  margin: 48px 0 16px 0;
 }
 a {
   color: var(--link-color);
@@ -56,8 +57,9 @@ a:hover {
 
 time {
   font-size: 10px;
-  color: #888;
+  color: #985;
   text-transform: uppercase;
+  float: right;
 }
 aside {
   margin: 1em 0;
@@ -78,7 +80,14 @@ aside li a {
 }
 
 code {
-  font-size: 16px;
+  font-size: 18px;
+  background-color: rgba(127, 127, 127, 0.1);
+}
+
+pre code,
+pre + code {
+  font-size: 15px;
+  background-color: transparent;
 }
 
 img {
@@ -122,4 +131,8 @@ ul.tags {
 
 .center-block {
   margin: 44px 0;
+}
+
+article aside {
+  margin: 0;
 }
