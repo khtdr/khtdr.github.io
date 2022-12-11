@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 
 	
-	<title>KHTDR</title>
+	<title>KHTDR - pageboy</title>
 
 	
 	
@@ -16,6 +16,7 @@
 
 	
 	<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/syntax-dracula.css" />
 
 
 	
@@ -71,23 +72,23 @@
 <h1 id="pageboy">pageboy</h1>
 <p>Write your shell scripts in any combination of scripting languages.</p>
 <p><strong>Example Script</strong> <code>example.pb</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env pageboy
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>echo in Bash
-</span></span><span style="display:flex;"><span>$PAGE php
-</span></span><span style="display:flex;"><span>echo back to Bash
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php echo <span style="color:#e6db74">&#34;in PHP\n&#34;</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env pageboy
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">echo</span> in Bash
+</span></span><span class="line"><span class="cl"><span class="nv">$PAGE</span> php
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> back to Bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php <span class="nb">echo</span> <span class="s2">&#34;in PHP\n&#34;</span><span class="p">;</span>
 </span></span></code></pre></div><p>Running the following, produces:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>chmod +x ./example.pb
-</span></span><span style="display:flex;"><span>./example.pb
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">chmod +x ./example.pb
+</span></span><span class="line"><span class="cl">./example.pb
 </span></span></code></pre></div><pre><code>in Bash
 in PHP
 back to Bash
 </code></pre>
 <p>You can mix and match all you want. If your script uses valid <a href="https://en.wikipedia.org/wiki/Shebang_(Unix)">shebangs</a>, it will work. If it doesn&rsquo;t, it&rsquo;s a bug and <a href="https://github.com/khtdr/pageboy/issues">please let me know</a>. It also supports the (not quite right) awk shebang: <code>#!/usr/bin/env awk</code>.</p>
 <h4 id="tests-suite-status">tests suite status:</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./run-tests.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./run-tests.sh
 </span></span></code></pre></div><pre><code>pageboy-v2.1.3
     ./pageboy-test            # runs as pageboy script
     ./pageboy-test -r &lt;page&gt;  # runs requested page
@@ -118,57 +119,57 @@ https://github.com/khtdr/pageboy
 <li>Start using <code>#!/usr/bin/env pageboy</code> as your shebang line in your bash scripts.</li>
 <li>Call other &ldquo;pages&rdquo; of your script by using the pre-defined <code>$PAGE</code> command in your scripts.</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env pageboy
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>$PAGE php | wc
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php
-</span></span><span style="display:flex;"><span>phpinfo<span style="color:#f92672">()</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env pageboy
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nv">$PAGE</span> php <span class="p">|</span> wc
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl">phpinfo<span class="o">()</span><span class="p">;</span>
 </span></span></code></pre></div><pre><code> 934    3524   29671
 </code></pre>
 <p>If you want multiple pages of the same language, append an index, starting at 1, to the pagename.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env pageboy
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cat &lt;<span style="color:#f92672">(</span>$PAGE php1<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE php2<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php echo <span style="color:#e6db74">&#34;one&#34;</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php echo <span style="color:#e6db74">&#34;two&#34;</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env pageboy
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>cat &lt;<span class="o">(</span><span class="nv">$PAGE</span> php1<span class="o">)</span> &lt;<span class="o">(</span><span class="nv">$PAGE</span> php2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php <span class="nb">echo</span> <span class="s2">&#34;one&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php <span class="nb">echo</span> <span class="s2">&#34;two&#34;</span><span class="p">;</span>
 </span></span></code></pre></div><pre><code>onetwo
 </code></pre>
 <p>You can distribute a version of your script without the dependency on <code>pageboy</code> by compiling it:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># copy above into `onetwo.pb`</span>
-</span></span><span style="display:flex;"><span>onetwo.pb -c &gt; onetwo.sh
-</span></span><span style="display:flex;"><span>chmod +x ./onetwo.sh
-</span></span><span style="display:flex;"><span>./onetwo.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># copy above into `onetwo.pb`</span>
+</span></span><span class="line"><span class="cl">onetwo.pb -c &gt; onetwo.sh
+</span></span><span class="line"><span class="cl">chmod +x ./onetwo.sh
+</span></span><span class="line"><span class="cl">./onetwo.sh
 </span></span></code></pre></div><pre><code>onetwo
 </code></pre>
 <p><strong>Big Example</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env pageboy
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cat &lt;<span style="color:#f92672">(</span>$PAGE php<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE ruby<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE bash1<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE bash2<span style="color:#f92672">)</span> &lt;<span style="color:#f92672">(</span>$PAGE php2<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>$i<span style="color:#f92672">=</span>10; $i&lt;<span style="color:#f92672">=</span>20; $i++<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>  echo $i . <span style="color:#e6db74">&#34;\n&#34;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env ruby</span>
-</span></span><span style="display:flex;"><span>5.times <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  puts <span style="color:#e6db74">&#34;Hello, World! ~ruby1&#34;</span>
-</span></span><span style="display:flex;"><span>end
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash</span>
-</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;Hello, World! ~bash2&#34;</span>
-</span></span><span style="display:flex;"><span>whoami
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash</span>
-</span></span><span style="display:flex;"><span>env | grep TERM
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env php</span>
-</span></span><span style="display:flex;"><span>&lt;?php
-</span></span><span style="display:flex;"><span>echo __DIR__;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env pageboy
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>cat &lt;<span class="o">(</span><span class="nv">$PAGE</span> php<span class="o">)</span> &lt;<span class="o">(</span><span class="nv">$PAGE</span> ruby<span class="o">)</span> &lt;<span class="o">(</span><span class="nv">$PAGE</span> bash1<span class="o">)</span> &lt;<span class="o">(</span><span class="nv">$PAGE</span> bash2<span class="o">)</span> &lt;<span class="o">(</span><span class="nv">$PAGE</span> php2<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl"><span class="k">for</span> <span class="o">(</span><span class="nv">$i</span><span class="o">=</span>10<span class="p">;</span> <span class="nv">$i</span>&lt;<span class="o">=</span>20<span class="p">;</span> <span class="nv">$i</span>++<span class="o">)</span> <span class="o">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="nv">$i</span> . <span class="s2">&#34;\n&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env ruby</span>
+</span></span><span class="line"><span class="cl">5.times <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  puts <span class="s2">&#34;Hello, World! ~ruby1&#34;</span>
+</span></span><span class="line"><span class="cl">end
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/bin/bash</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello, World! ~bash2&#34;</span>
+</span></span><span class="line"><span class="cl">whoami
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env bash</span>
+</span></span><span class="line"><span class="cl">env <span class="p">|</span> grep TERM
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#!/usr/bin/env php</span>
+</span></span><span class="line"><span class="cl">&lt;?php
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> __DIR__<span class="p">;</span>
 </span></span></code></pre></div><pre><code>10
 11
 12
@@ -194,7 +195,7 @@ ITERM_SESSION_ID=w0t0p0
 /home/khtdr/
 </code></pre>
 <h2 id="standard-features">standard features</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pageboy -h
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pageboy -h
 </span></span></code></pre></div><pre><code>pageboy-v2.1.3
     pageboy            # runs as pageboy script
     pageboy -r &lt;page&gt;  # runs requested page

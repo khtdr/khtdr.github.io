@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 
 	
-	<title>KHTDR</title>
+	<title>KHTDR - treeify-paths</title>
 
 	
 	
@@ -16,6 +16,7 @@
 
 	
 	<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/syntax-dracula.css" />
 
 
 	
@@ -89,31 +90,31 @@
 </ul>
 <h2 id="installation">Installation</h2>
 <p>Install it with NPM:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install --save treeify-paths
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install --save treeify-paths
 </span></span></code></pre></div><p>Import with modern syntax:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#34;treeify-paths&#34;</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">treeifyPaths</span> <span class="nx">from</span> <span class="s2">&#34;treeify-paths&#34;</span><span class="p">;</span>
 </span></span></code></pre></div><p><em>Or</em> if you are not using NPM, install the library by downloading the <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/dist/treeify-paths.js">source file</a> directly and including it in your project:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -o treeify-paths.js <span style="color:#e6db74">&#34;https://raw.githubusercontent.com/khtdr/treeify-paths/blob/master/dist/treeify-paths.js&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">curl -o treeify-paths.js <span class="s2">&#34;https://raw.githubusercontent.com/khtdr/treeify-paths/blob/master/dist/treeify-paths.js&#34;</span>
 </span></span></code></pre></div><p>Load with classic syntax:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">treeify_paths</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#34;./treeify-paths&#34;</span>).<span style="color:#66d9ef">default</span>;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">treeify_paths</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&#34;./treeify-paths&#34;</span><span class="p">).</span><span class="k">default</span><span class="p">;</span>
 </span></span></code></pre></div><p>The library itself is written in <a href="https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.ts">a few lines of typescript</a>.</p>
 <h2 id="example-usage">Example Usage</h2>
 <p>This module provides a function <code>treeifyPaths</code> that takes a list of file names and returns a directory-like tree.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">Tree</span> <span style="color:#f92672">:</span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">path</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// full path to this node
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">name</span> :<span style="color:#66d9ef">string</span>     <span style="color:#75715e">// name of this leaf
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#a6e22e">children</span> :<span style="color:#66d9ef">Tree</span>[] <span style="color:#75715e">// sub tree of trees and leaves
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">treeifyPaths</span>(<span style="color:#a6e22e">paths</span> :<span style="color:#66d9ef">string</span>[]) <span style="color:#f92672">=&gt;</span> <span style="color:#f92672">:</span><span style="color:#a6e22e">Tree</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-typescript" data-lang="typescript"><span class="line"><span class="cl"><span class="kr">type</span> <span class="nx">Tree</span> <span class="o">:</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">path</span> :<span class="kt">string</span>     <span class="c1">// full path to this node
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">name</span> :<span class="kt">string</span>     <span class="c1">// name of this leaf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">children</span> :<span class="kt">Tree</span><span class="p">[]</span> <span class="c1">// sub tree of trees and leaves
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="nx">treeifyPaths</span><span class="p">(</span><span class="nx">paths</span> :<span class="kt">string</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="o">:</span><span class="nx">Tree</span>
 </span></span></code></pre></div><p>This example produces prints the following output:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">treeifyPaths</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;treeify-paths&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">JSON</span>.<span style="color:#a6e22e">stringify</span>(<span style="color:#a6e22e">treeifyPaths</span>([
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;about.html&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers/job-1.html&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;careers/job-2.html&#39;</span>,
-</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#39;to/some/page.aspx&#39;</span>,
-</span></span><span style="display:flex;"><span>]), <span style="color:#66d9ef">null</span>, <span style="color:#ae81ff">3</span>);
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="nx">treeifyPaths</span> <span class="nx">from</span> <span class="s1">&#39;treeify-paths&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">treeifyPaths</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;about.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;careers&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;careers/job-1.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;careers/job-2.html&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="s1">&#39;to/some/page.aspx&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">]),</span> <span class="kc">null</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
 </span></span></code></pre></div><pre><code>{
     &quot;path&quot;: &quot;&quot;,
     &quot;name&quot;: &quot;&quot;,
@@ -166,26 +167,26 @@
 </ul>
 <h2 id="testing">Testing</h2>
 <p>The mocha <a href="https://github.com/khtdr/treeify-paths/blob/master/tests.js">tests have many examples</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>&gt; treeify-paths@1.0.2 pretest khtdr/treeify-paths
-</span></span><span style="display:flex;"><span>&gt; tsc lib.ts <span style="color:#f92672">&amp;&amp;</span> mv lib.js treeify-paths.js
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>&gt; treeify-paths@1.0.2 test khtdr/treeify-paths
-</span></span><span style="display:flex;"><span>&gt; mocha tests.js
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  treeifyPaths<span style="color:#f92672">([</span>...arguments<span style="color:#f92672">])</span>
-</span></span><span style="display:flex;"><span>    arguments: none
-</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> an empty object
-</span></span><span style="display:flex;"><span>    arguments: empty list
-</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> an empty object
-</span></span><span style="display:flex;"><span>    arguments: list with a single file
-</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> a single file
-</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> with nested children
-</span></span><span style="display:flex;"><span>    arguments: multiple file names
-</span></span><span style="display:flex;"><span>      ✓ should <span style="color:#66d9ef">return</span> with nested children
-</span></span><span style="display:flex;"><span>      ✓ should alphabetize
-</span></span><span style="display:flex;"><span>      ✓ should ignore duplicates
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  <span style="color:#ae81ff">7</span> passing <span style="color:#f92672">(</span>8ms<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">&gt; treeify-paths@1.0.2 pretest khtdr/treeify-paths
+</span></span><span class="line"><span class="cl">&gt; tsc lib.ts <span class="o">&amp;&amp;</span> mv lib.js treeify-paths.js
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">&gt; treeify-paths@1.0.2 <span class="nb">test</span> khtdr/treeify-paths
+</span></span><span class="line"><span class="cl">&gt; mocha tests.js
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  treeifyPaths<span class="o">([</span>...arguments<span class="o">])</span>
+</span></span><span class="line"><span class="cl">    arguments: none
+</span></span><span class="line"><span class="cl">      ✓ should <span class="k">return</span> an empty object
+</span></span><span class="line"><span class="cl">    arguments: empty list
+</span></span><span class="line"><span class="cl">      ✓ should <span class="k">return</span> an empty object
+</span></span><span class="line"><span class="cl">    arguments: list with a single file
+</span></span><span class="line"><span class="cl">      ✓ should <span class="k">return</span> a single file
+</span></span><span class="line"><span class="cl">      ✓ should <span class="k">return</span> with nested children
+</span></span><span class="line"><span class="cl">    arguments: multiple file names
+</span></span><span class="line"><span class="cl">      ✓ should <span class="k">return</span> with nested children
+</span></span><span class="line"><span class="cl">      ✓ should alphabetize
+</span></span><span class="line"><span class="cl">      ✓ should ignore duplicates
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="m">7</span> passing <span class="o">(</span>8ms<span class="o">)</span>
 </span></span></code></pre></div><blockquote>
 <p>The full source code and examples are available at: <a href="https://github.com/khtdr/treeify-paths">khtdr/treeify-paths</a></p>
 </blockquote>

@@ -8,7 +8,7 @@
 	<meta name="description" content="">
 
 	
-	<title>KHTDR</title>
+	<title>KHTDR - opts.js</title>
 
 	
 	
@@ -16,6 +16,7 @@
 
 	
 	<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="/css/syntax-dracula.css" />
 
 
 	
@@ -93,28 +94,28 @@ The following example set up a custom &#34;version&#34; function, and opts in to
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example1.js">opts/examples/example1.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;version&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;v1.0&#39;</span>); <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>); }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 1&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;opts&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;v&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;version&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Show version and exit&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;v1.0&#39;</span><span class="p">);</span> <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Example 1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 <div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node ./example1</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node ./example1</span></span></code></pre></div>
 </div>
 <pre class="example">
 Example 1
 </pre>
 <div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node ./example1 --help</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node ./example1 --help</span></span></code></pre></div>
 </div>
 <pre class="example">
 Usage: node ./example1 [options]
@@ -124,7 +125,7 @@ Show version and exit
    -v, --version
 </pre>
 <div class="src src-sh">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>node ./example1 -v</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">node ./example1 -v</span></span></code></pre></div>
 </div>
 <pre class="example">
 v1.0
@@ -149,8 +150,8 @@ No NPM dependencies are required
 <p>
 To use <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js">opts.js</a>, you <em>do not</em> need to use NPM or any package manager. It is written in plain-old Javascript, and can be downloaded and included in your Node.js project as-is. All of <a href="https://github.com/khtdr/opts/tree/master/examples">the examples</a> use this approach.</p>
 <div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd /path/to/your/project
-</span></span><span style="display:flex;"><span>curl -o opts.js https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> /path/to/your/project
+</span></span><span class="line"><span class="cl">curl -o opts.js https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -162,7 +163,7 @@ Typescript and NPM packages for convenience
 <p>
 If you are using NPM in your project, you can install it using the name <code class="verbatim">opts</code>.</p>
 <div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install opts</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">npm install opts</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -176,15 +177,15 @@ Basic usage and setup
 <p>
 To use, import the library and call <code class="verbatim">opts.parse</code> with your configurations. The various types of configurations are covered further down.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;opts&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">,</span> <span class="nx">help</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 <div class="center-block" style="text-align: center; margin-left: auto; margin-right: auto;">
 <p><em>or with the more modern syntax</em></p>
 </div>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">as</span> <span style="color:#a6e22e">opts</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;opts&#39;</span>;
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#a6e22e">help</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">import</span> <span class="o">*</span> <span class="nx">as</span> <span class="nx">opts</span> <span class="nx">from</span> <span class="s1">&#39;opts&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">,</span> <span class="nx">help</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 <p>
 If you installed <code>opts</code> with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the <a href="https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts">definition (.d.ts) file here</a>.</p>
@@ -200,7 +201,7 @@ API configurations
 <p>
 Options are flag-arguments. Arguments are everything else. Consider the following hypothetical command for starting a server that listens on <a href="http://0.0.0.0:4000">http://0.0.0.0:4000</a></p>
 <div class="src src-bash">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>node ./my-app start --host 0.0.0.0 -p <span style="color:#ae81ff">4000</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">node ./my-app start --host 0.0.0.0 -p <span class="m">4000</span></span></span></code></pre></div>
 </div>
 <p>
 In this example, the options are <code class="verbatim">--host 0.0.0.0</code> and <code class="verbatim">-p 4000</code>. The argument is <code class="verbatim">start</code>. The arguments can be after, before, or among the options.</p>
@@ -212,15 +213,15 @@ Options
 <p>
 <code>options</code> is an array of option objects. Each option in the array can have the following fields. None are required, but you should at least provide a short or long name.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show a list&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>, <span style="color:#75715e">// default false
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">required</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// default false
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
-</span></span><span style="display:flex;"><span>  }, <span style="color:#75715e">// ... followed by more options
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>];</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;l&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Show a list&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">value</span>       <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// default false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">required</span>    <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// default false
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="c1">// ... followed by more options
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="p">];</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -232,12 +233,12 @@ Arguments
 <p>
 <code>arguments</code> require less configuration. This is an optional argument to <code>opts.parse</code>:</p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#a6e22e">name</span>     <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>, <span style="color:#75715e">// not required by default
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#a6e22e">callback</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { ... },
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>];</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">let</span> <span class="nx">arguments</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">name</span>     <span class="o">:</span> <span class="s1">&#39;script&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">required</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="c1">// not required by default
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">callback</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -250,16 +251,16 @@ Help auto-generator
 Finally, you can add an automatically generated help message by passing
 a last parameter of <code class="verbatim">true</code>. This is also an optional argument to <code>opts.parse</code>.</p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// or if you want more control, you can do:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">/*
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  options.push({
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    long        : &#39;help&#39;,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    description : &#39;Show this help message&#39;,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">    callback    : require(&#39;opts&#39;).help,
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  }
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">  opts.parse(options);
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">*/</span></span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// or if you want more control, you can do:
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cm">/*
+</span></span></span><span class="line"><span class="cl"><span class="cm">  options.push({
+</span></span></span><span class="line"><span class="cl"><span class="cm">    long        : &#39;help&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="cm">    description : &#39;Show this help message&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="cm">    callback    : require(&#39;opts&#39;).help,
+</span></span></span><span class="line"><span class="cl"><span class="cm">  }
+</span></span></span><span class="line"><span class="cl"><span class="cm">  opts.parse(options);
+</span></span></span><span class="line"><span class="cl"><span class="cm">*/</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -278,75 +279,75 @@ Showcase of features and options
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example2.js">opts/examples/example2.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * More complex example.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Run:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *   node example2.js --help
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * and play with the options to see the behavior.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * This example shows different ways of using the library. It is deliberately
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * inconsistent. Choose the style that suits you best.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>)
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;localhost&#39;</span>; <span style="color:#75715e">// default host value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;version&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;v1.0&#39;</span>); <span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">1</span>); }
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;List all files&#39;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;f&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;file&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Load a file&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">required</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;d&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;debug&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Set a debug level&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;h&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;host&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;The hostname to connect to&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> (<span style="color:#a6e22e">value</span>) { <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">value</span>; } <span style="color:#75715e">// override host value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;p&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;port&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;The port to connect to&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">port</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;port&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">8000</span> <span style="color:#75715e">// default port value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;d&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;info&#39;</span>  <span style="color:#75715e">// default debug value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">file</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;f&#39;</span>)
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">list</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;list&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arg1</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">args</span>()[<span style="color:#ae81ff">0</span>]
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">arg2</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">args</span>()[<span style="color:#ae81ff">1</span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;List arg was set&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">file</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;File arg was set: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">file</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Debug level is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">debug</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Host is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">host</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Port is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">port</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg1</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 1: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg1</span>);
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">arg2</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Extra arg 2: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">arg2</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * More complex example.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Run:
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *   node example2.js --help
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * and play with the options to see the behavior.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * This example shows different ways of using the library. It is deliberately
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * inconsistent. Choose the style that suits you best.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;opts&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span> <span class="c1">// default host value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;v&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;version&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Show version and exit&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;v1.0&#39;</span><span class="p">);</span> <span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;l&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;list&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;List all files&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;f&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;file&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Load a file&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">value</span>       <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">required</span>    <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;d&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;debug&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Set a debug level&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">value</span>       <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;h&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;host&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;The hostname to connect to&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">value</span>       <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span> <span class="p">}</span> <span class="c1">// override host value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;p&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;port&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;The port to connect to&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">value</span>       <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">port</span>  <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;port&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">8000</span> <span class="c1">// default port value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">,</span> <span class="nx">debug</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;info&#39;</span>  <span class="c1">// default debug value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">,</span> <span class="nx">file</span>  <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">list</span>  <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">arg1</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">args</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">arg2</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">args</span><span class="p">()[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;List arg was set&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">file</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;File arg was set: &#39;</span> <span class="o">+</span> <span class="nx">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Debug level is: &#39;</span> <span class="o">+</span> <span class="nx">debug</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Host is: &#39;</span> <span class="o">+</span> <span class="nx">host</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Port is: &#39;</span> <span class="o">+</span> <span class="nx">port</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">arg1</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Extra arg 1: &#39;</span> <span class="o">+</span> <span class="nx">arg1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">arg2</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Extra arg 2: &#39;</span> <span class="o">+</span> <span class="nx">arg2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -358,28 +359,28 @@ Conflict detection
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example3.js">opts/examples/example3.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Simple example that is broken by design (conflicting options)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Examples:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *   $ node example3.js
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *   &gt; Conflicting flags: -v
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show version and exit&#39;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;v&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Be verbose&#39;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Example 3&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Simple example that is broken by design (conflicting options)
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Examples:
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *   $ node example3.js
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *   &gt; Conflicting flags: -v
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;opts&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;v&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Show version and exit&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;v&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Be verbose&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Example 3&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -391,58 +392,58 @@ Using named arguments and from within a library
 <p>
 <a href="https://raw.githubusercontent.com/khtdr/opts/master/examples/example4.js">opts/examples/example4.js</a></p>
 <div class="src src-javascript">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">/**
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Advanced example using namespaces for a library and named arguments
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * Run:
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> *   node example4.js --help
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> * and play with the options to see the behavior.
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"> */</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">opts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;opts&#39;</span>)
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">host</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;localhost&#39;</span>; <span style="color:#75715e">// default host value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// Example of using some library in the same app
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">libOpts</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Show the library list&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">callback</span>    <span style="color:#f92672">:</span> <span style="color:#66d9ef">function</span> () { <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;mylib list!&#39;</span>); },
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">add</span>(<span style="color:#a6e22e">libOpts</span>, <span style="color:#e6db74">&#39;mylib&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> [
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;l&#39;</span> <span style="color:#75715e">// deliberately conflicting with &#39;mylib&#39; option
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;list&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;List all files&#39;</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>  { <span style="color:#66d9ef">short</span>       <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;d&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#66d9ef">long</span>        <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;debug&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">description</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Set a debug level&#39;</span>
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">value</span>       <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>  },
-</span></span><span style="display:flex;"><span>];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">arguments</span> <span style="color:#f92672">=</span> [ { <span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;script&#39;</span> , <span style="color:#a6e22e">required</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span> }
-</span></span><span style="display:flex;"><span>                , { <span style="color:#a6e22e">name</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;timeout&#39;</span> }
-</span></span><span style="display:flex;"><span>                ];
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">parse</span>(<span style="color:#a6e22e">options</span>, <span style="color:#a6e22e">arguments</span>, <span style="color:#66d9ef">true</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">debug</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;d&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#e6db74">&#39;info&#39;</span>  <span style="color:#75715e">// default debug value
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  , <span style="color:#a6e22e">list</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">get</span>(<span style="color:#e6db74">&#39;list&#39;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">script</span>  <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">arg</span>(<span style="color:#e6db74">&#39;script&#39;</span>)
-</span></span><span style="display:flex;"><span>  , <span style="color:#a6e22e">timeout</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">opts</span>.<span style="color:#a6e22e">arg</span>(<span style="color:#e6db74">&#39;timeout&#39;</span>) <span style="color:#f92672">||</span> <span style="color:#ae81ff">30</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">list</span>) <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;List arg was set&#39;</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Debug level is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">debug</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Script is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">script</span>);
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Timeout is: &#39;</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">timeout</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">process</span>.<span style="color:#a6e22e">exit</span>(<span style="color:#ae81ff">0</span>);</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Advanced example using namespaces for a library and named arguments
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * Run:
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *   node example4.js --help
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * and play with the options to see the behavior.
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;opts&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">host</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span><span class="p">;</span> <span class="c1">// default host value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="c1">// Example of using some library in the same app
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">libOpts</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;l&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;list&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Show the library list&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">callback</span>    <span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;mylib list!&#39;</span><span class="p">);</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">libOpts</span><span class="p">,</span> <span class="s1">&#39;mylib&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;l&#39;</span> <span class="c1">// deliberately conflicting with &#39;mylib&#39; option
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;list&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;List all files&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="kr">short</span>       <span class="o">:</span> <span class="s1">&#39;d&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="kr">long</span>        <span class="o">:</span> <span class="s1">&#39;debug&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">description</span> <span class="o">:</span> <span class="s1">&#39;Set a debug level&#39;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">value</span>       <span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">arguments</span> <span class="o">=</span> <span class="p">[</span> <span class="p">{</span> <span class="nx">name</span> <span class="o">:</span> <span class="s1">&#39;script&#39;</span> <span class="p">,</span> <span class="nx">required</span> <span class="o">:</span> <span class="kc">true</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">,</span> <span class="p">{</span> <span class="nx">name</span> <span class="o">:</span> <span class="s1">&#39;timeout&#39;</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">opts</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">debug</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;info&#39;</span>  <span class="c1">// default debug value
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">,</span> <span class="nx">list</span>  <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">script</span>  <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">arg</span><span class="p">(</span><span class="s1">&#39;script&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">,</span> <span class="nx">timeout</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">arg</span><span class="p">(</span><span class="s1">&#39;timeout&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="mi">30</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;List arg was set&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Debug level is: &#39;</span> <span class="o">+</span> <span class="nx">debug</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Script is: &#39;</span> <span class="o">+</span> <span class="nx">script</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Timeout is: &#39;</span> <span class="o">+</span> <span class="nx">timeout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">process</span><span class="p">.</span><span class="nx">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span></span></span></code></pre></div>
 </div>
 <blockquote>
 <p>You can find the source code and all examples at Github, <a href="https://github.com/khtdr/opts">github.com/khtdr/opts</a>.</p>

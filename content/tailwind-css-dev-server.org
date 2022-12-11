@@ -12,7 +12,7 @@
 Simple quick way to get started learning and playing with Tailwind CSS
 #+END_QUOTE
 
-Example output while running dev-server, shown here: [[./_images/sample-logs.png]]
+Example output while running dev-server, shown here: [[/img/sample-logs.png]]
 
 * Features
   - No "transpiling" configuration is needed (or used).

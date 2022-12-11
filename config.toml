@@ -2,3 +2,4 @@ baseURL = 'https://khtdr.com/'
 languageCode = 'en-us'
 title = 'KHTDR'
 uglyurls = true
+markup.highlight.noClasses = false
