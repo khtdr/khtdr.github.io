@@ -1,18 +1,15 @@
 #+AUTHOR: OhKay.
-#+TITLE: Home Page
+#+TITLE: khtdr home page
 #+DATE: 2022-02-14
 #+DESCRIPTION: About KHTDR.com
 #+LASTMOD: 2022-02-14
 #+TAGS[]:
+#+WEIGHT: 1
 
-* About this website
 #+begin_center
 Some of the things I've built over the years.
 #+end_center
-
+** Elsewhere on the internet...
 - NPM Packages: https://www.npmjs.com/~mazzarelli
 - GitHub: https://github.com/khtdr
-
-*** Start here
-- Software, projects, librarys: [[./code]]
-- Tutorials, ideas, notes: [[./text]]
+- LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/

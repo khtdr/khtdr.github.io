@@ -1,0 +1,28 @@
+{{ define "main" }}
+<main>{{ .Content }}</main>
+
+<aside>
+	<h3>Categories</h3>
+	<ul>
+		{{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+		<li><a href="{{.Permalink}}">{{.Title}}</a></li>
+		{{end}}
+	</ul>
+</aside>
+
+<br />
+<br />
+
+<nav>
+	<h3>Pages, Projects, etc.</h3>
+	<ul>
+		{{ range .Pages.ByWeight }}
+		<li>
+			<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+			{{ partial "post-metadata.html" . }}
+			<p>{{ .Summary }}</p>
+		</li>
+		{{ end }}
+	</ul>
+</nav>
+{{ end }}

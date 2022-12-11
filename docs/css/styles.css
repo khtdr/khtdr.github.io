@@ -1,0 +1,25 @@
+html { margin: 0; padding: 0; display: flex; justify-content: center }
+body { width: 100%; max-width: 700px}
+body { margin: 0; padding: 32px; background-color: white; font-family: sans-serif; font-size: 16px }
+
+h1, h2, h3, h4, h5, h6 { margin: 16px  0 }
+a { color: #2949d9; text-decoration-color: #019 }
+a:hover { color: #019; text-decoration-color: #000 }
+
+time { font-size: 13px }
+aside { margin: 1em 0; }
+aside ul { list-style-type: none; margin: 0; padding: 0 }
+aside li { display: inline-block; padding-right: 8px }
+aside li a { color: #983; text-decoration-color: #db8 }
+
+code { font-size: 16px }
+
+img { display: block; max-width: 100%; height: auto; }
+
+.highlight > pre { max-width: 100%; overflow: auto; }
+.highlight > pre { padding: 8px; border-radius: 2px }
+.highlight + pre { background-color:#eee; padding: 8px; border-radius: 2px }
+
+nav h3 { margin: 0; }
+nav >ul >li { margin: 0 0 32px; }
+nav aside { margin: 0; padding: 0 }
