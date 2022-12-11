@@ -25,7 +25,6 @@
 	
 	</head>
 
-
 	<body>
 		
 <header class="header">
@@ -42,55 +41,56 @@
 
 </header>
 
-		<main>
-			
+		
 	
-	<div class="page post">
+	<div>
 		<article>
-			<h2 class="page-title post-title">Dark-Mode Light-Mode Css</h2>
+			<h2>Dark-Mode Light-Mode Css</h2>
 			
-
 <aside>
-	
-	
-	<time datetime="2020-08-16">August 16, 2020</time>
-	
+	<div>
+		
+		<ul class="categories">
+			
+			<li><a href="https://khtdr.com/categories/snippets/">snippets</a>/</li>
+			
+		</ul>
 
-	
-	<ul>
 		
-		<li><a href="https://khtdr.com/categories/css/">css</a></li><li><a href="https://khtdr.com/categories/themes/">themes</a></li>
-		
-	</ul>
+		<ul class="tags">
+			
+			<li>#<a href="https://khtdr.com/tags/css/">css</a></li>
+			
+		</ul>
+	</div>
 </aside>
 
-
-			<div class="page-content post-content"><p>
+			<div><p>
 Use a media query to set different values for variables in dark-mode.</p>
 <div class="src src-css">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>:<span style="color:#a6e22e">root</span> {
-</span></span><span style="display:flex;"><span>  --code: <span style="color:#ae81ff">#2f9acb</span>;
-</span></span><span style="display:flex;"><span>  --color: <span style="color:#ae81ff">#222831</span>;
-</span></span><span style="display:flex;"><span>  --accent: <span style="color:#ae81ff">#2f7a9b</span>;
-</span></span><span style="display:flex;"><span>  --background: <span style="color:#ae81ff">#eeeeee</span>;
-</span></span><span style="display:flex;"><span>  --border-color: <span style="color:#ae81ff">#fbd46d</span>;
-</span></span><span style="display:flex;"><span>  --secondary: <span style="color:#ae81ff">#f95959</span>;
+</span></span><span style="display:flex;"><span>  --background-color: <span style="color:#ae81ff">#eee</span>;
+</span></span><span style="display:flex;"><span>  --text-color: <span style="color:#ae81ff">#222</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">prefers-color-scheme</span><span style="color:#f92672">:</span> <span style="color:#f92672">dark</span><span style="color:#f92672">)</span> {
 </span></span><span style="display:flex;"><span>  :<span style="color:#a6e22e">root</span> {
-</span></span><span style="display:flex;"><span>    --code: <span style="color:#ae81ff">#f95959</span>;
-</span></span><span style="display:flex;"><span>    --background: <span style="color:#ae81ff">#222831</span>;
-</span></span><span style="display:flex;"><span>    --accent: <span style="color:#ae81ff">#2f9acb</span>;
-</span></span><span style="display:flex;"><span>    --color: <span style="color:#ae81ff">#ccc</span>;
+</span></span><span style="display:flex;"><span>    --background-color: <span style="color:#ae81ff">#222</span>;
+</span></span><span style="display:flex;"><span>    --text-color: <span style="color:#ae81ff">#eee</span>;
 </span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">body</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background-color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span>background<span style="color:#f92672">-</span><span style="color:#66d9ef">color</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">color</span>: <span style="color:#a6e22e">var</span>(<span style="color:#f92672">--</span><span style="color:#66d9ef">text</span><span style="color:#f92672">-</span><span style="color:#66d9ef">color</span>);
 </span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
-</div>
-<div class="center-block" style="text-align: center; margin-left: auto; margin-right: auto;">
-<p><em>taken from the CSS of this site</em></p>
 </div>
 </div>
 		</article>
+
+		
+		<time datetime="2020-08-16">created_at: August 16, 2020</time>
+		
 
 		
 
@@ -107,7 +107,6 @@ Use a media query to set different values for variables in dark-mode.</p>
 
 	</div>
 
-		</main>
 		
 
 	</body>

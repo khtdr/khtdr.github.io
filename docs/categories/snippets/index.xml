@@ -1,0 +1,62 @@
+
+<rss
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	version="2.0"
+>
+	<channel>
+		<title>KHTDR – snippets</title>
+		<description></description>
+		<link>https://khtdr.com/categories/snippets/</link>
+		<lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
+		
+			<language>en-us</language>
+		
+		
+		
+		
+		
+			<atom:link href="https://khtdr.com/categories/snippets/index.xml" rel="self" type="application/rss+xml" />
+		
+		
+			<item>
+				<title>Dark-Mode Light-Mode Css</title>
+				<description> Use a media query to set different values for variables in dark-mode.
+:root { --background-color: #eee; --text-color: #222; } @media (prefers-color-scheme: dark) { :root { --background-color: #222; --text-color: #eee; } } body { background-color: var(--background-color); color: var(--text-color); } </description>
+				<link>https://khtdr.com/dark-mode-light-mode-css/</link>
+				<guid>https://khtdr.com/dark-mode-light-mode-css/</guid>
+				<pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
+				
+				
+					<category>snippets</category>
+				
+				<content:encoded>
+					&lt;![CDATA[
+					&lt;p&gt;
+Use a media query to set different values for variables in dark-mode.&lt;/p&gt;
+&lt;div class=&#34;src src-css&#34;&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;:&lt;span style=&#34;color:#a6e22e&#34;&gt;root&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --background-color: &lt;span style=&#34;color:#ae81ff&#34;&gt;#eee&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  --text-color: &lt;span style=&#34;color:#ae81ff&#34;&gt;#222&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;@&lt;span style=&#34;color:#66d9ef&#34;&gt;media&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;prefers-color-scheme&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;dark&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  :&lt;span style=&#34;color:#a6e22e&#34;&gt;root&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    --background-color: &lt;span style=&#34;color:#ae81ff&#34;&gt;#222&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    --text-color: &lt;span style=&#34;color:#ae81ff&#34;&gt;#eee&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;body&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;background-color&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;background&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;: &lt;span style=&#34;color:#a6e22e&#34;&gt;var&lt;/span&gt;(&lt;span style=&#34;color:#f92672&#34;&gt;--&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;text&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;color&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+	</channel>
+</rss>

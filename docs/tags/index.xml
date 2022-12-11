@@ -9,7 +9,7 @@
 		<title>KHTDR – Tags</title>
 		<description></description>
 		<link>https://khtdr.com/tags/</link>
-		<lastBuildDate>Mon, 01 Jan 0001 00:00:00 +0000</lastBuildDate>
+		<lastBuildDate>Sun, 16 Aug 2020 18:53:52 -0600</lastBuildDate>
 		
 			<language>en-us</language>
 		
@@ -19,6 +19,216 @@
 		
 			<atom:link href="https://khtdr.com/tags/index.xml" rel="self" type="application/rss+xml" />
 		
+		
+			<item>
+				<title>css</title>
+				<description></description>
+				<link>https://khtdr.com/tags/css/</link>
+				<guid>https://khtdr.com/tags/css/</guid>
+				<pubDate>Sun, 16 Aug 2020 18:53:52 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>command-line</title>
+				<description></description>
+				<link>https://khtdr.com/tags/command-line/</link>
+				<guid>https://khtdr.com/tags/command-line/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>javascript</title>
+				<description></description>
+				<link>https://khtdr.com/tags/javascript/</link>
+				<guid>https://khtdr.com/tags/javascript/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>node-js</title>
+				<description></description>
+				<link>https://khtdr.com/tags/node-js/</link>
+				<guid>https://khtdr.com/tags/node-js/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>npm</title>
+				<description></description>
+				<link>https://khtdr.com/tags/npm/</link>
+				<guid>https://khtdr.com/tags/npm/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>tools</title>
+				<description></description>
+				<link>https://khtdr.com/tags/tools/</link>
+				<guid>https://khtdr.com/tags/tools/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>typescript</title>
+				<description></description>
+				<link>https://khtdr.com/tags/typescript/</link>
+				<guid>https://khtdr.com/tags/typescript/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>typescript-bindings</title>
+				<description></description>
+				<link>https://khtdr.com/tags/typescript-bindings/</link>
+				<guid>https://khtdr.com/tags/typescript-bindings/</guid>
+				<pubDate>Fri, 14 Aug 2020 18:46:11 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>icons</title>
+				<description></description>
+				<link>https://khtdr.com/tags/icons/</link>
+				<guid>https://khtdr.com/tags/icons/</guid>
+				<pubDate>Fri, 14 Aug 2020 17:17:45 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>react</title>
+				<description></description>
+				<link>https://khtdr.com/tags/react/</link>
+				<guid>https://khtdr.com/tags/react/</guid>
+				<pubDate>Fri, 14 Aug 2020 17:17:45 -0600</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>live-reload</title>
+				<description></description>
+				<link>https://khtdr.com/tags/live-reload/</link>
+				<guid>https://khtdr.com/tags/live-reload/</guid>
+				<pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>tailwind-css</title>
+				<description></description>
+				<link>https://khtdr.com/tags/tailwind-css/</link>
+				<guid>https://khtdr.com/tags/tailwind-css/</guid>
+				<pubDate>Mon, 07 Jan 2019 00:00:00 +0000</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>express</title>
+				<description></description>
+				<link>https://khtdr.com/tags/express/</link>
+				<guid>https://khtdr.com/tags/express/</guid>
+				<pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
+		
+			<item>
+				<title>socket-io</title>
+				<description></description>
+				<link>https://khtdr.com/tags/socket-io/</link>
+				<guid>https://khtdr.com/tags/socket-io/</guid>
+				<pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+				
+				
+				<content:encoded>
+					&lt;![CDATA[
+					
+					]]&gt;
+				</content:encoded>
+			</item>
 		
 	</channel>
 </rss>

@@ -5,81 +5,82 @@
     <loc>https://khtdr.com/</loc>
     <lastmod>2022-02-14T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://khtdr.com/opts/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://khtdr.com/categories/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/css/</loc>
+    <loc>https://khtdr.com/tags/css/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
   </url><url>
     <loc>https://khtdr.com/dark-mode-light-mode-css/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/themes/</loc>
+    <loc>https://khtdr.com/categories/snippets/</loc>
     <lastmod>2020-08-16T18:53:52-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/command-line/</loc>
+    <loc>https://khtdr.com/tags/</loc>
+    <lastmod>2020-08-16T18:53:52-06:00</lastmod>
+  </url><url>
+    <loc>https://khtdr.com/tags/command-line/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/javascript/</loc>
+    <loc>https://khtdr.com/tags/javascript/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/nodejs/</loc>
+    <loc>https://khtdr.com/tags/node-js/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url><url>
+    <loc>https://khtdr.com/tags/npm/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
     <loc>https://khtdr.com/pageboy/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/tools/</loc>
+    <loc>https://khtdr.com/categories/software/</loc>
+    <lastmod>2020-08-14T18:46:11-06:00</lastmod>
+  </url><url>
+    <loc>https://khtdr.com/tags/tools/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
     <loc>https://khtdr.com/treeify-paths/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/typescript/</loc>
+    <loc>https://khtdr.com/tags/typescript/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/typescript-bindings/</loc>
+    <loc>https://khtdr.com/tags/typescript-bindings/</loc>
     <lastmod>2020-08-14T18:46:11-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/icons/</loc>
+    <loc>https://khtdr.com/tags/icons/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/npm/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url><url>
-    <loc>https://khtdr.com/categories/react/</loc>
+    <loc>https://khtdr.com/tags/react/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url><url>
     <loc>https://khtdr.com/react-zondicons/</loc>
     <lastmod>2020-08-14T17:17:45-06:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/zondicons/</loc>
-    <lastmod>2020-08-14T17:17:45-06:00</lastmod>
-  </url><url>
-    <loc>https://khtdr.com/categories/opts/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://khtdr.com/opts/</loc>
-    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://khtdr.com/tailwind-css-dev-server/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/live-reload/</loc>
+    <loc>https://khtdr.com/tags/live-reload/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/tailwind-css/</loc>
+    <loc>https://khtdr.com/tags/tailwind-css/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/express/</loc>
+    <loc>https://khtdr.com/categories/tutorials/</loc>
+    <lastmod>2020-08-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://khtdr.com/tags/express/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://khtdr.com/simple-live-reload-server/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://khtdr.com/categories/socket-io/</loc>
+    <loc>https://khtdr.com/tags/socket-io/</loc>
     <lastmod>2020-08-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://khtdr.com/tags/</loc>
   </url>
 </urlset>
