@@ -5,7 +5,9 @@
 #+ALIASES[]: /opts.html
 #+DESCRIPTION: Command line options and arguments parser for NodeJS
 #+LASTMOD: 2020-08-14
-#+categories[]: javascript opts command-line nodejs tools npm typescript-bindings
+#+tags[]: javascript command-line node-js tools npm typescript-bindings
+#+categories[]: software
+#+weight: 1
 #+TOC: true
 
 =opts.js= is a Javascript helper library for command-line applications, for accepting  and parsing command-line arguments,flags and options, and automatically generating a useful help message.

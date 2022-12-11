@@ -3,16 +3,16 @@ title: "pageboy"
 author: OhKay.
 date: 2020-08-14T18:46:11-06:00
 toc: true
-description: Write your shell scripts in any combination of scripting languages. 
-categories: [command-line, tools]
+description: Write your shell scripts in any combination of scripting languages.
+tags: [command-line, tools]
+categories: [software]
 ---
 
 <img align="right" src="https://raw.githubusercontent.com/khtdr/pageboy/master/logo.png" width="200" />
 
-pageboy
-=======
+# pageboy
 
-Write your shell scripts in any combination of scripting languages. 
+Write your shell scripts in any combination of scripting languages.
 
 **Example Script** `example.pb`
 
@@ -27,20 +27,24 @@ echo back to Bash
 ```
 
 Running the following, produces:
+
 ```bash
 chmod +x ./example.pb
 ./example.pb
 ```
+
     in Bash
     in PHP
     back to Bash
 
-You can mix and match all you want. If your script uses valid [shebangs](https://en.wikipedia.org/wiki/Shebang_(Unix)), it will work. If it doesn't, it's a bug and [please let me know](https://github.com/khtdr/pageboy/issues). It also supports the (not quite right) awk shebang: `#!/usr/bin/env awk`.
+You can mix and match all you want. If your script uses valid [shebangs](<https://en.wikipedia.org/wiki/Shebang_(Unix)>), it will work. If it doesn't, it's a bug and [please let me know](https://github.com/khtdr/pageboy/issues). It also supports the (not quite right) awk shebang: `#!/usr/bin/env awk`.
 
 #### tests suite status:
+
 ```bash
 ./run-tests.sh
 ```
+
     pageboy-v2.1.3
         ./pageboy-test            # runs as pageboy script
         ./pageboy-test -r <page>  # runs requested page
@@ -64,13 +68,12 @@ You can mix and match all you want. If your script uses valid [shebangs](https:/
     ./tests/run-php.pb ... passed
     ./tests/version.pb ... passed
 
-installation & quickstart
--------------------------
+## installation & quickstart
 
 1. Current version: 2.1.3
 1. Download the [pageboy bash script](https://raw.githubusercontent.com/khtdr/pageboy/v1.2.3/pageboy) and put into your `$PATH` (ie. `~/bin/`).
-2. Start using `#!/usr/bin/env pageboy` as your shebang line in your bash scripts.
-2. Call other "pages" of your script by using the pre-defined `$PAGE` command in your scripts.
+1. Start using `#!/usr/bin/env pageboy` as your shebang line in your bash scripts.
+1. Call other "pages" of your script by using the pre-defined `$PAGE` command in your scripts.
 
 ```bash
 #!/usr/bin/env pageboy
@@ -82,7 +85,6 @@ phpinfo();
 ```
 
      934    3524   29671
-
 
 If you want multiple pages of the same language, append an index, starting at 1, to the pagename.
 
@@ -163,8 +165,7 @@ echo __DIR__;
     ITERM_SESSION_ID=w0t0p0
     /home/khtdr/
 
-standard features
------------------
+## standard features
 
 ```bash
 pageboy -h
@@ -181,12 +182,9 @@ pageboy -h
 
 More examples can be found in the [tests directory](https://github.com/khtdr/pageboy/blob/master/tests/).
 
+## advanced features
 
-advanced features
------------------
-
-   - Pages can be named, see [pageboy/tests/named.pb](https://github.com/khtdr/pageboy/blob/master/tests/named.pb)
-   - Args can be passed in, see [pageboy/tests/args.pb](https://github.com/khtdr/pageboy/blob/master/tests/args.pb)
-
+- Pages can be named, see [pageboy/tests/named.pb](https://github.com/khtdr/pageboy/blob/master/tests/named.pb)
+- Args can be passed in, see [pageboy/tests/args.pb](https://github.com/khtdr/pageboy/blob/master/tests/args.pb)
 
 > The full source code and examples are available at: [khtdr/pageboy](https://github.com/khtdr/pageboy)

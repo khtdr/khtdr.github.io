@@ -7,9 +7,12 @@
 #+WEIGHT: 1
 
 #+begin_center
-Some of the things I've built over the years.
+Welcome, here are some of the things I've created over the years.
 #+end_center
-** Elsewhere on the internet...
+
+** I'm elsewhere on the internet...
 - NPM Packages: https://www.npmjs.com/~mazzarelli
 - GitHub: https://github.com/khtdr
 - LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
+
+----

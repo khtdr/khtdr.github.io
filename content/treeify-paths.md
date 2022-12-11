@@ -4,42 +4,50 @@ author: OhKay.
 date: 2020-08-14T18:46:11-06:00
 toc: true
 description: Converts a list of paths into a directory-like tree structure
-categories: [tools, javascript, nodejs, typescript, typescript-bindings]
+tags: [javascript, node-js, npm, typescript, typescript-bindings]
+categories: [software]
 ---
 
 ## Introduction
+
 Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.
 
-Provide a __list of file names__:
-  - blog/all.html
-  - blog/2036/overflows.html
-  
-And recieve a __directory-like tree__:
-  - blog
-      - all.html
-      - 2036
-          - overflows.html
+Provide a **list of file names**:
+
+- blog/all.html
+- blog/2036/overflows.html
+
+And recieve a **directory-like tree**:
+
+- blog
+  - all.html
+  - 2036
+    - overflows.html
 
 ## Installation
 
 Install it with NPM:
+
 ```bash
 npm install --save treeify-paths
 ```
 
 Import with modern syntax:
+
 ```javascript
-import treeifyPaths from 'treeify-paths';
+import treeifyPaths from "treeify-paths";
 ```
 
 _Or_ if you are not using NPM, install the library by downloading the [source file](https://raw.githubusercontent.com/khtdr/treeify-paths/master/dist/treeify-paths.js) directly and including it in your project:
+
 ```bash
 curl -o treeify-paths.js "https://raw.githubusercontent.com/khtdr/treeify-paths/blob/master/dist/treeify-paths.js"
 ```
 
 Load with classic syntax:
+
 ```javascript
-let treeify_paths = require('./treeify-paths').default;
+let treeify_paths = require("./treeify-paths").default;
 ```
 
 The library itself is written in [a few lines of typescript](https://raw.githubusercontent.com/khtdr/treeify-paths/master/treeify-paths.ts).
@@ -58,6 +66,7 @@ treeifyPaths(paths :string[]) => :Tree
 ```
 
 This example produces prints the following output:
+
 ```javascript
 import treeifyPaths from 'treeify-paths';
 console.log(JSON.stringify(treeifyPaths([
@@ -114,11 +123,10 @@ console.log(JSON.stringify(treeifyPaths([
         ]
     }
 
-
 **Online Interactive Examples**
-  - [Live example](https://runkit.com/khtdr/treeify-paths)
-  - [Download example](https://runkit.com/downloads/khtdr/treeify-paths/1.0.0.zip)
 
+- [Live example](https://runkit.com/khtdr/treeify-paths)
+- [Download example](https://runkit.com/downloads/khtdr/treeify-paths/1.0.0.zip)
 
 ## Testing
 

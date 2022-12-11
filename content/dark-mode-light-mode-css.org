@@ -1,29 +1,25 @@
-#+title: Dark-Mode Light-Mode Css
 #+date: 2020-08-16T18:53:52-06:00
-#+categories[]: css themes
+#+title: Dark-Mode Light-Mode Css
+#+categories[]: snippets
+#+tags[]: css
 #+description: Use a media query to set different values for variables in dark-mode.
 
 Use a media query to set different values for variables in dark-mode.
 #+BEGIN_src css
 :root {
-  --code: #2f9acb;
-  --color: #222831;
-  --accent: #2f7a9b;
-  --background: #eeeeee;
-  --border-color: #fbd46d;
-  --secondary: #f95959;
+  --background-color: #eee;
+  --text-color: #222;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --code: #f95959;
-    --background: #222831;
-    --accent: #2f9acb;
-    --color: #ccc;
+    --background-color: #222;
+    --text-color: #eee;
   }
 }
-#+END_src
 
-#+BEGIN_CENTER
-/taken from the CSS of this site/
-#+END_CENTER
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+#+END_src
