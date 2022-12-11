@@ -8,6 +8,7 @@ fi
 
 printf "\033[0;32mBuilding static site on master...\033[0m\n"
 hugo -d docs
+cp CNAME docs
 
 printf "\033[0;32mPublishing updates on master...\033[0m\n"
 git add .
