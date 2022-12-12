@@ -20,7 +20,8 @@
 
 
 	
-	
+	<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/js/site-search.js"></script>
 
 
 	
@@ -40,6 +41,9 @@
 	</ul>
 </nav>
 
+	<div style="position: relative;">
+		<input id="search" autocomplete="off" type="text" placeholder="site search" />
+	</div>
 </header>
 
 		
@@ -51,10 +55,6 @@
 			<a href="https://khtdr.com/categories/software.html">software</a>/
 			
  opts.js
-
-		
-		<time datetime="2019-08-02">originally published on August 2, 2019</time>
-		
 
 
 			
@@ -68,6 +68,10 @@
 	</div>
 </aside>
 
+
+		
+		<time datetime="2019-08-02">originally published on August 2, 2019</time>
+		
 			<div>
 <p>
 <code class="verbatim">opts.js</code> is a Javascript helper library for command-line applications, for accepting and parsing command-line arguments, flags and options, and automatically generating a useful help message.</p>

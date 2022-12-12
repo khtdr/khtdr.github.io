@@ -3,3 +3,6 @@ languageCode = 'en-us'
 title = 'KHTDR'
 uglyurls = true
 markup.highlight.noClasses = false
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  page = ["HTML"]

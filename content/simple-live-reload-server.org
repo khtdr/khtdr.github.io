@@ -8,7 +8,7 @@
 #+TOC: true
 
 * Building your own live-reloading web server
-Follow along and build your own automatically-refreshing web server, as shown here: [[./_images/preview.gif]]
+Follow along and build your own automatically-refreshing web server, as shown here: [[./img/preview.gif]]
 
 
 * This setup assumes you know and use Node and NPM

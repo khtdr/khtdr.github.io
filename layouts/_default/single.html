@@ -15,12 +15,12 @@
 			{{ end }}
  {{ .Title }}
 
+
+			{{ partial "post-metadata.html" . }}
+
 		{{ if .Date }}
 		<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
 		{{ end }}
-
-
-			{{ partial "post-metadata.html" . }}
 			<div>{{ .Content }}</div>
 		</article>
 

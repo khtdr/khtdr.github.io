@@ -20,7 +20,8 @@
 
 
 	
-	
+	<script src="https://unpkg.com/lunr/lunr.js"></script>
+<script src="/js/site-search.js"></script>
 
 
 	
@@ -40,6 +41,9 @@
 	</ul>
 </nav>
 
+	<div style="position: relative;">
+		<input id="search" autocomplete="off" type="text" placeholder="site search" />
+	</div>
 </header>
 
 		
@@ -51,10 +55,6 @@
 			<a href="https://khtdr.com/categories/software.html">software</a>/
 			
  treeify-paths
-
-		
-		<time datetime="2020-08-14">originally published on August 14, 2020</time>
-		
 
 
 			
@@ -68,6 +68,10 @@
 	</div>
 </aside>
 
+
+		
+		<time datetime="2020-08-14">originally published on August 14, 2020</time>
+		
 			<div><h2 id="introduction">Introduction</h2>
 <p>Useful when converting a list of file names into a nested UL/LI tree. Perfect for site maps, and directory listings.</p>
 <p>Provide a <strong>list of file names</strong>:</p>

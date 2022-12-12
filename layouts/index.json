@@ -1,0 +1,37 @@
+{{- $.Scratch.Add "pagesIndex" slice -}}
+{{- range $index, $page := .Site.RegularPages -}}
+    {{- if gt (len $page.Content) 0 -}}
+      {{- $pageData := (dict
+                        "title" $page.Title
+                        "href" $page.Permalink
+                        "tags" $page.Params.tags
+                        "categories" $page.Params.categories
+                        "content" $page.Plain
+                       ) -}}
+      {{- $.Scratch.Add "pagesIndex" $pageData -}}
+    {{- end -}}
+{{- end -}}
+
+{{- $.Scratch.Add "categoriesIndex" slice -}}
+{{- range $index, $category := (.Site.GetPage "taxonomyTerm" "categories").Pages -}}
+      {{- $categoryData := (dict
+                        "name" $category.Title
+                        "permalink" $category.Permalink
+                       ) -}}
+      {{- $.Scratch.Add "categoriesIndex" $categoryData -}}
+{{- end -}}
+
+{{- $.Scratch.Add "tagsIndex" slice -}}
+{{- range $index, $tag := (.Site.GetPage "taxonomyTerm" "tags").Pages -}}
+      {{- $tagData := (dict
+                        "name" $tag.Title
+                        "permalink" $tag.Permalink
+                       ) -}}
+      {{- $.Scratch.Add "tagsIndex" $tagData -}}
+{{- end -}}
+
+{{- (dict
+     "categories" ($.Scratch.Get "categoriesIndex")
+     "tags" ($.Scratch.Get "tagsIndex")
+     "pages" ($.Scratch.Get "pagesIndex")
+    ) | jsonify -}}
