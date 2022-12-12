@@ -19,3 +19,12 @@ Welcome, here are some of the things I've created over the years.
 I really like the song. https://youtu.be/pvZ4MN-SoJA
 
 ----
+
+** Software Projects
+{{< category software >}}
+
+** Tutorial Posts
+{{< category tutorials >}}
+
+** Snippets and Notes
+{{< category snippets >}}

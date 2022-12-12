@@ -212,3 +212,9 @@ header.header {
   align-content: center;
   margin-bottom: 32px;
 }
+
+p.summary {
+  font-size: 15px;
+  opacity: 0.5;
+  line-height: 18px;
+}
