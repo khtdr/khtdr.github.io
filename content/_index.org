@@ -10,7 +10,7 @@
 Welcome, here are some of the things I've created over the years.
 #+end_center
 
-*** Elsewhere on the internet...
+*** Yo.. Elsewhere on the internet...
 - Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
 - GitHub: https://github.com/khtdr
 - NPM Packages: https://www.npmjs.com/~mazzarelli
