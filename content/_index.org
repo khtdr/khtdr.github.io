@@ -11,8 +11,9 @@ Welcome, here are some of the things I've created over the years.
 #+end_center
 
 *** I'm elsewhere on the internet...
-- NPM Packages: https://www.npmjs.com/~mazzarelli
+- Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
 - GitHub: https://github.com/khtdr
+- NPM Packages: https://www.npmjs.com/~mazzarelli
 - LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
 
 *** What's with the name?

@@ -21,7 +21,15 @@
 		{{ if .Date }}
 		<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
 		{{ end }}
-			<div>{{ .Content }}</div>
+			<div>
+
+				{{ if .Params.Toc }}
+				<div class="toc">
+				{{ .TableOfContents }}
+				</div>
+				{{ end }}
+				{{ .Content }}
+			</div>
 		</article>
 
 		{{ partial "post-actions.html" . }}

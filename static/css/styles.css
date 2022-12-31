@@ -213,6 +213,10 @@ header.header {
   margin-bottom: 32px;
 }
 
+.goat text {
+  font-size: 13px !important;
+}
+
 p.summary {
   font-size: 15px;
   opacity: 0.5;

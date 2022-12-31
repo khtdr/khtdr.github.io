@@ -1,5 +1,7 @@
 {{ define "main" }}
 
+<main>{{ .Content }}</main>
+
 <aside>
 	<h3>Categories</h3>
 	<ul>
@@ -7,11 +9,7 @@
 		<li><a href="{{.Permalink}}">{{.Title}}</a>/</li>
 		{{end}}
 	</ul>
-</aside>
 
-<main>{{ .Content }}</main>
-
-<aside>
 	<h3>Tags</h3>
 	<ul>
 		{{range ($.Site.GetPage "taxonomyTerm" "tags").Pages }}

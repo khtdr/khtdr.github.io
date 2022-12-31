@@ -1,0 +1,68 @@
+#+author: OhKay.
+#+title: Summarizing Text With Natural Language Processing
+#+description: How to summarize text with NLP
+#+date: 2022-12-11
+#+lastmod: 2022-12-11
+#+categories[]: tutorials
+#+tags[]: nlp, javascript
+#+toc: true
+#+draft: true
+#+weight: 1
+
+* Summarizing Text
+=auto-tldr bot= at reddit uses SMMRY
+** SMMRY
+*** https://smmry.com/about
+- Ranking sentences by importance using its core algorithm.
+- Reorganizing the summary to focus on a topic; by selection of a keyword.
+- Removing transition phrases.
+- Removing unnecessary clauses.
+- Removing excessive examples.
+
+*** https://web.archive.org/web/20220903195431/https://smmry.com/about
+SMMRY's mission is to provide an efficient manner of understanding text, which is done primarily by reducing the text to only the most important sentences. SMMRY accomplishes its mission by:
+
+- Ranking sentences by importance using the core algorithm.
+- Reorganizing the summary to focus on a topic; by selection of a keyword.
+- Removing transition phrases.
+- Removing unnecessary clauses.
+- Removing excessive examples.
+
+The core algorithm summarizes in 7 simple steps:
+
+1) Associate words with their grammatical counterparts. (e.g. "city" and "cities")
+2) Calculate the occurrence of each word in the text.
+3) Assign each word with points depending on their popularity.
+4) Detect which periods represent the end of a sentence. (e.g "Mr." does not).
+5) Split up the text into individual sentences.
+6) Rank sentences by the sum of their words' points.
+7) Return X of the most highly ranked sentences in chronological order.
+
+** Reinvention
+*** Ranking Terms
+Steps 1-2 can be combined into a ~rankTerms()~ function
+#+begin_export html
+{{< goat >}}
+ .------------------------------.
+| 1. gather possible words.     +----.    .------------------------.
+| 2. rank words by popularity   |     |   | rankTerms(text: string) |
+ '------------------------------'      '->| :Record<string, number> |
+                                          '------------------------'
+{{< /goat >}}
+#+end_export
+*** Ranking Sentences
+Steps 3-6 can be combined into a ~rankSentences()~ function
+*** Create a Summary
+Various ways to create a summary:
+- Character Count
+- Topic Reach
+
+  {{< goat >}}
+                ________                            o        *          *   .--------------.
+   *---+--.    |        |     o   o      |         ^          \        /   |  .----------.  |
+       |   |    '--*   -+-    |   |      v        /            \      /    | |  <------.  | |
+       |    '----->       .---(---'  --->*<---   /      .+->*<--o----'     | |          | | |
+   <--'  ^  ^             |   |                 |      | |  ^    \         |  '--------'  | |
+          \/        *-----'   o     |<----->|   '-----'  |__|     v         '------------'  |
+          /\                                                               *---------------'
+  {{< /goat >}}
