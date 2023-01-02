@@ -6,20 +6,11 @@
 #+TAGS[]:
 #+WEIGHT: 1
 
+----
+
 #+begin_center
 Welcome, here are some of the things I've created over the years.
 #+end_center
-
-*** Yo.. Elsewhere on the internet...
-- Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
-- GitHub: https://github.com/khtdr
-- NPM Packages: https://www.npmjs.com/~mazzarelli
-- LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
-
-*** What's with the name?
-I really like the song. https://youtu.be/pvZ4MN-SoJA
-
-----
 
 ** Software Projects
 {{< category software >}}
@@ -29,3 +20,16 @@ I really like the song. https://youtu.be/pvZ4MN-SoJA
 
 ** Snippets and Notes
 {{< category snippets >}}
+
+----
+
+*** On the internet...
+- Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
+- GitHub: https://github.com/khtdr
+- NPM Packages: https://www.npmjs.com/~mazzarelli
+- LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
+
+*** What's with the name?
+I really like the song. https://youtu.be/pvZ4MN-SoJA
+
+----
