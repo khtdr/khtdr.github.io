@@ -9,7 +9,7 @@
 ----
 
 #+begin_center
-Welcome, here are some of the things I've created over the years.
+Welcome, here is my inconsistently-curated collection of software, writings, notes, and whatever, that I've created over the years.
 #+end_center
 
 ** Software Projects
@@ -29,7 +29,7 @@ Welcome, here are some of the things I've created over the years.
 - NPM Packages: https://www.npmjs.com/~mazzarelli
 - LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
 
-*** What's with the name?
+*** What's with the domain name?
 I really like the song. https://youtu.be/pvZ4MN-SoJA
 
 ----

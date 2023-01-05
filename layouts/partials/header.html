@@ -1,8 +1,10 @@
 <!-- Site header with title and main menu. -->
 <header class="header">
-	<h1 class="site-title"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
-	{{ partial "navigation.html" . }}
-	<div style="position: relative;">
-		<input id="search" autocomplete="off" type="text" placeholder="site search" />
+	<div>
+	<h1 class="site-title"><a href="{{ .Site.BaseURL | relLangURL }}">home</a></h1>
 	</div>
+	<div>
+	<input id="search" type="text" placeholder="site search" />
+	</div>
+	{{ partial "navigation.html" . }}
 </header>
