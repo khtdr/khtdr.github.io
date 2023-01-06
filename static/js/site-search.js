@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let categories, tags, pages;
   $menu.className = "site-search";
   $search.parentElement.append($menu);
+  $search.parentElement.style.position = "relative";
   const index = {
     status: "unloaded",
     categories: undefined,
