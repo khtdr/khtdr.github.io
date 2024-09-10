@@ -2,17 +2,21 @@
   --background-color: #e8e3e3;
   --content-background-color: #f8f3f3;
   --foreground-color: #111111;
+  --border-color: #ccc;
   --well-color: #fff;
   --link-color: #11839e;
   --link-color-active: #019;
   --accent-color: #933;
+  --light-fg: #eee;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --content-background-color: #273036;
     --background-color: #121212;
+    --border-color: #222;
     --foreground-color: #e4e4e4;
+    --light-fg: #055;
     --well-color: #374046;
     --link-color: #f5c;
     --link-color-active: #e0b;
@@ -36,7 +40,7 @@ body {
   background-color: var(--background-color);
   color: var(--foreground-color);
   font-family: "Space Mono", monospace;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 25px;
   margin: 0;
   max-width: 800px;
@@ -64,10 +68,13 @@ a:hover {
 }
 
 time {
-  font-size: 12px;
   color: var(--foreground-color);
-  opacity: 0.7;
+  opacity: 0.3;
   text-transform: uppercase;
+  line-height: 1em;
+  font-weight: 700;
+  display: block;
+  text-align: right;
 }
 aside {
   margin: 1em 0;
@@ -91,14 +98,24 @@ aside li a {
 }
 
 code {
-  font-size: 18px;
-  background-color: rgba(127, 127, 127, 0.1);
+  color: var(--light-fg);
+  background-color: var(--accent-color);
+  box-shadow: 0px 0 0px 1px var(--accent-color);
+  border-radius: 2px;
+}
+
+code.verbatim {
+  color: var(--light-fg);
+  background-color: var(--background-color);
+  box-shadow: 0px 0 0px 1px var(--border-color);
+  color: inherit;
 }
 
 pre code,
 pre + code {
-  font-size: 15px;
   background-color: transparent;
+  box-shadow: none;
+  color: inherit;
 }
 
 img {
@@ -137,7 +154,6 @@ ul.categories,
 ul.tags {
   display: inline-block;
   color: #666;
-  font-size: 15px;
 }
 
 .center-block {
@@ -192,7 +208,6 @@ article aside {
 
 .site-search a code {
   padding: 4px;
-  font-size: 13px;
   width: 90px;
   text-align: center;
   height: 100%;
@@ -235,7 +250,6 @@ article aside {
 }
 
 header h1 {
-  font-size: 18px;
 }
 
 header > :first-child {
@@ -250,25 +264,26 @@ header > :first-child > :first-child {
 }
 
 .goat text {
-  font-size: 13px !important;
 }
 
 p.summary {
-  font-size: 15px;
   opacity: 0.5;
   line-height: 18px;
 }
 
 .toc {
   background-color: var(--well-color);
-  padding: 1px 16px;
-  box-shadow: 0 5px 4px -5px #77777777;
+  border: solid 1px var(--background-color);
+  border-left: none;
+  border-right: none;
+  margin: 10px 0;
+  padding: 0 16px 16px;
+  border-radius: 4px;
 }
 
 .toc a {
   text-decoration: none;
   color: var(--accent-color);
-  font-size: 15px;
 }
 
 .toc a:hover {
@@ -278,15 +293,18 @@ p.summary {
 .toc > nav > ul {
   list-style-type: number;
   font-weight: 700;
+  margin: 0;
+  padding: 0 0 0 20px;
 }
 
 .toc > nav > ul > li {
-  margin-bottom: 5px;
+  margin: 10px 0 0 0;
+  line-height: 1.5em;
 }
 
 .toc > nav > ul ul {
   list-style-type: lower-alpha;
-  padding-left: 18px;
+  padding-left: 20px;
   padding-top: 0;
   padding-bottom: 0;
   font-weight: 100;

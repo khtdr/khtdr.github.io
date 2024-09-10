@@ -1,12 +1,14 @@
-{{ $target := .Get 0 }} {{- range $index1, $category := (.Site.GetPage
-"taxonomyTerm" "categories").Pages -}} {{ index .Params 0 }} {{- if eq
-$category.Title $target -}}
+{{ $target := .Get 0 }} {{ $summary := .Get 1 | default true }} {{- range
+$index1, $category := (.Site.GetPage "taxonomyTerm" "categories").Pages -}} {{
+index .Params 0 }} {{- if eq $category.Title $target -}}
 <ul>
   {{- range $index2, $page := $category.Pages.ByWeight -}}
   <li>
     <h3><a href="{{$page.Permalink}}">{{ $page.Title }}</a></h3>
     <p>{{ $page.Description }}</p>
+    {{if $summary }}
     <p class="summary">{{ $page.Summary }}</p>
+    {{ end }}
     <aside>
       <ul class="tags">
         {{ with .Param "tags" }} {{ range $index, $tag := . }} {{- with

@@ -3,7 +3,7 @@
 #+DATE: 2019-01-07
 #+DESCRIPTION: Simple quick way to get started learning and playing with Tailwind CSS
 #+LASTMOD: 2020-08-14
-#+categories[]: tutorials
+#+categories[]: Tutorials
 #+tags[]: javascript live-reload tailwind-css
 #+TOC: true
 #+weight: 2

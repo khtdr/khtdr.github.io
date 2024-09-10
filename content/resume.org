@@ -1,0 +1,94 @@
+#+AUTHOR: OhKay.
+#+TITLE: Resume
+#+DATE: 2019-08-02
+#+URL: /resume
+#+ALIASES[]: /resume.html
+#+DESCRIPTION: Joey Mazzarelli Resume
+#+LASTMOD: 2024-09-09
+#+tags[]: bio
+#+categories[]:
+#+weight: 1
+#+toc: true
+
+
+* Resume for Jose Mazzarelli
+** Summary
+I have 20+ years of experience building reliable software across various industries. I am  skilled in full-stack development and team leadership, with a focus on secure web application development.
+
+** Contact Information
+- Email: [[mailto:mazzarelli@gmail.com][mazzarelli+resume@gmail.com]]
+- GitHub: https://github.com/khtdr
+- LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
+- NPM Packages: https://www.npmjs.com/~mazzarelli
+
+* Professional Experience
+
+** Machine and Partners --
+AIConsultant:"2024 Present":
+=Postgres= =Typescript= =LLM= =RAG= =AI Application Development=
+
+Created a rag chat _application_ /for/ *financial* **documents**
+
+** VZBL (Co-founder and Lead Developer) | 2023 - Present
+:PROPERTIES:
+:Tech+: Typescript, React, React Query, Next.js, Node.js, Neo4J, Postgres, Redis, JWT, NPM
+:END:
+- Led the application development, focusing on application architecture and data exploration.
+- Designed and built key features including onboarding flows, dashboards, and data visualizations.
+- Built features including user management, multi-tenant security, and customizable interfaces.
+
+** SocialChorus/FirstUp (Senior Software Engineer and Team Lead) | 2018 - 2023
+:PROPERTIES:
+:Tech+: Javascript, Typescript, Ruby, Rails, React, Redux, Backbone, Angular, Node.js, Redis, Clojure, Postgres, Puppeteer, NPM, MJML, Cypress, RSpec
+:END:
+- Managed teams in publishing and analytics/reporting.
+- Led the transition to modern front-end tools, improving app performance and user experience.
+- Designed and built custom publishing tools.
+- Integrated Metabase and Tableau into the product.
+- Led a team of 6 (4 devs + 2 QA) in an Agile process.
+- Part of the core hiring team, interviewing several hundred candidates.
+
+** Kount (Software Engineer, UX Architect, and Software Architect) | 2007 - 2018
+:PROPERTIES:
+:Tech+: jQuery, Javascript, CoffeeScript, PHP, Oracle (PLSQL), React, Redux, Node.js, OWASP, JWT, PHPUnit
+:END:
+- One of the original engineers at Kount, contributing to its growth and eventual acquisition by Equifax.
+- Focused on speed and security, working on authentication, dependency injection, and theming frameworks.
+- Responsible for software security training and best practice implementations.
+- Developed various customer facing and internal tools.
+
+** Boise State University (Adjunct Lecturer) | 2014 - 2018
+:PROPERTIES:
+:Tech+: Javascript, jQuery, PHP, MySQL
+:END:
+- Taught courses on Web Development and Programming Languages.
+
+** Black & Red Inc. (Owner) | 2005 - 2018
+:PROPERTIES:
+:Tech+: Javascript, jQuery, PHP, MySQL
+:END:
+- Built online shopping and inventory systems and servers.
+
+** YourList (Lead Developer) | 2011
+:PROPERTIES:
+:Tech+: Javascript, jQuery, PHP, Python, MySQL, MQ
+:END:
+- Developed a distributed scraping algorithm.
+
+** Keynetics (Full Stack Developer) | 2006 - 2007
+:PROPERTIES:
+:Tech+: Javascript, jQuery, PHP, Perl, Python
+:END:
+- Worked on financial processing code and prototyped security tools.
+
+** PersonalShopper (Full Stack Developer) | 2005 - 2006
+:PROPERTIES:
+:Tech+: Javascript, jQuery, Java, Oracle
+:END:
+
+** ITD (Web Developer) | 2002-2004
+:PROPERTIES:
+:Tech+: Javascript, ASP.NET, MS SQL
+:END:
+- Developed intranet and website solutions....
+  - [[https://apps.itd.idaho.gov/apps/mediamanagermvc/transporter/2004/100104_Trans/100104_ITDwebsite.html][Link to Project]]
