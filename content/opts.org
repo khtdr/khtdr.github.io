@@ -6,7 +6,7 @@
 #+DESCRIPTION: Command line options and arguments parser for NodeJS
 #+LASTMOD: 2020-08-14
 #+tags[]: javascript command-line node-js tools npm typescript-bindings
-#+categories[]: software
+#+categories[]: Software
 #+weight: 1
 #+TOC: true
 

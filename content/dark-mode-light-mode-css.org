@@ -1,6 +1,6 @@
 #+date: 2020-08-16T18:53:52-06:00
 #+title: Dark-Mode Light-Mode Css
-#+categories[]: snippets
+#+categories[]: Snippets
 #+tags[]: css
 #+description: Use a media query to set different values for variables in dark-mode.
 
