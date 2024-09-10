@@ -11,13 +11,13 @@ Welcome, here is my inconsistently-curated collection of software, writings, not
 #+end_center
 
 ** Software Projects
-{{< category Software >}}
+{{<category Software>}}
 
 ** Tutorial Posts
-{{< category Tutorials >}}
+{{<category Tutorials>}}
 
 ** Snippets and Notes
-{{< category Snippets >}}
+{{<category Snippets>}}
 
 *** On the internet...
 - Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
