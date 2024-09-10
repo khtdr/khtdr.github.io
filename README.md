@@ -4,9 +4,7 @@ GOTO https://khtdr.com
 ### Development
 
 ```sh
-# do you work
+# do your work
 ./run-dev.sh
-# build and deploy
-./deploy.sh
 ```
 
