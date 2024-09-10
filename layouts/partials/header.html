@@ -1,10 +1,12 @@
 <!-- Site header with title and main menu. -->
 <header class="header">
 	<div>
-	<h1 class="site-title"><a href="{{ .Site.BaseURL | relLangURL }}">home</a></h1>
+		<h1 class="site-title">
+			🌈
+			<a href="{{ .Site.BaseURL | relLangURL }}">~khtdr/</a>
+		</h1>
+		<div>
+			<input id="search" type="text" placeholder="site search" />
+		</div>
 	</div>
-	<div>
-	<input id="search" type="text" placeholder="site search" />
-	</div>
-	{{ partial "navigation.html" . }}
 </header>

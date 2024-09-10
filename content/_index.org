@@ -6,22 +6,18 @@
 #+TAGS[]:
 #+WEIGHT: 1
 
-----
-
 #+begin_center
 Welcome, here is my inconsistently-curated collection of software, writings, notes, and whatever, that I've created over the years.
 #+end_center
 
 ** Software Projects
-{{< category software >}}
+{{< category Software >}}
 
 ** Tutorial Posts
-{{< category tutorials >}}
+{{< category Tutorials >}}
 
 ** Snippets and Notes
-{{< category snippets >}}
-
-----
+{{< category Snippets >}}
 
 *** On the internet...
 - Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
@@ -31,5 +27,3 @@ Welcome, here is my inconsistently-curated collection of software, writings, not
 
 *** What's with the domain name?
 I really like the song. https://youtu.be/pvZ4MN-SoJA
-
-----

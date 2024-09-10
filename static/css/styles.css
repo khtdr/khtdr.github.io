@@ -1,17 +1,19 @@
 :root {
-  --background-color: #ffffff;
+  --background-color: #e8e3e3;
+  --content-background-color: #f8f3f3;
   --foreground-color: #111111;
-  --well-color: #eee;
-  --link-color: #2969d9;
+  --well-color: #fff;
+  --link-color: #11839e;
   --link-color-active: #019;
-  --accent-color: #398;
+  --accent-color: #933;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-color: #0a0a0a;
+    --content-background-color: #273036;
+    --background-color: #121212;
     --foreground-color: #e4e4e4;
-    --well-color: #171717;
+    --well-color: #374046;
     --link-color: #f5c;
     --link-color-active: #e0b;
     --accent-color: #0ff;
@@ -33,12 +35,12 @@ html {
 body {
   background-color: var(--background-color);
   color: var(--foreground-color);
-  font-family: sans-serif;
+  font-family: "Space Mono", monospace;
   font-size: 18px;
   line-height: 25px;
   margin: 0;
   max-width: 800px;
-  padding: 32px;
+  xpadding: 32px;
   width: 100%;
 }
 
@@ -62,12 +64,16 @@ a:hover {
 }
 
 time {
-  font-size: 10px;
-  color: #985;
+  font-size: 12px;
+  color: var(--foreground-color);
+  opacity: 0.7;
   text-transform: uppercase;
 }
 aside {
   margin: 1em 0;
+}
+aside h3 {
+  margin-top: 0;
 }
 aside ul {
   list-style-type: none;
@@ -104,8 +110,6 @@ img {
 .highlight > pre {
   max-width: 100%;
   overflow: auto;
-}
-.highlight > pre {
   padding: 8px;
   border-radius: 2px;
 }
@@ -113,7 +117,9 @@ img {
   background-color: var(--well-color);
   color: var(--foreground-color);
   padding: 8px;
-  border-radius: 2px;
+  border-radius: 0 0 2px 2px;
+  margin-top: -14px;
+  box-shadow: 0 5px 4px -5px #77777777;
 }
 
 nav h3 {
@@ -138,12 +144,29 @@ ul.tags {
   margin: 44px 0;
 }
 
+article,
+header,
+.copyright,
+.page,
+.post-actions,
+main {
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: var(--content-background-color);
+  box-shadow: 0 5px 4px -5px #77777777;
+}
+
 article aside {
   margin: 0;
 }
 
 #search {
   width: 200px;
+  font-family: inherit;
+  background-color: var(--well-color);
+  border: solid 2px var(--link-color);
+  border-radius: 3px;
+  padding: 4px 10px;
 }
 
 .site-search {
@@ -211,12 +234,19 @@ article aside {
   background-color: #eee;
 }
 
-header.header {
+header h1 {
+  font-size: 18px;
+}
+
+header > :first-child {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-content: center;
-  margin-bottom: 32px;
+}
+
+header > :first-child > :first-child {
+  flex: 1;
 }
 
 .goat text {
@@ -227,4 +257,37 @@ p.summary {
   font-size: 15px;
   opacity: 0.5;
   line-height: 18px;
+}
+
+.toc {
+  background-color: var(--well-color);
+  padding: 1px 16px;
+  box-shadow: 0 5px 4px -5px #77777777;
+}
+
+.toc a {
+  text-decoration: none;
+  color: var(--accent-color);
+  font-size: 15px;
+}
+
+.toc a:hover {
+  text-decoration: underline;
+}
+
+.toc > nav > ul {
+  list-style-type: number;
+  font-weight: 700;
+}
+
+.toc > nav > ul > li {
+  margin-bottom: 5px;
+}
+
+.toc > nav > ul ul {
+  list-style-type: lower-alpha;
+  padding-left: 18px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-weight: 100;
 }

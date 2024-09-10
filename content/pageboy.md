@@ -10,7 +10,7 @@ categories: [software]
 
 <img align="right" src="https://raw.githubusercontent.com/khtdr/pageboy/master/logo.png" width="200" />
 
-# pageboy
+## pageboy
 
 Write your shell scripts in any combination of scripting languages.
 
@@ -39,7 +39,7 @@ chmod +x ./example.pb
 
 You can mix and match all you want. If your script uses valid [shebangs](<https://en.wikipedia.org/wiki/Shebang_(Unix)>), it will work. If it doesn't, it's a bug and [please let me know](https://github.com/khtdr/pageboy/issues). It also supports the (not quite right) awk shebang: `#!/usr/bin/env awk`.
 
-#### tests suite status:
+### Test suite status
 
 ```bash
 ./run-tests.sh
@@ -68,7 +68,7 @@ You can mix and match all you want. If your script uses valid [shebangs](<https:
     ./tests/run-php.pb ... passed
     ./tests/version.pb ... passed
 
-## installation & quickstart
+## Installation & quickstart
 
 1. Current version: 2.1.3
 1. Download the [pageboy bash script](https://raw.githubusercontent.com/khtdr/pageboy/v1.2.3/pageboy) and put into your `$PATH` (ie. `~/bin/`).
@@ -165,7 +165,7 @@ echo __DIR__;
     ITERM_SESSION_ID=w0t0p0
     /home/khtdr/
 
-## standard features
+## Standard features
 
 ```bash
 pageboy -h
@@ -182,7 +182,7 @@ pageboy -h
 
 More examples can be found in the [tests directory](https://github.com/khtdr/pageboy/blob/master/tests/).
 
-## advanced features
+## Advanced features
 
 - Pages can be named, see [pageboy/tests/named.pb](https://github.com/khtdr/pageboy/blob/master/tests/named.pb)
 - Args can be passed in, see [pageboy/tests/args.pb](https://github.com/khtdr/pageboy/blob/master/tests/args.pb)

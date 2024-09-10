@@ -4,22 +4,175 @@
 #+date: 2022-12-11
 #+lastmod: 2022-12-11
 #+categories[]: tutorials
-#+tags[]: nlp, javascript
+#+tags[]: nlp, typescript, javascript
 #+toc: true
 #+draft: true
 #+weight: 1
 
 * Summarizing Text
+#+begin_export html
+{{< goat >}}
+In goes: Plain text, many words and sentences.
+       |
+     .-v----------------------------.
+    |     magical text condenser     |
+     '----------------------------|-'
+                                  v
+       Out comes: Plain text, a short and sweet summary.
+{{< /goat >}}
+#+end_export
+Let's create a function to summarize text.
+
+----
+
+Open up your favorite text editor, grab your favorite beverage, and let's go.
+
+----
+
+After some quick googling [fn:1:https://web.archive.org/web/20220903195431/https://smmry.com/about], we have enough of a plan to start.
+1. =Unstructured plain text= is provided to a function.
+2. The function =structures the text= so it can work on it.
+3. Then it =analyzes= the structured text to find =the important parts=.
+4. Finally, it uses this information to =build= and return =a summary=.
+
+There are so many unanswered questions still, but before we get lost in the possibilities, let's create the scaffolding of a program which will let us experiment and iterate on a solution.
+
+** There's no time for spaghetti
+It is tempting to start with an imperative function and just start shaping a solution:
+#+begin_src javascript
+function summarize(input) {
+    let structure = {} // TODO build structure from input text
+    let analysis = {} // TODO analyze the structured text
+    let summary = '' // TODO build a summary from text and analysis
+    return summary
+}
+#+end_src
+
+This type of code is harder to read and test. The bare minimum of better cohesion would be to put these into functions. At least this next version provides a place for private variables and is testable. This definitely is not the final form, there will be other things to consider. But at this stage, it is good enough for figuring out our solution.
+
+#+begin_src javascript
+function summarize(input) {
+    const structure = structureText(input)
+    const analysis = analyzeText(structure)
+    return extractText(structure, analysis)
+}
+
+ // TODO build structure from input text
+function structureText(text) { return {} }
+
+ // TODO analyze the structured text
+function analyzeText(structure) { return {} }
+
+ // TODO build a summary from text and analysis
+function extractText(structure, analysis) { return '' }
+#+end_src
+
+Speaking of "figuring out our solution", what the hell are we going to do? Let's procrastinate a little more with another graph...
+
+#+begin_export html
+{{< goat >}}
+   input text
+   ---+------
+      '--.
+          \
+         .-v-------------.
+        |    structurer   |
+         '-----+---+-----'
+              /     \
+     .-------v-----. '-.
+    |    analyzer   |   \
+     '----------+--'     |
+                 \    .--v-----------.
+                  '->|   extractor    |
+                      '------+-------'
+                            /
+                           /
+                       .--'
+     text summary   <--'
+     ----------------
+       
+{{< /goat >}}
+#+end_export
+
+*** Justifications for each abstraction
+- *Structurer* \\
+  We need to be able to traverse and navigate our way through the text.
+- *Analyzer* \\
+  We need meaningful answers to questions about the text.
+- *Extractor* \\
+  We need to build a shorter representation of the text.
+
+** Structuring the input text
+The problem becomes easier to solve if we solve something analogous, but easier, first. If we were working with comma-separated data, we might see a string like:
+
+#+begin_example
+john doe, 29, usa
+jane doe, 33, usa
+#+end_example
+
+It is obvious that we have rows and columns. Or records and fields, items and attributes, whatever. Parsing the input text should feel intuitive as well. Records are separated by newlines, and fields are separated by commas. A robust solution would account for escaped commas within the field value, but we aren't building a CSV tool.
+
+The in-memory structure that will hold the data will be a multidimensional array of values.
+#+begin_src typescript
+type CsvStructure = unknown[][]
+#+end_src
+
+If we were targetting a specific set of data, it might be even better as:
+#+begin_src typescript
+type CsvStructure = [string, number, string][]
+#+end_src
+
+But like I said, we aren't building a CSV tool.
+
+Our input will look something more like... well, like the content of this page. Lots of words separated by punctuation. Our data types are words and sentences. We still don't need to figure out how to do this, we only need to figure out what structured data we want. Our data type will be quite similar to the CSV data type. Instead of rows of columns, we have sentences of words.
+
+#+begin_src typescript
+type TextStructure = string[][]
+#+end_src
+Or more explicitly for clarity:
+#+begin_src typescript
+type TextWord = string
+type TextSentence = TextWord[]
+type TextStructure = TextSentence[]
+#+end_src
+Or, like we said before...
+#+begin_src typescript
+type TextStructure = string[][]
+#+end_src
+----
+
+Being able to traverse the sentences and words helps, but we still have some things to address before we can really use this to analyze anything.
+
+1. /Are plurals and conjugations variations on the same word or new words entirely?/ \\
+   It may be useful to keep track of variations, but it is certainly useful to track the root word. Words are what sentences have in a common, for our purposes anyway. So we'll need to have some understanding of the word we are processing.
+
+2. /How do we detect the end of a sentence and not an abbreviation or some other "."?/ \\
+   Maybe someday we'll create a language processing library. For now, let's find something that works for us. The way the application is structured so far, we can always swap out this function implementation for another one that can provide the same data.
+
+
+#+begin_src typescript
+type Structure = {
+    dictionary: Set<string>
+    sentences: Array<{
+        value: string
+        words: Array<{
+            value: string
+            word: string
+        }>
+    }>
+}
+#+end_src
+
+* SMMRY
 =auto-tldr bot= at reddit uses SMMRY
-** SMMRY
-*** https://smmry.com/about
+** https://smmry.com/about
 - Ranking sentences by importance using its core algorithm.
 - Reorganizing the summary to focus on a topic; by selection of a keyword.
 - Removing transition phrases.
 - Removing unnecessary clauses.
 - Removing excessive examples.
 
-*** https://web.archive.org/web/20220903195431/https://smmry.com/about
+** https://web.archive.org/web/20220903195431/https://smmry.com/about
 SMMRY's mission is to provide an efficient manner of understanding text, which is done primarily by reducing the text to only the most important sentences. SMMRY accomplishes its mission by:
 
 - Ranking sentences by importance using the core algorithm.
@@ -38,8 +191,8 @@ The core algorithm summarizes in 7 simple steps:
 6) Rank sentences by the sum of their words' points.
 7) Return X of the most highly ranked sentences in chronological order.
 
-** Reinvention
-*** Ranking Terms
+* Reinvention
+** Ranking Terms
 Steps 1-2 can be combined into a ~rankTerms()~ function
 #+begin_export html
 {{< goat >}}
@@ -50,9 +203,9 @@ Steps 1-2 can be combined into a ~rankTerms()~ function
                                           '------------------------'
 {{< /goat >}}
 #+end_export
-*** Ranking Sentences
+** Ranking Sentences
 Steps 3-6 can be combined into a ~rankSentences()~ function
-*** Create a Summary
+** Create a Summary
 Various ways to create a summary:
 - Character Count
 - Topic Reach

@@ -5,22 +5,22 @@
 	-->
 	<div>
 		<article>
-<a href="{{ .Site.BaseURL | relLangURL }}">home</a>/
+<a href="{{ .Site.BaseURL | relLangURL }}">home</a> /
 			{{ with .Param "categories" }}
 			{{ range $index, $category := . }}
 			{{- with $.Site.GetPage (printf "/categories/%s" ($category | urlize)) -}}
-			<a href="{{ .Permalink }}">{{ $category }}</a>/
+			<a href="{{ .Permalink }}">{{ $category }}</a> /
 			{{- end -}}
 			{{ end }}
 			{{ end }}
  {{ .Title }}
 
 
-			{{ partial "post-metadata.html" . }}
-
-		{{ if .Date }}
-		<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
-		{{ end }}
+			{{ if .Date }}
+			<div>
+				<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
+			</div>
+			{{ end }}
 			<div>
 
 				{{ if .Params.Toc }}
@@ -32,6 +32,8 @@
 			</div>
 		</article>
 
+		{{ partial "post-metadata.html" . }}
 		{{ partial "post-actions.html" . }}
+
 	</div>
 {{ end }}
