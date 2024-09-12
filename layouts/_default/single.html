@@ -14,7 +14,7 @@
 				<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
 			-->
 		{{ end }}
-		<div>
+		<div class="page-name-{{ .Name }}">
 			{{ if .Params.Toc }}
 			<div class="toc">{{ .TableOfContents }}</div>
 			{{ end }} {{ .Content }}

@@ -1,7 +1,6 @@
 {{ define "main" }}
 
 <aside class="page">
-	<h3>Categories</h3>
 	<ul>
 		{{range ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
 		<li><a href="{{.Permalink}}">{{.Title}}</a>/</li>

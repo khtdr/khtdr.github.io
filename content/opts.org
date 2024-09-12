@@ -18,7 +18,7 @@
 :CUSTOM_ID: intro
 :END:
 
-Why choose ~opts.js~ over something bigger and better?
+Why choose =opts.js= over something bigger and better?
 - *Small :* Under 10kb, /uncompressed/.
 - *Stable :* Relatively unchanged since 2010. See [[https://github.com/khtdr/opts/blob/master/CHANGES.org][changelog]].
 - *Standalone :* No package manager necessary, no compiling needed. See [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.js][src/opts.js]].
@@ -134,7 +134,7 @@ import * as opts from 'opts';
 opts.parse(options, arguments, help);
 #+END_SRC javascript
 
-If you installed ~opts~ with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts][definition (.d.ts) file here]].
+If you installed =opts= with NPM, the typescript definitions should automatically be available in your editor. Otherwise you can download the [[https://raw.githubusercontent.com/khtdr/opts/master/src/opts.d.ts][definition (.d.ts) file here]].
 
 
 
@@ -177,7 +177,7 @@ let options = [
 :CUSTOM_ID: api-arguments
 :END:
 
-~arguments~ require less configuration. This is an optional argument to ~opts.parse~:
+~arguments~ require less configuration. This is an optional argument to =opts.parse=:
 #+BEGIN_SRC javascript
 let arguments = [
   { name     : 'script',
@@ -193,7 +193,7 @@ let arguments = [
 :END:
 
 Finally, you can add an automatically generated help message by passing
-a last parameter of =true=. This is also an optional argument to ~opts.parse~.
+a last parameter of =true=. This is also an optional argument to =opts.parse=.
 #+BEGIN_SRC javascript
 opts.parse(options, true);
 // or if you want more control, you can do:

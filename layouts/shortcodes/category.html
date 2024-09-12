@@ -9,6 +9,7 @@ index .Params 0 }} {{- if eq $category.Title $target -}}
     {{if $summary }}
     <p class="summary">{{ $page.Summary }}</p>
     {{ end }}
+    <!--
     <aside>
       <ul class="tags">
         {{ with .Param "tags" }} {{ range $index, $tag := . }} {{- with
@@ -17,6 +18,7 @@ index .Params 0 }} {{- if eq $category.Title $target -}}
         {{- end -}} {{ end }} {{ end }}
       </ul>
     </aside>
+    -->
   </li>
   {{- end -}}
 </ul>
