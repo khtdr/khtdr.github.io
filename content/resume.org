@@ -1,0 +1,109 @@
+#+AUTHOR: OhKay.
+#+TITLE: Resume
+#+DATE: 2019-08-02
+#+URL: /resume
+#+ALIASES[]: /resume.html
+#+DESCRIPTION: Joey Mazzarelli Resume
+#+LASTMOD: 2024-09-09
+#+tags[]: bio
+#+categories[]:
+#+weight: 1
+#+toc: true
+
+
+* Resume for Jose Mazzarelli
+** Summary
+With 20+ years of experience building reliable software across various industries, I am  skilled in full-stack development and team leadership focusing on secure web application development.
+
+** Contact Information
+- [[mailto:mazzarelli+resume@gmail.com][Email]]
+- [[https://github.com/khtdr][Github]]
+- [[https://www.linkedin.com/in/joey-mazzarelli-7522a727/][LinkedIn]]
+- [[https://www.npmjs.com/~mazzarelli][NPM Packages]]
+
+* Professional Experience
+
+** Machine and Partners =2024 - Present=
+  ~AI Consultant~
+
+  Part of a small team providing AI consulting and services.
+  - =Postgres= =Typescript= =LLM= =RAG= =Vector Search=\\
+    Financial document store and semantic search with LLM answer completion.
+
+
+  - =Typescript= =React= =Chat App= =Document Viewing= \\
+    Chat app for interacting with backend RAG API.
+
+-- -
+
+** VZBL =2023 - Present=
+:PROPERTIES:
+:Tech+: Typescript, React, React Query, Next.js, Node.js, Neo4J, Postgres, Redis, JWT, NPM
+:END:
+~Co-founder~ ~Lead Developer~
+- Led the application development, focusing on application architecture and data exploration.
+- Designed and built key features including onboarding flows, dashboards, and data visualizations.
+- Built features including user management, multi-tenant security, and customizable interfaces.
+
+-- -
+
+** SocialChorus/FirstUp =2018 - 2023=
+~Senior Software Engineer~ ~Team Lead~\\
+=Typescript= =Ruby= =Rails= =React= =Redux= =Node.js= =Redis= =Postgres= =Puppeteer= =NPM= =MJML= =Cypress= =RSpec=
+- Interviewed several hundred candidates as part of the core hiring team.
+- Managed teams in publishing and analytics/reporting in Agile and Kanban processes.
+- Led the transition to modern front-end tools, improving app performance and user experience.
+- Designed and built custom publishing tools used to create content for millions of users.
+- Integrated Metabase and Tableau into the product for analytics and reporting.
+
+-- -
+
+** Kount =2007 - 2018=
+~Software Engineer~ ~UX Architect~ ~Software Architect~\\
+=jQuery= =Javascript= =CoffeeScript= =PHP= =Oracle (PLSQL)= =React= =Redux= =Node.js= =OWASP= =JWT= =PHPUnit=
+- One of the original engineers at Kount, contributing to its growth and eventual acquisition by Equifax.
+- Focused on speed and security, working on authentication, dependency injection, and theming frameworks.
+- Responsible for software security training and best practice implementations.
+- Developed various customer facing and internal tools.
+
+-- -
+
+** Boise State University =2014 - 2018=
+~Adjunct Lecturer~
+- Taught /Intro to Web Development/ course.
+- Taught /Programming Languages/ course.
+
+-- -
+
+** YourList =2011=
+~Lead Developer~ ~Software Architect~
+- =Python= =MySQL= =MQ=\\
+  Developed a distributed scraping algorithm.
+
+- =Javascript= =jQuery= =PHP= =MySQL= \\
+  Clone of popular sell-it-yourself website.
+
+-- -
+
+** Keynetics =2006 - 2007=
+~Full Stack Developer~
+- =Javascript= =jQuery= =PHP= =Perl= =Python=\\
+  Worked on financial processing code and prototyped security tools.
+
+-- -
+
+** PersonalShopper =2005 - 2006=
+~Full Stack Developer)~
+- =Javascript= =jQuery= =Java= =Oracle=
+
+-- -
+
+** Idaho Transportation Department =2002 - 2004=
+~Intern~ ~Web Developer~
+
+- =Javascript= =ASP.NET= =MS SQL=\\
+  Worked with many departments to develop intranet and website applications. \\
+  [[https://apps.itd.idaho.gov/apps/mediamanagermvc/transporter/2004/100104_Trans/100104_ITDwebsite.html][Project News Announcement]]
+
+* Education
+BS Computer Science Boise State University 2004

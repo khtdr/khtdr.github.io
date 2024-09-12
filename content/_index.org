@@ -11,19 +11,20 @@ Welcome, here is my inconsistently-curated collection of software, writings, not
 #+end_center
 
 ** Software Projects
-{{< category Software >}}
+{{< category Software false >}}
 
 ** Tutorial Posts
-{{< category Tutorials >}}
+{{< category Tutorials false >}}
 
 ** Snippets and Notes
-{{< category Snippets >}}
+{{< category Snippets false >}}
 
 *** On the internet...
-- Email: [[mailto:mazzarelli@gmail.com][mazzarelli@gmail.com]]
+- Resume: [[./resume.org][khtdr.com/resume]]
+- Email: [[mailto:mazzarelli@gmail.com][mazzarelli+khtdr.com@gmail.com]]
 - GitHub: https://github.com/khtdr
 - NPM Packages: https://www.npmjs.com/~mazzarelli
 - LinkedIn: https://www.linkedin.com/in/joey-mazzarelli-7522a727/
 
 *** What's with the domain name?
-I really like the song. https://youtu.be/pvZ4MN-SoJA
+The song kicks ass https://youtu.be/pvZ4MN-SoJA

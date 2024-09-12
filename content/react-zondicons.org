@@ -2,7 +2,7 @@
 #+date: 2020-08-14T17:17:45-06:00
 #+description: A dependency-free, small, fast, good-looking React SVG icon set.
 #+tags[]: react javascript icons npm typescript-bindings
-#+categories[]: software
+#+categories[]: Software
 
 #+BEGIN_QUOTE
 A dependency-free, small, fast, good-looking React SVG icon set.

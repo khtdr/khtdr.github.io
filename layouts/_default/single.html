@@ -1,39 +1,26 @@
 {{ define "main" }}
-	<!--
+<!--
 		Default template for a single page. Additional classes are includedd for posts (pages with a
 		publication date).
 	-->
-	<div>
-		<article>
-<a href="{{ .Site.BaseURL | relLangURL }}">home</a> /
-			{{ with .Param "categories" }}
-			{{ range $index, $category := . }}
-			{{- with $.Site.GetPage (printf "/categories/%s" ($category | urlize)) -}}
-			<a href="{{ .Permalink }}">{{ $category }}</a> /
-			{{- end -}}
-			{{ end }}
-			{{ end }}
- {{ .Title }}
-
-
-			{{ if .Date }}
-			<div>
+<div>
+	<article>
+		<a href="{{ .Site.BaseURL | relLangURL }}">home</a> / {{ with .Param
+		"categories" }} {{ range $index, $category := . }} {{- with $.Site.GetPage
+		(printf "/categories/%s" ($category | urlize)) -}}
+		<a href="{{ .Permalink }}">{{ $category }}</a> / {{- end -}} {{ end }} {{
+		end }} {{ .Title }} {{ if .Date }}
+		<!--
 				<time datetime="{{ .Date.Format "2006-01-02" }}">originally published on {{ .Date.Format "January 2, 2006" }}</time>
-			</div>
-			{{ end }}
-			<div>
+			-->
+		{{ end }}
+		<div class="page-name-{{ .Name }}">
+			{{ if .Params.Toc }}
+			<div class="toc">{{ .TableOfContents }}</div>
+			{{ end }} {{ .Content }}
+		</div>
+	</article>
 
-				{{ if .Params.Toc }}
-				<div class="toc">
-				{{ .TableOfContents }}
-				</div>
-				{{ end }}
-				{{ .Content }}
-			</div>
-		</article>
-
-		{{ partial "post-metadata.html" . }}
-		{{ partial "post-actions.html" . }}
-
-	</div>
+	{{ partial "post-metadata.html" . }} {{ partial "post-actions.html" . }}
+</div>
 {{ end }}

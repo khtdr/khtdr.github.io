@@ -3,7 +3,7 @@
 #+description: How to summarize text with NLP
 #+date: 2022-12-11
 #+lastmod: 2022-12-11
-#+categories[]: tutorials
+#+categories[]: Tutorials
 #+tags[]: nlp, typescript, javascript
 #+toc: true
 #+draft: true
