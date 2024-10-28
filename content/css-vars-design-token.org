@@ -8,9 +8,9 @@
 
 * CSS Variables as Design Tokens: A Simple Approach to Design Systems
 
-Design systems have become increasingly important in modern web development. They help maintain consistency, improve development speed, and ensure a cohesive user experience across applications. For small teams or even a one-person team, a design system can significantly streamline the development process. By providing a set of reusable components and design guidelines, it reduces the need to make design decisions repeatedly, allowing developers to focus on building features rather than worrying about design inconsistencies. This leads to faster iterations, easier onboarding for new team members, and a more unified product.
+Design systems are essential in modern web development. They help maintain consistency, speed up development, and ensure a cohesive user experience across applications. For small teams or even solo developers, a design system can really make things easier. It cuts down on repeated design decisions by providing reusable components and design guidelines and allowing developers to focus on building features instead of worrying about inconsistencies. This leads to faster iterations, easier onboarding for new team members, and a more unified product.
 
-CSS variables, also known as custom properties, are entities defined by CSS that allow you to store values that can be reused throughout a document. They enable dynamic styling and can be updated at runtime, making them a powerful tool for creating flexible and maintainable design systems.
+CSS variables, or custom properties, are entities defined by CSS that let you store values for reuse throughout a document. They enable dynamic styling and can be updated at runtime, making them a powerful tool for creating flexible and maintainable design systems.
 
 * Why CSS Variables Are Good Enough
 
@@ -25,7 +25,7 @@ While there are many sophisticated design token solutions available, native CSS 
 
 * Introducing css-vars-design-token
 
-The =css-vars-design-token= package provides a lightweight approach to design tokens using CSS variables. It offers:
+The =css-vars-design-token= package offers a lightweight approach to design tokens using CSS variables. It provides:
 
 1. Simple theme switching
 2. TypeScript support
@@ -169,7 +169,6 @@ function ({ children }) {
     );
 }
 #+end_src
-
 
 * Benefits Over Alternative Approaches
 
