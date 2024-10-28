@@ -23,13 +23,13 @@ With 20+ years of experience building reliable software across various industrie
 
 * Professional Experience
 
-** Machine and Partners =2024 - Present=
+** Private Consulting =2024 - Present=
   ~AI Consultant~
 
   Part of a small team providing AI consulting and services.
+
   - =Postgres= =Typescript= =LLM= =RAG= =Vector Search=\\
     Financial document store and semantic search with LLM answer completion.
-
 
   - =Typescript= =React= =Chat App= =Document Viewing= \\
     Chat app for interacting with backend RAG API.
@@ -41,8 +41,8 @@ With 20+ years of experience building reliable software across various industrie
 :Tech+: Typescript, React, React Query, Next.js, Node.js, Neo4J, Postgres, Redis, JWT, NPM
 :END:
 ~Co-founder~ ~Lead Developer~
-- Led the application development, focusing on application architecture and data exploration.
-- Designed and built key features including onboarding flows, dashboards, and data visualizations.
+- Leads the application development, focusing on application architecture and data exploration.
+- Designs and builds key features including onboarding flows, dashboards, and data visualizations.
 - Built features including user management, multi-tenant security, and customizable interfaces.
 
 -- -

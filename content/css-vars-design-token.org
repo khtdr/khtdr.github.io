@@ -1,0 +1,199 @@
+#+title: css-vars-design-token
+#+description: CSS Variables as Design Tokens: A Simple Approach to Design Systems
+#+date: 2024-10-28
+#+categories[]: Software
+#+tags[]: react javascript css design-systems
+#+weight: 1
+#+TOC: true
+
+* CSS Variables as Design Tokens: A Simple Approach to Design Systems
+
+Design systems have become increasingly important in modern web development. They help maintain consistency, improve development speed, and ensure a cohesive user experience across applications. For small teams or even a one-person team, a design system can significantly streamline the development process. By providing a set of reusable components and design guidelines, it reduces the need to make design decisions repeatedly, allowing developers to focus on building features rather than worrying about design inconsistencies. This leads to faster iterations, easier onboarding for new team members, and a more unified product.
+
+CSS variables, also known as custom properties, are entities defined by CSS that allow you to store values that can be reused throughout a document. They enable dynamic styling and can be updated at runtime, making them a powerful tool for creating flexible and maintainable design systems.
+
+* Why CSS Variables Are Good Enough
+
+While there are many sophisticated design token solutions available, native CSS variables have evolved to be remarkably capable:
+
+- They're built into the platform
+- They cascade naturally through the DOM
+- They can be updated dynamically
+- They work with any framework (or no framework)
+- They're performant
+- Browser support is excellent
+
+* Introducing css-vars-design-token
+
+The =css-vars-design-token= package provides a lightweight approach to design tokens using CSS variables. It offers:
+
+1. Simple theme switching
+2. TypeScript support
+3. React integration
+4. Zero dependencies beyond React itself
+
+** Basic Usage
+
+Here's a simple example:
+
+#+begin_src javascript
+
+// Create the `light` and `dark` themes.
+const themes = {
+    light: {
+        color: {
+            primary: '#0066cc',
+            background: '#ffffff',
+            text: '#333333'
+        }
+    },
+    dark: {
+        color: {
+            primary: '#66b3ff',
+            background: '#1a1a1a',
+            text: '#ffffff'
+        }
+    }
+};
+
+// Wrap your components in a provider
+function App() {
+    return (
+        <CssVarsDesignTokenProvider themes={themes}>
+            <MyComponents />
+        </CssVarsDesignTokenProvider>
+    );
+}
+#+end_src
+
+Your CSS can then use these tokens:
+
+#+begin_src css
+.button {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+}
+
+.card {
+    background-color: var(--color-background);
+    border: 1px solid var(--color-primary);
+}
+#+end_src
+
+** Advanced Features
+
+*** Deep Tokens
+
+The library automatically flattens deep token structures:
+
+#+begin_src javascript
+const themes = {
+    light: {
+        spacing: {
+            small: '0.5rem',
+            medium: '1rem',
+            large: {
+                default: '2rem',
+                mobile: '1.5rem'
+            }
+        }
+    }
+};
+#+end_src
+
+This creates CSS variables like =--spacing-small=, =--spacing-medium=, =--spacing-large-default=, and =--spacing-large-mobile=.
+
+*** Theme Switching
+
+The library provides a hook for easy theme switching:
+
+#+begin_src javascript
+function ThemeToggle() {
+    const { theme, toggle } = useCssVarsDesignTokenContext();
+    return (
+        <button onClick={toggle}>
+            Current theme: {theme}
+        </button>
+    );
+}
+#+end_src
+
+* Real-World Applications
+
+** Responsive Design
+
+CSS variables work seamlessly with media queries:
+
+#+begin_src css
+:root {
+    --sidebar-width: var(--layout-sidebar-default);
+}
+
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: var(--layout-sidebar-compact);
+    }
+}
+#+end_src
+
+** Component Libraries
+
+Design tokens can help create consistent component libraries:
+
+#+begin_src javascript
+function Button({ variant = 'primary', children }) {
+    return (
+        <button
+            style={{
+                backgroundColor: `var(--color-${variant})`,
+                padding: 'var(--spacing-medium)',
+                borderRadius: 'var(--border-radius-medium)'
+            }}
+        >
+            {children}
+        </button>
+    );
+}
+#+end_src
+
+You even have access to the current token values themselves, if needed:
+
+#+begin_src javascript
+function ({ children }) {
+    const { token } = useCssVarsDesignTokenContext()
+    const newColor = desaturate(token.color.backgroundColor)
+    return (
+        <div style={{ backgroundColor: newColor }}>
+            {children}
+        </div>
+    );
+}
+#+end_src
+
+
+* Benefits Over Alternative Approaches
+
+1. *Simplicity*: No build tools or preprocessors required
+2. *Performance*: CSS variables are highly optimized in modern browsers
+3. *Developer Experience*: Easy to debug using browser dev tools
+4. *Framework Agnostic*: The underlying CSS variables work everywhere
+5. *Progressive Enhancement*: Falls back gracefully if JavaScript fails
+
+* Getting Started
+
+Install the package:
+
+#+begin_src sh
+npm install css-vars-design-token
+#+end_src
+
+The library weighs less than 1KB gzipped and has zero dependencies beyond React.
+
+Check out the [[https://github.com/khtdr/css-vars-design-token][GitHub repository]] for more examples and documentation.
+
+* Additional Links
+
+- https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
+- https://en.wikipedia.org/wiki/Design_system
+- https://react.dev/reference/react/createContext#provider
+- https://www.npmjs.com/package/css-vars-design-token
