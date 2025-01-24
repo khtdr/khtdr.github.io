@@ -8,6 +8,7 @@
   --link-color-active: #019;
   --accent-color: #933;
   --light-fg: #eee;
+  --table-zebra-bg: #efeaea;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -394,4 +395,20 @@ p.summary {
   display: inline-block;
   padding: 0 5px;
   box-shadow: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 16px 0;
+}
+
+table tbody {
+}
+table tbody:nth-child(odd) {
+  background-color: var(--table-zebra-bg);
+}
+
+table td {
+  padding: 8px;
 }

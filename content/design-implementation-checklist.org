@@ -13,15 +13,38 @@ After nearly 25 years of leading UI/UX development, I've learned that the differ
 
 I love working with designers. Their creativity and vision are essential to creating great products. But even the most talented designers don't always think in terms of application state and edge cases. That's where we developers come in.
 
+{{< div style="text-align: center" >}}
+  {{< div style="background-color: var(--well-color); border-bottom: solid 1px var(--background-color); padding: 16px; max-width: 570px; margin: auto" >}}
+    {{< goat style="max-width: 440px; color: var(--accent-color); transform: rotate(5deg); margin: auto" >}}
+     Mockup -----> Code -----> DISASTER!
+      [___]        {___}         💥 
+       |            |             |
+       |            |          Crashes
+       |            |          Bugs
+       |            |          Edge Cases
+       |            |          Angry Users
+    {{< /goat >}}
+    {{< goat style="max-width: 550px; color: var(--link-color-active); transform: rotate(-5deg); margin: auto" >}}
+     Mockup -----> Questions -----> Code -----> SUCCESS!
+      [___]         ? ? ?         {___}         🎉
+       |             |             |            |
+       |          Loading?         |         Happy Users
+       |          Mobile?          |         Stable App
+       |          Errors?          |         Edge Cases
+       |          Empty?           |         Handled
+    {{< /goat >}}
+  {{< /div >}}
+{{< /div >}}
+
 ** A design checklist for developers
 
 The key to delivering smiles instead of stress is realistic estimation. You need to account for everything - not just what's visible in those perfectly crafted Figma files. Without this knowledge, you'll find yourself days before delivery, discovering whole new categories of work nobody planned for.
 
 I've seen this play out countless times: the mockup shows a beautifully designed dashboard with sample data perfectly laid out. But what happens when:
-- The API is slow and we need loading states
+  An admin accidentally deletes a critical record
 - The user has 10x more items than the design shows
 - Someone's name is in Korean and breaks the layout
-- The data is empty or malformed
+- The data is empty, slow to arrive, or malformed
 - The user is on a slow mobile connection
 - Someone needs to navigate the interface with a screen reader
 
@@ -31,129 +54,119 @@ Over the years, I've developed a systematic approach to reviewing designs. Here'
 
 *** The Checklist
 
-**** Layout Structure
-The foundation of any interface is its layout structure. Getting this right early is crucial because it affects everything else. Layout decisions impact both the visual hierarchy and the technical implementation approach. Here's what to clarify:
-- Base layout composition and hierarchy
-  - What are the major layout regions/sections?
-  - How do sections relate spatially to each other?
-  - What grid system or layout technique should be used?
+/Layout Structure/ --- The foundation of any interface is its layout structure. Getting this right early is crucial because it affects everything else. Layout decisions impact both the visual hierarchy and the technical implementation approach. Here's what to clarify:
 
-- Responsive behavior
-  - At what pixel widths do layouts change?
-  - Which elements reflow vs hide on mobile?
-  - How do navigation elements transform at breakpoints?
+|-------------------------------------------+------------------------------------------------------|
+| **Base layout composition and hierarchy** | What are the major layout regions/sections?          |
+|                                           | How do sections relate spatially to each other?      |
+|                                           | What grid system or layout technique should be used? |
+|-------------------------------------------+------------------------------------------------------|
+| **Responsive behavior**                   | At what pixel widths do layouts change?              |
+|                                           | Which elements reflow vs hide on mobile?             |
+|                                           | How do navigation elements transform at breakpoints? |
+|-------------------------------------------+------------------------------------------------------|
+| **Panel sizing/interactions**             | Are panels resizable?                                |
+|                                           | What are min/max dimensions?                         |
+|                                           | How do panels behave when content overflows?         |
+|-------------------------------------------+------------------------------------------------------|
+| **Overflow handling**                     | Which containers should scroll?                      |
+|                                           | Is scroll behavior smooth or standard?               |
+|                                           | Are there sticky elements during scroll?             |
+|-------------------------------------------+------------------------------------------------------|
+| **Loading states**                        | Which regions show loading indicators?               |
+|                                           | Are there placeholder layouts while loading?         |
+|                                           | How do loading states affect layout stability?       |
+|-------------------------------------------+------------------------------------------------------|
 
-- Panel sizing/interactions
-  - Are panels resizable?
-  - What are min/max dimensions?
-  - How do panels behave when content overflows?
+/Input Elements/ --- Forms and input elements are where users directly interact with your application. They're also notorious for having complex state management and validation requirements. Every input needs careful consideration of its various states and behaviors:
 
-- Overflow handling
-  - Which containers should scroll?
-  - Is scroll behavior smooth or standard?
-  - Are there sticky elements during scroll?
+|-------------------------+--------------------------------------------|
+| **Visual states**       | What color/style changes on hover?         |
+|                         | How is focus indicated visually?           |
+|                         | What visual feedback shows disabled state? |
+|-------------------------+--------------------------------------------|
+| **Validation states**   | Where do error messages appear?            |
+|                         | How are required fields indicated?         |
+|                         | What triggers validation checks?           |
+|-------------------------+--------------------------------------------|
+| **Label/text sourcing** | Are there placeholder values?              |
+|                         | Do any labels update dynamically?          |
+|                         | Where are text strings stored/managed?     |
+|-------------------------+--------------------------------------------|
 
-- Loading states
-  - Which regions show loading indicators?
-  - Are there placeholder layouts while loading?
-  - How do loading states affect layout stability?
+/Text Content/ --- Text content is deceptively complex. It's not just about displaying strings - it's about handling dynamic content that can vary wildly in length, language, and format. These requirements help prevent layout breaks and poor user experience:
 
-**** Input Elements
-Forms and input elements are where users directly interact with your application. They're also notorious for having complex state management and validation requirements. Every input needs careful consideration of its various states and behaviors:
-- Visual states
-  - What color/style changes on hover?
-  - How is focus indicated visually?
-  - What visual feedback shows disabled state?
+|-------------------------+----------------------------------------------|
+| **Content source**      | What API endpoints provide text?             |
+|                         | How often does content update?               |
+|                         | Is content cached client-side?               |
+|-------------------------+----------------------------------------------|
+| **Loading states**      | Should skeleton layouts match content shape? |
+|                         | What placeholder width/heights to use?       |
+|                         | When do loading indicators appear/disappear? |
+|-------------------------+----------------------------------------------|
+| **Truncation handling** | At what width/height does text truncate?     |
+|                         | Is there a "show more" mechanism?            |
+|                         | How are long words handled?                  |
+|-------------------------+----------------------------------------------|
+| **Empty states**        | What message appears when no content exists? |
+|                         | Are there suggested actions shown?           |
+|                         | How does empty state affect layout?          |
+|-------------------------+----------------------------------------------|
 
-- Validation states
-  - Where do error messages appear?
-  - How are required fields indicated?
-  - What triggers validation checks?
+/Transient Elements/ --- Tooltips, modals, popovers, and other temporary UI elements need special attention. They often have complex triggering logic and need to play nice with other elements on the page. Here's what to nail down:
 
-- Label/text sourcing
-  - Are there placeholder values?
-  - Do any labels update dynamically?
-  - Where are text strings stored/managed?
+|------------------------+-------------------------------------------|
+| **Trigger conditions** | What user actions show/hide the element?  |
+|                        | Is there a delay before showing/hiding?   |
+|                        | Can system events trigger the element?    |
+|------------------------+-------------------------------------------|
+| **Animation specs**    | What properties are animated?             |
+|                        | What timing functions are used?           |
+|                        | How do animations change on mobile?       |
+|------------------------+-------------------------------------------|
+| **Coexistence rules**  | Which elements can show simultaneously?   |
+|                        | Do elements affect each other's position? |
+|                        | How is z-index managed?                   |
+|------------------------+-------------------------------------------|
 
-**** Text Content
-Text content is deceptively complex. It's not just about displaying strings - it's about handling dynamic content that can vary wildly in length, language, and format. These requirements help prevent layout breaks and poor user experience:
-- Content source
-  - What API endpoints provide text?
-  - How often does content update?
-  - Is content cached client-side?
+/Data Tables/Lists/ --- Tables and lists are where complex data interactions happen. They often need to handle sorting, filtering, and pagination while maintaining performance with large datasets. These questions help define the complete behavior:
 
-- Loading states
-  - Should skeleton layouts match content shape?
-  - What placeholder width/heights to use?
-  - When do loading indicators appear/disappear?
+|--------------------------+-----------------------------------|
+| **Sorting behavior**     | Is initial sort order specified?  |
+|                          | Can multiple columns be sorted?   |
+|                          | How is sort direction indicated?  |
+|--------------------------+-----------------------------------+
+| **Filtering mechanisms** | How do multiple filters combine?  |
+|                          | Is filter state preserved?        |
+|--------------------------+-----------------------------------+
+| **Empty/loading states** | What appears during initial load? |
+|                          | How is "no results" handled?      |
+|--------------------------+-----------------------------------+
 
-- Truncation handling
-  - At what width/height does text truncate?
-  - Is there a "show more" mechanism?
-  - How are long words handled?
+/Implied CRUD Features/ --- Almost every data-driven interface needs more than just the "happy path" shown in mockups. Create, Read, Update, Delete operations often come with a host of implied requirements that aren't visible in the design but are essential for real-world usage:
 
-- Empty states
-  - What message appears when no content exists?
-  - Are there suggested actions shown?
-  - How does empty state affect layout?
-
-**** Transient Elements
-Tooltips, modals, popovers, and other temporary UI elements need special attention. They often have complex triggering logic and need to play nice with other elements on the page. Here's what to nail down:
-- Trigger conditions
-  - What user actions show/hide the element?
-  - Is there a delay before showing/hiding?
-  - Can system events trigger the element?
-
-- Animation specs
-  - What properties are animated?
-  - What timing functions are used?
-  - How do animations change on mobile?
-
-- Coexistence rules
-  - Which elements can show simultaneously?
-  - Do elements affect each other's position?
-  - How is z-index managed?
-
-**** Data Tables/Lists
-Tables and lists are where complex data interactions happen. They often need to handle sorting, filtering, and pagination while maintaining performance with large datasets. These questions help define the complete behavior:
-- Sorting behavior
-  - Is initial sort order specified?
-  - Can multiple columns be sorted?
-  - How is sort direction indicated?
-
-- Filtering mechanisms
-  - How do multiple filters combine?
-  - Is filter state preserved?
-
-- Empty/loading states
-  - What appears during initial load?
-  - How is "no results" handled?
-
-**** Implied CRUD Features
-Almost every data-driven interface needs more than just the "happy path" shown in mockups. Create, Read, Update, Delete operations often come with a host of implied requirements that aren't visible in the design but are essential for real-world usage:
-- Record management
-  - How are new records created?
-  - Can records be archived instead of deleted?
-  - Is record cloning/duplication needed?
-  - What confirmation is required for destructive actions?
-
-- Edit workflows
-  - Is inline editing supported?
-  - How are unsaved changes handled?
-  - What validation occurs before save?
-  - Can edits be reverted/cancelled?
-
-- Audit requirements
-  - Are changes tracked with timestamps?
-  - Do we show who made changes?
-  - Is version history needed?
-  - How long is history retained?
-
-- Batch operations
-  - Can multiple items be selected?
-  - What bulk actions are available?
-  - How is batch operation progress shown?
-  - How are partial failures handled?
+|------------------------+--------------------------------------------------------|
+| **Record management**  | How are new records created?                           |
+|                        | Can records be archived instead of deleted?            |
+|                        | Is record cloning/duplication needed?                  |
+|                        | What confirmation is required for destructive actions? |
+|------------------------+--------------------------------------------------------|
+| **Edit workflows**     | Is inline editing supported?                           |
+|                        | How are unsaved changes handled?                       |
+|                        | What validation occurs before save?                    |
+|                        | Can edits be reverted/cancelled?                       |
+|------------------------+--------------------------------------------------------|
+| **Audit requirements** | Are changes tracked with timestamps?                   |
+|                        | Do we show who made changes?                           |
+|                        | Is version history needed?                             |
+|                        | How long is history retained?                          |
+|------------------------+--------------------------------------------------------|
+| **Batch operations**   | Can multiple items be selected?                        |
+|                        | What bulk actions are available?                       |
+|                        | How is batch operation progress shown?                 |
+|                        | How are partial failures handled?                      |
+|------------------------+--------------------------------------------------------|
 
 ** Using This Checklist
 
