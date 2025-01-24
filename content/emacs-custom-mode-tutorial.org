@@ -1,0 +1,128 @@
+#+AUTHOR: OhKay.
+#+TITLE: Creating a Custom Emacs Mode
+#+DATE: 2024-11-01
+#+DESCRIPTION: Learn how to create a custom major mode in Emacs with persistent state
+#+categories[]: Tutorials
+#+tags[]: emacs elisp programming
+#+TOC: true
+#+draft: true
+#+weight: 2
+
+#+BEGIN_QUOTE
+Learn how to create an interactive Emacs mode that maintains state between sessions
+#+END_QUOTE
+
+* Introduction
+In this tutorial, we'll create a custom major mode for Emacs that demonstrates how to:
+- Associate a new file extension with your mode
+- Create an interactive buffer with buttons
+- Maintain state between sessions
+- Handle file serialization
+
+* The Example: foo-mode
+We'll create a simple mode that:
+- Associates with .foo files
+- Displays a clickable button
+- Tracks how many times the button was clicked
+- Saves the count when the buffer is saved
+- Restores the count when the file is reopened
+
+* Implementation
+Here's the complete implementation of our foo-mode:
+
+#+BEGIN_SRC emacs-lisp
+(defvar foo-mode-map
+  (let ((map (make-sparse-keymap)))
+    (define-key map (kbd "C-c C-c") 'foo-increment-count)
+    map)
+  "Keymap for foo-mode.")
+
+(defvar-local foo-count 0
+  "Counter for number of clicks in the current buffer.")
+
+(define-derived-mode foo-mode fundamental-mode "Foo"
+  "Major mode for .foo files with a clickable counter."
+  (setq-local foo-count 0)
+  (foo-mode-refresh))
+
+(defun foo-increment-count ()
+  "Increment the counter and refresh the display."
+  (interactive)
+  (setq foo-count (1+ foo-count))
+  (foo-mode-refresh))
+
+(defun foo-mode-refresh ()
+  "Refresh the buffer display."
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (insert (format "Count: %d\n\n" foo-count))
+    (insert-button "Click me!"
+                  'action (lambda (_) (foo-increment-count))
+                  'follow-link t)))
+
+(defun foo-mode-save ()
+  "Save the count to the file."
+  (let ((count foo-count))
+    (write-region (number-to-string count) nil (buffer-file-name))))
+
+(defun foo-mode-load ()
+  "Load the count from the file."
+  (when (file-exists-p (buffer-file-name))
+    (setq foo-count
+          (string-to-number
+           (with-temp-buffer
+             (insert-file-contents (buffer-file-name))
+             (buffer-string))))
+    (foo-mode-refresh)))
+
+(add-hook 'foo-mode-hook 'foo-mode-load)
+(add-hook 'before-save-hook
+          (lambda ()
+            (when (eq major-mode 'foo-mode)
+              (foo-mode-save))))
+
+(add-to-list 'auto-mode-alist '("\\.foo\\'" . foo-mode))
+
+(provide 'foo-mode)
+#+END_SRC
+
+* Usage
+1. Save the code above to =~/.emacs.d/lisp/foo-mode.el=
+2. Add to your Emacs init file:
+   #+BEGIN_SRC emacs-lisp
+   (add-to-list 'load-path "~/.emacs.d/lisp")
+   (require 'foo-mode)
+   #+END_SRC
+3. Create a new file with the .foo extension
+4. The buffer will show a count and a clickable button
+5. Click the button or press =C-c C-c= to increment
+6. Save the file (=C-x C-s=) to persist the count
+7. Close and reopen to see the count restored
+
+* How It Works
+** Mode Definition
+The mode is defined using =define-derived-mode=, which creates a new major mode derived from =fundamental-mode=. This sets up the basic mode infrastructure.
+
+** State Management
+- =foo-count= is buffer-local variable that stores the click count
+- =foo-mode-refresh= updates the buffer display
+- =foo-mode-save= serializes the count to the file
+- =foo-mode-load= deserializes the count when opening a file
+
+** File Association
+The mode automatically activates for .foo files through the =auto-mode-alist= addition.
+
+** Interaction
+The mode provides two ways to increment the counter:
+1. Clicking the button (using =insert-button=)
+2. Using the =C-c C-c= keybinding
+
+* Conclusion
+This example demonstrates key concepts in Emacs mode development:
+- Creating a new major mode
+- Managing buffer-local state
+- Handling file persistence
+- Adding interactive elements
+- Setting up key bindings
+
+You can use these patterns to create more complex modes for your specific needs.
