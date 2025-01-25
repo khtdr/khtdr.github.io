@@ -170,7 +170,6 @@ Over the years, I've developed a systematic approach to reviewing designs. Here'
 
 ** Using This Checklist
 
-Here's my advice: grab this checklist and run through it during your first design handoff meeting. Trust me, it's way better to figure this stuff out upfront than to discover halfway through development that nobody thought about what happens when the API times out.
+Grab this checklist and run through it during your first design handoff meeting. It's way better to figure this stuff out upfront than to discover halfway through development that nobody thought about what happens when the API times out.
 
-I've refined this list over years of projects, but feel free to adapt it to your needs. The goal isn't to be a pain in the neck for designers - it's to make sure we're all on the same page before we start building. Your future self will thank you when you're not scrambling to handle edge cases at 11 PM the night before launch.
-
+These are the things that work for me, but feel free to adapt it to your needs.
