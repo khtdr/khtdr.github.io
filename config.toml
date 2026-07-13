@@ -1,8 +1,12 @@
 baseURL = 'https://khtdr.com/'
-languageCode = 'en-us'
+locale = 'en-us'
 title = 'KHTDR'
 uglyurls = true
 markup.highlight.noClasses = false
+markup.goldmark.renderer.unsafe = true
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   page = ["HTML"]
+[params.author]
+  name = 'Joey Mazzarelli'
+  email = 'mazzarelli@gmail.com'
