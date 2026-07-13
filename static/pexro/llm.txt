@@ -1,0 +1,702 @@
+# pexro — LLM authoring guide
+
+You are helping someone author a **pexro program file** — a single JSON document describing an
+exercise routine. Your job is to produce one valid JSON file that conforms exactly to the
+schema on this page.
+
+pexro (Personal EXercise ROutine) is a personal mobile app that runs and tracks exercise
+programs described by uploaded JSON. No workout is hard-coded — the app is a generic
+interpreter over a schema. This document is the contract.
+
+Machine-readable schema: https://khtdr.com/pexro/schema.json
+
+
+## Rules
+
+1. **Output one JSON object** conforming to the schema below. Nothing else in the file — no
+   comments, no trailing prose, no Markdown fences inside the file itself.
+2. **Ask what you need first.** Before writing, find out: the person's goals, experience level,
+   any injuries or limitations, available equipment, how many days per week they train, and
+   how long each session should be. Don't invent constraints they didn't give you.
+3. **Design the cycle, then express it.** The `agenda` is one full cycle that repeats forever
+   (7 entries = a weekly cycle, 14 = two weeks). Put rest days in the agenda explicitly as
+   `{ "kind": "rest" }` entries.
+4. **Pick the right `type` per exercise** (`hold`, `stretch`, `rehab`, `activity`, `dynamic`)
+   and prescribe with the fields that fit it — see Field reference. A hold uses `duration`;
+   strength work uses `sets` + `reps`; a run uses `distance` or `duration`.
+5. **Use ranges where a range is honest.** `[8, 12]` reps, `[20, 45]` second holds. Use a bare
+   number when it's fixed.
+6. **Only include fields you mean.** Almost everything is optional. Don't emit empty objects or
+   null — omit the key instead.
+7. **Add `instructions` and `resources`** (reputable video/article links) where they help, but
+   never fabricate URLs — omit `resources` if you're not sure a link is real.
+8. **Validate before you hand it over**: required top-level keys are `schemaVersion`, `name`,
+   `agenda`; ranges are `[min, max]` with `min ≤ max`; `rpe` is 1–10, `percent1RM` is 0–100;
+   every object rejects unknown keys (`additionalProperties: false`).
+
+Then present the JSON to the user and tell them to save it as a `.json` file and upload it in
+pexro (the app validates it again on import and shows a clear error if anything is off).
+
+
+## What pexro is
+
+pexro is a framework, not a fixed routine. Instead of shipping a built-in workout, it reads a
+JSON file you upload and interprets it: it shows the routine, guides you through each session,
+and tracks progress over time. Change your training → upload new JSON, no rebuild.
+
+- **The schema is the contract.** A valid program is any JSON that conforms to the schema below.
+- **Uploaded at runtime, validated before use.** Bad JSON surfaces a clear error; it never
+  crashes the app.
+- **History is normalized and durable.** Exercises are reconciled by name across uploads, so
+  "push-up" stays one consistent thread in reporting even as programs change. Logged progress
+  is kept separate from prescriptions — a new upload never disturbs existing history.
+
+You don't need to worry about identity or history when authoring a program. Just describe the
+routine clearly and name exercises the way a person would; the app handles the rest.
+
+
+## The shape at a glance
+
+A program is one `Plan` object:
+
+```
+Plan
+├─ schemaVersion : number        (required — use 1)
+├─ name          : string        (required)
+├─ description?  : string        (markdown)
+├─ agenda        : Day[]         (required, ≥1 — one repeating cycle)
+│   └─ Day = Workout | Rest      (discriminated on "kind")
+│        Workout ├─ kind: "workout"
+│                ├─ name, description?
+│                └─ exercises: Exercise[]
+│        Rest    ├─ kind: "rest"
+│                └─ description?
+├─ dailyReminders? : Reminder[]  (things to do every day, e.g. "Take creatine")
+└─ swapIns?        : Workout[]   (alternate workouts, substituted into a day when needed)
+```
+
+An `Exercise` carries a `name`, a `type`, and whichever prescription fields fit it.
+
+
+## Field reference
+
+### Exercise types (`type`, required)
+
+| Value      | Use for                                         | Typical fields              |
+|------------|-------------------------------------------------|-----------------------------|
+| `dynamic`  | Reps-and-sets work: squats, push-ups, rows      | `sets`, `reps`, `load`      |
+| `hold`     | Isometric holds: plank, hollow hold, wall sit   | `sets`, `duration`          |
+| `stretch`  | Stretching: hamstring, shoulder, hip            | `duration`                  |
+| `rehab`    | Rehab / prehab movements                        | `sets`, `reps` or `duration`|
+| `activity` | Time/distance cardio: run, swim, hike, climb    | `duration` or `distance`    |
+
+### Uniform prescription (on `Exercise`, all optional)
+
+These apply to every set equally. Use the ones that fit the movement.
+
+- `sets` — number of sets (a count, or a `[min, max]` range).
+- `reps` — reps per set (count or range).
+- `duration` — `{ "value": number|[min,max], "unit": "s" | "min" }`. For holds and timed work.
+- `distance` — `{ "value": number|[min,max], "unit": "m" | "km" | "mi" }`.
+- `load` — how heavy. All sub-fields optional: `value` (number/range), `unit` (`kg` | `lb`),
+  `bodyweight` (boolean), `band` (string label/color), `note` (free text). Bodyweight + 10 kg
+  ⇒ `{ "bodyweight": true, "value": 10, "unit": "kg" }`.
+- `intensity` — how hard. Pick what you track: `rpe` (1–10), `rir` (reps in reserve, ≥0),
+  `percent1RM` (0–100). Each accepts a number or a range.
+- `tempo` — string, seconds per phase "eccentric-pause-concentric-pause", e.g. `"3-0-1-0"`.
+- `rest` — seconds to rest between sets (a plain non-negative number, not a range).
+- `perSide` — `true` when reps/duration/distance are *per side* (per leg / per arm). Total
+  work is double the prescribed number.
+
+### Per-set prescription (`setScheme`)
+
+Use `setScheme` *only when sets differ from each other* — a pyramid like 12/10/8, or a heavy
+top set plus lighter back-off sets. It's an array where each entry is one set (so its length
+is the set count), and it *overrides* the uniform fields above. Each entry accepts `reps`,
+`duration`, `distance`, `load`, `intensity`, `tempo`, `rest`, `perSide`. For uniform work,
+skip `setScheme` and use the flat fields instead.
+
+### Presentation & guidance (on `Exercise`, all optional)
+
+- `group` — section label for organizing a workout, e.g. "Warm-up", "Core", "Elbow rehab".
+  Purely for display; consecutive same-group exercises can be grouped into labeled sections.
+- `instructions` — markdown coaching notes.
+- `resources` — array of `{ title, type, url, description? }`, where `type` is one of
+  `video`, `article`, `book`, `podcast`, `app`. Only include real URLs.
+- `icon` — name of a bundled in-app icon asset (usually omit; not raw SVG).
+
+### Plan-level extras
+
+- `dailyReminders` — `{ "text": string }[]`, things to do every day regardless of the day's
+  plan (supplements, weigh-ins, a daily walk).
+- `swapIns` — a list of `Workout` objects that live *outside* the regular cycle, offered as
+  one-tap replacements for a day's workout (e.g. a climbing day swapped in on weeks you climb).
+
+
+## A complete example
+
+A valid, minimal-but-representative program. It uses ranges, a `setScheme`, `perSide`,
+bodyweight and banded `load`, `intensity`, a rest day, `dailyReminders`, and a `swapIn` — a
+tour of the common shapes. (This validates against the schema below.)
+
+```json
+{
+  "schemaVersion": 1,
+  "name": "Full-Body Foundations",
+  "description": "A 3-day-on / 1-day-off starter cycle: strength, core, and mobility, with an easy-cardio rest day.",
+  "agenda": [
+    {
+      "kind": "workout",
+      "name": "Day A — Strength",
+      "description": "Compound lifts, then core holds to finish.",
+      "exercises": [
+        {
+          "name": "Goblet squat",
+          "type": "dynamic",
+          "group": "Strength",
+          "sets": 3,
+          "reps": [8, 12],
+          "load": { "value": 16, "unit": "kg" },
+          "intensity": { "rpe": 8 },
+          "tempo": "3-0-1-0",
+          "rest": 90,
+          "instructions": "Slow ~3s descent; sit between the hips, chest tall.",
+          "resources": [
+            {
+              "title": "Dumbbell Goblet Squat: Video Guide & Tips",
+              "type": "video",
+              "url": "https://www.muscleandstrength.com/exercises/dumbbell-goblet-squat",
+              "description": "Setup, depth, and upright-torso cues."
+            }
+          ]
+        },
+        {
+          "name": "Push-up",
+          "type": "dynamic",
+          "group": "Strength",
+          "reps": [8, 15],
+          "load": { "bodyweight": true },
+          "intensity": { "rir": 2 },
+          "setScheme": [
+            { "reps": 15, "rest": 60 },
+            { "reps": 12, "rest": 60 },
+            { "reps": 10 }
+          ]
+        },
+        {
+          "name": "Bulgarian split squat",
+          "type": "dynamic",
+          "group": "Strength",
+          "sets": 3,
+          "reps": 10,
+          "perSide": true,
+          "load": { "value": 10, "unit": "kg", "note": "one dumbbell per hand" },
+          "rest": 75
+        },
+        {
+          "name": "Hollow hold",
+          "type": "hold",
+          "group": "Core",
+          "sets": 3,
+          "duration": { "value": [20, 45], "unit": "s" },
+          "rest": 45,
+          "instructions": "Low back glued to the floor; lift less if it arches."
+        }
+      ]
+    },
+    {
+      "kind": "workout",
+      "name": "Day B — Mobility & Rehab",
+      "exercises": [
+        {
+          "name": "Hamstring stretch",
+          "type": "stretch",
+          "group": "Mobility",
+          "duration": { "value": 60, "unit": "s" },
+          "perSide": true
+        },
+        {
+          "name": "Band pull-apart",
+          "type": "rehab",
+          "group": "Shoulder",
+          "sets": 2,
+          "reps": [15, 20],
+          "load": { "band": "red" },
+          "tempo": "2-1-2-0"
+        }
+      ]
+    },
+    {
+      "kind": "rest",
+      "description": "Easy walk if restless — otherwise fully off."
+    }
+  ],
+  "dailyReminders": [
+    { "text": "Take 5g creatine (any time, just be consistent)" },
+    { "text": "10 min of easy walking" }
+  ],
+  "swapIns": [
+    {
+      "kind": "workout",
+      "name": "Zone-2 cardio",
+      "description": "Swap in on a day you'd rather do cardio than lift.",
+      "exercises": [
+        {
+          "name": "Easy jog",
+          "type": "activity",
+          "distance": { "value": [3, 5], "unit": "km" },
+          "intensity": { "rpe": [4, 5] }
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+## The JSON Schema
+
+The authoritative contract, as JSON Schema (draft 2020-12), generated directly from pexro's
+Zod definition. Also available to fetch at https://khtdr.com/pexro/schema.json. Every object
+sets `additionalProperties: false`, so unknown keys are rejected — emit only the fields
+defined here.
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "agenda": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Day"
+      }
+    },
+    "dailyReminders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Reminder"
+      }
+    },
+    "swapIns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Workout"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "name",
+    "agenda"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "Day": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/Workout"
+        },
+        {
+          "$ref": "#/$defs/RestDay"
+        }
+      ]
+    },
+    "Workout": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "workout"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "exercises": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Exercise"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "name",
+        "exercises"
+      ],
+      "additionalProperties": false
+    },
+    "Exercise": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "$ref": "#/$defs/ExerciseType"
+        },
+        "sets": {
+          "$ref": "#/$defs/Count"
+        },
+        "reps": {
+          "$ref": "#/$defs/Count"
+        },
+        "duration": {
+          "$ref": "#/$defs/Duration"
+        },
+        "distance": {
+          "$ref": "#/$defs/Distance"
+        },
+        "load": {
+          "$ref": "#/$defs/Load"
+        },
+        "intensity": {
+          "$ref": "#/$defs/Intensity"
+        },
+        "tempo": {
+          "type": "string"
+        },
+        "rest": {
+          "type": "number",
+          "minimum": 0
+        },
+        "perSide": {
+          "type": "boolean"
+        },
+        "setScheme": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SetSpec"
+          }
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Resource"
+          }
+        },
+        "icon": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ExerciseType": {
+      "type": "string",
+      "enum": [
+        "hold",
+        "stretch",
+        "rehab",
+        "activity",
+        "dynamic"
+      ]
+    },
+    "Count": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "number",
+              "minimum": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Duration": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "s",
+            "min"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "NumberRange": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    "Distance": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "m",
+            "km",
+            "mi"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "Load": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "kg",
+            "lb"
+          ]
+        },
+        "bodyweight": {
+          "type": "boolean"
+        },
+        "band": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Intensity": {
+      "type": "object",
+      "properties": {
+        "rpe": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 10
+                },
+                {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 10
+                }
+              ]
+            }
+          ]
+        },
+        "rir": {
+          "$ref": "#/$defs/Count"
+        },
+        "percent1RM": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "SetSpec": {
+      "type": "object",
+      "properties": {
+        "reps": {
+          "$ref": "#/$defs/Count"
+        },
+        "duration": {
+          "$ref": "#/$defs/Duration"
+        },
+        "distance": {
+          "$ref": "#/$defs/Distance"
+        },
+        "load": {
+          "$ref": "#/$defs/Load"
+        },
+        "intensity": {
+          "$ref": "#/$defs/Intensity"
+        },
+        "tempo": {
+          "type": "string"
+        },
+        "rest": {
+          "type": "number",
+          "minimum": 0
+        },
+        "perSide": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/ResourceType"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "type",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ResourceType": {
+      "type": "string",
+      "enum": [
+        "video",
+        "article",
+        "book",
+        "podcast",
+        "app"
+      ]
+    },
+    "RestDay": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "rest"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "Reminder": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
+```
+
+
+## Common mistakes to avoid
+
+- **Extra keys.** Every object is closed (`additionalProperties: false`). A typo like
+  `reptitions` or an invented field fails validation.
+- **Empty objects or `null`.** Optional means *omit the key*, not set it to `{}` or `null`.
+- **Wrong range order.** Ranges are `[min, max]` with `min ≤ max`. `[12, 8]` is invalid.
+- **Out-of-domain values.** `rpe` must be 1–10; `percent1RM` 0–100; counts and `rest` ≥ 0.
+- **`rest` as a range.** `rest` is a single non-negative number of seconds, not `[min, max]`.
+- **Missing `kind`.** Every `agenda` entry needs `kind: "workout"` or `kind: "rest"`.
+- **Missing required keys.** Top level needs `schemaVersion`, `name`, `agenda`; a workout needs
+  `kind`, `name`, `exercises`; an exercise needs `name` and `type`.
+- **Fabricated resource URLs.** If you're not certain a link is real, omit `resources`.
+
+
+## Handing it off
+
+1. Produce the program file following the guidance above.
+2. Tell the user to save your output as a `.json` file on their device.
+3. In pexro, they upload it (picked from device storage and validated on import). If anything
+   is off, the app shows a clear error naming the problem — fix and re-upload.

@@ -1,0 +1,415 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string"
+    },
+    "agenda": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Day"
+      }
+    },
+    "dailyReminders": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Reminder"
+      }
+    },
+    "swapIns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Workout"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "name",
+    "agenda"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "Day": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/Workout"
+        },
+        {
+          "$ref": "#/$defs/RestDay"
+        }
+      ]
+    },
+    "Workout": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "workout"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string"
+        },
+        "exercises": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Exercise"
+          }
+        }
+      },
+      "required": [
+        "kind",
+        "name",
+        "exercises"
+      ],
+      "additionalProperties": false
+    },
+    "Exercise": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "$ref": "#/$defs/ExerciseType"
+        },
+        "sets": {
+          "$ref": "#/$defs/Count"
+        },
+        "reps": {
+          "$ref": "#/$defs/Count"
+        },
+        "duration": {
+          "$ref": "#/$defs/Duration"
+        },
+        "distance": {
+          "$ref": "#/$defs/Distance"
+        },
+        "load": {
+          "$ref": "#/$defs/Load"
+        },
+        "intensity": {
+          "$ref": "#/$defs/Intensity"
+        },
+        "tempo": {
+          "type": "string"
+        },
+        "rest": {
+          "type": "number",
+          "minimum": 0
+        },
+        "perSide": {
+          "type": "boolean"
+        },
+        "setScheme": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SetSpec"
+          }
+        },
+        "instructions": {
+          "type": "string"
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Resource"
+          }
+        },
+        "icon": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "ExerciseType": {
+      "type": "string",
+      "enum": [
+        "hold",
+        "stretch",
+        "rehab",
+        "activity",
+        "dynamic"
+      ]
+    },
+    "Count": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number",
+              "minimum": 0
+            },
+            {
+              "type": "number",
+              "minimum": 0
+            }
+          ]
+        }
+      ]
+    },
+    "Duration": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "s",
+            "min"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "NumberRange": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "array",
+          "prefixItems": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      ]
+    },
+    "Distance": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "m",
+            "km",
+            "mi"
+          ]
+        }
+      },
+      "required": [
+        "value",
+        "unit"
+      ],
+      "additionalProperties": false
+    },
+    "Load": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "#/$defs/NumberRange"
+        },
+        "unit": {
+          "type": "string",
+          "enum": [
+            "kg",
+            "lb"
+          ]
+        },
+        "bodyweight": {
+          "type": "boolean"
+        },
+        "band": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Intensity": {
+      "type": "object",
+      "properties": {
+        "rpe": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 1,
+              "maximum": 10
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 10
+                },
+                {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 10
+                }
+              ]
+            }
+          ]
+        },
+        "rir": {
+          "$ref": "#/$defs/Count"
+        },
+        "percent1RM": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            {
+              "type": "array",
+              "prefixItems": [
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                },
+                {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "SetSpec": {
+      "type": "object",
+      "properties": {
+        "reps": {
+          "$ref": "#/$defs/Count"
+        },
+        "duration": {
+          "$ref": "#/$defs/Duration"
+        },
+        "distance": {
+          "$ref": "#/$defs/Distance"
+        },
+        "load": {
+          "$ref": "#/$defs/Load"
+        },
+        "intensity": {
+          "$ref": "#/$defs/Intensity"
+        },
+        "tempo": {
+          "type": "string"
+        },
+        "rest": {
+          "type": "number",
+          "minimum": 0
+        },
+        "perSide": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "$ref": "#/$defs/ResourceType"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "type",
+        "url"
+      ],
+      "additionalProperties": false
+    },
+    "ResourceType": {
+      "type": "string",
+      "enum": [
+        "video",
+        "article",
+        "book",
+        "podcast",
+        "app"
+      ]
+    },
+    "RestDay": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "const": "rest"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    "Reminder": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,51 @@
+#+title: pexro
+#+date: 2026-07-13T00:00:00-06:00
+#+description: A personal mobile app that runs and tracks any exercise routine described by an uploaded JSON program. Have your LLM write the program for you.
+#+tags[]: android react-native typescript zod json fitness llm
+#+categories[]: Software
+#+url: /pexro
+#+aliases[]: /pexro.html
+
+#+BEGIN_QUOTE
+*pexro* (Personal EXercise ROutine) is a personal mobile app that runs and tracks
+exercise programs described by uploaded JSON. No workout is hard-coded — the app is a
+generic interpreter over a schema. Describe a routine once, upload it, and pexro guides you
+through each session and tracks your progress over time.
+#+END_QUOTE
+
+* Get the app
+
+- Google Play — [[#][Download on Google Play]] /(link coming soon)/
+- Apple App Store — [[#][Download on the App Store]] /(link coming soon)/
+
+* Create your program with an LLM
+
+pexro doesn't ship a fixed routine — it runs a JSON *program file* you upload. The easiest way
+to make one is to let a language model write it for you.
+
+1. Open your LLM of choice (ChatGPT, Claude, Gemini, etc.).
+2. Give it the following prompt:
+
+#+BEGIN_QUOTE
+I want you to build me a personal exercise program for a mobile app called *pexro*. First,
+read the authoring guide and JSON schema at https://khtdr.com/pexro/llm.txt and follow it
+exactly. Then ask me about my goals, experience level, available equipment, any injuries, and
+how many days per week I want to train — before writing anything. Finally, output a single
+valid JSON program file that conforms to the schema, and tell me to save it as a `.json` file.
+#+END_QUOTE
+
+3. Answer the model's questions. It will hand back a JSON file.
+4. Save that output as a =.json= file on your device.
+5. In pexro, upload it. The app validates it on import and shows a clear error if anything is
+   off — fix and re-upload.
+
+That's it. Change your training later? Ask for new JSON and upload it again — your logged
+history is kept separate and carries over.
+
+* For developers & LLMs
+
+The full authoring guide, a complete example, and the machine-readable schema live in plain
+text:
+
+- Authoring guide (for LLMs): [[https://khtdr.com/pexro/llm.txt][khtdr.com/pexro/llm.txt]]
+- JSON Schema (draft 2020-12): [[https://khtdr.com/pexro/schema.json][khtdr.com/pexro/schema.json]]
