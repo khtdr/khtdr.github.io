@@ -586,11 +586,19 @@ main li:has(> h3) p {
 }
 .copy-prompt-text {
   margin: 0;
+  padding: 16px 18px;
+  padding-right: 84px;
+  background-color: var(--well-color);
+  border: 1px solid var(--border-color);
+  border-left: 4px solid var(--accent-color);
+  border-radius: 4px;
+  color: var(--foreground-color);
+  font-style: italic;
 }
 .copy-prompt-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 10px;
+  right: 10px;
   z-index: 1;
   font-family: "Reddit Mono", monospace;
   font-size: 0.8em;
