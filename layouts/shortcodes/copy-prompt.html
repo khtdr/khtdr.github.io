@@ -1,0 +1,30 @@
+<div class="copy-prompt">
+  <button
+    class="copy-prompt-btn"
+    type="button"
+    aria-label="Copy prompt to clipboard"
+    onclick="
+      (function (b) {
+        var t = b
+          .closest('.copy-prompt')
+          .querySelector('.copy-prompt-text')
+          .innerText.trim();
+        navigator.clipboard.writeText(t).then(function () {
+          b.classList.add('copied');
+          var o = b.getAttribute('data-label');
+          b.firstChild.nodeValue = 'Copied! ';
+          setTimeout(function () {
+            b.firstChild.nodeValue = o;
+            b.classList.remove('copied');
+          }, 1600);
+        });
+      })(this)
+    "
+    data-label="Copy "
+  >
+    Copy <span class="copy-prompt-icon" aria-hidden="true">⧉</span>
+  </button>
+  <blockquote class="copy-prompt-text">
+    {{ .Inner | strings.TrimSpace }}
+  </blockquote>
+</div>

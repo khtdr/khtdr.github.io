@@ -284,7 +284,9 @@ aside {
   border: solid 2px var(--card-border);
   border-radius: 6px;
   padding: 6px 12px;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
 }
 #search::placeholder {
   color: var(--muted-color);
@@ -302,7 +304,9 @@ aside {
   max-width: 92vw;
   margin-top: 8px;
   padding: 6px;
-  box-shadow: var(--card-shadow), 0 0 0 1px var(--card-border);
+  box-shadow:
+    var(--card-shadow),
+    0 0 0 1px var(--card-border);
   border-radius: 10px;
   max-height: calc(100vh - 100px);
   overflow: auto;
@@ -558,7 +562,9 @@ main li:has(> h3) {
   padding: 11px 16px;
   border-radius: 8px;
   border-left: 3px solid transparent;
-  transition: background-color 0.15s, border-color 0.15s;
+  transition:
+    background-color 0.15s,
+    border-color 0.15s;
 }
 main li:has(> h3):hover {
   background-color: var(--well-color);
@@ -571,4 +577,45 @@ main li:has(> h3) h3 {
 main li:has(> h3) p {
   margin: 4px 0 0;
   color: var(--muted-color);
+}
+
+/* Copy-prompt shortcode: a quotable block of text with a copy-to-clipboard button */
+.copy-prompt {
+  position: relative;
+  margin: 1em 0;
+}
+.copy-prompt-text {
+  margin: 0;
+}
+.copy-prompt-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 1;
+  font-family: "Reddit Mono", monospace;
+  font-size: 0.8em;
+  font-weight: 600;
+  line-height: 1;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--well-color);
+  color: var(--foreground-color);
+  cursor: pointer;
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+.copy-prompt-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+}
+.copy-prompt-btn.copied {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--light-fg);
+}
+.copy-prompt-icon {
+  font-family: sans-serif;
 }

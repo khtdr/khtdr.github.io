@@ -24,22 +24,21 @@ pexro doesn't ship a fixed routine — it runs a JSON *program file* you upload.
 to make one is to let a language model write it for you.
 
 1. Open your LLM of choice (ChatGPT, Claude, Gemini, etc.).
-2. Give it the following prompt:
+2. Give it the following prompt (use the *Copy* button, then paste it into the chat):
 
-#+BEGIN_QUOTE
-I want you to build me a personal exercise program for a mobile app called *pexro*. First,
-read the authoring guide and JSON schema at https://khtdr.com/pexro/llm.txt and follow it
-exactly. Then ask me about my goals, experience level, available equipment, any injuries, and
-how many days per week I want to train — before writing anything. Finally, output a single
-valid JSON program file that conforms to the schema, and tell me to save it as a `.json` file.
-#+END_QUOTE
+{{< copy-prompt >}}
+I want you to build me a personal exercise program for a mobile app called pexro. First, read the authoring guide and JSON schema at https://khtdr.com/pexro/llm.txt and follow it exactly. Then ask me about my goals, experience level, available equipment, any injuries, and how many days per week I want to train — before writing anything. Finally, output a single valid JSON program file that conforms to the schema, inside a code block so I can copy it. I'll import it into pexro either by pasting the JSON straight from this chat or by saving it as a .json file, so make sure the whole program is in one self-contained block.
+{{< /copy-prompt >}}
 
-3. Answer the model's questions. It will hand back a JSON file.
-4. Save that output as a =.json= file on your device.
-5. In pexro, upload it. The app validates it on import and shows a clear error if anything is
-   off — fix and re-upload.
+3. Answer the model's questions. It will hand back a JSON program.
+4. Import it into pexro one of two ways:
+   - *Paste from clipboard* — copy the JSON out of the chat and paste it directly into pexro.
+     No file needed.
+   - *From a file* — or save the output as a =.json= file on your device and upload that.
+5. Either way, the app validates the program on import and shows a clear error if anything is
+   off — fix and re-import.
 
-That's it. Change your training later? Ask for new JSON and upload it again — your logged
+That's it. Change your training later? Ask for new JSON and import it again — your logged
 history is kept separate and carries over.
 
 * For developers & LLMs
