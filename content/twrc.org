@@ -1,0 +1,146 @@
+#+title: The Well Rounded Climber
+#+date: 2026-08-30T00:00:00-06:00
+#+description: An Android climbing log built on the idea that grades don't travel. Track difficulty distribution and style diversity instead — on-device, no account, no ads.
+#+tags[]: android react-native typescript expo sqlite climbing bouldering training
+#+categories[]: Software
+#+url: /twrc
+#+aliases[]: /twrc.html
+
+#+BEGIN_QUOTE
+*The Well Rounded Climber* (tWRC) is a climbing log with a thesis: *track habits, not
+grades*. A V4 at your gym isn't a V4 at mine, and it certainly isn't a V4 outside — so the
+app refuses to build a leaderboard out of a number that doesn't travel. It measures the two
+things that do: how your difficulty is *distributed*, and how varied your *style* is.
+#+END_QUOTE
+
+* Get the app
+
+- Android APK — [[/twrc/latest.apk][Download the APK]] /(v1.1.0, ~35 MB — sideload; see install notes below)/
+- Google Play — /not published; this is a direct download/
+- iOS — /not yet built/
+
+#+BEGIN_EXPORT html
+<figure style="margin:1.5rem 0;text-align:center">
+  <a href="/twrc/latest.apk">
+    <img src="/twrc/download-qr.svg" alt="QR code linking to the tWRC APK download"
+         width="200" height="200"
+         style="width:200px;height:200px;background:#fff;padding:10px;border-radius:8px;display:inline-block" />
+  </a>
+  <figcaption style="font-size:0.9em;opacity:0.75;margin-top:0.5rem">
+    Point a phone at this to download the APK directly (~35&nbsp;MB).
+  </figcaption>
+</figure>
+#+END_EXPORT
+
+** Installing a sideloaded APK
+
+Android blocks installs from outside the Play Store until you allow it, per-app:
+
+1. Download the =.apk= above on the phone itself (or copy it over).
+2. Tap it. Android will offer to let your browser or file manager install unknown apps —
+   grant it, then come back and tap the file again.
+3. Play Protect may warn you that it doesn't recognize the developer. It doesn't; I'm not in
+   the Play Store. Install anyway if you're comfortable with that.
+
+Once installed, updates to the app's JavaScript arrive over the air on launch — you only need
+a new APK when the native side changes.
+
+* Why not grades?
+
+Grades are the whole vocabulary of climbing and they're almost useless as a training signal.
+They're gym-relative, setter-relative, and style-relative, and chasing them produces a very
+specific kind of stuck climber: one who only ever tries the thing they're already good at,
+one grade below their limit, on the wall angle they like.
+
+So tWRC never asks what a route was graded. It asks two questions instead.
+
+* The Pyramid — are you distributing your effort?
+
+Every climb gets self-classified into one of three *personal* buckets, defined against your
+ability today rather than any gym's scale:
+
+- *Base* — easy mileage. Volume, movement, warm-up.
+- *Core* — hard but doable. Your working level.
+- *Stretch* — at or past your limit. Projects.
+
+A healthy season is pyramid-shaped: a lot of base, a solid core, a few stretch. The chart
+shows you the shape you actually climbed.
+
+It deliberately ships *no score, no percentage, and no verdict*. What it gives you instead is
+a named gap, where you sat, and one small ask you can go verify:
+
+#+BEGIN_QUOTE
+Last session: 8 base, 13 core, 1 stretch. Your last 6 weeks run core-heavy.
+
+Next session: pick two slab problems.
+#+END_QUOTE
+
+There's a design landmine buried here that took a rewrite to find. The bars are drawn from
+*effort* (attempts plus a completion bonus), but the judgement about which way your training
+*leans* is computed from plain *counts* — one climb, one climb. Score the lean on effort
+instead and a single twelve-go project outweighs an eight-problem warm-up block, so every
+session where you genuinely projected reads as "top-heavy." Sandbagging scored four times
+better than trying hard, at exactly the climber this app exists for. Now a project is one
+climb, because it *is* one climb.
+
+* The Spiders — are you climbing everything?
+
+Three radar charts, tagged in the moment on any climb:
+
+- *Hold Type* — crimp, sloper, pinch, jug, pocket, volume, crack
+- *Wall Angle* — slab, vertical, overhang, roof, arete, stem
+- *Movement* — dyno, static, mantle, compression, lock-off
+
+Tags aren't exclusive: one climb can be a crimpy overhanging lock-off, and it counts in all
+three webs. Spokes are a raw tally — every tagged climb counts once, onsight or fifteen-
+attempt failure alike, because the question a web answers is "have you touched this?" and a
+climb answers that once.
+
+The tally only becomes useful with a denominator, so the webs report in sentences:
+
+#+BEGIN_QUOTE
+You logged 4 slab problems in 90 days, out of 210 climbs.
+#+END_QUOTE
+
+"4 slab" reads as a preference. "4 out of 210" is a gap.
+
+** The taxonomy is yours
+
+Those eighteen dimensions are a starting point, not a rule. Your gym doesn't set cracks? A
+crack spoke pinned at zero forever drags the web inward and reads as a gap nobody can close
+— so turn it off. Add your own. Turning one back on restores its whole history; nothing is
+deleted when it's hidden.
+
+* Logging has to be fast or it doesn't happen
+
+The whole app dies if logging is a chore between burns, so the form is aggressive about it:
+
+- *Level picks the form.* Base asks nothing but "how many." Core asks the result and offers
+  a one-tap "battled it." Stretch — the only place a count actually matters — asks for
+  attempts on a keypad. One form serves three very different climbers, and it adapts
+  *within* a single session, which a global "advanced mode" toggle never could.
+- *Tags carry over* from your last climb within a session, so a session on the same wall is
+  one tap per problem. They're never persisted overnight — last night's overhang has no
+  business attaching to tomorrow's slab session.
+- *There's an end-of-session pass* that offers up today's untagged climbs with a handful of
+  recallable chips, for when you were too pumped to care at the time.
+- *No modes, no onboarding questionnaire.* Nothing to configure before you can log a climb.
+
+* Make it yours
+
+Pick three colors — canvas, accent, and a chart seed — and the app derives its entire theme
+from them. Every text color is checked against every background it lands on and corrected
+until it clears WCAG AA contrast, including for deliberately awful picks, because the failure
+mode of a bad color choice is an unreadable app whose only escape hatch is a settings screen
+rendered in the theme you can't read.
+
+* Your data stays on your phone
+
+Everything lives in a SQLite database on the device. No account, no server, no sync, no
+analytics, no ads. Nothing to sign up for and nothing leaves the phone.
+
+* Built with
+
+Expo / React Native and TypeScript on SDK 56, expo-router for navigation, expo-sqlite with
+Drizzle ORM for typed on-device storage and migrations, Zod for schemas, and EAS for builds
+and over-the-air updates. Charts are hand-rolled SVG.
