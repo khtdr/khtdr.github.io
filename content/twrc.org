@@ -1,21 +1,19 @@
 #+title: The Well Rounded Climber
 #+date: 2026-08-30T00:00:00-06:00
-#+description: An Android climbing log built on the idea that grades don't travel. Track difficulty distribution and style diversity instead — on-device, no account, no ads.
+#+description: An Android climbing log built on the idea that grades don't transfer between gyms. Track difficulty distribution and style variety instead — on-device, no account, no ads.
 #+tags[]: android react-native typescript expo sqlite climbing bouldering training
 #+categories[]: Software
 #+url: /twrc
 #+aliases[]: /twrc.html
 
-#+BEGIN_QUOTE
-*The Well Rounded Climber* (tWRC) is a climbing log with a thesis: *track habits, not
-grades*. A V4 at your gym isn't a V4 at mine, and it certainly isn't a V4 outside — so the
-app refuses to build a leaderboard out of a number that doesn't travel. It measures the two
-things that do: how your difficulty is *distributed*, and how varied your *style* is.
-#+END_QUOTE
+*The Well Rounded Climber* (tWRC) is an Android climbing log that tracks habits instead of
+grades. A V4 at one gym is not a V4 at another, and it is not a V4 outside. The app measures
+two things that do transfer: how your difficulty is *distributed*, and how varied your
+*style* is.
 
 * Get the app
 
-- Android APK — [[/twrc/latest.apk][Download the APK]] /(v1.1.0, ~35 MB — sideload; see install notes below)/
+- Android APK — [[/twrc/latest.apk][Download the APK]] /(v1.1.0, ~35 MB)/
 - Google Play — /not published; this is a direct download/
 - iOS — /not yet built/
 
@@ -32,25 +30,24 @@ things that do: how your difficulty is *distributed*, and how varied your *style
 </figure>
 #+END_EXPORT
 
-** Installing a sideloaded APK
+** Install
 
 Android blocks installs from outside the Play Store until you allow it, per-app:
 
-1. Download the =.apk= above on the phone itself (or copy it over).
+1. Download the =.apk= above on the phone (or copy it over).
 2. Tap it. Android will offer to let your browser or file manager install unknown apps —
-   grant it, then come back and tap the file again.
-3. Play Protect may warn you that it doesn't recognize the developer. It doesn't; I'm not in
-   the Play Store. Install anyway if you're comfortable with that.
+   grant that, then tap the file again.
+3. Play Protect may warn you it does not recognize the developer. It does not; I am not in
+   the Play Store. Install anyway if you are comfortable with that.
 
-Once installed, updates to the app's JavaScript arrive over the air on launch — you only need
-a new APK when the native side changes.
+After that, app updates arrive over the air on launch. You only need a new APK when the
+native side changes.
 
 * Why not grades?
 
-Grades are the whole vocabulary of climbing and they're almost useless as a training signal.
-They're gym-relative, setter-relative, and style-relative, and chasing them produces a very
-specific kind of stuck climber: one who only ever tries the thing they're already good at,
-one grade below their limit, on the wall angle they like.
+Grades are the main way climbers talk about difficulty, but they are a weak training signal.
+They depend on the gym, the setter, and the style. Chasing them tends to push you toward the
+climbs you are already good at, one grade below your limit, on the wall angle you like.
 
 So tWRC never asks what a route was graded. It asks two questions instead.
 
@@ -66,8 +63,8 @@ ability today rather than any gym's scale:
 A healthy season is pyramid-shaped: a lot of base, a solid core, a few stretch. The chart
 shows you the shape you actually climbed.
 
-It deliberately ships *no score, no percentage, and no verdict*. What it gives you instead is
-a named gap, where you sat, and one small ask you can go verify:
+There is *no score, no percentage, and no verdict*. What you get is a named gap, where you
+sat, and one small suggestion you can go check:
 
 #+BEGIN_QUOTE
 Last session: 8 base, 13 core, 1 stretch. Your last 6 weeks run core-heavy.
@@ -75,12 +72,12 @@ Last session: 8 base, 13 core, 1 stretch. Your last 6 weeks run core-heavy.
 Next session: pick two slab problems.
 #+END_QUOTE
 
-There's a design landmine buried here that took a rewrite to find. The bars are drawn from
-*effort* (attempts plus a completion bonus), but the judgement about which way your training
-*leans* is computed from plain *counts* — one climb, one climb. Score the lean on effort
-instead and a single twelve-go project outweighs an eight-problem warm-up block, so every
-session where you genuinely projected reads as "top-heavy." Sandbagging scored four times
-better than trying hard, at exactly the climber this app exists for. Now a project is one
+There is a subtlety here that took a rewrite to find. The bars are drawn from *effort*
+(attempts plus a completion bonus), but the judgement about which way your training *leans*
+is computed from plain *counts* — one climb, one climb. If the lean were scored on effort
+instead, a single twelve-attempt project would outweigh an eight-problem warm-up block, and
+every session where you genuinely projected would read as "top-heavy." Sandbagging would
+score better than trying hard, for the exact climber this app is for. Now a project is one
 climb, because it *is* one climb.
 
 * The Spiders — are you climbing everything?
@@ -91,10 +88,10 @@ Three radar charts, tagged in the moment on any climb:
 - *Wall Angle* — slab, vertical, overhang, roof, arete, stem
 - *Movement* — dyno, static, mantle, compression, lock-off
 
-Tags aren't exclusive: one climb can be a crimpy overhanging lock-off, and it counts in all
-three webs. Spokes are a raw tally — every tagged climb counts once, onsight or fifteen-
-attempt failure alike, because the question a web answers is "have you touched this?" and a
-climb answers that once.
+Tags are not exclusive: one climb can be a crimpy overhanging lock-off, and it counts in all
+three webs. Spokes are a raw tally — every tagged climb counts once, whether you onsighted it
+or failed on it for fifteen attempts, because the question a web answers is "have you touched
+this?" and a climb answers that once.
 
 The tally only becomes useful with a denominator, so the webs report in sentences:
 
@@ -106,33 +103,31 @@ You logged 4 slab problems in 90 days, out of 210 climbs.
 
 ** The taxonomy is yours
 
-Those eighteen dimensions are a starting point, not a rule. Your gym doesn't set cracks? A
-crack spoke pinned at zero forever drags the web inward and reads as a gap nobody can close
-— so turn it off. Add your own. Turning one back on restores its whole history; nothing is
-deleted when it's hidden.
+Those eighteen dimensions are a starting point, not a rule. Your gym does not set cracks? A
+crack spoke pinned at zero will read as a gap nobody can close, so turn it off. Add your own.
+Turning one back on restores its whole history; nothing is deleted when it is hidden.
 
 * Logging has to be fast or it doesn't happen
 
-The whole app dies if logging is a chore between burns, so the form is aggressive about it:
+If logging is slow, you will not do it. The form is built to be quick:
 
 - *Level picks the form.* Base asks nothing but "how many." Core asks the result and offers
   a one-tap "battled it." Stretch — the only place a count actually matters — asks for
-  attempts on a keypad. One form serves three very different climbers, and it adapts
-  *within* a single session, which a global "advanced mode" toggle never could.
+  attempts on a keypad. One form serves three very different climbers, and it adapts *within*
+  a single session, which a global "advanced mode" toggle never could.
 - *Tags carry over* from your last climb within a session, so a session on the same wall is
-  one tap per problem. They're never persisted overnight — last night's overhang has no
-  business attaching to tomorrow's slab session.
-- *There's an end-of-session pass* that offers up today's untagged climbs with a handful of
-  recallable chips, for when you were too pumped to care at the time.
+  one tap per problem. They are not saved overnight — last night's overhang should not attach
+  to tomorrow's slab session.
+- *There is an end-of-session pass* that shows today's untagged climbs with a few recallable
+  chips, for when you were too pumped to tag at the time.
 - *No modes, no onboarding questionnaire.* Nothing to configure before you can log a climb.
 
 * Make it yours
 
 Pick three colors — canvas, accent, and a chart seed — and the app derives its entire theme
 from them. Every text color is checked against every background it lands on and corrected
-until it clears WCAG AA contrast, including for deliberately awful picks, because the failure
-mode of a bad color choice is an unreadable app whose only escape hatch is a settings screen
-rendered in the theme you can't read.
+until it clears WCAG AA contrast, including for bad picks. A bad color choice should not
+leave you stuck in an unreadable settings screen you cannot see.
 
 * Your data stays on your phone
 
