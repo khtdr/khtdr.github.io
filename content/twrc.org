@@ -129,13 +129,8 @@ from them. Every text color is checked against every background it lands on and 
 until it clears WCAG AA contrast, including for bad picks. A bad color choice should not
 leave you stuck in an unreadable settings screen you cannot see.
 
-* Your data stays on your phone
+* No ads, no tracking, no paid features
 
-Everything lives in a SQLite database on the device. No account, no server, no sync, no
-analytics, no ads. Nothing to sign up for and nothing leaves the phone.
-
-* Built with
-
-Expo / React Native and TypeScript on SDK 56, expo-router for navigation, expo-sqlite with
-Drizzle ORM for typed on-device storage and migrations, Zod for schemas, and EAS for builds
-and over-the-air updates. Charts are hand-rolled SVG.
+The app is free. There are no ads, no tracking, and no paid features, and there are no plans
+to add any. Everything you log lives in a SQLite database on your phone — no account, no
+server, no sync, nothing to sign up for, and nothing leaves the device.
