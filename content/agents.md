@@ -224,6 +224,7 @@ cost, its steps, and every sub-agent it called.</p>
 | Tool config and A/B | Tool descriptions and settings are editable data on top of the code | Test two wordings of a tool, or point two copies at different accounts |
 | Encrypted secrets | Credentials are stored encrypted and referenced by name | Point a tool at your account without pasting a key into config |
 | Filesystem limits | Tools get scoped paths instead of raw disk access | A run writes in its own directory and cannot wander |
+| Run code it wrote | A step can write a Node, Python, or shell script and run it in a capped subprocess that cannot see your keys — and it reports how much else it managed to lock down on your machine | Arithmetic, parsing, and charts get *computed* instead of guessed at |
 | Bring your own tools | Load tool packages or connect MCP servers at startup | Add tools without forking or rebuilding anything |
 | Storage that fits | SQLite, Postgres, plain files, or memory | Start on a laptop, move to a real database when it matters |
 | Nothing gets stuck | Runs check in, dead ones are cleaned up, and cancel stops the run | No run sits at "running" forever because something crashed |
@@ -253,6 +254,10 @@ cost, its steps, and every sub-agent it called.</p>
 <div class="agents-card">
 <h4>Incremental jobs</h4>
 <p>A daily digest that remembers where it stopped, and will not process the same thing twice if two runs overlap.</p>
+</div>
+<div class="agents-card">
+<h4>Number crunching</h4>
+<p>Hand it a spreadsheet and let it write the Python to answer the question. Files the script leaves behind come back attached to the run.</p>
 </div>
 <div class="agents-card">
 <h4>Prompt A/B tests</h4>
@@ -404,6 +409,24 @@ listen wider, and put it behind something that authenticates before you do:
 # ~/.agents/.env
 HOST=0.0.0.0
 ```
+
+### How safe is running code the model wrote?
+
+Safer than running it in the server process, and not as safe as a container.
+A script gets its own process with an environment built from nothing — none of
+your keys, none of your secrets — a private working directory, a time limit,
+and a cap on how much it can print.
+
+On Linux it also loses the network and gets a memory limit, if the kernel
+allows it. On a Mac it gets neither, and it says so instead of implying
+otherwise: the tool tells the model what it actually managed on this machine,
+and the Tools page prints the same line for you. What no host gets is a
+filesystem boundary — a script can still read what the user running the server
+can read.
+
+So this is for work you want *computed* rather than estimated: arithmetic over
+a lot of numbers, reshaping a file, checking a pattern against real input. It
+is not a box to run code you have a reason to distrust.
 
 ### Where does everything live?
 
