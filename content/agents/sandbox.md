@@ -14,11 +14,11 @@ Arithmetic over a lot of numbers, reshaping a file, checking a pattern against
 real input. It is not a box for code you have a reason to distrust.
 </p>
 
-## How safe is it, really
+## How safe is it
 
 Safer than running it in the server process. Not as safe as a container.
 
-A script gets its own process with an environment built from nothing. None of
+A script gets its own process with an empty environment. None of
 your keys, none of your secrets. It gets a private working directory, a wall
 clock time limit, and a cap on how much it can print.
 
@@ -29,9 +29,9 @@ and that is all.
 What no host gets is a filesystem boundary. A script can still read whatever the
 user running the server can read.
 
-The important part is that it says so. The tool tells the model what it actually
-managed on this machine, and the Tools page prints the same line for you. Nothing
-claims an isolation it does not have.
+The important part is that it says so. The tool tells the model what it managed
+on this machine, and the Tools page prints the same line for you. It does not
+claim isolation it does not have.
 
 ## What can a script do on my machine
 
@@ -54,11 +54,11 @@ curl -s localhost:2137/api/tools/implementations \
   | jq '.[] | select(.name=="run_script") | .hostNote'
 ```
 
-Three things are in it:
+It reports three things:
 
 - **Which languages exist here.** Node, Python 3, and a shell are looked for on
   `PATH`. The model is only offered the ones that were found.
-- **Whether the network was actually taken away.** That needs Linux with
+- **Whether the network was taken away.** That needs Linux with
   unprivileged user namespaces. Anywhere else it says so.
 - **Whether the memory cap is real.** A kernel rlimit on Linux, the interpreter's
   own heap limit for Node, and nothing at all on macOS, which ignores the rlimit.
@@ -113,7 +113,7 @@ same thing without the curl.
   a run has been parked for a day.
 
 Two definitions can point at the same implementation with different limits. A
-quick one for arithmetic, a patient one for a large file. Each is versioned.
+quick one for arithmetic, a longer one for a large file. Each is versioned.
 
 ## Turning it off
 
@@ -149,4 +149,4 @@ agent brief | grep -A2 run_script
 A `sh` that is there and a `python` that is not is the usual shape of this on a
 slim container image.
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/cli-api">CLI, API, embedding</a>.</p>
+{{< agents-pager "sandbox" >}}

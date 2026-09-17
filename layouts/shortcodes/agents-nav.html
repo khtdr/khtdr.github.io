@@ -1,14 +1,5 @@
 {{- $here := .Get 0 -}}
-{{- $pages := slice
-  (dict "id" "index"    "url" "/agents"          "title" "Overview")
-  (dict "id" "start"    "url" "/agents/start"    "title" "Getting started")
-  (dict "id" "features" "url" "/agents/features" "title" "Features")
-  (dict "id" "tools"    "url" "/agents/tools"    "title" "Tools")
-  (dict "id" "sandbox"  "url" "/agents/sandbox"  "title" "Running code")
-  (dict "id" "cli-api"  "url" "/agents/cli-api"  "title" "CLI, API, embedding")
-  (dict "id" "running"  "url" "/agents/running"  "title" "Operating it")
-  (dict "id" "compare"  "url" "/agents/compare"  "title" "How it compares")
--}}
+{{- $pages := partial "agents-pages.html" . -}}
 <link rel="stylesheet" href="/css/agents.css" />
 <nav class="agents-nav">
 {{- range $i, $p := $pages -}}

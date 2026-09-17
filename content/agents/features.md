@@ -7,11 +7,6 @@ url: /agents/features
 
 {{< agents-nav "features" >}}
 
-<p class="agents-hero">
-The long list, broken into groups. Each row says what the feature is and why you
-would want it. Screens are at the bottom.
-</p>
-
 ## Authoring and versioning
 
 <div class="agents-table-wrap">
@@ -91,7 +86,7 @@ would want it. Screens are at the bottom.
 | Encrypted secrets | Credentials are stored encrypted and referenced by name | Point a tool at your account without pasting a key into config |
 | Call any HTTP API | A step can fetch a URL, or be pinned to one API with the key stored encrypted and hidden from the model | Connect to a service you already pay for without writing a tool |
 | Run code it wrote | A step can write Node, Python, or shell and run it in a capped subprocess with none of your keys in it | Arithmetic, parsing, and charts get computed instead of guessed at |
-| Filesystem limits | Tools get scoped paths instead of raw disk access | A run writes in its own directory and cannot wander |
+| Filesystem limits | Tools get scoped paths instead of raw disk access | A run writes in its own directory and cannot reach outside it |
 | Bring your own tools | Drop a file in a `tools` folder, install a tool package, or connect an MCP server | Add a tool without forking or rebuilding anything |
 
 </div>
@@ -103,9 +98,9 @@ would want it. Screens are at the bottom.
 | Feature | What it does | Why you want it |
 |---|---|---|
 | Storage that fits | SQLite, Postgres, plain files, or memory | Start on a laptop, move to a real database when it matters |
-| Nothing gets stuck | Runs check in, dead ones get cleaned up, and cancel actually stops the run | No run sits at "running" forever because something crashed |
+| Nothing gets stuck | Runs check in, dead ones get cleaned up, and cancel stops the run | No run sits at "running" forever because something crashed |
 | Web UI, CLI, API | One engine, three ways to use it | Click through it, script it, or call it from your own app |
-| Embed the runtime | `agent bundle` puts the runtime in your tree and `runAgent` becomes a function call | Agents as a feature of your product, not a service it talks to |
+| Embed the runtime | `agent bundle` puts the runtime in your tree and `runAgent` becomes a function call | Ship agents inside your product with no separate service to run |
 
 </div>
 
@@ -148,7 +143,7 @@ would want it. Screens are at the bottom.
 
 <figure class="agents-shot">
 <img src="/img/agents/dashboard.jpg" alt="The dashboard showing 24-hour run counts, cost, tokens, average duration, recent errors and recent activity" />
-<figcaption>The dashboard, for when you would rather look than type.</figcaption>
+<figcaption>Runs, cost, tokens, average duration, and recent errors for the last 24 hours.</figcaption>
 </figure>
 
 ## Under the hood
@@ -159,4 +154,4 @@ would want it. Screens are at the bottom.
 - **Conditions are parsed, not evaluated.** The expression language in routing conditions is a fixed whitelist. Nothing arriving over the API can reach past it.
 - **Your tools are not second class.** A tool you write in the `tools` folder gets the same schema handling, the same validation, the same catalog entry, and the same settings-on-top-of-code as one that shipped.
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/tools">Tools</a>.</p>
+{{< agents-pager "features" >}}

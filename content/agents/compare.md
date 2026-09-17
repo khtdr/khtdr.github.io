@@ -1,17 +1,18 @@
 ---
 title: "agents: how it compares"
 date: 2026-09-16T00:00:00-06:00
-description: An honest comparison against Flue and against Sapiom, including the parts where they win.
+description: How this compares to Flue and to Sapiom, including the parts where they win.
 url: /agents/compare
 ---
 
 {{< agents-nav "compare" >}}
 
 <p class="agents-hero">
-Two projects come up every time I describe this one. Flue, an open TypeScript
-framework from the Astro team. Sapiom, a hosted platform. They are different
-enough from each other that the comparisons barely overlap. Both were checked in
-September 2026, and both move fast, so treat the specifics as a snapshot.
+Two projects may come up when you are looking for similar solutions. Flue, an
+open TypeScript framework from the Astro team. Sapiom, a hosted platform. They
+are different enough from each other that the comparisons barely overlap. Both
+were checked in September 2026, and both move fast, so treat the specifics as a
+snapshot.
 </p>
 
 ## The short version
@@ -38,8 +39,8 @@ September 2026, and both move fast, so treat the specifics as a snapshot.
 # Against Flue
 
 Flue is Apache-2.0, self-hosted, bring your own model key, no account, no per-run
-fee. Every axis I would normally argue about collapses to a tie. What is left is
-the interesting part: two open runtimes that disagree about what an agent is.
+fee. Everything I would normally compare is a tie. What is left is a disagreement
+about what an agent is.
 
 ## The disagreement
 
@@ -59,8 +60,6 @@ export function Triage() {
 The function re-renders before every model call. Hooks get re-evaluated each turn,
 so capabilities appear and disappear mid-conversation. You build it with Vite and
 deploy to Node or Cloudflare, where each conversation becomes a Durable Object.
-
-Two differences follow from that, and everything else is downstream of them.
 
 **The unit of work is different.** Flue's unit is a conversation. It is a
 stateful, addressable, long-lived service at a URL, with durable history and a
@@ -96,7 +95,7 @@ mean the whole A/B-and-replay half of this project has no counterpart there.
 | Sandboxing | Capped subprocess. No filesystem namespace. Reports what it could not enforce | Virtual, local, or remote providers: E2B, Daytona, Modal, Vercel, Cloudflare |
 | Tools | ~22 first-party plus MCP. Definitions are rows you can A/B and bind config to | `defineTool()` with Valibot, composed per render, conditionally visible |
 | Skills | None | First-class, using the open agentskills.io format, progressively disclosed |
-| Human in the loop | Parking tools, a derived answer form, a pending inbox in UI and CLI | Nothing named. A person just sends the next message. No inbox |
+| Human in the loop | Parking tools, a derived answer form, a pending inbox in UI and CLI | Nothing named. A person sends the next message. No inbox |
 | Models | OpenRouter, one key. Tiers mapped as data, repointable without a rebuild | `useModel()` per agent, keys per provider, automatic compaction |
 | Triggers | None. Cron the CLI | No scheduler, but documented patterns per target |
 | Inbound integrations | None | 17 verified channels: Slack, Discord, GitHub, Linear, Stripe, Twilio and more |
@@ -147,7 +146,7 @@ mean the whole A/B-and-replay half of this project has no counterpart there.
    for finding what is waiting.
 6. **Durable memory with compare-and-set.**
 7. **Model tiers as data.** Repoint `reasoning` without a rebuild, and old runs
-   keep the id they actually resolved to.
+   keep the id they resolved to.
 8. **Cost you can look at.** Microdollar columns, tool costs folded in, rollups
    across the tree. Flue emits numbers and hands them to someone else's dashboard.
 9. **Authoring without the repo.** An interview, a generated brief, a skill your
@@ -188,7 +187,8 @@ mean the whole A/B-and-replay half of this project has no counterpart there.
 
 ## Bottom line
 
-Flue is a better harness. This is a better workbench.
+Flue is built to keep work running. This is built to let you change the work and
+see what changed.
 
 Someone picks Flue because their agent has to survive a redeploy while a customer
 is talking to it. Someone picks this because they want to change a prompt, re-run
@@ -211,9 +211,8 @@ pieces:
    domain registration. No vendor accounts.
 
 That third piece is the business. The pitch is that agents buy their own tools and
-every API call is a payment. Sapiom is a procurement layer that grew a runtime
-around it. This project is a runtime whose only payments layer is your OpenRouter
-bill.
+every API call is a payment. Sapiom is a procurement layer with a runtime around
+it. This project is a runtime whose only payments layer is your OpenRouter bill.
 
 ## Side by side
 
@@ -245,7 +244,7 @@ bill.
 1. **Someone else holds every credential and every invoice.** A Sapiom agent can
    spin up a browser, register a domain, provision a Postgres, and generate a
    video with nobody creating an account anywhere. Here each of those is a key you
-   go get. The floor under that moved when the fetch tool landed, since an HTTP API
+   go get. That gap got smaller when the fetch tool landed, since an HTTP API
    with a key is now a tool definition rather than a module. The signups and the
    invoices are untouched, and they were always the point.
 2. **Cloud sandboxes and a hosted coding agent.** Managed compute with a real
@@ -261,9 +260,8 @@ bill.
 
 ## What this project does better
 
-1. **It runs anywhere, including nowhere in particular.** One process, SQLite, no
-   account. Sapiom cannot run your agent outside their cloud, and even local
-   authoring needs a sign-in.
+1. **It runs anywhere.** One process, SQLite, no account. Sapiom cannot run your
+   agent outside their cloud, and even local authoring needs a sign-in.
 2. **Agents as data.** Version history, a UI, replay. Their agents are TypeScript,
    so changing a prompt is a deploy.
 3. **Higher-level orchestration built in.** Debate, reflection, plan review, merge
@@ -312,8 +310,7 @@ bill.
 They overlap on the runtime. Durable pause and resume, step graphs, shared state,
 traces, secrets, cost tracking. This project is ahead on orchestration patterns and
 on agents-as-data. Sapiom is ahead on everything around the runtime: hosting,
-scheduling, auth, tenancy, compliance, and above all a wallet full of prepaid
-services.
+scheduling, auth, tenancy, compliance, and a catalog of prepaid services.
 
 What Sapiom sells is not having to hold the key. Someone picks Sapiom because they
 want to not operate anything and not sign up for anything. Someone picks this
@@ -340,7 +337,7 @@ compete on.
   packages. On reflection this is better bought than built, as an adapter for E2B
   or Daytona. Medium-large, and no longer blocking ordinary compute.
 - **Channels.** Verified webhook ingress with signature checking and idempotency,
-  then a route that starts a run. The first provider is the design.
+  then a route that starts a run. The first provider is most of the work.
 - **Schedules.** A cron table plus a route that starts a run from a POST.
 - **Skills.** The agentskills.io format is open and already has adopters.
   Progressive disclosure is a catalog line plus a read tool. Cheap, and it
@@ -353,4 +350,4 @@ compete on.
 - **Auth and tenants.** A bearer token is small. A real caller identity on every
   aggregate is medium-large, and every query grows a filter.
 
-<p class="agents-next"><strong>Back to the <a href="/agents">overview</a>.</strong></p>
+{{< agents-pager "compare" >}}

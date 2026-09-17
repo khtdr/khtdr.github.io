@@ -11,23 +11,6 @@ aliases: [/agents.html]
 
 {{< agents-nav "index" >}}
 
-<p class="agents-hero">
-An agent is a row in a database. It has a system prompt, a model tier, and a list
-of tools. You make one in the browser. Every save keeps a version. You connect
-agents into a pipeline by dragging edges on a canvas. Each step records its own
-cost and transcript. Nothing rebuilds, nothing redeploys, and there is no YAML.
-</p>
-
-```bash
-npm install -g @upship/agents
-agent serve
-```
-
-<figure class="agents-shot">
-<img src="/img/agents/graph-composer.jpg" alt="The graph composer: a four-way conditional router drawn on a canvas, with a node inspector open on the right" />
-<figcaption>A conditional router on the canvas. Drag from one handle to another to connect two steps. Click a node or an edge to edit it. The same picture shows the pipeline while it runs.</figcaption>
-</figure>
-
 ## The idea
 
 In most agent frameworks an agent is a class you subclass and a pipeline is a
@@ -39,6 +22,20 @@ version produced it, what each step cost, and what each sub-agent said.
 
 That is the trade. You give up compile-time types on the agent definition. You
 get something you can edit, version, replay, and A/B test without opening a repo.
+
+```bash
+npm install -g @upship/agents
+agent serve
+```
+
+That serves the UI at `localhost:2137`. You need an OpenRouter key first, and
+the quickest way to get an agent is to let the CLI build one by asking you
+questions. Both are in [Getting started](/agents/start).
+
+<figure class="agents-shot">
+<img src="/img/agents/graph-composer.jpg" alt="The graph composer: a four-way conditional router drawn on a canvas, with a node inspector open on the right" />
+<figcaption>A conditional router on the canvas. Drag from one handle to another to connect two steps. Click a node or an edge to edit it. The same picture shows the pipeline while it runs.</figcaption>
+</figure>
 
 ## Start here
 
@@ -110,4 +107,4 @@ get something you can edit, version, replay, and A/B test without opening a repo
 </div>
 </div>
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/start">Getting started</a>.</p>
+{{< agents-pager "index" >}}

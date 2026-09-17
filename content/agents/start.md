@@ -78,7 +78,7 @@ claude                  # then: /new-agent
 ```
 
 <p>Both read the same brief, and that brief is generated from your install. It
-lists the tools you actually have, including ones you wrote and ones that came
+lists the tools you have, including ones you wrote and ones that came
 from a package or an MCP server, and it explains how to add one when nothing fits.
 Run <code>agent brief</code> to print it if you want it somewhere else.</p>
 </li>
@@ -102,8 +102,8 @@ Back up that one directory and you have backed up the install. Set `AGENTS_HOME`
 to put it somewhere else.
 
 The server is a single Node process. It serves the HTTP API, the web UI, and
-nothing else. The CLI talks to it over that same API, so a command you can type
-is a call you can script.
+nothing else. The CLI talks to it over that same API, so anything
+the CLI does you can also do over HTTP.
 
 ## Where to go next
 
@@ -116,4 +116,4 @@ is a call you can script.
 - If you want it to compute rather than estimate, give it
   [run_script](/agents/sandbox).
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/features">Features</a>.</p>
+{{< agents-pager "start" >}}

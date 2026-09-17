@@ -7,14 +7,10 @@ url: /agents/running
 
 {{< agents-nav "running" >}}
 
-<p class="agents-hero">
-Short answers to the questions that come up once it is running.
-</p>
-
 ## Which port does it use?
 
-`agent serve` listens on port 2137, on `127.0.0.1` only. That default is picked
-for you but not fixed. For one start:
+`agent serve` listens on port 2137, on `127.0.0.1` only. You can change it. For
+one start:
 
 ```bash
 agent serve --port 3000
@@ -103,12 +99,12 @@ is a matter of changing `STORE_DRIVER` again.
 
 It should not stay that way. Runs check in on a heartbeat, and a reaper closes out
 the ones that stopped checking in. A crashed run gets recorded as an error rather
-than left hanging, and cancel actually stops the run.
+than left hanging, and cancel stops the run.
 
 What the reaper does not do is resume anything. A dead run is closed, not
 continued. If that matters for your workload, read the
-[durability section of the Flue comparison](/agents/compare), which is honest
-about where this falls short.
+[durability section of the Flue comparison](/agents/compare), which says where
+this falls short.
 
 ## A paused run is not the same as a stuck run
 
@@ -125,4 +121,4 @@ npm install -g @upship/agents@latest
 Restart the server. Schema changes apply on start. If you vendored the runtime
 with `agent bundle`, run that again after updating the CLI.
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/compare">How it compares</a>.</p>
+{{< agents-pager "running" >}}

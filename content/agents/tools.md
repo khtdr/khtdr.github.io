@@ -8,9 +8,9 @@ url: /agents/tools
 {{< agents-nav "tools" >}}
 
 <p class="agents-hero">
-Agents are data. Tools are code. That line is the one real constraint in the
-system, and most of the time you do not have to cross it: pointing an agent at an
-HTTP API is a config change, not a module.
+Agents are data. Tools are code. That is the one line you have to cross to add a
+capability, and most of the time you do not have to cross it. Pointing an agent at
+an HTTP API is a config change.
 </p>
 
 ## What ships
@@ -26,8 +26,7 @@ agent tools
 
 That prints every tool an agent can name, which ones need to be configured first,
 and where each one came from. It also lists the files that failed to load and
-what went wrong in them, which is the only question you have at that moment. The
-Tools page in the browser shows the same thing.
+what went wrong in them. The Tools page in the browser shows the same thing.
 
 ## Tool definitions are data too
 
@@ -37,12 +36,11 @@ implementation:
 
 - The same fetch tool pointed at two different accounts.
 - Two wordings of a description, A/B tested against the same input.
-- A strict script runner with a thirty-second budget and a patient one with ten
-  minutes.
+- A script runner capped at thirty seconds and another one allowed ten minutes.
 
 Anything a model should not be choosing belongs there rather than in the
 parameters the model fills in. A question's wording, a sandbox's limits, a
-namespace, an API key. A model that can raise its own timeout does not have one.
+namespace, an API key. If the model can set the timeout, the timeout is not a limit.
 
 Definitions are versioned like everything else, so an old run still records the
 description that was live when it ran.
@@ -118,9 +116,9 @@ The schema gets used twice. Once to tell the model what the arguments are, and
 once to check them when a pipeline step supplies them. A tool you write behaves
 like one that shipped.
 
-Two things to know. A file cannot take a name that already exists: the platform
-keeps the original and tells you it did. And changes need a restart, because
-there is no honest way to unload code that is already running. `npm run dev`
+A file cannot take a name that already exists: the platform keeps the original
+and tells you it did. Changes need a restart, because there is no reliable way to
+unload code that is already running. `npm run dev`
 restarts on its own.
 
 ## Packages and MCP servers
@@ -138,4 +136,4 @@ without any extra work.
 
 Both of those are settings. Neither is a file.
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/sandbox">Running code</a>.</p>
+{{< agents-pager "tools" >}}

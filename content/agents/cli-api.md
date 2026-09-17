@@ -110,4 +110,4 @@ To upgrade, run `agent bundle` again after updating the CLI. The Embedding page 
 the web UI walks through this example a line at a time and says what each one
 commits you to.
 
-<p class="agents-next"><strong>Next:</strong> <a href="/agents/running">Operating it</a>.</p>
+{{< agents-pager "cli-api" >}}
