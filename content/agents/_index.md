@@ -28,9 +28,11 @@ npm install -g @upship/agents
 agent serve
 ```
 
-That serves the UI at `localhost:2137`. You need an OpenRouter key first, and
-the quickest way to get an agent is to let the CLI build one by asking you
-questions. Both are in [Getting started](/agents/start).
+That serves the UI at `localhost:2137`. The package is
+[`@upship/agents`](https://www.npmjs.com/package/@upship/agents) on npm. You need
+an OpenRouter key first, and the quickest way to get an agent is to let the CLI
+build one by asking you questions. Both are in
+[Getting started](/agents/start).
 
 <figure class="agents-shot">
 <img src="/img/agents/graph-composer.jpg" alt="The graph composer: a four-way conditional router drawn on a canvas, with a node inspector open on the right" />
