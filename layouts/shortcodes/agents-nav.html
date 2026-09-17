@@ -1,0 +1,13 @@
+{{- $here := .Get 0 -}}
+{{- $pages := partial "agents-pages.html" . -}}
+<link rel="stylesheet" href="/css/agents.css" />
+<nav class="agents-nav">
+{{- range $i, $p := $pages -}}
+{{- if $i }} <span aria-hidden="true">·</span> {{ end -}}
+{{- if eq $p.id $here -}}
+<span class="here">{{ $p.title }}</span>
+{{- else -}}
+<a href="{{ $p.url }}">{{ $p.title }}</a>
+{{- end -}}
+{{- end -}}
+</nav>

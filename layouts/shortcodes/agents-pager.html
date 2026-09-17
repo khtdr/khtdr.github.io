@@ -1,0 +1,18 @@
+{{- $here := .Get 0 -}}
+{{- $pages := partial "agents-pages.html" . -}}
+{{- $at := 0 -}}
+{{- range $i, $p := $pages -}}{{ if eq $p.id $here }}{{ $at = $i }}{{ end }}{{- end -}}
+{{- $prev := cond (gt $at 0) (index $pages (sub $at 1)) false -}}
+{{- $next := cond (lt $at (sub (len $pages) 1)) (index $pages (add $at 1)) false -}}
+<nav class="agents-pager">
+<div class="prev">
+{{- with $prev }}<span class="label">Previous</span> <a href="{{ .url }}">{{ .title }}</a>{{ end -}}
+</div>
+<div class="next">
+{{- with $next -}}
+<span class="label">Next</span> <a href="{{ .url }}">{{ .title }}</a>
+{{- else -}}
+<span class="label">Back to the</span> <a href="/agents">overview</a>
+{{- end -}}
+</div>
+</nav>

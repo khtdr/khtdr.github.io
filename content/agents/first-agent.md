@@ -1,12 +1,11 @@
 ---
-title: "Your first agent: a changelog writer"
+title: "agents: your first agent"
 date: 2026-09-17T00:00:00-06:00
 description: Describe one agent and let the install draft it, run it on a repository from the terminal and the browser, read the run back in history, then edit it in the browser. The first of three tutorials.
-tags: [typescript, llm, agents, tutorial]
-categories: [Tutorials]
-series: agents-tutorials
-weight: 1
+url: /agents/first-agent
 ---
+
+{{< agents-nav "first-agent" >}}
 
 <style>
 .tut-series {
@@ -45,7 +44,7 @@ weight: 1
 .tut-next p { margin: 0; }
 </style>
 
-<p class="tut-series"><a href="/agents.html">agents</a> / tutorial 1 of 3 · next: a pipeline (coming soon)</p>
+<p class="tut-series">Tutorial 1 of 3 · next: a pipeline (coming soon)</p>
 
 By the end of this page you will have made one agent from a description, watched
 it call a tool, and read the whole run back afterwards: what it cost, what it asked the
@@ -56,7 +55,7 @@ tutorials build on it, so its name and its job are settled here.
 ## Before you start
 
 You need a running install and nothing else. Follow the
-[install steps on the overview page](/agents.html#install), which come down to:
+[install steps in Getting started](/agents/start), which come down to:
 
 ```bash
 npm install -g @upship/agents
@@ -307,7 +306,7 @@ The agent always reads the last 40 commits, so running it twice writes notes
 for the same commits twice. A release is really everything since the last
 release. Make the agent remember where it stopped.
 
-The platform has a [durable memory](/agents.html#memory) for exactly this: a
+The platform has a [durable memory](/agents/features#memory) for exactly this: a
 few named values that outlive the run, kept under a namespace, with tools to
 read and write them. Some hints, in the order you would hit them:
 
@@ -353,6 +352,8 @@ and whatever it remembered. `agent start` brings it all back for tutorial 2.
 </div>
 <div>
 <h4>Back to the overview</h4>
-<p><a href="/agents.html">What the platform does</a>, the full feature list, and the FAQ.</p>
+<p><a href="/agents">What the platform does</a> and the <a href="/agents/features">full feature list</a>.</p>
 </div>
 </div>
+
+{{< agents-pager "first-agent" >}}
