@@ -90,7 +90,7 @@ mean the whole A/B-and-replay half of this project has no counterpart there.
 | Execution modes | Freeform loop, DAG with conditions and merges, plan-then-execute, debate, reflection, quality gate, peer messaging | One model-driven turn loop. Branching is conditional hooks. Delegation is a `task` tool |
 | Orchestration authored as | Config fields | Control flow you write |
 | Sub-agents | An agent is a tool. Child runs roll up cost. Peers can message each other | `useSubagent()`, fresh context, isolated from the parent, depth capped at 4 |
-| Durability | Graph nodes park and resume by token. Freeform runs wait in-process and die with it | The headline feature. Leases, heartbeats, startup reconciliation, classified recovery, durable tools with checkpoints |
+| Durability | Graph nodes park and resume by token, and a run answered but not yet restarted is picked up at boot. Freeform runs wait in-process and die with it | The headline feature. Leases, heartbeats, startup reconciliation, classified recovery, durable tools with checkpoints |
 | Storage | Four drivers behind one port, with a conformance suite | Adapters for SQLite, Postgres, libSQL, MySQL, MongoDB, Redis. Free on Cloudflare |
 | Sandboxing | Capped subprocess. No filesystem namespace. Reports what it could not enforce | Virtual, local, or remote providers: E2B, Daytona, Modal, Vercel, Cloudflare |
 | Tools | ~22 first-party plus MCP. Definitions are rows you can A/B and bind config to | `defineTool()` with Valibot, composed per render, conditionally visible |
@@ -113,7 +113,11 @@ mean the whole A/B-and-replay half of this project has no counterpart there.
    reaches exactly one outcome, enforced by attempts, leases, startup
    reconciliation, and a classifier that tells a partial stream from an unresolved
    tool batch from a context overflow. Here, a freeform run waits in-process and
-   dies with it. The heartbeat notices a dead run. It does not recover one.
+   dies with it. The heartbeat notices a dead run. It does not recover one. There
+   is one recovery path and it is narrow: a paused run that got its answer but
+   never got restarted is picked back up on the next boot, so a deploy cannot
+   strand a run that had nothing left to wait for. A run that was mid-step when
+   the process died is still closed out as an error.
 2. **Sandbox isolation from a provider.** Managed Linux per conversation, with a
    real filesystem boundary and a package manager. `run_script` here covers
    computation and says plainly what it could not take away. It will not hand a
@@ -227,7 +231,7 @@ it. This project is a runtime whose only payments layer is your OpenRouter bill.
 | Model access | Any OpenRouter model, your key, tiers as data | Five curated models, their key, latency lanes |
 | Tools | ~22 first-party, plus yours, plus MCP. You bring the credentials | A capability catalog. No credentials to bring, and no way to add your own |
 | Sandbox | Capped subprocess, no filesystem namespace | Managed cloud environments and a hosted coding agent, metered per call |
-| Durable pause | Graph nodes park and resume by token | Signals with correlation ids and deadlines |
+| Durable pause | Graph nodes park and resume by token, and an answered run that never restarted is picked up at boot | Signals with correlation ids and deadlines |
 | Retries | Gates with retry, plan re-planning. No automatic per-step retry | Three attempts per step by default, plus an explicit retry directive |
 | Scheduling | None. Cron the CLI | Cron, events, and webhook triggers |
 | Memory | Durable memory with compare-and-set | Not a named feature. Use file storage or a provisioned database |
@@ -330,7 +334,9 @@ compete on.
 - **Nested parking.** Sub-agent nodes, reflection producers, debate producers, and
   peer waves cannot park today. Medium-large, and it unblocks the rest.
 - **Recovery, not just reaping.** Attempts, leases, and a classified resume, so a
-  dead run continues instead of being closed out. Medium.
+  dead run continues instead of being closed out. Medium. The easy piece is done:
+  a run that was answered and never restarted gets picked up. What is left is the
+  hard half, continuing a run that died in the middle of a step.
 - **Durable tools.** A checkpoint so a tool that provisions something resumes
   mid-way. Small-medium on top of parking.
 - **A stronger sandbox.** A filesystem namespace, seccomp, a cgroup, installable

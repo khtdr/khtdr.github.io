@@ -112,6 +112,14 @@ A run waiting on a person holds no process. It sits in the database with a token
 and it will wait as long as it takes. `agent pending` and
 `GET /api/runs/pending` list everything in that state.
 
+The one thing the server does resume is a paused run that already got its answer.
+Answering is a write to the row, and restarting the run is a second step; if the
+server goes down between the two — a deploy landing at the wrong second — the run
+would otherwise sit there answered and unfinished forever. So every server sweeps
+for that on startup and every thirty seconds after, and picks those runs back up.
+It waits a minute first, so it adopts a run nobody is holding rather than racing a
+restart already under way.
+
 ## Upgrading
 
 ```bash

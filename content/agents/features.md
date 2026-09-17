@@ -59,7 +59,7 @@ url: /agents/features
 |---|---|---|
 | Human in the loop | A step can stop and ask a person, with typed options | Approvals and sign-offs inside an otherwise automatic run |
 | Multi-turn interviews | A conversation where each question depends on the last answer | Gather requirements from a person mid-run |
-| Durable pauses | A paused run keeps its place with no process waiting on it | A webhook, a build, or a person can answer hours later |
+| Durable pauses | A paused run keeps its place with no process waiting on it, and picks itself back up if the server restarts while the answer is coming in | A webhook, a build, or a person can answer hours later, and a deploy in the middle of it does not lose the run |
 | A pending inbox | One list of every run waiting on somebody, in the UI and the CLI | Nothing sits parked because you forgot about it |
 
 </div>
@@ -98,7 +98,7 @@ url: /agents/features
 | Feature | What it does | Why you want it |
 |---|---|---|
 | Storage that fits | SQLite, Postgres, plain files, or memory | Start on a laptop, move to a real database when it matters |
-| Nothing gets stuck | Runs check in, dead ones get cleaned up, and cancel stops the run | No run sits at "running" forever because something crashed |
+| Nothing gets stuck | Runs check in, dead ones get cleaned up, answered ones that never got restarted are picked back up, and cancel stops the run | No run sits waiting forever because something crashed at the wrong moment |
 | Web UI, CLI, API | One engine, three ways to use it | Click through it, script it, or call it from your own app |
 | Embed the runtime | `agent bundle` puts the runtime in your tree and `runAgent` becomes a function call | Ship agents inside your product with no separate service to run |
 
