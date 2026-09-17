@@ -178,8 +178,9 @@ claude                  # then: /new-agent
 ```
 
 <p>Both read the same brief, which is generated from your install. So it lists the
-tools you have, including any that came from a package or an MCP
-server. <code>agent brief</code> prints that document if you want to use it somewhere else.</p>
+tools you have, including any you wrote yourself or that came from a package or
+an MCP server, and it explains how to add one when nothing
+fits. <code>agent brief</code> prints that document if you want to use it somewhere else.</p>
 </li>
 <li>
 <h4>Run it</h4>
@@ -224,8 +225,9 @@ cost, its steps, and every sub-agent it called.</p>
 | Tool config and A/B | Tool descriptions and settings are editable data on top of the code | Test two wordings of a tool, or point two copies at different accounts |
 | Encrypted secrets | Credentials are stored encrypted and referenced by name | Point a tool at your account without pasting a key into config |
 | Filesystem limits | Tools get scoped paths instead of raw disk access | A run writes in its own directory and cannot wander |
+| Call any HTTP API | A step can fetch a URL — or be pinned to one API, with the key stored encrypted and never shown to the model | Connect an agent to a service you already pay for, without writing a tool for it |
 | Run code it wrote | A step can write a Node, Python, or shell script and run it in a capped subprocess that cannot see your keys — and it reports how much else it managed to lock down on your machine | Arithmetic, parsing, and charts get *computed* instead of guessed at |
-| Bring your own tools | Load tool packages or connect MCP servers at startup | Add tools without forking or rebuilding anything |
+| Bring your own tools | Drop a file in a `tools` folder, install a tool package, or connect an MCP server | Add a tool of your own without forking or rebuilding anything |
 | Storage that fits | SQLite, Postgres, plain files, or memory | Start on a laptop, move to a real database when it matters |
 | Nothing gets stuck | Runs check in, dead ones are cleaned up, and cancel stops the run | No run sits at "running" forever because something crashed |
 | Web UI, CLI, API | One engine, three ways to use it | Click through it, script it, or call it from your own app |
@@ -258,6 +260,10 @@ cost, its steps, and every sub-agent it called.</p>
 <div class="agents-card">
 <h4>Number crunching</h4>
 <p>Hand it a spreadsheet and let it write the Python to answer the question. Files the script leaves behind come back attached to the run.</p>
+</div>
+<div class="agents-card">
+<h4>Talking to your own API</h4>
+<p>Point a step at an internal service, with the key kept in the encrypted store. The agent gets the answer and never sees the credential.</p>
 </div>
 <div class="agents-card">
 <h4>Prompt A/B tests</h4>
@@ -315,6 +321,7 @@ echo "summarize this" | agent summarizer -f notes.md
 agent new                # build an agent by answering questions
 agent skill install      # teach Claude Code to write agents here
 agent brief              # what this install can do, as one document
+agent tools              # every tool an agent can use, and where each came from
 
 agent pending
 # Waiting (1)
@@ -349,6 +356,7 @@ curl -X POST localhost:2137/api/runs/$ID/pending/$TOKEN \
 - **Runs on a laptop or a cluster.** SQLite by default with nothing to install, Postgres when you need more than one machine. Each storage option passes the same test suite, so it behaves the same either way.
 - **Conditions are parsed, not evaluated.** The small expression language in routing conditions is a fixed whitelist, so nothing coming in over the API can reach anything it should not.
 - **Checked before it is saved.** A pipeline with a loop, a missing step, or a condition that does not parse is rejected when you save it, not three steps into a run.
+- **Your tools are not second-class.** A tool you write in the `tools` folder gets the same treatment as one that shipped: the same schema handling, the same validation when a pipeline step calls it, the same place in the catalog, and the same settings-on-top-of-code that lets you run two copies pointed at two accounts.
 
 <div class="agents-grid">
 <div class="agents-card">
@@ -418,15 +426,211 @@ your keys, none of your secrets — a private working directory, a time limit,
 and a cap on how much it can print.
 
 On Linux it also loses the network and gets a memory limit, if the kernel
-allows it. On a Mac it gets neither, and it says so instead of implying
-otherwise: the tool tells the model what it actually managed on this machine,
-and the Tools page prints the same line for you. What no host gets is a
-filesystem boundary — a script can still read what the user running the server
-can read.
+allows it. On a Mac it gets neither — a Node script is held to an interpreter
+heap limit, and that is all — and it says so instead of implying otherwise:
+the tool tells the model what it actually managed on this machine, and the
+Tools page prints the same line for you (see below for how to read it). What
+no host gets is a filesystem boundary — a script can still read what the user
+running the server can read.
 
 So this is for work you want *computed* rather than estimated: arithmetic over
 a lot of numbers, reshaping a file, checking a pattern against real input. It
 is not a box to run code you have a reason to distrust.
+
+### What can a script actually do on my machine?
+
+Ask the install, rather than guessing from the operating system. What it
+managed to lock down is probed on the real kernel at startup, so the answer
+differs between your laptop and your server:
+
+```bash
+agent brief | grep -A2 run_script
+# - **run_script** — Run a short program you wrote in a sandboxed subprocess...
+#   on this host: node (node), python (python3), sh (bash); subprocess (isolation
+#   from accidents, not from intent: this host has no namespaces); network NOT
+#   blocked — this host cannot drop it; memory NOT capped — this host ignores the rlimit
+```
+
+The same line is on the Tools page under `run_script`, and over HTTP:
+
+```bash
+curl -s localhost:2137/api/tools/implementations | jq '.[] | select(.name=="run_script") | .hostNote'
+```
+
+Three things are in it. Which **languages** exist here — Node, Python 3 and a
+shell are looked for on `PATH`, and the model is only offered the ones that
+were found. Whether the **network** was actually taken away, which needs Linux
+with unprivileged user namespaces; anywhere else it says so rather than
+claiming a boundary it does not have. And whether the **memory cap** is real:
+a kernel rlimit on Linux, the interpreter's own heap limit for Node, and
+nothing at all on macOS, which ignores the rlimit.
+
+Every run says it too. The result of a `run_script` call carries a `sandbox`
+field with the same sentence, so a run from six months ago still records what
+it was actually running under.
+
+### How do I let an agent run code?
+
+Add `run_script` to its tools, like any other tool. There is nothing else to
+turn on — it works out of the box with a thirty-second limit, a 512 MB memory
+cap, 64 KB of output per stream, and no network:
+
+```bash
+curl -X POST localhost:2137/api/agents \
+  -H 'content-type: application/json' \
+  -d '{"name":"analyst","description":"Answers questions about data files",
+       "systemPrompt":"Compute answers with a script rather than estimating them.",
+       "tools":["read_file","run_script"]}'
+```
+
+The script runs in the run's own output directory, which is where `read_file`
+and `write_file` already point. So it can read what an earlier step wrote, and
+anything it leaves behind comes back attached to the run — a chart it drew is
+an image on the run page.
+
+### Can I change the limits, or pin it to one language?
+
+Yes, on a tool definition. The limits are deliberately *not* parameters the
+model can set — a model that can raise its own timeout does not have one — so
+they live in a definition's config, alongside the description:
+
+```bash
+curl -X POST localhost:2137/api/tools \
+  -H 'content-type: application/json' \
+  -d '{"name":"run_python","implementation":"run_script",
+       "description":"Run a Python script over the files in this run.",
+       "parameterOverrides":{"language":"python","timeoutMs":120000,
+                             "maxMemoryMb":2048,"maxOutputBytes":262144,
+                             "network":false}}'
+```
+
+Then give an agent `run_python` instead of `run_script`. You can do the same
+thing on the Tools page without the curl.
+
+- `language` pins one of `node`, `python`, `sh`. Pinned, it stops being a
+  question the model answers — and if that interpreter is not installed here,
+  the tool refuses to build with a message naming what is, rather than failing
+  on the first call.
+- `network: true` is how a script gets the network, and it is off unless you
+  say this. It only means anything where the network could be dropped in the
+  first place.
+- `timeoutMs`, `maxMemoryMb` and `maxOutputBytes` are capped at 10 minutes,
+  8 GB and 4 MB. A typo above the ceiling is rejected when the tool is built,
+  not after a run has been parked for a day.
+
+Because definitions are rows, two of them can point at the same implementation
+with different limits — a quick one for arithmetic and a patient one for a
+large file — and each is versioned like everything else.
+
+### How do I turn it off?
+
+It is off until you ask for it: `run_script` only runs for an agent that lists
+it. There is no global switch to throw, so turning it off means taking it out
+of the agents that have it. To find them:
+
+```bash
+curl -s localhost:2137/api/agents | jq -r '.[] | select((.tools // []) | index("run_script")) | .name'
+```
+
+Then edit those agents and remove it — from the browser, or with a `PUT`.
+Removing it is a save like any other, so the version that had it is still in
+the history if you want it back.
+
+If what you want is a stronger boundary rather than no scripts at all, the
+thing to isolate is the server: run `agent serve` as its own user, or in a
+container, or on a machine you do not mind it reading. A script cannot see
+your keys or call a model, but it can read whatever the user running the
+server can read, and no setting here changes that.
+
+### Python is not in the list of languages
+
+Only what was found on `PATH` when the server started is offered, and that
+discovery happens once per process. So installing Python and expecting the
+running server to notice will not work — install it, then restart:
+
+```bash
+python3 --version   # make sure the server's PATH will find it
+# restart agent serve, then:
+agent brief | grep -A2 run_script
+```
+
+A `sh` that is there and a `python` that is not is the usual shape of this on
+a slim container image.
+
+### Can an agent read anything on my network?
+
+No, not by default. The tool that fetches a URL refuses anything that is not a
+public address — your own machine, your home or office network, and the
+addresses cloud providers keep for themselves are all turned down, by name and
+by the addresses a name resolves to. Redirects are checked the same way, each
+hop, so a public URL cannot bounce an agent somewhere private.
+
+That default exists because the platform itself is on one of those addresses:
+without it, an agent could ask its own server for your stored secrets and repeat
+them back in an answer.
+
+If you *want* an agent to reach something on your network, you say so on a tool
+definition, and you can pin that definition to a single host while you are
+there. The same place is where its API key goes — stored encrypted, sent as a
+header, and never shown to the model, so a tool that can call one service cannot
+be talked into calling another with your key attached.
+
+### How do I add a tool of my own?
+
+Write one file and restart. Everything in the `tools` folder next to where you
+start the server is loaded when it starts, so putting a file there is the whole
+of the installation — there is no list to add it to.
+
+```ts
+// tools/whatsapp.ts
+import { z } from "zod";
+import { defineTool } from "@upship/agents/tools";
+
+export default [
+  defineTool({
+    name: "parse_whatsapp",
+    description:
+      "Parse a WhatsApp export into messages. Pass `after` to get only what is newer " +
+      "than a previous call. Use this instead of reading the file — an export is far " +
+      "too big to pass through a tool call.",
+    parameters: z.object({
+      path: z.string().describe("Path to the export."),
+      after: z.string().optional().describe("Cursor from last time. Omit for the whole file."),
+    }),
+    async execute({ path, after }, ctx) {
+      return parseExport(await ctx.files.read(path), after);
+    },
+  }),
+];
+```
+
+The description is what the model reads to decide whether to call it, so write
+it for the model: what it does, when to use it rather than something else, and
+what it will not do. The schema you hand it is used twice — to tell the model
+what the arguments are, and to check them when a pipeline step supplies them —
+so a tool you write behaves like one that shipped with the platform.
+
+Then check it arrived:
+
+```bash
+agent tools
+```
+
+That lists every tool an agent can name, which ones need to be configured
+first, and where each one came from. It also lists the files that *failed* to
+load and what went wrong in them, which is the answer to the only question you
+have at that moment. The Tools page in the browser shows the same thing.
+
+Two notes. A file cannot take a name that already exists — the platform keeps
+the original and tells you it did — and changes need a restart, because there
+is no honest way to unload code that is already running. `npm run dev` restarts
+on its own.
+
+Before you write anything, though, it is worth checking whether you need to. If
+the thing you want is an HTTP API, you can point the built-in fetch tool at it
+and store the key encrypted, with no code at all. If it is a one-off
+calculation or a parse, the model can write a script and run it. Both of those
+are settings, not files.
 
 ### Where does everything live?
 
