@@ -1,11 +1,11 @@
 #+AUTHOR: OhKay.
 #+TITLE: Creating a Custom Emacs Mode
-#+DATE: 2024-11-01
+#+DATE: 2026-09-17
 #+DESCRIPTION: Learn how to create a custom major mode in Emacs with persistent state
 #+categories[]: Tutorials
 #+tags[]: emacs elisp programming
 #+TOC: true
-#+draft: true
+#+draft: false
 #+weight: 2
 
 #+BEGIN_QUOTE
@@ -31,55 +31,56 @@ We'll create a simple mode that:
 Here's the complete implementation of our foo-mode:
 
 #+BEGIN_SRC emacs-lisp
+;;; foo-mode.el --- A tiny stateful major mode  -*- lexical-binding: t -*-
+
 (defvar foo-mode-map
   (let ((map (make-sparse-keymap)))
-    (define-key map (kbd "C-c C-c") 'foo-increment-count)
+    (define-key map (kbd "C-c C-c") #'foo-increment-count)
     map)
-  "Keymap for foo-mode.")
+  "Keymap for `foo-mode'.")
 
 (defvar-local foo-count 0
-  "Counter for number of clicks in the current buffer.")
+  "Number of clicks recorded in the current buffer.")
 
-(define-derived-mode foo-mode fundamental-mode "Foo"
-  "Major mode for .foo files with a clickable counter."
-  (setq-local foo-count 0)
-  (foo-mode-refresh))
+(define-derived-mode foo-mode special-mode "Foo"
+  "Major mode for .foo files with a clickable counter.
+The file on disk holds just the count as a number.  The buffer
+shows a rendered view of it, which is regenerated as needed."
+  ;; When the mode starts, the buffer contains the raw file
+  ;; contents.  Parse the count out of them before redrawing.
+  (setq foo-count (string-to-number (buffer-string)))
+  ;; Take over saving: we write the count, not the buffer text.
+  (add-hook 'write-contents-functions #'foo-mode-save nil t)
+  (foo-mode-refresh)
+  (set-buffer-modified-p nil))
+
+(defun foo-mode-refresh ()
+  "Redraw the buffer from `foo-count'."
+  (let ((inhibit-read-only t))
+    (erase-buffer)
+    (insert (format "Count: %d
+
+" foo-count))
+    (insert-button "Click me!"
+                   'action (lambda (_button) (foo-increment-count))
+                   'follow-link t)
+    (goto-char (point-min))))
 
 (defun foo-increment-count ()
   "Increment the counter and refresh the display."
   (interactive)
   (setq foo-count (1+ foo-count))
-  (foo-mode-refresh))
-
-(defun foo-mode-refresh ()
-  "Refresh the buffer display."
-  (let ((inhibit-read-only t))
-    (erase-buffer)
-    (insert (format "Count: %d\n\n" foo-count))
-    (insert-button "Click me!"
-                  'action (lambda (_) (foo-increment-count))
-                  'follow-link t)))
+  (foo-mode-refresh)
+  (set-buffer-modified-p t))
 
 (defun foo-mode-save ()
-  "Save the count to the file."
-  (let ((count foo-count))
-    (write-region (number-to-string count) nil (buffer-file-name))))
-
-(defun foo-mode-load ()
-  "Load the count from the file."
-  (when (file-exists-p (buffer-file-name))
-    (setq foo-count
-          (string-to-number
-           (with-temp-buffer
-             (insert-file-contents (buffer-file-name))
-             (buffer-string))))
-    (foo-mode-refresh)))
-
-(add-hook 'foo-mode-hook 'foo-mode-load)
-(add-hook 'before-save-hook
-          (lambda ()
-            (when (eq major-mode 'foo-mode)
-              (foo-mode-save))))
+  "Write `foo-count' to the visited file.
+Returns non-nil so that Emacs does not also write the buffer text."
+  (write-region (number-to-string foo-count) nil buffer-file-name)
+  (set-visited-file-modtime)
+  (set-buffer-modified-p nil)
+  (message "Saved count %d to %s" foo-count buffer-file-name)
+  t)
 
 (add-to-list 'auto-mode-alist '("\\.foo\\'" . foo-mode))
 
@@ -101,16 +102,23 @@ Here's the complete implementation of our foo-mode:
 
 * How It Works
 ** Mode Definition
-The mode is defined using =define-derived-mode=, which creates a new major mode derived from =fundamental-mode=. This sets up the basic mode infrastructure.
+The mode is defined using =define-derived-mode=, which creates a new major mode derived from =special-mode=. Deriving from =special-mode= gives us a read-only buffer out of the box, which is what we want for a buffer that is rendered rather than typed into. It also gives us the usual conveniences like =q= to quit the window.
 
 ** State Management
-- =foo-count= is buffer-local variable that stores the click count
-- =foo-mode-refresh= updates the buffer display
-- =foo-mode-save= serializes the count to the file
-- =foo-mode-load= deserializes the count when opening a file
+- =foo-count= is a buffer-local variable that stores the click count
+- =foo-mode-refresh= erases the buffer and redraws it from =foo-count=. Because the buffer is read-only, we bind =inhibit-read-only= while doing so.
+- =foo-increment-count= bumps the counter, redraws, and marks the buffer modified so that =C-x C-s= knows there is something to save
+
+** Loading
+When Emacs opens a =.foo= file, it reads the file into the buffer and then activates the mode. So at the top of the mode body, the buffer contains the raw file contents: just a number. We parse it with =string-to-number= (an empty buffer, as with a brand new file, gives 0), then redraw and mark the buffer unmodified so Emacs does not immediately think you have unsaved changes.
+
+** Saving
+This is the interesting part. The buffer text is a rendered view, not the data, so we do not want Emacs to write it to disk. Instead we add =foo-mode-save= to =write-contents-functions=, buffer-locally. Emacs runs these functions when you save, and if one of them returns non-nil, Emacs considers the save handled and skips writing the buffer itself.
+
+Inside =foo-mode-save= we write just the number with =write-region=, then call =set-visited-file-modtime= so Emacs knows the change on disk was ours (otherwise the next save would warn that the file changed on disk), and clear the modified flag.
 
 ** File Association
-The mode automatically activates for .foo files through the =auto-mode-alist= addition.
+The mode automatically activates for =.foo= files through the =auto-mode-alist= addition.
 
 ** Interaction
 The mode provides two ways to increment the counter:

@@ -4,8 +4,9 @@ date: 2026-09-15T00:00:00-06:00
 description: An agent platform where agents are database rows instead of code. Every save is versioned, everything is editable in the browser, and pipelines are graphs you draw.
 tags: [typescript, llm, agents, orchestration, dag, postgres, sqlite, zod, openrouter]
 categories: [Software]
-url: /agents
-aliases: [/agents.html]
+url: /agents.html
+layout: single
+outputs: [HTML]
 ---
 
 <style>
@@ -84,6 +85,31 @@ aliases: [/agents.html]
 .agents-steps h4 { margin: 0 0 4px; font-size: 1.02rem; }
 .agents-steps p { margin: 0 0 8px; }
 .agents-steps .highlight { margin-bottom: 0; }
+.agents-tutorials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 16px 0 28px;
+}
+.agents-tutorial {
+  display: block;
+  background-color: var(--well-color);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 12px 14px;
+  text-decoration: none;
+  color: var(--foreground-color);
+}
+a.agents-tutorial:hover { border-color: var(--accent-color); }
+.agents-tutorial .num {
+  font-family: "Reddit Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--muted-color);
+}
+.agents-tutorial h4 { margin: 2px 0 4px; font-size: 1rem; color: var(--accent-color); }
+.agents-tutorial p { margin: 0; font-size: 0.9rem; line-height: 1.45; color: var(--foreground-color); }
+.agents-tutorial.soon { opacity: 0.7; }
+.agents-tutorial.soon h4 { color: var(--muted-color); }
 </style>
 
 <p class="agents-hero">
@@ -93,6 +119,27 @@ every save keeps a version, and you connect agents into a pipeline by dragging
 edges. Each step runs with its own cost and transcript. No rebuild, no redeploy,
 no YAML.
 </p>
+
+<p><strong>New here?</strong> Three short tutorials take you from an empty install to a
+pipeline that pauses for a person, building on one agent the whole way.</p>
+
+<div class="agents-tutorials">
+<a class="agents-tutorial" href="/agents/first-agent.html">
+<span class="num">Tutorial 1</span>
+<h4>Your first agent</h4>
+<p>Make an agent that reads a repository's history and writes release notes, run it, and read the run back in history.</p>
+</a>
+<div class="agents-tutorial soon">
+<span class="num">Tutorial 2 · coming soon</span>
+<h4>A pipeline</h4>
+<p>Put that agent in a graph as one step, add a search before it and a file after, then a gate that sends bad work back.</p>
+</div>
+<div class="agents-tutorial soon">
+<span class="num">Tutorial 3 · coming soon</span>
+<h4>A router with a human gate</h4>
+<p>Classify a request, send it down one of several branches, and pause for a person before anything ships.</p>
+</div>
+</div>
 
 <figure class="agents-shot">
 <img src="/img/agents/graph-composer.jpg" alt="The graph composer: a four-way conditional router drawn on a canvas, with a node inspector open on the right" />
@@ -119,7 +166,7 @@ step cost, and what each sub-agent said.
 key works for every provider (Anthropic, OpenAI, Google, and the rest), so it is the
 only credential you need.</p>
 </li>
-<li>
+<li id="install">
 <h4>Install it</h4>
 
 ```bash
@@ -224,6 +271,7 @@ cost, its steps, and every sub-agent it called.</p>
 | Tool config and A/B | Tool descriptions and settings are editable data on top of the code | Test two wordings of a tool, or point two copies at different accounts |
 | Encrypted secrets | Credentials are stored encrypted and referenced by name | Point a tool at your account without pasting a key into config |
 | Filesystem limits | Tools get scoped paths instead of raw disk access | A run writes in its own directory and cannot wander |
+| Git, built in | Read any repository's log, diffs, and blame. Clone, commit, and push inside a run's own workspace | Release notes and review summaries straight from the repo, with no shell access handed to the model |
 | Bring your own tools | Load tool packages or connect MCP servers at startup | Add tools without forking or rebuilding anything |
 | Storage that fits | SQLite, Postgres, plain files, or memory | Start on a laptop, move to a real database when it matters |
 | Nothing gets stuck | Runs check in, dead ones are cleaned up, and cancel stops the run | No run sits at "running" forever because something crashed |
@@ -292,7 +340,7 @@ cost, its steps, and every sub-agent it called.</p>
 <figcaption>Tools are code, but their descriptions and settings are editable data on top. Two entries can share one implementation with different wording or different accounts.</figcaption>
 </figure>
 
-<figure class="agents-shot">
+<figure class="agents-shot" id="memory">
 <img src="/img/agents/memory.jpg" alt="The memory page showing namespaced durable keys with their values and when they were last written" />
 <figcaption>What agents wrote down to remember between runs. A watermark, a last-seen id, a decision that should not be made twice.</figcaption>
 </figure>
