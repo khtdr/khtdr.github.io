@@ -2,12 +2,16 @@
 {{- $pages := partial "agents-pages.html" . -}}
 <link rel="stylesheet" href="/css/agents.css" />
 <nav class="agents-nav">
-{{- range $i, $p := $pages -}}
-{{- if $i }} <span aria-hidden="true">·</span> {{ end -}}
+{{- $shown := 0 -}}
+{{- range $p := $pages -}}
+{{- if not $p.hidden -}}
+{{- if $shown }} <span aria-hidden="true">·</span> {{ end -}}
+{{- $shown = add $shown 1 -}}
 {{- if eq $p.id $here -}}
 <span class="here">{{ $p.title }}</span>
 {{- else -}}
 <a href="{{ $p.url }}">{{ $p.title }}</a>
+{{- end -}}
 {{- end -}}
 {{- end -}}
 </nav>
