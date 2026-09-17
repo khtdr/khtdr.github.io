@@ -11,6 +11,26 @@ aliases: [/agents.html]
 
 {{< agents-nav "index" >}}
 
+## Tutorials
+
+Three short walkthroughs take you from an empty install to a pipeline that
+pauses for a person, building on one agent the whole way.
+
+<div class="agents-grid">
+<div class="agents-card">
+<h4><a href="/agents/first-agent">1. Your first agent</a></h4>
+<p>Make an agent that reads a repository's history and writes release notes, run it, and read the run back in history.</p>
+</div>
+<div class="agents-card">
+<h4>2. A pipeline <small>(coming soon)</small></h4>
+<p>Put that agent in a graph as one step, add a search before it and a file after, then a gate that sends bad work back.</p>
+</div>
+<div class="agents-card">
+<h4>3. A router with a human gate <small>(coming soon)</small></h4>
+<p>Classify a request, send it down one of several branches, and pause for a person before anything ships.</p>
+</div>
+</div>
+
 ## The idea
 
 In most agent frameworks an agent is a class you subclass and a pipeline is a
@@ -69,26 +89,6 @@ build one by asking you questions. Both are in
 <div class="agents-card">
 <h4><a href="/agents/compare">How it compares</a></h4>
 <p>Against Flue and against Sapiom, including the parts where they win.</p>
-</div>
-</div>
-
-## Tutorials
-
-Three short walkthroughs take you from an empty install to a pipeline that
-pauses for a person, building on one agent the whole way.
-
-<div class="agents-grid">
-<div class="agents-card">
-<h4><a href="/agents/first-agent">1. Your first agent</a></h4>
-<p>Make an agent that reads a repository's history and writes release notes, run it, and read the run back in history.</p>
-</div>
-<div class="agents-card">
-<h4>2. A pipeline <small>(coming soon)</small></h4>
-<p>Put that agent in a graph as one step, add a search before it and a file after, then a gate that sends bad work back.</p>
-</div>
-<div class="agents-card">
-<h4>3. A router with a human gate <small>(coming soon)</small></h4>
-<p>Classify a request, send it down one of several branches, and pause for a person before anything ships.</p>
 </div>
 </div>
 
