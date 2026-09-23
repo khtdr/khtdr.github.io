@@ -10,3 +10,6 @@ markup.goldmark.renderer.unsafe = true
 [params.author]
   name = 'Joey Mazzarelli'
   email = 'mazzarelli@gmail.com'
+[security]
+  # Newer Hugo blocks org content by default, and half this site is org.
+  allowContent = ['! ^text/html$']

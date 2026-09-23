@@ -33,6 +33,54 @@ The important part is that it says so. The tool tells the model what it managed
 on this machine, and the Tools page prints the same line for you. It does not
 claim isolation it does not have.
 
+## What stands between a script and your machine
+
+There is no Docker and no container runtime to install. It is `npm install` and
+nothing else, so the protection is built from what the operating system already
+has. There are two layers.
+
+### The file tools
+
+`read_file`, `write_file` and the other built-in file tools never open a path the
+model names directly. Every path goes through a check first.
+
+- **Reads** are allowed inside the data directories you configured, and inside
+  the output directory.
+- **Writes** are allowed only in the current run's own workspace. Sub-agents and
+  a run that resumes after a pause share that one workspace, so two runs that
+  both write `report.md` never overwrite each other.
+- **Symlinks are followed before the check.** A link inside the workspace that
+  points at `/etc` is refused, not read.
+
+This covers the tools that ship with it. A tool you write yourself runs inside
+the server, and it can skip the check by calling Node's `fs` module directly.
+
+### Scripts from `run_script`
+
+A script the model writes runs in a separate process, under these limits:
+
+- **An empty environment.** The process starts with nothing inherited from the
+  server. Your API keys, database credentials and secrets are not in it.
+- **The whole process group is killed on timeout.** A script that starts helper
+  processes does not leave them running.
+- **Output is capped while it streams.** A loop that prints forever is killed
+  when it crosses the limit, not after it has filled memory.
+- **Files it leaves behind are checked.** Each script runs in a scratch folder
+  inside the run's workspace. When it finishes, every new or changed file goes
+  through the same check as the file tools, so a script cannot plant a symlink
+  that points outside the workspace.
+
+What each host can add on top:
+
+| | Linux | macOS and others |
+|---|---|---|
+| Network | Removed, if the kernel allows it | Not blocked, and reported |
+| Memory cap | Kernel limit, plus Node's heap limit | Node's heap limit only |
+| Reading files | Whatever the server's user can read | Whatever the server's user can read |
+
+When a host cannot enforce something, like cutting the network on a Mac, it says
+so instead of pretending.
+
 ## What can a script do on my machine
 
 Ask the install instead of guessing from the operating system. What it locked
