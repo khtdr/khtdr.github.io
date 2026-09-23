@@ -22,8 +22,8 @@ pauses for a person, building on one agent the whole way.
 <p>Make an agent that reads a repository's history and writes release notes, run it, and read the run back in history.</p>
 </div>
 <div class="agents-card">
-<h4>2. A pipeline <small>(coming soon)</small></h4>
-<p>Put that agent in a graph as one step, add a search before it and a file after, then a gate that sends bad work back.</p>
+<h4><a href="/agents/pipeline">2. A pipeline</a></h4>
+<p>Put that agent in a graph as one step, with a git read before it and a file after, then a gate that sends bad work back.</p>
 </div>
 <div class="agents-card">
 <h4>3. A router with a human gate <small>(coming soon)</small></h4>

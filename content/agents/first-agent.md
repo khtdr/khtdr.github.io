@@ -44,7 +44,7 @@ url: /agents/first-agent
 .tut-next p { margin: 0; }
 </style>
 
-<p class="tut-series">Tutorial 1 of 3 · next: a pipeline (coming soon)</p>
+<p class="tut-series">Tutorial 1 of 3 · next: <a href="/agents/pipeline">a pipeline</a></p>
 
 By the end of this page you will have made one agent from a description, watched
 it call a tool, and read the whole run back afterwards: what it cost, what it asked the
@@ -347,8 +347,8 @@ and whatever it remembered. `agent start` brings it all back for tutorial 2.
 
 <div class="tut-next">
 <div>
-<h4>Next: a pipeline</h4>
-<p>Coming soon. The changelog writer becomes a node in a graph, with a search before it, a file written after it, and a gate that sends bad work back.</p>
+<h4>Next: <a href="/agents/pipeline">a pipeline</a></h4>
+<p>The changelog writer becomes a node in a graph, with a git read before it, a file written after it, and a gate that sends bad work back.</p>
 </div>
 <div>
 <h4>Back to the overview</h4>
