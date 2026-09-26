@@ -1,0 +1,125 @@
+#+title: Mood Ring
+#+date: 2026-09-25T00:00:00-06:00
+#+description: A private Android check-in app for noticing how you've been feeling. Quick mood nudges, an end-of-day check-in, and occasional standard questionnaires. No accounts, no servers, no analytics.
+#+tags[]: android react-native typescript expo sqlite mental-health privacy
+#+categories[]: Software
+#+url: /mood-ring
+#+aliases[]: /mood-ring.html
+
+*Mood Ring* is a small Android app for noticing how you've been feeling. Now and then it asks
+a quick question, it has a short check-in at the end of the day, and it offers an occasional
+questionnaire. Then it shows you how things change over time. I made it for a small circle of
+friends and family, so it is not in the Play Store.
+
+* Get the app
+
+- Android APK: [[/mood-ring/mood-ring-1.1.0.apk][Download Mood Ring 1.1.0]] /(~35 MB, Android 7.0 or newer, 64-bit phones)/
+- Google Play: /not published. This is a direct download./
+- iOS: /not planned/
+
+#+BEGIN_EXPORT html
+<figure style="margin:1.5rem 0;text-align:center">
+  <a href="/mood-ring/mood-ring-1.1.0.apk">
+    <img src="/mood-ring/download-qr.svg" alt="QR code linking to the Mood Ring APK download"
+         width="200" height="200"
+         style="width:200px;height:200px;background:#fff;padding:10px;border-radius:8px;display:inline-block" />
+  </a>
+  <figcaption style="font-size:0.9em;opacity:0.75;margin-top:0.5rem">
+    Point your phone's camera at this to download the APK (~35&nbsp;MB).
+  </figcaption>
+</figure>
+#+END_EXPORT
+
+If you want to confirm the file you downloaded is the one I published, its SHA-256 is:
+
+#+BEGIN_EXAMPLE
+657e8c7e6182276d92c8102633e193578cd27967364cb8628ad919f55b877021
+#+END_EXAMPLE
+
+* Install
+
+** 1. Let your browser install apps
+
+Android only installs apps from the Play Store until you give permission, and you give it one
+app at a time.
+
+1. Open the download link above on your phone.
+2. When it finishes, tap the downloaded file. Android will say your browser (or file manager)
+   isn't allowed to install unknown apps. Tap *Settings*, turn on *Allow from this source*, then
+   go back.
+3. Tap *Install*.
+4. Play Protect may warn you that it doesn't recognize the developer. That's expected, because
+   the app isn't in the Play Store. Tap *More details*, then *Install anyway*, if you're
+   comfortable with that.
+
+You can turn *Allow from this source* back off afterward. It isn't needed for updates.
+
+** 2. Let the reminders through
+
+The first time you open Mood Ring, it asks to send notifications. Say yes, or it can't remind
+you to check in.
+
+Many phones also shut down background apps to save battery, which can make reminders show up
+late or not at all. If your reminders don't arrive:
+
+1. Open Android *Settings → Apps → Mood Ring → Battery*.
+2. Choose *Unrestricted* (some phones call it *Don't optimize*).
+
+Samsung, Xiaomi, OnePlus, Huawei, and some other brands add their own extra battery settings.
+[[https://dontkillmyapp.com][dontkillmyapp.com]] has step-by-step instructions for each brand.
+
+** Updates
+
+Most updates arrive on their own. The app checks for one when it opens and asks before it
+restarts to apply it. You only need to download a new APK when the version number on this page
+changes. You can see which version you have in the app under *Settings → About Mood Ring*.
+
+** Uninstalling
+
+Uninstalling Mood Ring deletes everything you've entered in it, unless Android backup is on (see
+below). If you want to keep your history, use *Export JSON* or *Export CSV* under *Settings → Your data* first and save the file
+somewhere safe.
+
+* What it does
+
+- *Quick nudges.* A few times a day, at random times within hours you choose, it asks "how are
+  you feeling right now?" Answering is one tap on a five-point scale from /Awful/ to /Great/,
+  plus an optional energy rating.
+- *An end-of-day check-in.* A mood for the day, an optional note, and any questions you've added
+  yourself. For example, "Did you exercise?" (yes/no), "How well did you sleep?" (a 1–5 rating), or
+  "How many coffees?" (a count).
+- *Occasional questionnaires.* Short, widely used screening questionnaires, each on a schedule
+  you pick, such as every two weeks:
+  - GAD-7 (anxiety)
+  - PHQ-9 (depression)
+  - K10 (psychological distress)
+  - PSS-10 (stress)
+  - WHO-5 (wellbeing)
+  - UCLA 3-item (loneliness)
+  - Satisfaction With Life Scale
+- *History.* A calendar colored by mood, and each day's entries in detail.
+
+The reminders are deliberately vague, like "How are you feeling right now?" or "How was today?" They never show a mood, a
+score, or the name of a questionnaire, because notifications can show up on your lock screen.
+
+** It is not a diagnosis
+
+Mood Ring is not a diagnostic tool, and it doesn't replace professional care. The questionnaires
+are screening tools. If you're worried about how you've been feeling, a doctor or other health
+professional can help. The app has an /If you need help now/ screen with crisis lines. It works
+offline. In the US, you can call or text *988* at any time.
+
+* Privacy
+
+- *It stays on your phone.* Everything you enter is saved in a database on your phone. There is
+  no account to create and no server to sync to.
+- *Nobody else sees it.* There are no ads, no analytics, no crash reporting, and no third
+  parties. The only thing the app ever sends over the internet is the check for app updates, and
+  that check sends none of your data.
+- *Your own Google backup.* Android backs up app data to your own Google account, so your
+  history can come back when you move to a new phone. If you'd rather it didn't, turn it off in
+  Android *Settings → Google → Backup*. That setting applies to the whole phone.
+- *You can take it with you, or delete it.* *Settings* can export everything to a JSON or CSV
+  file that you save wherever you want, or delete all of it from the phone.
+
+The app is free. It has no paid features, and I have no plans to add any.
