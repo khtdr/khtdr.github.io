@@ -1,0 +1,115 @@
+#+title: Zazen
+#+date: 2026-09-27T00:00:00-06:00
+#+description: A no-frills Android meditation timer. Pick a length, settle in, sit with a bell at each end and a soft bed of noise in between. Every sound is synthesized on the phone. No accounts, no stats, no streaks.
+#+tags[]: android react-native typescript expo audio web-audio meditation
+#+categories[]: Software
+#+url: /zazen
+#+aliases[]: /zazen.html
+
+*Zazen* is a meditation timer for Android, and that is all it is. You pick a length, it gives
+you a few seconds to settle in, a bell starts the sit, a soft bed of noise plays underneath, and
+a bell ends it. There are no accounts, stats, streaks, or history, and it never nags you to sit.
+
+* Get the app
+
+- Android APK: [[/zazen/zazen-1.0.0.apk][Download Zazen 1.0.0]] /(~41 MB, Android 7.0 or newer, 64-bit phones)/
+- Google Play: /not published. This is a direct download./
+- iOS: /not planned/
+
+#+BEGIN_EXPORT html
+<figure style="margin:1.5rem 0;text-align:center">
+  <a href="/zazen/zazen-1.0.0.apk">
+    <img src="/zazen/download-qr.svg" alt="QR code linking to the Zazen APK download"
+         width="200" height="200"
+         style="width:200px;height:200px;background:#fff;padding:10px;border-radius:8px;display:inline-block" />
+  </a>
+  <figcaption style="font-size:0.9em;opacity:0.75;margin-top:0.5rem">
+    Point your phone's camera at this to download the APK (~41&nbsp;MB).
+  </figcaption>
+</figure>
+#+END_EXPORT
+
+If you want to confirm the file you downloaded is the one I published, its SHA-256 is:
+
+#+BEGIN_EXAMPLE
+7dab571f7849620cac3079797371bc3d60fd4ad7416774b9b054f8b854fc499d
+#+END_EXAMPLE
+
+* Install
+
+Android only installs apps from the Play Store until you give permission, and you give it one
+app at a time.
+
+1. Open the download link above on your phone.
+2. When it finishes, tap the downloaded file. Android will say your browser (or file manager)
+   isn't allowed to install unknown apps. Tap *Settings*, turn on *Allow from this source*, then
+   go back.
+3. Tap *Install*.
+4. Play Protect may warn you that it doesn't recognize the developer. That's expected, because
+   the app isn't in the Play Store. Tap *More details*, then *Install anyway*, if you're
+   comfortable with that.
+
+You can turn *Allow from this source* back off afterward. It isn't needed for updates.
+
+** Updates
+
+Most updates arrive on their own. The app checks for one when it opens and downloads it in the
+background. The update takes effect the next time you open the app, never in the middle of a
+sit. You only need to download a new APK when the version number on this page changes. You can
+also check for an update yourself under *settings → Updates*.
+
+* How a sit goes
+
+1. *Pick a length.* 5, 10, 20, or 30 minutes, or your own length from 1 to 120.
+2. *Settle in.* The screen counts down a short pause (10 seconds unless you change it). Toward
+   the end, a bowl sings as it's rubbed around its rim, so you already know the bell's pitch
+   when it's struck.
+3. *The start bell.* Once it has rung out, the bed of noise fades in.
+4. *Sit.* If you like, a soft bell marks the halfway point, or every 5 or 10 minutes.
+5. *The end bell.* The noise either settles down under the bell or fades out before it, so the
+   bell rings alone.
+
+You can cancel at any point, and the sounds fade out rather than cut off. The sit keeps time by
+the clock, not by counting seconds, so locking the phone or switching apps doesn't throw it
+off. The whole sit is scheduled the moment you tap, so you still hear the bells with the screen
+locked.
+
+* The sounds
+
+I really built this to have a clean place to play with sound, and there are no recordings in
+it. Every sound is synthesized on the phone as it plays, using the Web Audio API
+(through [[https://docs.swmansion.com/react-native-audio-api/][react-native-audio-api]]).
+
+- *The bells* are built from a handful of sine waves, one for each ringing tone of a real bell,
+  each fading at its own rate.
+- *The rim* is the same tones, plus a band of noise for the friction of the mallet going around
+  the bowl.
+- *The bed* comes in three characters:
+  - /drift/: pink, green, and brown noise slowly moving around each other and across the
+    stereo field, so it is never quite still. Underneath is an optional binaural beat, which you
+    only hear with headphones.
+  - /pink/: plain pink noise, like steady rain.
+  - /brown/: plain brown noise, darker, closer to surf.
+
+Nothing ever starts or stops at full volume. Every sound ramps in and out, because a click is
+the last thing you want to hear ten minutes into a sit.
+
+* Settings
+
+A small settings dialog holds everything you can change:
+
+- the bells on or off, their volume, and the interval bells
+- the background noise on or off, its character, its volume, and the binaural beat
+- how the noise ends: settling under the end bell, or fading out before it
+- the settling-in pause: 5, 10, or 30 seconds
+- your own sit length
+- whether the app closes itself once the last sound fades
+
+* Privacy
+
+Zazen doesn't know who you are and doesn't keep track of your sits. The only thing it saves is
+your settings, in a small file on your phone. There are no ads, no analytics, no crash
+reporting, and no notifications. The only thing it ever sends over the internet is the check
+for app updates.
+
+The app is free. It has no paid features, and I have no plans to add any.
