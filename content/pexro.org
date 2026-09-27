@@ -2,7 +2,7 @@
 #+date: 2026-07-13T00:00:00-06:00
 #+description: A personal mobile app that runs and tracks any exercise routine described by an uploaded JSON program. Have your LLM write the program for you.
 #+tags[]: android react-native typescript zod json fitness llm
-#+categories[]: Software
+#+categories[]: Apps
 #+url: /pexro
 #+aliases[]: /pexro.html
 

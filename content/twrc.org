@@ -2,7 +2,7 @@
 #+date: 2026-08-30T00:00:00-06:00
 #+description: An Android climbing log built on the idea that grades don't transfer between gyms. Track difficulty distribution and style variety instead — on-device, no account, no ads.
 #+tags[]: android react-native typescript expo sqlite climbing bouldering training
-#+categories[]: Software
+#+categories[]: Apps
 #+url: /twrc
 #+aliases[]: /twrc.html
 

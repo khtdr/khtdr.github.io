@@ -2,7 +2,7 @@
 #+date: 2026-09-25T00:00:00-06:00
 #+description: A private Android check-in app for noticing how you've been feeling. Quick mood nudges, an end-of-day check-in, and occasional standard questionnaires. No accounts, no servers, no analytics.
 #+tags[]: android react-native typescript expo sqlite mental-health privacy
-#+categories[]: Software
+#+categories[]: Apps
 #+url: /mood-ring
 #+aliases[]: /mood-ring.html
 

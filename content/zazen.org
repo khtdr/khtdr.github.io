@@ -2,7 +2,7 @@
 #+date: 2026-09-27T00:00:00-06:00
 #+description: A no-frills Android meditation timer. Pick a length, settle in, sit with a bell at each end and a soft bed of noise in between. Every sound is synthesized on the phone. No accounts, no stats, no streaks.
 #+tags[]: android react-native typescript expo audio web-audio meditation
-#+categories[]: Software
+#+categories[]: Apps
 #+url: /zazen
 #+aliases[]: /zazen.html
 
