@@ -2,6 +2,8 @@
 title: "agents: your first agent"
 date: 2026-09-17T00:00:00-06:00
 description: Describe one agent and let the install draft it, run it on a repository from the terminal and the browser, read the run back in history, then edit it in the browser. The first of three tutorials.
+categories: [Tutorials]
+weight: 1
 url: /agents/first-agent
 ---
 

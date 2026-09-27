@@ -2,6 +2,8 @@
 title: "agents: a pipeline"
 date: 2026-09-23T00:00:00-06:00
 description: Put the changelog writer in a graph as one step, with a git read before it and a file written after it, read the cost of the whole run, then add a gate that sends bad work back. The second of three tutorials.
+categories: [Tutorials]
+weight: 2
 url: /agents/pipeline
 ---
 
