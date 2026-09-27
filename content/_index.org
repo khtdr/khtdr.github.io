@@ -22,6 +22,9 @@ Welcome, here is my inconsistently-curated collection of software, writings, not
 ** Snippets and Notes
 {{< category Snippets false >}}
 
+** Music
+{{< category Music false >}}
+
 *** On the internet...
 - Resume: [[./resume.org][khtdr.com/resume]]
 - Email: [[mailto:mazzarelli@gmail.com][mazzarelli+khtdr.com@gmail.com]]
