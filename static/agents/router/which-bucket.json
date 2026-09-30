@@ -1,0 +1,13 @@
+{
+  "name": "which-bucket",
+  "description": "Asks a person whether a support message is a bug report or a question",
+  "implementation": "ask_human",
+  "parameterOverrides": {
+    "question": "Is this message a bug report or a question?",
+    "cardinality": "single",
+    "options": [
+      "bug",
+      "question"
+    ]
+  }
+}

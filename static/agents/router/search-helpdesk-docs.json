@@ -1,0 +1,8 @@
+{
+  "name": "search-helpdesk-docs",
+  "description": "Searches the Tally help docs for a word or phrase and returns the matching lines with their file names. Search '.' to cover every doc.",
+  "implementation": "search_files",
+  "parameterOverrides": {
+    "root": "/Users/you/code/helpdesk/docs"
+  }
+}

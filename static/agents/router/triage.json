@@ -1,0 +1,77 @@
+{
+  "name": "triage",
+  "description": "Sorts a support message into a bug ticket or a drafted answer, and asks a person when it can't tell",
+  "systemPrompt": "Sorts support messages. The graph does the work.",
+  "graph": {
+    "nodes": [
+      {
+        "id": "classify",
+        "ref": "triage-classifier"
+      },
+      {
+        "id": "ask",
+        "ref": "which-bucket",
+        "input": {
+          "context": "{{run.input}}"
+        }
+      },
+      {
+        "id": "bug",
+        "ref": "bug-writer",
+        "input": {
+          "input": "{{run.input}}"
+        }
+      },
+      {
+        "id": "answer",
+        "ref": "docs-answerer",
+        "input": {
+          "input": "{{run.input}}"
+        }
+      },
+      {
+        "id": "save",
+        "ref": "write_file",
+        "input": {
+          "path": "ticket.md",
+          "content": "{{input}}"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "from": "classify",
+        "to": "bug",
+        "condition": "output.intent == 'bug' && output.confidence >= 0.8"
+      },
+      {
+        "from": "classify",
+        "to": "answer",
+        "condition": "output.intent == 'question' && output.confidence >= 0.8"
+      },
+      {
+        "from": "classify",
+        "to": "ask",
+        "condition": "output.intent == 'other' || output.confidence < 0.8"
+      },
+      {
+        "from": "ask",
+        "to": "bug",
+        "condition": "output.answer == 'bug'"
+      },
+      {
+        "from": "ask",
+        "to": "answer",
+        "condition": "output.answer == 'question'"
+      },
+      {
+        "from": "bug",
+        "to": "save"
+      },
+      {
+        "from": "answer",
+        "to": "save"
+      }
+    ]
+  }
+}

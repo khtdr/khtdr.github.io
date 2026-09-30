@@ -14,7 +14,7 @@ aliases: [/agents.html]
 ## Tutorials
 
 Three short walkthroughs take you from an empty install to a pipeline that
-pauses for a person, building on one agent the whole way.
+pauses for a person and survives a restart while it waits.
 
 <div class="agents-grid">
 <div class="agents-card">
@@ -26,8 +26,8 @@ pauses for a person, building on one agent the whole way.
 <p>Put that agent in a graph as one step, with a git read before it and a file after, then a gate that sends bad work back.</p>
 </div>
 <div class="agents-card">
-<h4>3. A router with a human gate <small>(coming soon)</small></h4>
-<p>Classify a request, send it down one of several branches, and pause for a person before anything ships.</p>
+<h4><a href="/agents/router">3. A router with a human gate</a></h4>
+<p>Classify a support message, send it down one of two branches, and ask a person when the classifier can't tell. Then restart the server while the run waits.</p>
 </div>
 </div>
 

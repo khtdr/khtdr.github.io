@@ -46,7 +46,7 @@ url: /agents/pipeline
 .tut-next p { margin: 0; }
 </style>
 
-<p class="tut-series">Tutorial 2 of 3 · previous: <a href="/agents/first-agent">your first agent</a> · next: a router (coming soon)</p>
+<p class="tut-series">Tutorial 2 of 3 · previous: <a href="/agents/first-agent">your first agent</a> · next: <a href="/agents/router">a router</a></p>
 
 The first tutorial left you with one agent, `changelog-writer`, that reads a
 repository and writes release notes. By the end of this page it will be one
@@ -358,8 +358,8 @@ agent stop
 
 <div class="tut-next">
 <div>
-<h4>Next: a router</h4>
-<p>Coming soon. A request is classified, sent down one of several branches, and a person approves it before anything ships.</p>
+<h4>Next: <a href="/agents/router">a router</a></h4>
+<p>A support message is classified, sent down one of two branches, and a person decides when the classifier can't. The run waits for them through a restart.</p>
 </div>
 <div>
 <h4>Back to the overview</h4>

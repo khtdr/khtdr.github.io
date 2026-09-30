@@ -51,8 +51,8 @@ url: /agents/first-agent
 By the end of this page you will have made one agent from a description, watched
 it call a tool, and read the whole run back afterwards: what it cost, what it asked the
 tool, which version of the agent produced it. The agent reads a repository's
-recent commits and writes release notes. It is small on purpose. The next two
-tutorials build on it, so its name and its job are settled here.
+recent commits and writes release notes. It is small on purpose. The next
+tutorial builds on it, so its name and its job are settled here.
 
 ## Before you start
 
@@ -88,8 +88,8 @@ agent new
 ```
 
 It asks what you want to build. Take a few lines, then a blank line to finish.
-Say this, or something close to it, and keep the name, because the next two
-tutorials use it:
+Say this, or something close to it, and keep the name, because the next
+tutorial uses it:
 
 ```text
 An agent called changelog-writer. Its input names a git repository, either a

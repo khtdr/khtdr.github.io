@@ -1,0 +1,8 @@
+{
+  "name": "read-helpdesk-doc",
+  "description": "Reads one Tally help doc in full, by its file name, such as billing.md.",
+  "implementation": "read_file",
+  "parameterOverrides": {
+    "root": "/Users/you/code/helpdesk/docs"
+  }
+}
