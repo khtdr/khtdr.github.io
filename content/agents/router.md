@@ -458,14 +458,15 @@ agent triage "My lists look weird since yesterday."
 │ ⊘ save skipped
 │ Error: Graph "triage" produced no output: every terminal branch was skipped by an edge condition.
 │
-╰─ ✗ 0 steps · 3.0s · 63fb5faf
+╰─ ✗ 1 steps · 3.0s · 829 tokens · 63fb5faf
 ```
 
 Open the run and look at the classifier's answer: `bug`, at `0.75`. Below the
 line, so neither edge fired, both handlers were skipped, and the skipping
 spread to `save`. A graph that ends with nothing is a bug in its conditions,
-not a result, so the run fails and says why. That hole is what the next step
-fills.
+not a result, so the run fails and says why. It still keeps what did run: the
+classifier's step, with the answer that explains the skip, and the tokens it
+cost. That hole is what the next step fills.
 
 <div class="tut-note">
 <p><strong>Why 0.8 and not 0.6?</strong> The classifier's prompt says 0.6, and
