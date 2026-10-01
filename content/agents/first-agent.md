@@ -206,13 +206,18 @@ step list fill in:
    this part.
 3. The release notes, streamed as they are written.
 
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/playground.jpg" alt="The Playground after a run: the input path, a git_log step with its arguments and result, and the release notes under Output" />
+<figcaption>The model chose the <code>git_log</code> call and its arguments. The arrow line under it is what came back.</figcaption>
+</figure>
+
 <div class="tut-note">
 <p><strong>Try to read something you should not.</strong> Run it once more, and
 this time give it <code>/etc</code>. The model asks <code>git_log</code> for that
 path, and the tool refuses:</p>
 <p><code>Path "/etc" is outside the allowed directories "/home/you/.agents/data", "/home/you/code".</code></p>
-<p>The run ends as an error, and the message names the directories it was held
-to. Every tool that touches the disk goes through the same check, so no agent on
+<p>The model gets the refusal back, says it cannot read that directory, and the
+run ends there. The refusal names the directories the tool was held to. Every tool that touches the disk goes through the same check, so no agent on
 this install can wander the machine, whatever its prompt says. Nor can the CLI
 talk it into more: <code>cd /etc && agent changelog-writer .</code> runs, but
 against the data directory, with a note saying so. The git tools go one step
@@ -221,12 +226,17 @@ directory are, then check those too, so a repository that reaches outside the
 allowed directories is refused as well.</p>
 </div>
 
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/refusal.jpg" alt="The Playground after a run on /etc: the git_log step returned an error naming the allowed directories, and the output is the model saying it has no access" />
+<figcaption>The tool said no, and the model passed that on. Nothing outside the allowed directories was read.</figcaption>
+</figure>
+
 ## 4. The run in history
 
 Open **Run History**. The runs you just made are at the top, each with its status,
 tokens, cost, and duration. Click the first one.
 
-The run page starts with a row of numbers: duration, steps, the model it ran on,
+The run page starts with a line of numbers: duration, steps, the model it ran on,
 tokens, and cost. Two of these deserve a sentence.
 
 - **Model** is the model the run used, not the tier the agent asked for. The
@@ -237,8 +247,9 @@ tokens, and cost. Two of these deserve a sentence.
   rather than as free. It is tracked in microdollars, so a run that cost a
   fraction of a cent still has a number.
 
-Under the numbers is the step list, the same one the Playground streamed, now
-kept. Each tool call is paired with its result, so you can open the `git_log`
+Under the numbers are the input and the output. Below them is the **Trace**,
+folded shut unless the run failed. Open it. It is the step list the Playground
+streamed, now kept. Each tool call is paired with its result, so you can open the `git_log`
 call and see both the arguments the model chose and what came back:
 
 ```json
@@ -263,13 +274,18 @@ pipeline step can pick out `commits[0].hash` without parsing anything. Then the
 answer, with its own token count. The token counts on the steps add up to the
 total at the top.
 
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/run-trace.jpg" alt="The Trace on a run page, with the git_log step open: its input, the repository path and maxCount 40, and its output, a list of commit objects" />
+<figcaption>Open a step to see both sides of it: what the model asked for, and what the tool handed back.</figcaption>
+</figure>
+
 At the bottom, the run names the agent **version** that produced it, as a short
 id. Right now there is only one version. That changes in the next step.
 
-Scroll down and find the failed run too. Its status is an error and its output is
-the refusal from the tool. A failure is recorded the same way a success is, with
-the same fields, which is what makes it possible to find out later what went
-wrong.
+Find the `/etc` run too. Its output is the model explaining it was refused, and
+its trace has the `git_log` call with the refusal that came back. A run that went
+wrong is recorded the same way as one that went right, with the same fields,
+which is what makes it possible to find out later what happened.
 
 ## 5. Edit the prompt and run again
 
@@ -301,6 +317,11 @@ That pairing is what makes A/B testing a prompt a matter of looking rather than
 remembering. The run page can also replay a run against a different version on
 the same input, which is the tool for comparing two prompts directly. It is one
 click and is not walked here.
+
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/versions.jpg" alt="An agent page showing the current prompt ending in the summary line, and Version History with v0.1.1 and v0.1.0, the older one open to show its prompt without that line" />
+<figcaption>Two saves, two versions. The older one, open here, has no summary line. The short id on the right is the one a run page names.</figcaption>
+</figure>
 
 ## Now your turn
 

@@ -113,7 +113,8 @@ panel beside the canvas edits it.
 
 1. **The first node reads the commits.** Set **Id** to `log` and **Ref** to
    `git_log`. Under **Input**, click **+ param**, type `repo` as the name, and
-   leave the value as `{{input}}`.
+   leave the value as `{{input}}`. Add a second param, `maxCount`, set to `40`,
+   so the pipeline reads the same 40 commits the writer read on its own.
 2. **The second node writes the notes.** Click **+ Add Node**, which adds a
    node after the last one. Set **Id** to `write` and **Ref** to
    `changelog-writer`, your agent from tutorial 1, which the list shows beside
@@ -129,7 +130,7 @@ under `graph`:
 ```json
 {
   "nodes": [
-    { "id": "log",   "ref": "git_log",          "input": { "repo": "{{input}}" } },
+    { "id": "log",   "ref": "git_log",          "input": { "repo": "{{input}}", "maxCount": "40" } },
     { "id": "write", "ref": "changelog-writer" },
     { "id": "save",  "ref": "write_file",       "input": { "path": "RELEASE_NOTES.md", "content": "{{input}}" } }
   ]
@@ -185,9 +186,16 @@ overwrite another run's output, and a pipeline you are still trying out cannot
 touch your working tree.
 
 Now run it in the browser. Open `release-notes` and click **Run**, give it the
-full path to the repository, and watch the **Graph** under the input box. Each
-node turns yellow while it runs and green when it finishes, with its time and
-cost printed under it.
+full path to the repository, and watch the **Graph** under the input box. A
+node lights up under a beam while it runs and turns green when it finishes, with
+its time and cost printed under it. The `40` went in as text, and the tool
+received a number: a tool node's params are converted to the types the tool
+asks for.
+
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/pipeline-running.jpg" alt="The Playground graph mid-run: log is green with its time, write is lit by a cone of light with a dashed blue edge flowing into it, save has not started" />
+<figcaption>Mid-run. <code>log</code> is done in milliseconds, and <code>write</code> is the model at work.</figcaption>
+</figure>
 
 ## 4. The run in history
 
@@ -197,14 +205,19 @@ used as a node runs the same way it runs when you call it by name. It gets a run
 record with its own steps, tokens and version, and that record points at the
 run that called it.
 
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/pipeline-history.jpg" alt="Run History with release-notes runs expanded: the gated run has four children, two notes-reviewer and two changelog-writer runs; the plain pipeline run has one changelog-writer child" />
+<figcaption>Each pipeline run with its children under it. The top one is from the gate in step 6: two writes, two checks.</figcaption>
+</figure>
+
 Click the `release-notes` run. Two things are different from the runs in
 tutorial 1.
 
 - **Model** is a dash. The graph itself called no model, so there is none to
   name. The child's run names the model its tier resolved to.
-- **There is a Pipeline card**, reading something like
-  `18.5s · 14,098 tok · $0.0499`, and a **Pipeline** section below the numbers
-  that lists the child runs, each linked to its own page.
+- **The numbers end with a total for the whole tree**, reading something like
+  `all 2 runs 12,803 tokens, $0.048`, and a **Pipeline** section below them
+  lists the child runs, each linked to its own page.
 
 The **Trace** shows the three nodes as call and result pairs: the `git_log`
 arguments and the commits that came back, the input `changelog-writer` was
@@ -212,9 +225,14 @@ handed, and the path `write_file` returned. Click through to the
 `changelog-writer` run and its trace has one step, the notes. It did not call
 `git_log`, which is the sentence you added in step 1 at work.
 
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/pipeline-run.jpg" alt="A release-notes run page: took 26.2s, steps 3, model shown as a dash, a total for all 2 runs, a Pipeline diagram from release-notes to changelog-writer, and the write_file result as output" />
+<figcaption>The graph ran no model of its own, so its model is a dash. The total covers the run and its child.</figcaption>
+</figure>
+
 ## 5. What it cost
 
-The Pipeline card is the sum of the run and everything under it. Here that is
+The total is the sum of the run and everything under it. Here that is
 one child, so the parent's tokens and cost are exactly the writer's. Two of the
 three nodes cost nothing, and the graph charged nothing for deciding what to run
 next, because nothing decided.
@@ -246,13 +264,14 @@ The checker is an agent. Make a second one: **New Agent**, and fill in
 ```text
 You check release notes before they are published. You do not rewrite them.
 
-Check one thing: the last line starts with "Thanks to" and is followed by at
-least one name. You see the notes but not the commits, so you cannot know who
-the authors are. Any names will do.
+Check one thing: the notes end with a line thanking the commit authors by
+name, starting "Thanks to". You see the notes but not the commits, so you cannot
+know who the authors are. Any names will do. A heading or a bullet about a
+change is not a thanks line.
 
-If it does, reply with the single word APPROVED and nothing else.
+If that line is there, reply with the single word APPROVED and nothing else.
 
-If it does not, do not write APPROVED anywhere. Say in one line what the writer
+If it is not, do not write APPROVED anywhere. Say in one line what the writer
 should add.
 ```
 
@@ -269,6 +288,11 @@ then add two nodes:
    to `2`.
 2. `save` again, as before: `write_file`, `path` set to `RELEASE_NOTES.md`,
    `content` set to `{{input}}`.
+
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/gate-composer.jpg" alt="The graph composer with five nodes, log, write, check, save, and the check node selected: ref notes-reviewer, validation gate ticked, pass phrase APPROVED, on fail retry, max retries 2" />
+<figcaption>The gate is a node like any other, with a tick box. Its settings sit under it.</figcaption>
+</figure>
 
 Save, and run it again:
 
@@ -300,9 +324,14 @@ people who contributed to this release.
 
 The second draft ended with a line thanking the commit authors by name, the
 reviewer said `APPROVED`, and the run went on. In the Playground the same thing happens on the
-graph: `write` goes yellow a second time after it was green. In **Run History**
+graph: `write` lights up a second time, after `check` has already finished. In **Run History**
 the run now has four children, two writes and two checks, and each is a run you
 can open.
+
+<figure class="agents-shot">
+<img src="/img/agents/tutorial/gate-retry.jpg" alt="The Playground graph during a retry: check is green with its time and cost, and write is lit again under the beam" />
+<figcaption>The reviewer said no, so <code>write</code> runs again with the complaint attached.</figcaption>
+</figure>
 
 One thing trips everyone up at first. `save` wrote the notes, not the word
 APPROVED. A gate that passes hands on its own input, the draft it was checking,
@@ -317,14 +346,16 @@ thing per gate. Make it a thing the checker can see: this one gets the notes and
 not the commits, which is why its prompt says any names will do. Before that
 sentence was added, it rejected good notes for thanking the wrong people. And
 spend a better model on the checker, since its answer is one word and it costs
-little.</p>
+little. Even then it slips: in our runs this reviewer, on Claude Opus, passed a
+draft with no thanks line about one time in three. If yours passes first time,
+open the notes, and if the line is missing, run it again.</p>
 <p>If the reviewer never approves, the run ends as an error after the last retry,
 and the message is the reviewer's last complaint: <code>Gate "check" rejected
 the output after 2 retries: …</code>. A gate asserts something, and an
 assertion that never held has no best-effort answer. Nothing is written.</p>
 </div>
 
-Look at the Pipeline card on this run. The reviewer costs about a cent a check.
+Look at the total on this run. The reviewer costs a cent or two a check.
 The retry is what costs: it is another whole writer run, with every commit sent to the model again.
 A run that went back once costs about twice what one that passed first time
 does. Your numbers will differ, but that ratio holds. A gate earns its keep when

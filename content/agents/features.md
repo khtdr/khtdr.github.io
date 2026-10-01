@@ -108,6 +108,11 @@ url: /agents/features
 ## The control panel
 
 <figure class="agents-shot">
+<img src="/img/agents/agent-list.jpg" alt="The Agents page with a search box, chips for namespace and tier with counts, favorite agents as tiles with a Run button, and the rest grouped by namespace" />
+<figcaption>Every agent, grouped by namespace. Search matches names, descriptions and tools. The chips narrow it by namespace or tier. Favorites sit on top with a Run button.</figcaption>
+</figure>
+
+<figure class="agents-shot">
 <img src="/img/agents/agent-detail.jpg" alt="An agent detail page showing the system prompt, model tier, a rendered graph pipeline, and version history" />
 <figcaption>An agent: its prompt, model tier, step limit, and the pipeline that says what it does. Every save keeps a version, and each run links back to the version that produced it.</figcaption>
 </figure>
