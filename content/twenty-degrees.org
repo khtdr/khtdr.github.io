@@ -1,0 +1,109 @@
+#+title: Twenty Degrees
+#+date: 2026-10-22T00:00:00-06:00
+#+description: A daily 20 Questions game in the spirit of Wordle. Ask yes/no questions about today's secret, and every guess tells you how warm you are. Played in the browser, no account.
+#+tags[]: game web go classifier llm wordle
+#+categories[]: Apps
+#+url: /twenty-degrees
+#+aliases[]: /twenty-degrees.html /20deg /20deg.html
+
+#+BEGIN_EXPORT html
+<figure style="margin:1.5rem 0;text-align:center">
+  <a href="https://20deg.khtdr.com">
+    <img src="/20deg/banner.png" alt="Twenty Degrees: a daily 20 Questions game. Ask away, and get warmer."
+         width="1200" height="630" style="width:100%;height:auto;border-radius:8px" />
+  </a>
+</figure>
+#+END_EXPORT
+
+*Twenty Degrees* (20°) is a daily word-guessing game in the spirit of Wordle, played like
+20 Questions. Everyone gets the same secret each day, something like "a lighthouse". You ask
+yes/no questions or just type a description, and each guess comes back with an answer and a
+warmth level. Name the thing to win. You get 20 guesses.
+
+* Play it
+
+- In your browser: [[https://20deg.khtdr.com][20deg.khtdr.com]]
+- It works on phones and desktops. There's nothing to install and no account.
+- A new puzzle comes out every day at midnight Eastern.
+
+#+BEGIN_EXPORT html
+<figure style="margin:1.5rem 0;text-align:center">
+  <a href="https://20deg.khtdr.com">
+    <img src="/20deg/intro.jpg" alt="The Twenty Degrees page at the start of a day: an empty thermometer, the intro, and the guess box"
+         width="390" height="760"
+         style="width:300px;height:auto;border:1px solid rgba(127,127,127,0.3);border-radius:12px;display:inline-block" />
+  </a>
+  <figcaption style="font-size:0.9em;opacity:0.75;margin-top:0.5rem">
+    The start of a day's puzzle.
+  </figcaption>
+</figure>
+#+END_EXPORT
+
+* How a game goes
+
+Ask anything you'd ask in 20 Questions: "is it tall?", "can you eat it?", "is it in my
+kitchen?". You can drop the "is it" and just type "near water" or "float". Each guess gets two
+things back:
+
+- *An answer*: yes, no, or sort of. Next to it, a small dial shows how sure the game is,
+  from /Certain/ down to /Unsure/. "Is it tall?" for a lighthouse is certain. "Is it old?" is
+  not.
+- *A warmth level*: how close /that guess on its own/ gets you to the secret.
+
+| Level    | What it means                                                |
+|----------+--------------------------------------------------------------|
+| Freezing | It's a no, and it points at a very different kind of thing   |
+| Cold     | It's a no, or it's true of almost anything                   |
+| Lukewarm | True, and it narrows things a little                         |
+| Warm     | True, and essential: what kind of thing it is, what it's for |
+| Hot      | You named it or nearly did: "a boat?" is hot for a raft      |
+
+Hot is not a win. The only way to win is to name it, and "lighthouse", "a lighthouse" and "is
+it a lighthouse?" all count. A thermometer at the top shows how warm your latest guess was.
+
+When the game ends you get a result card with the word, your grid, and a one-liner about how
+the game went, and you can share it like a Wordle:
+
+#+BEGIN_EXAMPLE
+20° / 11 Guesses / Oct. 10th
+🟦🟪🟪🟨🟨🟨
+🟧🟧🟥🟥🎯
+Slow and steady
+#+END_EXAMPLE
+
+One square per guess, 🟦🟪🟨🟧🟥 from freezing to hot, and a 🎯 on the guess that got it.
+
+* How it works
+
+Every guess is judged by a classifier, not a chatbot. Behind the game is Jev, a classification
+model from [[https://typesafe.ai][typesafe.ai]]. Each guess is one request with three questions in it: does this
+name the secret, is the answer yes, no, or depends, and which of the five warmth levels fits.
+Jev never writes anything. All the copy in the game is written ahead of time.
+
+That's the whole reason the game can exist. It calls the model on every single guess, so it
+has to be cheap and fast, and picking one of a few answers is exactly what a classifier is
+good at. It's also why warmth is five levels and not a "72% match" score: a classifier sorts
+things into buckets well, and nobody would trust the percentage anyway.
+
+The warmth used to be relative: each guess was judged against your last one, or your best
+one, and told you "warmer" or "colder". Every version of that broke in playtesting. A bad guess
+would set up a free "warmer" on the next one. Or one lucky "hotter" became the bar, and the
+normal 20 Questions narrowing ("is it food?", "bigger than a car?") could never beat it, so
+the game said "colder" seventeen times in a row. Rating each guess on its own fixed that, and
+it gave far more consistent answers from run to run.
+
+The prompts are tuned against a suite of hand-labeled guesses, and the suite also checks for
+the failures that would make the game feel broken: winning on "spoon" when the answer is a
+fork, not winning on "forks", or a flat "no" to "is it used on water?" for a raft. None of
+those get through.
+
+The server is a small Go program with no dependencies outside the standard library. It
+doesn't have a database. Your game in progress lives in a signed cookie in your browser.
+
+* Privacy
+
+There are no accounts. The game keeps today's guesses in your browser so a reload doesn't
+lose them. The site counts page views and games played, but never what you guessed or what
+the answer was.
+
+The game is free, with no ads, and I have no plans to change that.
