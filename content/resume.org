@@ -4,16 +4,16 @@
 #+URL: /resume
 #+ALIASES[]: /resume.html
 #+DESCRIPTION: Joey Mazzarelli Resume
-#+LASTMOD: 2024-09-09
+#+LASTMOD: 2026-10-28
 #+tags[]: bio
 #+categories[]:
 #+weight: 1
 #+toc: true
 
 
-* Resume for Jose Mazzarelli
+* Resume for Jose (Joey) Mazzarelli
 ** Summary
-With 20+ years of experience building reliable software across various industries, I am  skilled in full-stack development and team leadership focusing on secure web application development.
+With 20+ years of experience building reliable software across various industries, I have spent the last few years focused on AI-driven applications. I bring decades of engineering discipline to state-of-the-art tools that change every month, building quality software that holds up as the landscape shifts. I am skilled in full-stack development and team leadership, with a focus on secure, well-architected applications.
 
 ** Contact Information
 - [[mailto:mazzarelli+resume@gmail.com][Email]]
@@ -23,26 +23,40 @@ With 20+ years of experience building reliable software across various industrie
 
 * Professional Experience
 
-** Private Consulting =2024 - Present=
-  ~AI Consultant~
+** Machine & Folk =2026 - Present=
+~AI Consultant~\\
+Consulting through my own LLC, [[https://upship.ai][Upship AI]], with a team of about a dozen at [[https://www.machineandfolk.com][Machine & Folk]], formed when Machine & Partners merged with another firm.
 
-  Part of a small team providing AI consulting and services.
+- =Typescript= =Postgres= =React= \\
+  Compliance Machine: agentic compliance review for regulated marketing content, running in production at a billion-dollar company.
+  Extracts explicit, implied, and visual claims from documents, images, and video, then checks each against versioned guidelines and approved claims.
+  Returns clause-cited verdicts with suggested fixes, plus guideline management, a reviewer workflow, an audit trail, and regression tests built from past reviews.
 
-  - =Postgres= =Typescript= =LLM= =RAG= =Vector Search=\\
-    Financial document store and semantic search with LLM answer completion.
-
-  - =Typescript= =React= =Chat App= =Document Viewing= \\
-    Chat app for interacting with backend RAG API.
+- =Typescript= =Postgres= =Fabric= =Databricks= =Business Intelligence= =React= \\
+  Analysis Machine: self-hosted analytics agent that turns plain-language business questions into reviewable plans, SQL, and written analyses over a company's warehouse and business systems.
 
 -- -
 
-** VZBL =2023 - Present=
-:PROPERTIES:
-:Tech+: Typescript, React, React Query, Next.js, Node.js, Neo4J, Postgres, Redis, JWT, NPM
-:END:
-~Co-founder~ ~Lead Developer~
-- Leads the application development, focusing on application architecture and data exploration.
-- Designs and builds key features including onboarding flows, dashboards, and data visualizations.
+** Machine & Partners =2024 - 2026=
+~AI Consultant~
+
+- =React= =Typescript= =RAG= =Agents= =Learning= =Postgres= \\
+  Section AI: AI-learning platform for businesses, grown from 0 to 175,000+ users in about 18 months (Q4 2024 to Q1 2026).
+  Started as a prototype with a 3-person team (two from Machine & Partners, one from the client) and grew into a product supported by several full-time engineers and product staff, becoming the client's primary business driver.
+
+- =Postgres= =Typescript= =LLM= =RAG= =Vector Search=\\
+  Financial document store and semantic search with LLM answer completion.
+
+- =Typescript= =React= =Chat App= =Document Viewing= \\
+  Chat app for interacting with backend RAG API.
+
+-- -
+
+** VZBL =2023 - 2024=
+~Co-founder~ ~Lead Developer~\\
+=Typescript= =React= =React Query= =Next.js= =Node.js= =Neo4J= =Postgres= =Redis= =JWT= =NPM=
+- Led the application development, focusing on application architecture and data exploration.
+- Designed and built key features including onboarding flows, dashboards, and data visualizations.
 - Built features including user management, multi-tenant security, and customizable interfaces.
 
 -- -
@@ -93,7 +107,7 @@ With 20+ years of experience building reliable software across various industrie
 -- -
 
 ** PersonalShopper =2005 - 2006=
-~Full Stack Developer)~
+~Full Stack Developer~
 - =Javascript= =jQuery= =Java= =Oracle=
 
 -- -
