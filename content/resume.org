@@ -47,7 +47,7 @@ Consulting through my own LLC, [[https://upship.ai][Upship AI]], with a team of 
 ~AI Solutions Architect~ ~Lead Engineer~
 
 - =React= =Typescript= =RAG= =Agents= =Learning= =Postgres= \\
-  Agentic AI-learning platform for businesses, grown from 0 to 175,000+ users in about 18 months (Q4 2024 to Q1 2026), becoming the client's primary business driver.
+  Agentic AI-learning platform for businesses, grown from 0 to 175,000+ users in about 18 months (Q4 2024 to Q1 2026), becoming the client's primary business driver with multiple corporate deals signed.
   - Designed a learning agent that teaches people to use LLMs on the job, with personalized courses drawn from each learner's job description and realistic, contextual prompt-writing exercises.
   - Built the prototype in 3 months, then quickly built the production backend with Postgres persistence and Clerk auth so learners could save and resume sessions.
   - Built a recommendation engine that suggests courses from each learner's profile and progress.
@@ -129,6 +129,13 @@ Engineering observability startup that aggregated data from GitHub, Slack, issue
 - =Javascript= =ASP.NET= =MS SQL=\\
   Worked with many departments to develop intranet and website applications. \\
   [[https://apps.itd.idaho.gov/apps/mediamanagermvc/transporter/2004/100104_Trans/100104_ITDwebsite.html][Project News Announcement]]
+
+* Open Source
+- =Node.js= =NPM= \\
+  opts: command line argument parser for Node.js, with 150k+ weekly downloads and 80+ dependents.
+
+- =Node.js= =NPM= \\
+  treeify-paths: utility for turning flat file lists into tree structures.
 
 * Education
 BS Computer Science Boise State University 2004
