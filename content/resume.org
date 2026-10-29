@@ -24,25 +24,35 @@ With 20+ years of experience building reliable software across various industrie
 * Professional Experience
 
 ** Machine & Folk =2026 - Present=
-~AI Consultant~\\
+~AI Solutions Architect~ ~Lead Engineer~\\
 Consulting through my own LLC, [[https://upship.ai][Upship AI]], with a team of about a dozen at [[https://www.machineandfolk.com][Machine & Folk]], formed when Machine & Partners merged with another firm.
-
-- =Typescript= =Postgres= =React= \\
-  Compliance Machine: agentic compliance review for regulated marketing content, running in production at a billion-dollar company.
-  Extracts explicit, implied, and visual claims from documents, images, and video, then checks each against versioned guidelines and approved claims.
-  Returns clause-cited verdicts with suggested fixes, plus guideline management, a reviewer workflow, an audit trail, and regression tests built from past reviews.
 
 - =Typescript= =Postgres= =Fabric= =Databricks= =Business Intelligence= =React= \\
   Analysis Machine: self-hosted analytics agent that turns plain-language business questions into reviewable plans, SQL, and written analyses over a company's warehouse and business systems.
+  In production at a billion-dollar company, which flew in a couple dozen employees from around the country for our hands-on training.
+  - Created a generic agent framework for tools, agents, and sub-agents.
+  - Worked on every part of the UI, along with evals and the permissions system.
+  - Implemented a unified chat agent, playbooks pulled in by context, and cron-scheduled background jobs, so users can build models and log in to review the results.
+
+- =Typescript= =Postgres= =React= \\
+  Compliance Machine: agentic review of regulated marketing content, checking claims against versioned guidelines with clause-cited verdicts.
+  Took it to production at the same company within 3 months.
+  - Designed and implemented the system and agentic architecture, data-driven agent configuration and tooling, and an eval system.
+  - Built the front-end reviewer workflows and guideline management screens.
+  - Served as the technical contact with the client, alongside a PM colleague.
 
 -- -
 
 ** Machine & Partners =2024 - 2026=
-~AI Consultant~
+~AI Solutions Architect~ ~Lead Engineer~
 
 - =React= =Typescript= =RAG= =Agents= =Learning= =Postgres= \\
-  Section AI: AI-learning platform for businesses, grown from 0 to 175,000+ users in about 18 months (Q4 2024 to Q1 2026).
-  Started as a prototype with a 3-person team (two from Machine & Partners, one from the client) and grew into a product supported by several full-time engineers and product staff, becoming the client's primary business driver.
+  Agentic AI-learning platform for businesses, grown from 0 to 175,000+ users in about 18 months (Q4 2024 to Q1 2026), becoming the client's primary business driver.
+  - Designed a learning agent that teaches people to use LLMs on the job, with personalized courses drawn from each learner's job description and realistic, contextual prompt-writing exercises.
+  - Built the prototype in 3 months, then quickly built the production backend with Postgres persistence and Clerk auth so learners could save and resume sessions.
+  - Built a recommendation engine that suggests courses from each learner's profile and progress.
+  - Created a skill that lets non-technical product staff generate courses by describing them, publishing them as lessons and exercises.
+  - Started with a 3-person team; client engineers joined to integrate it into their platform, and by the time I left it had 5 full-time engineers and a new CTO running the new business line.
 
 - =Postgres= =Typescript= =LLM= =RAG= =Vector Search=\\
   Financial document store and semantic search with LLM answer completion.
@@ -54,10 +64,11 @@ Consulting through my own LLC, [[https://upship.ai][Upship AI]], with a team of 
 
 ** VZBL =2023 - 2024=
 ~Co-founder~ ~Lead Developer~\\
-=Typescript= =React= =React Query= =Next.js= =Node.js= =Neo4J= =Postgres= =Redis= =JWT= =NPM=
-- Led the application development, focusing on application architecture and data exploration.
-- Designed and built key features including onboarding flows, dashboards, and data visualizations.
-- Built features including user management, multi-tenant security, and customizable interfaces.
+=Typescript= =React= =React Query= =Next.js= =Node.js= =Neo4J= =Postgres= =Redis= =JWT= =NPM= \\
+Engineering observability startup that aggregated data from GitHub, Slack, issue trackers, Datadog, and other engineering tools so teams could query across systems.
+- Led application development on a three-person team, while another engineer focused on the data.
+- Built the query builders, dashboards, and reporting system that exposed the aggregated data.
+- Built onboarding flows, user management, multi-tenant security, and customizable interfaces.
 
 -- -
 
